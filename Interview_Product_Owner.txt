@@ -24,12 +24,8 @@ Moeten er kleuren gebruikt worden of stoelen niet meer zichtbaar
 		Testing with customer base, some mocks (discuss with po)
 	
 
-Moet een gebruiker per prijs reserveren of per zaal
-		
 
 
-		Imax, surround sound, so different prices for different halls
-		Beginning based on seats
 
 	
 
@@ -81,11 +77,12 @@ moet de admin een overzicht zien van Alle zalen en alle niet beschikbare stoelen
 
 
 
+Imax, surround sound, so different prices for different halls -> could have, beginning based on seats
 
 pathe and stella (kino) arthouse, mainly blockbusters but also arthouse 
 
 
-could have 4d exper
+could have: 4d exper 
 
 begin
 
