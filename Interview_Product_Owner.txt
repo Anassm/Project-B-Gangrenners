@@ -1,0 +1,131 @@
+Hebben de zalen namen (Bijvoorbeeld de namen van vogels)
+		User friendly name
+
+
+Naam van de bioscoop
+		Come up with a nice name
+
+
+Hoe duur zijn de kaartjes
+		Pay for better seats on sitting place (3 tier system) Can be changable 
+
+
+Kan een gebruiker online eten bestellen
+		Yes, when booking movie food deal also irl buying
+
+
+Is er een lidmaatschap of loyaliteitsprogramma beschikbaar voor vaste bezoekers?
+		Yes a nice could have
+
+
+
+
+Moeten er kleuren gebruikt worden of stoelen niet meer zichtbaar
+		Testing with customer base, some mocks (discuss with po)
+	
+
+Moet een gebruiker per prijs reserveren of per zaal
+		
+
+
+		Imax, surround sound, so different prices for different halls
+		Beginning based on seats
+
+	
+
+
+Moet de gebruiker zijn reservering eenvoudig kunnen wijzigen of annuleren via het systeem?
+		No cancelling (No charity) 		
+		
+
+
+
+
+
+
+Wat krijgt de gebruiker (Code, ticket etc)
+		They get a code. User wants to see reservation based on code 
+
+
+Mag een gebruiker oneindig reserveren 
+		If paying yes
+
+
+Moet de gebruiker per film bestellen of is een winkelwagentje mogelijk
+		Shopping cart
+
+
+Worden de reserveringen opgeslagen
+		For admin clear view over reservations
+
+
+
+Hoe lang van tevoren kan een gebruiker tickets reserveren?
+		Always even 1 minute before end
+
+
+Mogen mensen opgelicht worden door tickets te reserveren na de datum (Bijv voor alibi)
+		No or with warning 
+
+
+Hoe intuïtief moet de navigatie zijn voor gebruikers? Moeten ze zonder handleiding kunnen werken met de applicatie?
+		Not too hard
+
+
+Hoe belangrijk is foutafhandeling voor de gebruiker? Moet de applicatie gedetailleerde foutmeldingen geven of simpel blijven?
+		First short, in a further iteration some more information.
+
+
+moet de admin een overzicht zien van Alle zalen en alle niet beschikbare stoelen.
+		Yes everything clearly shown
+
+
+
+
+pathe and stella (kino) arthouse, mainly blockbusters but also arthouse 
+
+
+could have 4d exper
+
+begin
+
+
+Start with all movies, 
+
+Filter through movies.
+
+
+First iteration all easy, further iterations more shown.
+
+
+Ad about movie -> When movie happening (Maybe premieres)
+
+Short summary 
+PG rating 
+
+
+
+
+
+
+
+
+-BETTER PREPARATION 
+-MORE INTRODUCTION 
+-IRISH -> BONUS POINTS
+
+
+GOOD:
+	Good communication skills 
+	Eye contact
+	Smiling
+	Confident when speaking 
+
+BAD:
+	Always check if understood correctly
+	Feedback to company 
+	MOSCOW during interview 
+	Clear agreements with customer
+
+
+
