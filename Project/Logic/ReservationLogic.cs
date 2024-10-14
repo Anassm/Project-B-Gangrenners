@@ -26,12 +26,18 @@ public class ReservationLogic
     {
         string code = "";
         Random random = new Random(0);
-        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
         for (int i = 0; i < 6; i++)
         {
             char c = chars[random.Next(chars.Length)];
             code += c;
         }
+        //check if the code is already in use
+        if (_reservations.FindIndex(s => s.Code == code) != -1)
+        {
+            return GenerateCode();
+        }
+
         return code;
     }
 
