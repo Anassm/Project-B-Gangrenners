@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-static class MoviesAcces
+static class MoviesAccess
 {
     static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/movies.json"));
 
