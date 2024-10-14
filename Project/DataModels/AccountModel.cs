@@ -3,6 +3,7 @@
 
 public class AccountModel
 {
+    // Properties
     [JsonPropertyName("id")]
     public int Id { get; set; }
 
@@ -15,6 +16,7 @@ public class AccountModel
     [JsonPropertyName("fullName")]
     public string FullName { get; set; }
 
+    // Constructor
     public AccountModel(int id, string emailAddress, string password, string fullName)
     {
         Id = id;
