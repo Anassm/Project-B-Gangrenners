@@ -9,7 +9,7 @@ public class ShowtimesLogic
         _showtimes = ShowtimesAccess.LoadAll();
     }
 
-    public List<ShowtimeModel> getShowtimesByMovieId(int movieId)
+    public List<ShowtimeModel> GetShowtimesByMovieId(int movieId)
     {
         List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.MoviesId == movieId);
 
