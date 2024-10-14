@@ -19,15 +19,15 @@ public class SeatsLogic
         return false;
     }
 
-    public bool GetSeatById(int id)
+    public SeatModel GetSeatById(int id)
     {
         foreach (SeatModel seat in _seats)
         {
             if (seat.Id == id)
             {
-                return true;
+                return seat;
             }
         }
-        return false;
+        return null;
     }
 }
