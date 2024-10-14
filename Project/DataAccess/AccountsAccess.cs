@@ -5,6 +5,7 @@ static class AccountsAccess
     static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/accounts.json"));
 
 
+    // Load all accounts from the json file
     public static List<AccountModel> LoadAll()
     {
         string json = File.ReadAllText(path);
@@ -12,6 +13,7 @@ static class AccountsAccess
     }
 
 
+    // Write all accounts to the json file
     public static void WriteAll(List<AccountModel> accounts)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
