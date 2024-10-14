@@ -30,4 +30,21 @@ public class SeatsLogic
         }
         return null;
     }
+
+    public double GetPriceBySeat(int id)
+    {
+        foreach (SeatModel seat in _seats)
+        {
+            if (seat.Id == id)
+            {
+                return seat.Price;
+            }
+        }
+        return 0;
+    }
+
+    public double GetPriceBySeat(SeatModel seat)
+    {
+        return seat.Price;
+    }
 }
