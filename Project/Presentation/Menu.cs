@@ -6,6 +6,9 @@ static class Menu
     //You could edit this to show different menus depending on the user's role
     static public void Start()
     {
+        //Implement logic to show different menus depending on the user's role
+
+        //This is the main menu
         Console.WriteLine("Enter 1 to login");
         Console.WriteLine("Enter 2 to do something else in the future");
 
