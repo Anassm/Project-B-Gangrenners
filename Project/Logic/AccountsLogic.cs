@@ -14,6 +14,7 @@ public class AccountsLogic
     //private set, so this can only be set by the class itself
     static public AccountModel? CurrentAccount { get; private set; }
 
+    // Load all the accounts to the list inside logic class
     public AccountsLogic()
     {
         _accounts = AccountsAccess.LoadAll();
@@ -39,11 +40,13 @@ public class AccountsLogic
 
     }
 
+    // Get an account by id
     public AccountModel GetById(int id)
     {
         return _accounts.Find(i => i.Id == id);
     }
 
+    // Check if the login is valid
     public AccountModel CheckLogin(string email, string password)
     {
         if (email == null || password == null)
