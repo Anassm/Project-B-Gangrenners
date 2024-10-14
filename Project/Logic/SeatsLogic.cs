@@ -1,6 +1,7 @@
 public class SeatsLogic
 {
     private List<SeatModel> _seats;
+    
     public SeatsLogic()
     {
         _seats = SeatsAccess.LoadAll();
