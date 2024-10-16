@@ -24,21 +24,30 @@ public class ReservationsLogic
 
     public string GenerateCode()
     {
+        Random random = new Random();
+        bool isUnique = false;
         string code = "";
-        Random random = new Random(0);
-        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
-        for (int i = 0; i < 6; i++)
+        while (isUnique == false)
         {
-            char c = chars[random.Next(chars.Length)];
-            code += c;
-        }
-        //check if the code is already in use
-        if (_reservations.FindIndex(s => s.Code == code) != -1)
-        {
-            return GenerateCode();
-        }
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
+            
+            for (int i = 0; i < 6; i++)
+            {
+                char c = chars[random.Next(chars.Length)];
+                code += c;
+            }
 
-        return code;
+            //check if the code is already in use
+            if (_reservations.FindIndex(s => s.Code == code) != -1)
+            {
+                isUnique = false;
+            }
+            else
+            {
+                isUnique = true;
+            }
+        }
+        return code;     
     }
 
     public int GetNextId()
