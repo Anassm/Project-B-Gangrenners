@@ -1,8 +1,8 @@
-public class ReservationLogic
+public class ReservationsLogic
 {
     private List<ReservationModel> _reservations;
 
-    public ReservationLogic()
+    public ReservationsLogic()
     {
         _reservations = ReservationsAccess.LoadAll();
     }
