@@ -41,4 +41,9 @@ public class ReservationLogic
         return code;
     }
 
+    public int GetNextId()
+    {
+        return _reservations.Count == 0 ? 1 : _reservations.Max(s => s.Id) + 1;
+    }
+
 }
