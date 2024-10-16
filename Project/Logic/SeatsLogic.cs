@@ -47,4 +47,19 @@ public class SeatsLogic
     {
         return seat.Price;
     }
+
+    public void UpdateList(SeatModel seat)
+    {
+        int index = _seats.FindIndex(s => s.Id == seat.Id);
+
+        if (index != -1)
+        {
+            _seats[index] = seat;
+        }
+        else
+        {
+            _seats.Add(seat);
+        }
+        SeatsAccess.WriteAll(_seats);
+    }
 }
