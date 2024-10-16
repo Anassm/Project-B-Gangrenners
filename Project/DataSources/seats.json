@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "hallid": 1,
+        "timeid": 1,
+        "type": 1,
+        "price": 10,
+        "availability": 75
+    },
+    {
+        "id": 2,
+        "hallid": 1,
+        "timeid": 1,
+        "type": 2,
+        "price": 15,
+        "availability": 50
+    },
+    {
+        "id": 3,
+        "hallid": 1,
+        "timeid": 1,
+        "type": 3,
+        "price": 20,
+        "availability": 25
+    }
+]
