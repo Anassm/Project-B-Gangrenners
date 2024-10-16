@@ -19,9 +19,9 @@ public class SeatModel
     public double Price { get; set; }
 
     [JsonPropertyName("availability")]
-    public bool Availability { get; set; }
+    public int Availability { get; set; }
 
-    public SeatModel(int id, int hallid, int timeid, int type, double price, bool availability)
+    public SeatModel(int id, int hallid, int timeid, int type, double price, int availability)
     {
         Id = id;
         HallId = hallid;
