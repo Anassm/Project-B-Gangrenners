@@ -2,6 +2,7 @@ static class BuyTicket
 {
     static private SeatsLogic seatsLogic = new SeatsLogic();
     static private ShowtimesLogic showtimesLogic = new ShowtimesLogic();
+    static private ReservationsLogic reservationsLogic = new ReservationsLogic();
 
     public static void Start(SeatModel seat)
     {
@@ -19,7 +20,7 @@ static class BuyTicket
         int choice = Convert.ToInt32(Console.ReadLine());
         if (choice == 1)
         {
-            ReservationModel reservation = new ReservationModel(0, seat.Id, DateTime.Now);
+            ReservationModel reservation = new ReservationModel(, seat.Id, DateTime.Now);
         }
         else
         {
