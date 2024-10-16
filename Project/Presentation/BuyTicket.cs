@@ -24,6 +24,7 @@ static class BuyTicket
             {
                 ReservationModel reservation = new ReservationModel(_reservationsLogic.GetNextId(), seat.Id, seat.TimeId, 1, seat.Price, _reservationsLogic.GenerateCode());
                 _reservationsLogic.UpdateList(reservation);
+                seat.Availability--;
                 Console.WriteLine("Your reservation has been made, your code is: " + reservation.Code);
                 Console.WriteLine("Thank you for your purchase");
             }
