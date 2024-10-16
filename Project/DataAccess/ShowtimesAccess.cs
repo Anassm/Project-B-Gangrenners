@@ -7,16 +7,31 @@ static class ShowtimesAccess
 
     public static List<ShowtimeModel> LoadAll()
     {
-        string json = File.ReadAllText(path);
-        return JsonSerializer.Deserialize<List<ShowtimeModel>>(json);
+        try
+        {
+            string json = File.ReadAllText(path);
+            return JsonSerializer.Deserialize<List<ShowtimeModel>>(json) ?? new List<ShowtimeModel>();
+        }
+        catch (Exception)
+        {
+            return new List<ShowtimeModel>();
+        }
     }
 
 
     public static void WriteAll(List<ShowtimeModel> showtimes)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
-        string json = JsonSerializer.Serialize(showtimes, options);
-        File.WriteAllText(path, json);
+        
+        try
+        {
+            string json = JsonSerializer.Serialize(showtimes, options);
+            File.WriteAllText(path, json);
+        }
+        catch (Exception)
+        {
+            return;
+        }
     }
 
 

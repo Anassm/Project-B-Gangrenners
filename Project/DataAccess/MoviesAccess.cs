@@ -7,16 +7,31 @@ static class MoviesAccess
 
     public static List<MovieModel> LoadAll()
     {
-        string json = File.ReadAllText(path);
-        return JsonSerializer.Deserialize<List<MovieModel>>(json);
+        try
+        {
+            string json = File.ReadAllText(path);
+            return JsonSerializer.Deserialize<List<MovieModel>>(json) ?? new List<MovieModel>();
+        }
+        catch (Exception)
+        {
+            return new List<MovieModel>();
+        }
     }
 
 
     public static void WriteAll(List<MovieModel> movies)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
-        string json = JsonSerializer.Serialize(movies, options);
-        File.WriteAllText(path, json);
+        try 
+        {
+            
+            string json = JsonSerializer.Serialize(movies, options);
+            File.WriteAllText(path, json);
+        }
+        catch (Exception)
+        {
+            return;
+        }
     }
 
 
