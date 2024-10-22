@@ -15,7 +15,7 @@ public class TestSeatsLogic
     public void GetPriceBySeat_NonExistingSeat_ReturnZero()
     {
         SeatsLogic sl = new SeatsLogic();
-        Assert.AreEqual(sl.GetPriceBySeat(4), 0);
+        Assert.AreEqual(sl.GetPriceBySeat(1000), 0);
     }
 
     [TestMethod]
@@ -31,6 +31,6 @@ public class TestSeatsLogic
     public void GetSeatById_NonExisting_ReturnNull()
     {
         SeatsLogic sl = new SeatsLogic();
-        Assert.AreEqual(sl.GetSeatById(5), null);
+        Assert.AreEqual(sl.GetSeatById(1000), null);
     }
 }
