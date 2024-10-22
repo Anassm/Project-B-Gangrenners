@@ -8,8 +8,16 @@ static class AccountsAccess
     // Load all accounts from the json file
     public static List<AccountModel> LoadAll()
     {
-        string json = File.ReadAllText(path);
-        return JsonSerializer.Deserialize<List<AccountModel>>(json);
+        try
+        {
+            string json = File.ReadAllText(path);
+            return JsonSerializer.Deserialize<List<AccountModel>>(json) ?? new List<AccountModel>();
+        }
+        catch (Exception)
+        {
+            return new List<AccountModel>();
+        }
+        
     }
 
 
@@ -17,8 +25,16 @@ static class AccountsAccess
     public static void WriteAll(List<AccountModel> accounts)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
-        string json = JsonSerializer.Serialize(accounts, options);
-        File.WriteAllText(path, json);
+
+        try
+        {
+            string json = JsonSerializer.Serialize(accounts, options);
+            File.WriteAllText(path, json);
+        }
+        catch (Exception)
+        {
+            return;
+        }
     }
 
 

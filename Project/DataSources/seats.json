@@ -1,26 +1,74 @@
 [
-    {
-        "id": 1,
-        "hallid": 1,
-        "timeid": 1,
-        "type": 1,
-        "price": 10,
-        "availability": 75
-    },
-    {
-        "id": 2,
-        "hallid": 1,
-        "timeid": 1,
-        "type": 2,
-        "price": 15,
-        "availability": 50
-    },
-    {
-        "id": 3,
-        "hallid": 1,
-        "timeid": 1,
-        "type": 3,
-        "price": 20,
-        "availability": 25
-    }
+  {
+    "id": 1,
+    "hallid": 1,
+    "timeid": 1,
+    "type": 1,
+    "price": 10,
+    "availability": 75
+  },
+  {
+    "id": 2,
+    "hallid": 1,
+    "timeid": 1,
+    "type": 2,
+    "price": 15,
+    "availability": 50
+  },
+  {
+    "id": 3,
+    "hallid": 1,
+    "timeid": 1,
+    "type": 3,
+    "price": 20,
+    "availability": 25
+  },
+  {
+    "id": 4,
+    "hallid": 1,
+    "timeid": 2,
+    "type": 1,
+    "price": 10,
+    "availability": 75
+  },
+  {
+    "id": 5,
+    "hallid": 1,
+    "timeid": 2,
+    "type": 2,
+    "price": 15,
+    "availability": 50
+  },
+  {
+    "id": 6,
+    "hallid": 1,
+    "timeid": 2,
+    "type": 3,
+    "price": 20,
+    "availability": 25
+  },
+  {
+    "id": 7,
+    "hallid": 1,
+    "timeid": 3,
+    "type": 1,
+    "price": 10,
+    "availability": 75
+  },
+  {
+    "id": 8,
+    "hallid": 1,
+    "timeid": 3,
+    "type": 2,
+    "price": 15,
+    "availability": 50
+  },
+  {
+    "id": 9,
+    "hallid": 1,
+    "timeid": 3,
+    "type": 3,
+    "price": 20,
+    "availability": 24
+  }
 ]

@@ -6,14 +6,29 @@ static class ReservationsAccess
 
     public static List<ReservationModel> LoadAll()
     {
-        string json = File.ReadAllText(path);
-        return JsonSerializer.Deserialize<List<ReservationModel>>(json);
+        try
+        {
+            string json = File.ReadAllText(path);
+            return JsonSerializer.Deserialize<List<ReservationModel>>(json) ?? new List<ReservationModel>();
+        }
+        catch (Exception)
+        {
+            return new List<ReservationModel>();
+        }
     }
 
     public static void WriteAll(List<ReservationModel> reservations)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
-        string json = JsonSerializer.Serialize(reservations, options);
-        File.WriteAllText(path, json);
+        
+        try
+        {
+            string json = JsonSerializer.Serialize(reservations, options);
+            File.WriteAllText(path, json);
+        }
+        catch (Exception)
+        {
+            return;
+        }
     }
 }
