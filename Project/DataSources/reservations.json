@@ -1,10 +1,18 @@
 [
-    {
-        "id": 1,
-        "seatid": 1,
-        "showtimeid": 1,
-        "accountid": 1,
-        "totalprice": 10,
-        "code": "jol8M8"
-    }
+  {
+    "id": 1,
+    "seatid": 1,
+    "showtimeid": 1,
+    "accountid": 1,
+    "totalprice": 10,
+    "code": "jol8M8"
+  },
+  {
+    "id": 2,
+    "seatid": 9,
+    "showtimeid": 3,
+    "accountid": 1,
+    "totalprice": 20,
+    "code": "2j0Lwk"
+  }
 ]
