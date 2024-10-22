@@ -1,11 +1,11 @@
-using System.Reflection.Metadata.Ecma335;
 
-public class ChooseMovie
+public static class ChooseMovie
 {
     static private MoviesLogic _movieLogic = new MoviesLogic();
-    public string MovieToWatch;
-    public MovieModel Movie;
-    public SeatModel StartMovie()
+    static private ShowtimesLogic _showtimesLogic = new ShowtimesLogic();
+    public static string MovieToWatch;
+    public static MovieModel Movie;
+    public static SeatModel StartMovie()
     {
         MovieModel Choice1 = MakeChoice();
         if (Choice1 == null)
@@ -15,7 +15,7 @@ public class ChooseMovie
         ShowtimeModel ShowtimeOfChoice = GetShowTimes(Choice1.Id);
         return SeatChoice(ShowtimeOfChoice.Id);
     }
-    public MovieModel MakeChoice()
+    public static MovieModel MakeChoice()
     {
         System.Console.WriteLine("Please enter the name of the movie you would like to see:");
         MovieToWatch = System.Console.ReadLine();
@@ -26,7 +26,7 @@ public class ChooseMovie
         return null;
     }
 
-    public bool CheckChoice(string ChosenMovie)
+    public static bool CheckChoice(string ChosenMovie)
     {
         string CorrectChoice;
         if (_movieLogic.CheckIfMovieExists(ChosenMovie) != true)
@@ -47,31 +47,31 @@ public class ChooseMovie
         return false;
     }
 
-    public ShowtimeModel GetShowTimes(int movieId)
+    public static ShowtimeModel GetShowTimes(int movieId)
     {
         int number = 1;
         List<ShowtimeModel> NewShowtimes = [];
-        List<ShowtimeModel> showtimelist = ShowtimesLogic.GetShowtimesByMovieId(MakeChoice().Id);
+        List<ShowtimeModel> showtimelist = _showtimesLogic.GetShowtimesByMovieId(MakeChoice().Id);
         System.Console.WriteLine("A list of all al the times:");
         System.Console.WriteLine($"----------------------------");
-        foreach(ShowtimeModel showTime in showtimelist)
+        foreach (ShowtimeModel showTime in showtimelist)
         {
             if (showTime.MoviesId == movieId)
             {
-            System.Console.WriteLine($"number: {number}");
-            System.Console.WriteLine($"Date / Time: {showTime.Time}");
-            System.Console.WriteLine($"Hall: {showTime.HallId}");
-            System.Console.WriteLine($"----------------------------");
-            NewShowtimes.Add(showTime);
-            number++;
+                System.Console.WriteLine($"number: {number}");
+                System.Console.WriteLine($"Date / Time: {showTime.Time}");
+                System.Console.WriteLine($"Hall: {showTime.HallId}");
+                System.Console.WriteLine($"----------------------------");
+                NewShowtimes.Add(showTime);
+                number++;
             }
         }
         System.Console.WriteLine("Please choose the number of the corresponding showtime.");
         int showtimeChoice = Convert.ToInt32(Console.ReadLine());
-        return NewShowtimes[showtimeChoice-1];
+        return NewShowtimes[showtimeChoice - 1];
     }
 
-    public SeatModel SeatChoice(int showtimeId)
+    public static SeatModel SeatChoice(int showtimeId)
     {
         int number = 1;
         List<SeatModel> Seats = SeatsAccess.LoadAll();
@@ -94,6 +94,6 @@ public class ChooseMovie
         }
         System.Console.WriteLine("Please choose the number of the corresponding seat.");
         int seatChoice = Convert.ToInt32(Console.ReadLine());
-        return NewSeats[seatChoice-1];
+        return NewSeats[seatChoice - 1];
     }
 }

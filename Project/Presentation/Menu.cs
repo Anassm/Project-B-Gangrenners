@@ -22,7 +22,7 @@ static class Menu
         else if (input == "2")
         {
             Console.WriteLine("guest");
-
+            MainMenu();
         }
         else if (input == "3")
         {
@@ -49,7 +49,8 @@ static class Menu
         string input = Console.ReadLine();
         if (input == "1")
         {
-            BuyTicket.Start(); // TODO: Continue here
+            Console.WriteLine("Buying a ticket...");
+            BuyTicket.Start(ChooseMovie.StartMovie()); // TODO: Continue here
         }
         else if (input == "2")
         {
