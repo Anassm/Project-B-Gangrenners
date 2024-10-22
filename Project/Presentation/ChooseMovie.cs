@@ -12,8 +12,6 @@ public static class ChooseMovie
         {
             StartMovie();
         }
-        Console.WriteLine("Choice id");
-        Console.WriteLine(Choice1.Id);
         ShowtimeModel ShowtimeOfChoice = GetShowTimes(Choice1.Id);
         return SeatChoice(ShowtimeOfChoice.Id);
     }
@@ -35,7 +33,7 @@ public static class ChooseMovie
         {
             System.Console.WriteLine($"There is no movie with the (partial) name {ChosenMovie}");
             System.Console.WriteLine("Please choose a different movie.");
-            MakeChoice();
+            return false;
         }
         MovieModel Choice = _movieLogic.GetMovieByName(ChosenMovie);
         System.Console.WriteLine($"You have chosen the movie {Choice.Name}.");
