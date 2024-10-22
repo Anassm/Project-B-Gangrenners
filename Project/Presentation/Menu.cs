@@ -50,7 +50,7 @@ static class Menu
         if (input == "1")
         {
             Console.WriteLine("Buying a ticket...");
-            BuyTicket.Start(ChooseMovie.StartMovie()); // TODO: Continue here
+            BuyTicket.Start(ChooseMovie.StartMovie());
         }
         else if (input == "2")
         {
