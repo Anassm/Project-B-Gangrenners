@@ -12,6 +12,8 @@ public static class ChooseMovie
         {
             StartMovie();
         }
+        Console.WriteLine("Choice id");
+        Console.WriteLine(Choice1.Id);
         ShowtimeModel ShowtimeOfChoice = GetShowTimes(Choice1.Id);
         return SeatChoice(ShowtimeOfChoice.Id);
     }
@@ -51,7 +53,7 @@ public static class ChooseMovie
     {
         int number = 1;
         List<ShowtimeModel> NewShowtimes = [];
-        List<ShowtimeModel> showtimelist = _showtimesLogic.GetShowtimesByMovieId(MakeChoice().Id);
+        List<ShowtimeModel> showtimelist = _showtimesLogic.GetShowtimesByMovieId(movieId);
         System.Console.WriteLine("A list of all al the times:");
         System.Console.WriteLine($"----------------------------");
         foreach (ShowtimeModel showTime in showtimelist)
