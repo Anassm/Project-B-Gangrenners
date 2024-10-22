@@ -1,23 +1,24 @@
+using System.Dynamic;
+
 public class ShowtimesLogic
 {
-    public List<ShowtimeModel> showtimes;
+    private List<ShowtimeModel> _showtimes;
 
     public ShowtimesLogic()
     {
-        showtimes = ShowtimesAccess.LoadAll();
+        _showtimes = ShowtimesAccess.LoadAll();
     }
 
     public List<ShowtimeModel> GetShowtimesByMovieId(int movieId)
     {
-        List<ShowtimeModel> allShowtimes = showtimes.FindAll(showtime => showtime.MoviesId == movieId);
+        List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.MoviesId == movieId);
 
-        return allShowtimes;
+        return showtimes;
     }
 
     public ShowtimeModel GetShowtimeById(int id)
     {
-        ShowtimeModel showtime = showtimes.Find(showtime => showtime.Id == id);
+        ShowtimeModel showtime = _showtimes.Find(showtime => showtime.Id == id);
 
         return showtime;
     }
-}
