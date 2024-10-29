@@ -5,7 +5,7 @@
     "timeid": 1,
     "type": 1,
     "price": 10,
-    "availability": 74
+    "availability": 75
   },
   {
     "id": 2,
@@ -69,6 +69,6 @@
     "timeid": 3,
     "type": 3,
     "price": 20,
-    "availability": 24
+    "availability": 25
   }
 ]
