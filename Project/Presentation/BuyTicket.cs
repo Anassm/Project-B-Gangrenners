@@ -28,6 +28,7 @@ static class BuyTicket
                 _seatsLogic.UpdateList(seat);
                 Console.WriteLine("Your reservation has been made, your code is: " + reservation.Code);
                 Console.WriteLine("Thank you for your purchase");
+                Menu.MainMenu();
             }
             catch (Exception e)
             {
@@ -37,7 +38,7 @@ static class BuyTicket
         }
         else
         {
-            Console.WriteLine("Thank you for visiting our page");
+            Menu.MainMenu();
         }
 
     }
