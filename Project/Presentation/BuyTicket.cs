@@ -11,7 +11,7 @@ static class BuyTicket
         Console.WriteLine("This is what your order looks like now:");
         Console.WriteLine("Movie: " + _showtimesLogic.GetShowtimeById(seat.TimeId).MoviesId);
         Console.WriteLine("Seat type: " + seat.Type);
-        Console.WriteLine("Price: " + seat.Price);
+        Console.WriteLine("Price: \u20AC" + Math.Round(seat.Price,2).ToString("0.00"));
         Console.WriteLine("Time of the movie: " + _showtimesLogic.GetShowtimeById(seat.TimeId).Time);
         Console.WriteLine("Hall: " + _showtimesLogic.GetShowtimeById(seat.TimeId).HallId);
         Console.WriteLine("Do you want to proceed with the purchase?");
