@@ -1,0 +1,11 @@
+Default layout of a testing document is as following 
+
+User story:
+
+Acceptance Criteria:
+
+Test Cases:
+
+Test Data:
+
+Fixes:
