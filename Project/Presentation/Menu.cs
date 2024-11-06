@@ -15,6 +15,7 @@ static class Menu
         Console.WriteLine("Enter 4 to exit");
 
         string input = Console.ReadLine();
+        Console.Clear();
         if (input == "1")
         {
             UserLogin.Start();
@@ -43,10 +44,12 @@ static class Menu
     static public void MainMenu()
     {
         // TODO: Discuss whether to add interactivity with the user when logged in, or not.
+        Console.Clear();
         Console.WriteLine("Enter 1 to buy a ticket");
         Console.WriteLine("Enter 2 to exit");
 
         string input = Console.ReadLine();
+        Console.Clear();
         if (input == "1")
         {
             Console.WriteLine("Buying a ticket...");

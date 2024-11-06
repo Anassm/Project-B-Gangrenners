@@ -42,8 +42,10 @@ public static class ChooseMovie
         CorrectChoice = System.Console.ReadLine().ToLower();
         if (CorrectChoice == "y" || CorrectChoice == "yes")
         {
+            Console.Clear();
             return true;
         }
+        Console.Clear();
         return false;
     }
 
@@ -74,6 +76,7 @@ public static class ChooseMovie
     public static SeatModel SeatChoice(int showtimeId)
     {
         int number = 1;
+        Console.Clear();
         List<SeatModel> Seats = SeatsAccess.LoadAll();
         List<SeatModel> NewSeats = [];
         System.Console.WriteLine("Here are the seats for this Time:");
