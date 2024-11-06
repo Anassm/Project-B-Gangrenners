@@ -23,7 +23,7 @@ public static class ChooseMovie
         {
             return _movieLogic.GetMovieByName(MovieToWatch);
         }
-        return null;
+        return MakeChoice();
     }
 
     public static bool CheckChoice(string ChosenMovie)
