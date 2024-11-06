@@ -20,6 +20,7 @@ static class BuyTicket
         int choice = Convert.ToInt32(Console.ReadLine());
         if (choice == 1)
         {
+            Console.Clear();
             try
             {
                 ReservationModel reservation = new ReservationModel(_reservationsLogic.GetNextId(), seat.Id, seat.TimeId, 1, seat.Price, _reservationsLogic.GenerateCode());
@@ -37,7 +38,8 @@ static class BuyTicket
 
         }
         else
-        {
+        {   
+            Console.Clear();
             Menu.MainMenu();
         }
 

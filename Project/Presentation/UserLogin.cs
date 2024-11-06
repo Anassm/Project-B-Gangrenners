@@ -18,11 +18,12 @@ static class UserLogin
         {
             Console.WriteLine("Welcome back " + acc.FullName);
             Console.WriteLine("Your email is " + acc.EmailAddress);
-
+            Console.Clear();
             Menu.MainMenu();
         }
         else
         {
+            Console.Clear();
             Console.WriteLine("No account found with that email and/or password");
             Menu.Start();
         }
