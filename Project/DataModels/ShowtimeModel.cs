@@ -15,14 +15,17 @@ public class ShowtimeModel
     [JsonPropertyName("hallid")]
     public int HallId { get; set; }
 
-    public ShowtimeModel(int id, int moviesid, string time, int hallid)
+    [JsonPropertyName("availability")]
+    public int[,] Availability { get; set; }
+
+    public ShowtimeModel(int id, int moviesid, string time, int hallid, int[,] availability)
     {
         Id = id;
         MoviesId = moviesid;
         Time = time;
         HallId = hallid;
+        Availability = availability;
     }
-
 }
 
 
