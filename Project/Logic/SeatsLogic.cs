@@ -96,9 +96,9 @@ public class SeatsLogic
         return null;
     }
 
-    public SeatModel GetSeatByCoordinates(int[] coordinates)
+    public SeatModel GetSeatByCoordinates(int hallId, int[] coordinates)
     {
-        return GetSeatByCoordinates(coordinates[0], coordinates[1], coordinates[2]);
+        return GetSeatByCoordinates(hallId, coordinates[0], coordinates[1]);
     }
 
     public int[] GetCoordinatesBySeat(int hallId, int seatId)
