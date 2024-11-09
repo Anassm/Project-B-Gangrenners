@@ -9,6 +9,12 @@ public class SeatModel
     [JsonPropertyName("hallid")]
     public int HallId { get; set; }
 
+    [JsonPropertyName("row")]
+    public int Row { get; set; }
+
+    [JsonPropertyName("seat")]
+    public int Seat { get; set; }
+
     [JsonPropertyName("timeid")]
     public int TimeId { get; set; }
 
@@ -18,19 +24,17 @@ public class SeatModel
     [JsonPropertyName("price")]
     public double Price { get; set; }
 
-    [JsonPropertyName("availability")]
-    public int Availability { get; set; }
-
-    public SeatModel(int id, int hallid, int timeid, int type, double price, int availability)
+    
+    public SeatModel(int id, int hallid, int row, int seat, int timeid, int type, double price)
     {
         Id = id;
         HallId = hallid;
+        Row = row;
+        Seat = seat;
         TimeId = timeid;
         Type = type;
         Price = price;
-        Availability = availability;
     }
-
 }
 
 
