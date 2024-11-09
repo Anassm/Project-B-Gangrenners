@@ -1,0 +1,14 @@
+Default layout of a testing document is as following 
+
+User story:
+
+Acceptance Criteria:
+
+Test Cases:
+
+Test Data:
+
+Fixes:
+
+
+//TODO update the document based on sprint 1
