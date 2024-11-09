@@ -1,5 +1,6 @@
 using System.Linq;
 
+
 public class SeatsLogic
 {
     private List<SeatModel> _seats;
