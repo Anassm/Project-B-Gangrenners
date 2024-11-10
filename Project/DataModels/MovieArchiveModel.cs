@@ -9,14 +9,17 @@ public class MovieArchiveModel
     [JsonPropertyName("name")]
     public string Name { get; set; }
 
-    public MovieArchiveModel(int id, string name)
+    [JsonPropertyName("genre")]
+    public string Genre { get; set; }
+
+    [JsonPropertyName("duration")]
+    public int Duration { get; set; }
+    
+    public MovieArchiveModel(int id, string name, string genre, int duration)
     {
         Id = id;
         Name = name;
+        Genre = genre;
+        Duration = duration;
     }
-
 }
-
-
-
-
