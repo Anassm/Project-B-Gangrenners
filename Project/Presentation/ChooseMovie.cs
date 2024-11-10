@@ -29,7 +29,7 @@ public static class ChooseMovie
     public static bool CheckChoice(string ChosenMovie)
     {
         string CorrectChoice;
-        if (_movieLogic.CheckIfMovieExists(ChosenMovie) != true)
+        if (_movieLogic.CheckIfMovieInMovies(ChosenMovie) != true)
         {
             System.Console.WriteLine($"There is no movie with the (partial) name {ChosenMovie}");
             System.Console.WriteLine("Please choose a different movie.");

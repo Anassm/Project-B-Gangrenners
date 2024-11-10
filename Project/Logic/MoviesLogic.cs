@@ -21,17 +21,74 @@ public class MoviesLogic
         return movie;
     }
 
-    public bool CheckIfMovieExists(string name)
+    public bool CheckIfMovieInMovies(string name)
     {
         MovieModel movie = GetMovieByName(name);
 
         return movie != null;
     }
 
-    public bool CheckIfMovieExists(int id)
+    public bool CheckIfMovieInMovies(int id)
     {
         MovieModel movie = GetMovieById(id);
 
         return movie != null;
+    }
+
+    public void AddMovie(MovieModel movie)
+    {
+        if (CheckIfMovieInMovies(movie.Name) || CheckIfMovieInArchive(movie.Name))
+        {
+            throw new Exception("Movie already exists");
+        }
+
+        _movies.Add(movie);
+        MoviesAccess.WriteAll(_movies);
+    }
+
+    public void RemoveMovie(MovieModel movie)
+    {
+        if (movie == null)
+        {
+            throw new Exception("Movie does not exist");
+        }
+
+        _movies.Remove(movie);
+        MoviesAccess.WriteAll(_movies);
+    }
+
+    public void RemoveMovie(string name)
+    {
+        MovieModel movie = GetMovieByName(name);
+
+        if (movie == null)
+        {
+            throw new Exception("Movie does not exist");
+        }
+
+        RemoveMovie(movie);
+    }
+
+    public void PromoteMovie(MovieModel movie)
+    {
+        if (movie == null)
+        {
+            throw new Exception("Movie does not exist");
+        }
+
+        movie.Promoted = true;
+        MoviesAccess.WriteAll(_movies);
+    }
+
+    public void PromoteMovie(string name)
+    {
+        MovieModel movie = GetMovieByName(name);
+
+        if (movie == null)
+        {
+            throw new Exception("Movie does not exist");
+        }
+
+        PromoteMovie(movie);
     }
 }

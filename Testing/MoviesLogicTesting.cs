@@ -20,18 +20,18 @@ public class TestMoviesLogic
     }
 
     [TestMethod]
-    public void CheckIfMovieExistsName_ExistingMovie_ReturnTrue()
+    public void CheckIfMovieInMoviesName_ExistingMovie_ReturnTrue()
     {
         MoviesLogic ml = new MoviesLogic();
 
-        Assert.IsTrue(ml.CheckIfMovieExists("Inception"));
+        Assert.IsTrue(ml.CheckIfMovieInMovies("Inception"));
     }
 
     [TestMethod]
-    public void CheckIfMovieExistsId_ExistingMovie_ReturnTrue()
+    public void CheckIfMovieInMoviesId_ExistingMovie_ReturnTrue()
     {
         MoviesLogic ml = new MoviesLogic();
 
-        Assert.IsTrue(ml.CheckIfMovieExists(1));
+        Assert.IsTrue(ml.CheckIfMovieInMovies(1));
     }
 }

@@ -14,12 +14,16 @@ public class MovieModel
 
     [JsonPropertyName("duration")]
     public int Duration { get; set; }
-    
-    public MovieModel(int id, string name, string genre, int duration)
+
+    [JsonPropertyName("promoted")]
+    public bool Promoted { get; set; }
+
+    public MovieModel(int id, string name, string genre, int duration, bool promoted)
     {
         Id = id;
         Name = name;
         Genre = genre;
         Duration = duration;
+        Promoted = promoted;
     }
 }
