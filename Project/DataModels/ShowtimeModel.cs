@@ -10,7 +10,7 @@ public class ShowtimeModel
     public int MoviesId { get; set; }
 
     [JsonPropertyName("time")]
-    public string Time { get; set; }
+    public DateTime Time { get; set; }
 
     [JsonPropertyName("hallid")]
     public int HallId { get; set; }
@@ -18,7 +18,7 @@ public class ShowtimeModel
     [JsonPropertyName("availability")]
     public int[,] Availability { get; set; }
 
-    public ShowtimeModel(int id, int moviesid, string time, int hallid, int[,] availability)
+    public ShowtimeModel(int id, int moviesid, DateTime time, int hallid, int[,] availability)
     {
         Id = id;
         MoviesId = moviesid;
