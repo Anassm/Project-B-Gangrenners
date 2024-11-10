@@ -1,6 +1,6 @@
 public class HallsLogic
 {
-    private List<HallModel> _halls;
+    private static List<HallModel> _halls;
 
     public HallsLogic()
     {
@@ -12,6 +12,13 @@ public class HallsLogic
         HallModel hall = _halls.Find(hall => hall.Id == id);
 
         return hall;
+    }
+
+    public static int[,] GetHallLayout(int id)
+    {
+        HallModel hall = _halls.Find(hall => hall.Id == id);
+
+        return hall.Layout;
     }
 
     public void UpdateList(HallModel hall)

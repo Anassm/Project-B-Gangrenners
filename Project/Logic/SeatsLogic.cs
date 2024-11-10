@@ -3,7 +3,7 @@ using System.Linq;
 
 public class SeatsLogic
 {
-    private List<SeatModel> _seats;
+    private static List<SeatModel> _seats;
 
     public SeatsLogic()
     {
@@ -65,17 +65,17 @@ public class SeatsLogic
         return seats;
     }
 
-    public SeatModel GetSeatByRowAndSeat(int hallID, int[] seat)
+    public static SeatModel GetSeatByRowAndSeat(int hallID, int[] seat)
     {
         return GetSeatByRowAndSeat(hallID, seat[0], seat[1]);
     }
 
-    public SeatModel GetSeatByRowAndSeat(int hallId, int row, int seat)
+    public static SeatModel GetSeatByRowAndSeat(int hallId, int row, int seat)
     {
         return _seats.FirstOrDefault(s => s.HallId == hallId && s.Row == row && s.Seat == seat);
     }
 
-    public SeatModel GetSeatByCoordinates(int hallId, int x, int y)
+    public static SeatModel GetSeatByCoordinates(int hallId, int x, int y)
     {
         if (x < 0 || y < 0)
         {
@@ -97,12 +97,12 @@ public class SeatsLogic
         return null;
     }
 
-    public SeatModel GetSeatByCoordinates(int hallId, int[] coordinates)
+    public static SeatModel GetSeatByCoordinates(int hallId, int[] coordinates)
     {
         return GetSeatByCoordinates(hallId, coordinates[0], coordinates[1]);
     }
 
-    public int[] GetCoordinatesBySeat(int hallId, int seatId)
+    public static int[] GetCoordinatesBySeat(int hallId, int seatId)
     {
         SeatModel seat = _seats.FirstOrDefault(s => s.HallId == hallId && s.Id == seatId);
         if (seat == null)
@@ -124,7 +124,7 @@ public class SeatsLogic
         return null;
     }
 
-    public int[] GetCoordinatesBySeat(SeatModel seat)
+    public static int[] GetCoordinatesBySeat(SeatModel seat)
     {
         return GetCoordinatesBySeat(seat.HallId, seat.Id);
     }
