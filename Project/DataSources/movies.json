@@ -1,6 +1,8 @@
 [
     {
         "id": 1,
-        "name": "Inception"
+        "name": "Inception",
+        "genre": "Horror",
+        "duration": "120"
     }
 ]
