@@ -7,7 +7,7 @@ public class TestSeatsLogic
     public void GetPriceBySeat_ExistingSeat_ReturnPrice()
     {
         SeatsLogic sl = new SeatsLogic();
-        SeatModel seat = new SeatModel(1, 1, 1, 1, 50, 1);
+        SeatModel seat = new SeatModel(1, 1, 1, 1, 1, 50);
         Assert.AreEqual(sl.GetPriceBySeat(seat), 50);
     }
 
@@ -22,7 +22,7 @@ public class TestSeatsLogic
     public void GetSeatById_ExistingSeat_ReturnSeat()
     {
         SeatsLogic sl = new SeatsLogic();
-        SeatModel seat = new SeatModel(4, 1, 1, 1, 50, 1);
+        SeatModel seat = new SeatModel(4, 1, 1, 1, 1, 50);
         sl.UpdateList(seat);
         Assert.AreEqual(sl.GetSeatById(4), seat);
     }
@@ -31,6 +31,6 @@ public class TestSeatsLogic
     public void GetSeatById_NonExisting_ReturnNull()
     {
         SeatsLogic sl = new SeatsLogic();
-        Assert.AreEqual(sl.GetSeatById(1000), null);
+        Assert.AreEqual(sl.GetSeatById(100000), null);
     }
 }
