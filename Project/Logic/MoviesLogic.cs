@@ -37,7 +37,7 @@ public class MoviesLogic
 
     public void AddMovie(MovieModel movie)
     {
-        if (CheckIfMovieInMovies(movie.Name) || CheckIfMovieInArchive(movie.Name))
+        if (CheckIfMovieInMovies(movie.Name) || MoviesArchiveLogic.CheckIfMovieInArchive(movie.Name))
         {
             throw new Exception("Movie already exists");
         }
