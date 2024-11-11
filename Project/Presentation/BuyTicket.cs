@@ -4,16 +4,16 @@ static class BuyTicket
     static private ShowtimesLogic _showtimesLogic = new ShowtimesLogic();
     static private ReservationsLogic _reservationsLogic = new ReservationsLogic();
 
-    public static void Start(SeatModel seat)
+    public static void Start((SeatModel seat, ShowtimeModel showtime) info)
     {
         Console.WriteLine("Welcome to the ticket buying page");
-        _seatsLogic.GetPriceBySeat(seat);
+        _seatsLogic.GetPriceBySeat(info.seat);
         Console.WriteLine("This is what your order looks like now:");
-        Console.WriteLine("Movie: " + _showtimesLogic.GetShowtimeById(seat.TimeId).MoviesId);
-        Console.WriteLine("Seat type: " + seat.Type);
-        Console.WriteLine("Price: \u20AC" + Math.Round(seat.Price,2).ToString("0.00"));
-        Console.WriteLine("Time of the movie: " + _showtimesLogic.GetShowtimeById(seat.TimeId).Time);
-        Console.WriteLine("Hall: " + _showtimesLogic.GetShowtimeById(seat.TimeId).HallId);
+        Console.WriteLine("Movie: " + info.showtime.MoviesId);
+        Console.WriteLine("Seat type: " + info.seat.Type);
+        Console.WriteLine("Price: \u20AC" + Math.Round(info.seat.Price,2).ToString("0.00"));
+        Console.WriteLine("Time of the movie: " + info.showtime.Time);
+        Console.WriteLine("Hall: " + info.showtime.HallId);
         Console.WriteLine("Do you want to proceed with the purchase?");
         Console.WriteLine("1. Yes");
         Console.WriteLine("2. No");
@@ -23,10 +23,8 @@ static class BuyTicket
             Console.Clear();
             try
             {
-                ReservationModel reservation = new ReservationModel(_reservationsLogic.GetNextId(), seat.Id, seat.TimeId, 1, seat.Price, _reservationsLogic.GenerateCode());
+                ReservationModel reservation = new ReservationModel(_reservationsLogic.GetNextId(), info.seat.Id, info.showtime.Id, 1, info.seat.Price, _reservationsLogic.GenerateCode());
                 _reservationsLogic.UpdateList(reservation);
-                seat.Availability--;
-                _seatsLogic.UpdateList(seat);
                 Console.WriteLine("Your reservation has been made, your code is: " + reservation.Code);
                 Console.WriteLine("Thank you for your purchase");
                 Menu.MainMenu();
@@ -45,9 +43,10 @@ static class BuyTicket
 
     }
 
-    public static void Start(int seatId)
+    public static void Start(int seatId, int showtimeId)
     {
         SeatModel seat = _seatsLogic.GetSeatById(seatId);
-        Start(seat);
+        ShowtimeModel showtime = _showtimesLogic.GetShowtimeById(showtimeId);
+        Start((seat, showtime) );
     }
 }

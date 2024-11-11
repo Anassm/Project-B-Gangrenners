@@ -1,16 +1,15 @@
-using System.Text.Json;
+using Newtonsoft.Json;
 
 static class ShowtimesAccess
 {
     static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/showtimes.json"));
-
 
     public static List<ShowtimeModel> LoadAll()
     {
         try
         {
             string json = File.ReadAllText(path);
-            return JsonSerializer.Deserialize<List<ShowtimeModel>>(json) ?? new List<ShowtimeModel>();
+            return JsonConvert.DeserializeObject<List<ShowtimeModel>>(json) ?? new List<ShowtimeModel>();
         }
         catch (Exception)
         {
@@ -18,14 +17,12 @@ static class ShowtimesAccess
         }
     }
 
-
     public static void WriteAll(List<ShowtimeModel> showtimes)
     {
-        var options = new JsonSerializerOptions { WriteIndented = true };
-        
-        try
+        var settings = new JsonSerializerSettings { Formatting = Formatting.Indented };
+        try 
         {
-            string json = JsonSerializer.Serialize(showtimes, options);
+            string json = JsonConvert.SerializeObject(showtimes, settings);
             File.WriteAllText(path, json);
         }
         catch (Exception)
@@ -33,7 +30,5 @@ static class ShowtimesAccess
             return;
         }
     }
-
-
 
 }
