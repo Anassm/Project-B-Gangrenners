@@ -16,7 +16,7 @@ public class TestMoviesLogic
     {
         MoviesLogic ml = new MoviesLogic();
 
-        Assert.AreEqual(ml.GetMovieByName("Inception").Id, 1);
+        Assert.AreEqual(MoviesLogic.GetMovieByName("Inception").Id, 1);
     }
 
     [TestMethod]
@@ -33,5 +33,61 @@ public class TestMoviesLogic
         MoviesLogic ml = new MoviesLogic();
 
         Assert.IsTrue(ml.CheckIfMovieInMovies(1));
+    }
+
+    [TestMethod]
+    public void AddMovie_NewMovie_AddMovie()
+    {
+        MoviesLogic ml = new();
+
+        MovieModel movie = new(6, "Test Movie", "Test Genre", 120, false);
+
+        ml.AddMovie(movie);
+
+        Assert.IsNotNull(ml.GetMovieById(6));
+    }
+
+    [TestMethod]
+    public void RemoveMovie_ExistingMovie_RemoveMovieById()
+    {
+        MoviesLogic ml = new();
+
+        MovieModel movie = ml.GetMovieById(1);
+
+        ml.RemoveMovie(movie);
+
+        Assert.IsFalse(ml.CheckIfMovieInMovies(1));
+    }
+
+    [TestMethod]
+    public void RemoveMovie_ExistingMovie_RemoveMovieByName()
+    {
+        MoviesLogic ml = new();
+
+        ml.RemoveMovie("Inception");
+
+        Assert.IsFalse(ml.CheckIfMovieInMovies("Inception"));
+    }
+
+    [TestMethod]
+    public void PromoteMovie_PromoteByMovie_ReturnTrue()
+    {
+        MoviesLogic ml = new();
+
+        MovieModel movie = ml.GetMovieById(1);
+
+        ml.PromoteMovie(movie);
+
+        Assert.IsTrue(movie.Promoted);
+    }
+
+    [TestMethod]
+    public void PromoteMovie_PromoteByName_ReturnTrue()
+    {
+        MoviesLogic ml = new();
+
+        MovieModel movie = MoviesLogic.GetMovieByName("Inception");
+
+        Assert.IsTrue(movie.Promoted);
     }
 }
