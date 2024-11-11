@@ -5,21 +5,21 @@ static class MovieArchiveAccess
     static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/moviearchive.json"));
 
 
-    public static List<MovieArchiveModel> LoadAll()
+    public static List<MovieModel> LoadAll()
     {
         try
         {
             string json = File.ReadAllText(path);
-            return JsonSerializer.Deserialize<List<MovieArchiveModel>>(json) ?? new List<MovieArchiveModel>();
+            return JsonSerializer.Deserialize<List<MovieModel>>(json) ?? new List<MovieModel>();
         }
         catch (Exception)
         {
-            return new List<MovieArchiveModel>();
+            return new List<MovieModel>();
         }
     }
 
 
-    public static void WriteAll(List<MovieArchiveModel> movies)
+    public static void WriteAll(List<MovieModel> movies)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
         try 

@@ -1,6 +1,6 @@
 public class MoviesLogic
 {
-    private List<MovieModel> _movies;
+    private static List<MovieModel> _movies;
 
     public MoviesLogic()
     {
@@ -14,7 +14,7 @@ public class MoviesLogic
         return movie;
     }
 
-    public MovieModel GetMovieByName(string name)
+    public static MovieModel GetMovieByName(string name)
     {
         MovieModel movie = _movies.Find(movie => movie.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
 
@@ -37,9 +37,13 @@ public class MoviesLogic
 
     public void AddMovie(MovieModel movie)
     {
-        if (CheckIfMovieInMovies(movie.Name) || MoviesArchiveLogic.CheckIfMovieInArchive(movie.Name))
+        if (CheckIfMovieInMovies(movie.Name))
         {
             throw new Exception("Movie already exists");
+        }
+        if (MoviesArchiveLogic.CheckIfMovieInArchive(movie.Name))
+        {
+            MoviesArchiveLogic.RemoveMovie(movie);
         }
 
         _movies.Add(movie);
@@ -62,12 +66,6 @@ public class MoviesLogic
     public void RemoveMovie(string name)
     {
         MovieModel movie = GetMovieByName(name);
-
-        if (movie == null)
-        {
-            throw new Exception("Movie does not exist");
-        }
-
         RemoveMovie(movie);
     }
 
@@ -85,12 +83,11 @@ public class MoviesLogic
     public void PromoteMovie(string name)
     {
         MovieModel movie = GetMovieByName(name);
-
-        if (movie == null)
-        {
-            throw new Exception("Movie does not exist");
-        }
-
         PromoteMovie(movie);
+    }
+
+    public int GetNextId()
+    {
+        return _movies.Count() + MoviesArchiveLogic.GetCount() + 1;
     }
 }
