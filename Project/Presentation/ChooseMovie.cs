@@ -22,7 +22,7 @@ public static class ChooseMovie
         MovieToWatch = System.Console.ReadLine();
         if (CheckChoice(MovieToWatch))
         {
-            return _movieLogic.GetMovieByName(MovieToWatch);
+            return MoviesLogic.GetMovieByName(MovieToWatch);
         }
         return MakeChoice();
     }
@@ -36,7 +36,7 @@ public static class ChooseMovie
             System.Console.WriteLine("Please choose a different movie.");
             return false;
         }
-        MovieModel Choice = _movieLogic.GetMovieByName(ChosenMovie);
+        MovieModel Choice = MoviesLogic.GetMovieByName(ChosenMovie);
         System.Console.WriteLine($"You have chosen the movie {Choice.Name}.");
         System.Console.WriteLine("Is this correct?");
         System.Console.WriteLine("[Y]es / [N]o");
@@ -211,8 +211,7 @@ public static class ChooseMovie
             Console.WriteLine($"Seat: {seat.Seat}");
             if (Console.ReadKey(true).Key == ConsoleKey.Enter)
             {
-                showtime.Availability[selectedRow, selectedCol] = 1;
-                _showtimesLogic.UpdateList(showtime);
+                _showtimesLogic.ReserveSeat(showtime.Id, seat.Row, seat.Seat);
                 Console.WriteLine("Seat selection confirmed!");
                 return seat;
             }

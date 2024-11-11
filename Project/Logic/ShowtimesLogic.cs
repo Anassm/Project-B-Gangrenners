@@ -50,7 +50,7 @@ public class ShowtimesLogic
         }
     }
 
-    public bool ReverseSeat(int showtimeId, int row, int seat)
+    public bool ReserveSeat(int showtimeId, int row, int seat)
     {
         ShowtimeModel showtime = _showtimes.Find(showtime => showtime.Id == showtimeId);
 
