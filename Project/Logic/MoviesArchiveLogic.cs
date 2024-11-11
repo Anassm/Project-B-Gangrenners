@@ -1,44 +1,68 @@
 public class MoviesArchiveLogic
 {
-    private static List<MovieArchiveModel> _movies = [];
+    private static List<MovieModel> _movies = [];
 
     public MoviesArchiveLogic()
     {
         _movies = MovieArchiveAccess.LoadAll();
     }
 
-    public static MovieArchiveModel GetMovieById(int id)
+    public static MovieModel GetMovieById(int id)
     {
-        MovieArchiveModel movie = _movies.Find(movie => movie.Id == id);
+        MovieModel movie = _movies.Find(movie => movie.Id == id);
 
         return movie;
     }
 
-    public static MovieArchiveModel GetMovieByName(string name)
+    public static MovieModel GetMovieByName(string name)
     {
-        MovieArchiveModel movie = _movies.Find(movie => movie.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
+        MovieModel movie = _movies.Find(movie => movie.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
 
         return movie;
     }
 
     public static bool CheckIfMovieInArchive(string name)
     {
-        MovieArchiveModel movie = GetMovieByName(name);
+        MovieModel movie = GetMovieByName(name);
 
         return movie != null;
     }
 
     public static bool CheckIfMovieInArchive(int id)
     {
-        MovieArchiveModel movie = GetMovieById(id);
+        MovieModel movie = GetMovieById(id);
 
         return movie != null;
     }
 
     public static void AddMovie(MovieModel movie)
     {
-        // Conversion from MovieModel to MovieArchiveModel
-        _movies.Add(new MovieArchiveModel(movie.Id, movie.Name, movie.Genre, movie.Duration));
+        // Conversion from MovieModel to MovieModel
+        _movies.Add(movie);
         MovieArchiveAccess.WriteAll(_movies);
+    }
+
+    public static void RemoveMovie(MovieModel movie)
+    {
+        if (movie == null)
+        {
+            throw new Exception("Movie does not exist");
+        }
+
+        MoviesArchiveLogic.AddMovie(movie);
+
+        _movies.Remove(movie);
+        MoviesAccess.WriteAll(_movies);
+    }
+
+    public void RemoveMovie(string name)
+    {
+        MovieModel movie = GetMovieByName(name);
+        RemoveMovie(movie);
+    }
+
+    public static int GetCount()
+    {
+        return _movies.Count();
     }
 }
