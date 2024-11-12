@@ -1,6 +1,6 @@
 public class MoviesArchiveLogic
 {
-    private static List<MovieModel> _movies = [];
+    public static List<MovieModel> _movies = [];
 
     public MoviesArchiveLogic()
     {
@@ -48,9 +48,6 @@ public class MoviesArchiveLogic
         {
             throw new Exception("Movie does not exist");
         }
-
-        MoviesArchiveLogic.AddMovie(movie);
-
         _movies.Remove(movie);
         MoviesAccess.WriteAll(_movies);
     }
