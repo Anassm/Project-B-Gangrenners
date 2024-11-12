@@ -1,8 +1,9 @@
 [
-    {
-        "id": 1,
-        "name": "Inception",
-        "genre": "Horror",
-        "duration": 120
-    }
+  {
+    "id": 1,
+    "name": "Inception",
+    "genre": "Horror",
+    "duration": 120,
+    "promoted": true
+  }
 ]

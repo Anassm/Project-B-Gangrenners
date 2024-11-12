@@ -1,6 +1,8 @@
 using System.Linq;
-static class ManageMovies
+public static class ManageMovies
 {
+    private static MoviesLogic _moviesLogic = new MoviesLogic();
+    static private MoviesArchiveLogic _moviesArchiveLogic = new MoviesArchiveLogic();
     public static void AddMovieMenu()
     {
         System.Console.WriteLine("You have chosen to add a movie.");
@@ -45,6 +47,7 @@ static class ManageMovies
             System.Console.WriteLine("The movie was removed from the archive and added to current movies.");
             return;
         }
+        _moviesLogic.ToString();
         MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration);
         System.Console.WriteLine("The movie was successfully added.");
         System.Console.WriteLine("");
@@ -104,7 +107,7 @@ static class ManageMovies
             RemoveMovieMenu();
         }
         MoviesLogic.PromoteMovie(movie);
-        System.Console.WriteLine("Movie successfully removed and added to the archive.");
+        System.Console.WriteLine("Movie was successfully promoted.");
         System.Console.WriteLine("");
         System.Console.WriteLine("Give any input to go back to admin menu.");
         System.Console.ReadLine();

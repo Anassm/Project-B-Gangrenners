@@ -23,6 +23,7 @@ static class BuyTicket
             Console.Clear();
             try
             {
+                _showtimesLogic.ReserveSeat(info.showtime.Id, info.seat.Row, info.seat.Seat);
                 ReservationModel reservation = new ReservationModel(_reservationsLogic.GetNextId(), info.seat.Id, info.showtime.Id, 1, info.seat.Price, _reservationsLogic.GenerateCode());
                 _reservationsLogic.UpdateList(reservation);
                 Console.WriteLine("Your reservation has been made, your code is: " + reservation.Code);
