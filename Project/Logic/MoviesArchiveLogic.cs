@@ -48,9 +48,6 @@ public class MoviesArchiveLogic
         {
             throw new Exception("Movie does not exist");
         }
-
-        MoviesArchiveLogic.AddMovie(movie);
-
         _movies.Remove(movie);
         MoviesAccess.WriteAll(_movies);
     }
