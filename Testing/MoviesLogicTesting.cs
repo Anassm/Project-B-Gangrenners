@@ -1,3 +1,5 @@
+using System.Data.Common;
+
 namespace Testing;
 
 [TestClass]
@@ -8,12 +10,12 @@ public class TestMoviesLogic
     {
         MoviesLogic ml = new MoviesLogic();
 
-        Assert.AreEqual(ml.GetMovieById(1).Name, "Inception");
+        Assert.AreEqual(MoviesLogic.GetMovieById(1).Name, "Inception");
     }
 
     [TestMethod]
     public void GetMovieByName_ExistingMovie_ReturnMovie()
-    {
+    {   
         Assert.AreEqual(MoviesLogic.GetMovieByName("Inception").Id, 1);
     }
 
@@ -22,7 +24,7 @@ public class TestMoviesLogic
     {
         MoviesLogic ml = new MoviesLogic();
 
-        Assert.IsTrue(ml.CheckIfMovieInMovies("Inception"));
+        Assert.IsTrue(MoviesLogic.CheckIfMovieInMovies("Inception"));
     }
 
     [TestMethod]
@@ -30,7 +32,7 @@ public class TestMoviesLogic
     {
         MoviesLogic ml = new MoviesLogic();
 
-        Assert.IsTrue(ml.CheckIfMovieInMovies(1));
+        Assert.IsTrue(MoviesLogic.CheckIfMovieInMovies(1));
     }
 
     [TestMethod]
@@ -40,9 +42,9 @@ public class TestMoviesLogic
 
         MovieModel movie = new MovieModel(4, "The Dark Knight", "Action", 152, false);
 
-        ml.AddMovie(movie);
+        MoviesLogic.AddMovie(movie);
 
-        Assert.IsTrue(ml.CheckIfMovieInMovies("The Dark Knight"));
+        Assert.IsTrue(MoviesLogic.CheckIfMovieInMovies("The Dark Knight"));
     }
 
     public void RemoveMovie_ExistingMovie_RemoveMovie()
@@ -51,18 +53,18 @@ public class TestMoviesLogic
 
         MovieModel movie = MoviesLogic.GetMovieByName("Inception");
 
-        ml.RemoveMovie(movie);
+        MoviesLogic.RemoveMovie(movie);
 
-        Assert.IsFalse(ml.CheckIfMovieInMovies("Inception"));
+        Assert.IsFalse(MoviesLogic.CheckIfMovieInMovies("Inception"));
     }
 
     public void RemoveMovie_ExistingMovieName_RemoveMovie()
     {
         MoviesLogic ml = new MoviesLogic();
 
-        ml.RemoveMovie("Inception");
+        MoviesLogic.RemoveMovie("Inception");
 
-        Assert.IsFalse(ml.CheckIfMovieInMovies("Inception"));
+        Assert.IsFalse(MoviesLogic.CheckIfMovieInMovies("Inception"));
     }
 
     public void PromoteMovie_IsPromoted_ReturnTrue()
@@ -71,7 +73,7 @@ public class TestMoviesLogic
 
         MovieModel movie = MoviesLogic.GetMovieByName("Inception");
 
-        ml.PromoteMovie(movie);
+        MoviesLogic.PromoteMovie(movie);
 
         Assert.IsTrue(movie.Promoted);
     }
@@ -80,7 +82,7 @@ public class TestMoviesLogic
     {
         MoviesLogic ml = new MoviesLogic();
 
-        ml.PromoteMovie("Inception");
+        MoviesLogic.PromoteMovie("Inception");
 
         Assert.IsTrue(MoviesLogic.GetMovieByName("Inception").Promoted);
     }

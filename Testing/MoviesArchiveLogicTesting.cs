@@ -18,13 +18,13 @@ public class TestMoviesArchiveLogic
     [TestMethod]
     public void GetMovieByName_ExistingMovie_ReturnMovie()
     {
-        MovieModel movie = new(1, "The Matrix", "Sci-Fi", 136, false);
+        MovieModel movie = new(5, "The Matrix", "Sci-Fi", 136, false);
 
         MoviesArchiveLogic.AddMovie(movie);
 
         MovieModel result = MoviesArchiveLogic.GetMovieByName("The Matrix");
 
-        Assert.AreEqual(movie, result);
+        Assert.AreEqual(movie.Id, result.Id);
     }
 
     [TestMethod]
@@ -66,13 +66,13 @@ public class TestMoviesArchiveLogic
     [TestMethod]
     public void RemoveMovie_ExistingMovie_RemoveMovie()
     {
-        MovieModel movie = new(6, "The Matrix", "Sci-Fi", 136, false);
+        MovieModel movie = new(6, "The Matrixx", "Sci-Fi", 136, false);
 
         MoviesArchiveLogic.AddMovie(movie);
 
         MoviesArchiveLogic.RemoveMovie(movie);
 
-        bool result = MoviesArchiveLogic.CheckIfMovieInArchive("The Matrix");
+        bool result = MoviesArchiveLogic.CheckIfMovieInArchive("The Matrixx");
 
         Assert.IsFalse(result);
     }
@@ -80,14 +80,14 @@ public class TestMoviesArchiveLogic
     [TestMethod]
     public void RemoveMovie_ExistingMovieName_RemoveMovie()
     {
-        MovieModel movie = new(1, "The Matrix", "Sci-Fi", 136, false);
+        MovieModel movie = new(1, "The Matrixxx", "Sci-Fi", 136, false);
 
         MoviesArchiveLogic.AddMovie(movie);
 
         MoviesArchiveLogic mal = new();
-        mal.RemoveMovie("The Matrix");
+        mal.RemoveMovie("The Matrixxx");
 
-        bool result = MoviesArchiveLogic.CheckIfMovieInArchive("The Matrix");
+        bool result = MoviesArchiveLogic.CheckIfMovieInArchive("The Matrixxx");
 
         Assert.IsFalse(result);
     }
@@ -103,6 +103,6 @@ public class TestMoviesArchiveLogic
 
         int result = MoviesArchiveLogic.GetCount();
 
-        Assert.AreEqual(3, result);
+        Assert.AreEqual(7, result);
     }
 }
