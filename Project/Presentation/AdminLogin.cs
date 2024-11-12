@@ -2,6 +2,13 @@ static class AdminLogin
 {
     static private AdminAccountsLogic accountsLogic = new AdminAccountsLogic();
     static private int _attemptsLeft = 3;
+
+    public static void Main()
+    {
+        Start();
+        AdminMenu();
+    }
+
     public static void Start()
     {
         if (_attemptsLeft <= 0)
@@ -22,8 +29,8 @@ static class AdminLogin
         AdminAccountModel acc = accountsLogic.CheckLogin(email, password);
         if (acc != null)
         {
-            Console.WriteLine( acc.FullName + "was successfully logged in as admin ");
             Console.Clear();
+            Console.WriteLine( acc.FullName + "was successfully logged in as admin ");
             Menu.MainMenu();
         }
         else
@@ -33,6 +40,50 @@ static class AdminLogin
             Console.WriteLine("No admin account found with that email and/or password");
             Console.WriteLine($"{_attemptsLeft} attempts left." );
             Menu.Start();
+        }
+    }
+
+    public static void AdminMenu()
+    {
+        System.Console.WriteLine("What do you want to do?");
+        System.Console.WriteLine("1. Add a movie");
+        System.Console.WriteLine("2. Remove movie");
+        System.Console.WriteLine("3. Promote movie");
+        System.Console.WriteLine("4. See current movies");
+        System.Console.WriteLine("5. See archived movies");
+        System.Console.WriteLine("6. Log out");
+        string input = System.Console.ReadLine();
+        switch (input)
+        {
+            case "1":
+                Console.Clear();
+                ManageMovies.AddMovieMenu();
+                break;
+            case "2":
+                Console.Clear();
+                ManageMovies.RemoveMovieMenu();
+                break;
+            case "3":
+                Console.Clear();
+                ManageMovies.PromoteMovieMenu();
+                break;
+            case "4":
+                Console.Clear();
+                ManageMovies.SeeCurrentMoviesMenu();
+                break;
+            case "5":
+                Console.Clear();
+                ManageMovies.SeeArchivedMoviesMenu();
+                break;
+            case "6":
+                Console.Clear();
+                Menu.Start();
+                break;
+            default:
+                Console.Clear();
+                System.Console.WriteLine("Invalid input.");
+                AdminMenu();
+                break;
         }
     }
 
