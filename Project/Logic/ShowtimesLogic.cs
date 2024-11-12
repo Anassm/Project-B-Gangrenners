@@ -20,6 +20,10 @@ public class ShowtimesLogic
     {
         ShowtimeModel showtime = _showtimes.Find(showtime => showtime.Id == id);
 
+        if (showtime == null)
+        {
+            return null;
+        }
         return showtime;
     }
 
@@ -42,7 +46,7 @@ public class ShowtimesLogic
     public void RemoveShowtime(int id)
     {
         ShowtimeModel showtime = _showtimes.Find(showtime => showtime.Id == id);
-
+        
         if (showtime != null)
         {
             _showtimes.Remove(showtime);
@@ -59,9 +63,16 @@ public class ShowtimesLogic
             try
             {
                 int[] coordinates = SeatsLogic.GetCoordinatesBySeat(SeatsLogic.GetSeatByRowAndSeat(showtime.HallId, row, seat));
-                showtime.Availability[coordinates[0], coordinates[1]] = 1;
-                ShowtimesAccess.WriteAll(_showtimes);
-                return true;
+                if (showtime.Availability[coordinates[0], coordinates[1]] == 0)
+                {
+                    showtime.Availability[coordinates[0], coordinates[1]] = 1;
+                    ShowtimesAccess.WriteAll(_showtimes);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception e)
             {
