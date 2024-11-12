@@ -1,6 +1,6 @@
 public class MoviesArchiveLogic
 {
-    private static List<MovieModel> _movies = [];
+    public static List<MovieModel> _movies = [];
 
     public MoviesArchiveLogic()
     {

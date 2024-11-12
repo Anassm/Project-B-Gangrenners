@@ -4,16 +4,24 @@ static class ManageMovies
     public static void AddMovieMenu()
     {
         System.Console.WriteLine("You have chosen to add a movie.");
+        System.Console.WriteLine("If you want to quit type Q or quit, this does not work when entering duration.");
         System.Console.WriteLine("Please give the info needed to add a movie.");
         System.Console.WriteLine("");
         System.Console.WriteLine("Please enter the name of the movie:");
         string MovieName = System.Console.ReadLine();
+        if (MovieName == "q" || MovieName == "quit")
+        {
+            AdminLogin.AdminMenu();
+        }
         System.Console.WriteLine("");
         System.Console.WriteLine("Please enter the genre of the movie:");
         string MovieGenre = System.Console.ReadLine();
-        bool incorrect = false;
+        if (MovieGenre == "q" || MovieGenre == "quit")
+        {
+            AdminLogin.AdminMenu();
+        }
         int MovieDuration = 0;
-        while (incorrect == false)
+        while (true)
         {
             System.Console.WriteLine("");
             System.Console.WriteLine("Please enter the duration of the movie:");
@@ -21,6 +29,12 @@ static class ManageMovies
             if(input.All(char.IsDigit))
             {
                 MovieDuration = Convert.ToInt32(input);
+                break;
+            }
+            else
+            {
+                Console.Clear();
+                System.Console.WriteLine("Invalid input.");
             }
         }
         if (MoviesArchiveLogic.CheckIfMovieInArchive(MovieName))
@@ -32,23 +46,134 @@ static class ManageMovies
             return;
         }
         MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration);
-        System.Console.WriteLine("The movie has been added to current movies.");
-        Console.Clear();
+        System.Console.WriteLine("The movie was successfully added.");
+        System.Console.WriteLine("");
+        System.Console.WriteLine("Give any input to go back to admin menu.");
+        System.Console.ReadLine();
+        if (true)
+        {
+            Console.Clear();
+            AdminLogin.AdminMenu();
+        }
     }
 
     public static void RemoveMovieMenu()
     {
         System.Console.WriteLine("You have chosen to remove a movie.");
-        System.Console.WriteLine("Please give the");
+        System.Console.WriteLine("Please give the name of the movie.");
+        System.Console.WriteLine("If you want to quit type Q or quit");
+        string input = System.Console.ReadLine().ToLower();
+        if (input == "q" || input == "quit")
+        {
+            AdminLogin.AdminMenu();
+        }
+        MovieModel movie = MoviesLogic.GetMovieByName(input);
+        if (movie == null)
+        {
+            Console.Clear();
+            System.Console.WriteLine("This movie does not exist.");
+            RemoveMovieMenu();
+        }
+        MoviesLogic.RemoveMovie(movie);
+        System.Console.WriteLine("Movie successfully removed and added to the archive.");
+        System.Console.WriteLine("");
+        System.Console.WriteLine("Give any input to go back to admin menu.");
+        System.Console.ReadLine();
+        if (true)
+        {
+            Console.Clear();
+            AdminLogin.AdminMenu();
+        }
     }
 
     public static void PromoteMovieMenu()
     {
-
+        System.Console.WriteLine("You have chosen to promote a movie.");
+        System.Console.WriteLine("Please give the name of the movie.");
+        System.Console.WriteLine("If you want to quit type Q or quit");
+        string input = System.Console.ReadLine().ToLower();
+        if (input == "q" || input == "quit")
+        {
+            AdminLogin.AdminMenu();
+        }
+        MovieModel movie = MoviesLogic.GetMovieByName(input);
+        if (movie == null && MoviesLogic.CheckIfMovieInMovies(input))
+        {
+            Console.Clear();
+            System.Console.WriteLine("This movie does not exist.");
+            RemoveMovieMenu();
+        }
+        MoviesLogic.PromoteMovie(movie);
+        System.Console.WriteLine("Movie successfully removed and added to the archive.");
+        System.Console.WriteLine("");
+        System.Console.WriteLine("Give any input to go back to admin menu.");
+        System.Console.ReadLine();
+        if (true)
+        {
+            Console.Clear();
+            AdminLogin.AdminMenu();
+        }
     }
 
     public static void SeeArchivedMoviesMenu()
     {
+        System.Console.WriteLine("You have chosen to see all archived.");
+        System.Console.WriteLine("Do you want to continue? (Y/N)");
+        string input = Console.ReadLine().ToLower();
+        if (input == "n" || input == "no")
+        {
+            AdminLogin.AdminMenu();
+        }
+        MoviesArchiveLogic Archive = new();
+        System.Console.WriteLine("---------------------------------------");
+        foreach (MovieModel movie in MoviesArchiveLogic._movies)
+        {
+            System.Console.WriteLine($"ID: {movie.Id}");
+            System.Console.WriteLine($"Name: {movie.Name}");
+            System.Console.WriteLine($"Genre: {movie.Genre}");
+            System.Console.WriteLine($"Duration: {movie.Duration}");
+            System.Console.WriteLine($"Promoted: {movie.Promoted}");
+            System.Console.WriteLine("---------------------------------------");
+        }
+        System.Console.WriteLine("Archive list shown above.");
+        System.Console.WriteLine("");
+        System.Console.WriteLine("Give any input to go back to admin menu.");
+        System.Console.ReadLine();
+        if (true)
+        {
+            Console.Clear();
+            AdminLogin.AdminMenu();
+        }
+    }
 
+    public static void SeeCurrentMoviesMenu()
+    {
+        System.Console.WriteLine("You have chosen to see all current movies.");
+        System.Console.WriteLine("Do you want to continue? (Y/N)");
+        string input = Console.ReadLine().ToLower();
+        if (input == "n" || input == "no")
+        {
+            AdminLogin.AdminMenu();
+        }
+        MoviesLogic Archive = new();
+        System.Console.WriteLine("---------------------------------------");
+        foreach (MovieModel movie in MoviesLogic._movies)
+        {
+            System.Console.WriteLine($"ID: {movie.Id}");
+            System.Console.WriteLine($"Name: {movie.Name}");
+            System.Console.WriteLine($"Genre: {movie.Genre}");
+            System.Console.WriteLine($"Duration: {movie.Duration}");
+            System.Console.WriteLine($"Promoted: {movie.Promoted}");
+            System.Console.WriteLine("---------------------------------------");
+        }
+        System.Console.WriteLine("current movie list shown above.");
+        System.Console.WriteLine("");
+        System.Console.WriteLine("Give any input to go back to admin menu.");
+        System.Console.ReadLine();
+        if (true)
+        {
+            Console.Clear();
+            AdminLogin.AdminMenu();
+        }
     }
 }
