@@ -30,7 +30,7 @@ public static class ChooseMovie
     public static bool CheckChoice(string ChosenMovie)
     {
         string CorrectChoice;
-        if (_movieLogic.CheckIfMovieInMovies(ChosenMovie) != true)
+        if (MoviesLogic.CheckIfMovieInMovies(ChosenMovie) != true)
         {
             System.Console.WriteLine($"There is no movie with the (partial) name {ChosenMovie}");
             System.Console.WriteLine("Please choose a different movie.");
@@ -211,7 +211,6 @@ public static class ChooseMovie
             Console.WriteLine($"Seat: {seat.Seat}");
             if (Console.ReadKey(true).Key == ConsoleKey.Enter)
             {
-                _showtimesLogic.ReserveSeat(showtime.Id, seat.Row, seat.Seat);
                 Console.WriteLine("Seat selection confirmed!");
                 return seat;
             }

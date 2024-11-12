@@ -46,10 +46,10 @@ public class MoviesArchiveLogic
     {
         if (movie == null)
         {
-            throw new Exception("Movie does not exist");
+            return;
         }
         _movies.Remove(movie);
-        MoviesAccess.WriteAll(_movies);
+        MovieArchiveAccess.WriteAll(_movies);
     }
 
     public void RemoveMovie(string name)

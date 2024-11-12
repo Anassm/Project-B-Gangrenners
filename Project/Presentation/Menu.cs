@@ -4,6 +4,12 @@ static class Menu
     //This shows the menu. You can call back to this method to show the menu again
     //after another presentation method is completed.
     //You could edit this to show different menus depending on the user's role
+    public static MoviesLogic moviesLogic = new MoviesLogic();
+    public static ShowtimesLogic showtimesLogic = new ShowtimesLogic();
+    public static SeatsLogic seatsLogic = new SeatsLogic();
+    public static ReservationsLogic reservationsLogic = new ReservationsLogic();
+    public static AccountsLogic accountsLogic = new AccountsLogic();
+
     static public void Start()
     {
         //Implement logic to show different menus depending on the user's role
@@ -11,7 +17,7 @@ static class Menu
         //This is the main menu
         Console.WriteLine("Enter 1 to login");
         Console.WriteLine("Enter 2 to continue as guest");
-        Console.WriteLine("Enter 3 to do something else in the future");
+        Console.WriteLine("Enter 3 to login as admin");
         Console.WriteLine("Enter 4 to exit");
 
         string input = Console.ReadLine();
@@ -27,7 +33,7 @@ static class Menu
         }
         else if (input == "3")
         {
-            Console.WriteLine("This feature is not yet implemented");
+            AdminLogin.Main();
         }
         else if (input == "4")
         {

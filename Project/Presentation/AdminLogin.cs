@@ -1,4 +1,4 @@
-static class AdminLogin
+public static class AdminLogin
 {
     static private AdminAccountsLogic accountsLogic = new AdminAccountsLogic();
     static private int _attemptsLeft = 3;
@@ -30,13 +30,17 @@ static class AdminLogin
         if (acc != null)
         {
             Console.Clear();
-            Console.WriteLine( acc.FullName + "was successfully logged in as admin ");
-            Menu.MainMenu();
+            Console.WriteLine( acc.FullName + " was successfully logged in as admin ");
+            AdminMenu();
         }
         else
         {
             Console.Clear();
             _attemptsLeft--;
+            if (_attemptsLeft < 0)
+            {
+                _attemptsLeft = 0;
+            }
             Console.WriteLine("No admin account found with that email and/or password");
             Console.WriteLine($"{_attemptsLeft} attempts left." );
             Menu.Start();

@@ -1044,16 +1044,16 @@
     "hallid": 1,
     "row": 12,
     "seat": 10,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 132,
     "hallid": 1,
     "row": 12,
     "seat": 11,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 133,
