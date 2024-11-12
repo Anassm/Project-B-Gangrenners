@@ -1,11 +1,13 @@
 
 public static class ChooseMovie
 {
-    static private MoviesLogic _movieLogic = new MoviesLogic();
-    static private ShowtimesLogic _showtimesLogic = new ShowtimesLogic();
-    static private SeatsLogic _seatsLogic = new SeatsLogic();
-    public static string MovieToWatch;
-    public static MovieModel Movie;
+    private static readonly MoviesLogic _movieLogic = new MoviesLogic();
+    private static readonly ShowtimesLogic _showtimesLogic = new ShowtimesLogic();
+    private static readonly SeatsLogic _seatsLogic = new SeatsLogic();
+    
+    public static string? MovieToWatch { get; private set; }
+    public static MovieModel? SelectedMovie { get; private set; }
+
     public static (SeatModel, ShowtimeModel) StartMovie()
     {
         MovieModel Choice1 = MakeChoice();
@@ -131,39 +133,46 @@ public static class ChooseMovie
                     Console.Write("   ");
                     continue;
                 }
-                SeatModel seat = SeatsLogic.GetSeatByCoordinates(showtime.HallId, i, j);
-                if (i == selectedRow && j == selectedCol)
-                {
-                    Console.BackgroundColor = ConsoleColor.Green;
-                }
-                else
-                {
-                    Console.BackgroundColor = seat.Type switch
-                    {
-                        1 => ConsoleColor.White,
-                        2 => ConsoleColor.Yellow,
-                        _ => ConsoleColor.White
-                    };
-                }
+                // SeatModel seat = SeatsLogic.GetSeatByCoordinates(showtime.HallId, i, j);
+                // if (i == selectedRow && j == selectedCol)
+                // {
+                //     Console.BackgroundColor = ConsoleColor.Green;
+                // }
+                // else
+                // {
+                //     Console.BackgroundColor = seat.Type switch
+                //     {
+                //         1 => ConsoleColor.White,
+                //         2 => ConsoleColor.Yellow,
+                //         _ => ConsoleColor.White
+                //     };
+                // }
 
-                if (layout[i, j] == 0)
-                {
-                    Console.Write("[ ]");
-                }
-                else if (layout[i, j] == 1)
-                {
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.Write("[X]");
-                }
-                else
-                {
-                    Console.Write("   ");
-                }
-
+                Console.BackgroundColor = (i == selectedRow && j == selectedCol) ? ConsoleColor.Green : GetSeatColor(showtime, i, j);
+                Console.Write(layout[i, j] == 1 ? "[X]" : "[ ]");
                 Console.BackgroundColor = ConsoleColor.Black;
             }
             Console.WriteLine();
         }
+    }
+
+    private static ConsoleColor GetSeatColor(ShowtimeModel showtime, int row, int col)
+    {
+        SeatModel seat = SeatsLogic.GetSeatByCoordinates(showtime.HallId, row, col);
+
+        if (showtime.Availability[row, col] == 1)  // Reserved seat
+        {
+            return ConsoleColor.Red;
+        }
+
+        // Colors based on seat type
+        return seat.Type switch
+        {
+            1 => ConsoleColor.Blue,
+            2 => ConsoleColor.Yellow,
+            3 => ConsoleColor.DarkYellow,
+            _ => ConsoleColor.Gray
+        };
     }
 
     public static (int, int) HandleArrowKeyPress(int currentRow, int currentCol, ShowtimeModel showtime, ConsoleKeyInfo key)
