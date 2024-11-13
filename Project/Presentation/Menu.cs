@@ -53,6 +53,7 @@ static class Menu
         Console.Clear();
         Console.WriteLine("Enter 1 to buy a ticket");
         Console.WriteLine("Enter 2 to exit");
+        Console.WriteLine("Enter 3 to go back to the main menu");
 
         string input = Console.ReadLine();
         Console.Clear();
@@ -79,6 +80,10 @@ static class Menu
                 MainMenu();
             }
             Environment.Exit(0);
+        }
+        else if (input == "3")
+        {
+            Start();
         }
         else
         {
