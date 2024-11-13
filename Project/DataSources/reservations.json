@@ -62,5 +62,13 @@
     "accountid": 1,
     "totalprice": 10,
     "code": "BZgCAo"
+  },
+  {
+    "id": 9,
+    "seatid": 69,
+    "showtimeid": 1,
+    "accountid": 1,
+    "totalprice": 20,
+    "code": "mWgdWC"
   }
 ]

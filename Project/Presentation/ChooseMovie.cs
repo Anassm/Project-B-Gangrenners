@@ -143,6 +143,7 @@ public static class ChooseMovie
                     {
                         1 => ConsoleColor.White,
                         2 => ConsoleColor.Yellow,
+                        3 => ConsoleColor.DarkYellow,
                         _ => ConsoleColor.White
                     };
                 }
