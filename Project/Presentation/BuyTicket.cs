@@ -29,7 +29,8 @@ static class BuyTicket
             try
             {
                 _showtimesLogic.ReserveSeat(info.showtime.Id, info.seat.Row, info.seat.Seat);
-                info.showtime.Availability[info.seat.Row, info.seat.Seat] = 1;
+                int[] coordinates = SeatsLogic.GetCoordinatesBySeat(info.seat);
+                info.showtime.Availability[coordinates[0], coordinates[1]] = 1;
                 ReservationModel reservation = new ReservationModel(_reservationsLogic.GetNextId(), info.seat.Id, info.showtime.Id, 1, info.seat.Price, _reservationsLogic.GenerateCode());
                 _reservationsLogic.UpdateList(reservation);
                 _showtimesLogic.UpdateList(info.showtime);
