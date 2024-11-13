@@ -68,6 +68,7 @@ public class MoviesLogic
         {
             return;
         }
+        unPromoteMovie(movie)
         MoviesArchiveLogic.AddMovie(movie);
         _movies.Remove(movie);
         MoviesAccess.WriteAll(_movies);
@@ -91,6 +92,23 @@ public class MoviesLogic
     }
 
     public static bool PromoteMovie(string name)
+    {
+        MovieModel movie = GetMovieByName(name);
+        return(PromoteMovie(movie));
+    }
+
+    public static bool unPromoteMovie(MovieModel movie)
+    {
+        if (movie == null)
+        {
+            return false;
+        }
+        movie.Promoted = false;
+        MoviesAccess.WriteAll(_movies);
+        return true;
+    }
+
+    public static bool unPromoteMovie(string name)
     {
         MovieModel movie = GetMovieByName(name);
         return(PromoteMovie(movie));
