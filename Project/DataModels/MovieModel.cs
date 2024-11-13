@@ -26,4 +26,9 @@ public class MovieModel
         Duration = duration;
         Promoted = promoted;
     }
+
+    public override string ToString()
+    {
+        return $"ID: {Id}\n" + $"Name: {Name}\n" + $"Genre: {Genre}\n" + $"Duration: {Duration}\n" + $"Promoted: {Promoted}";
+    }
 }
