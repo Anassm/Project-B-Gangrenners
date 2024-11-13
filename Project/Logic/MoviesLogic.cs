@@ -96,6 +96,23 @@ public class MoviesLogic
         return(PromoteMovie(movie));
     }
 
+    public static bool unPromoteMovie(MovieModel movie)
+    {
+        if (movie == null)
+        {
+            return false;
+        }
+        movie.Promoted = false;
+        MoviesAccess.WriteAll(_movies);
+        return true;
+    }
+
+    public static bool unPromoteMovie(string name)
+    {
+        MovieModel movie = GetMovieByName(name);
+        return(PromoteMovie(movie));
+    }
+
     public static int GetNextId()
     {
         return _movies.Count() + MoviesArchiveLogic.GetCount() + 1;
