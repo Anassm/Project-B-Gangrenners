@@ -54,11 +54,12 @@ public static class ManageMovies
         System.Console.WriteLine("The movie was successfully added.");
         System.Console.WriteLine("");
         System.Console.WriteLine("Give any input to go back to admin menu.");
-        //register any key input to go back to admin menu
-        
-
-        Console.Clear();
-        AdminLogin.AdminMenu();
+        ConsoleKeyInfo key = Console.ReadKey(true);
+        if (key.Key != null)
+        {
+            Console.Clear();
+            AdminLogin.AdminMenu();
+        }
 
     } 
 
@@ -128,8 +129,8 @@ public static class ManageMovies
         
         System.Console.WriteLine("");
         System.Console.WriteLine("Give any input to go back to admin menu.");
-        System.Console.ReadLine();
-        if (true)
+        ConsoleKeyInfo key = Console.ReadKey(true);
+        if (key.Key != null)
         {
             Console.Clear();
             AdminLogin.AdminMenu();
@@ -161,8 +162,8 @@ public static class ManageMovies
         System.Console.WriteLine("Archive list shown above.");
         System.Console.WriteLine("");
         System.Console.WriteLine("Give any input to go back to admin menu.");
-        System.Console.ReadLine();
-        if (true)
+        ConsoleKeyInfo key = Console.ReadKey(true);
+        if (key.Key != null)
         {
             Console.Clear();
             AdminLogin.AdminMenu();
@@ -194,8 +195,8 @@ public static class ManageMovies
         System.Console.WriteLine("current movie list shown above.");
         System.Console.WriteLine("");
         System.Console.WriteLine("Give any input to go back to admin menu.");
-        System.Console.ReadLine();
-        if (true)
+        ConsoleKeyInfo key = Console.ReadKey(true);
+        if (key.Key != null)
         {
             Console.Clear();
             AdminLogin.AdminMenu();
