@@ -30,8 +30,4 @@ public class ReservationModel
         Code = code;
     }
 
-    public override string ToString()
-    {
-        return $"ID: {Id}\n" + $"Seat ID: {SeatId}\n" + $"Showtime ID: {ShowtimeId}\n" + $"Account ID: {AccountId}\n" + $"Total Price: {TotalPrice}\n" + $"Code: {Code}";
-    }
 }

@@ -26,11 +26,6 @@ public class ShowtimeModel
         HallId = hallid;
         Availability = availability;
     }
-
-    public override string ToString()
-    {
-        return $"ID: {Id}\n" + $"Movie ID: {MovieId}\n" + $"Time: {Time}\n" + $"HallId: {HallId}\n";
-    }
 }
 
 

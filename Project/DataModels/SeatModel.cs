@@ -31,9 +31,8 @@ public class SeatModel
         Type = type;
         Price = price;
     }
-
-    public override string ToString()
-    {
-        return $"ID: {Id}\n" + $"Hall ID: {HallId}\n" + $"Row: {Row}\n" + $"Seat: {Seat}\n" + $"Type: {Type}\n" + $"Price: {Price}";
-    }
 }
+
+
+
+

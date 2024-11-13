@@ -21,9 +21,4 @@ public class HallModel
         Seats = seats;
         Layout = layout;
     }
-
-    public override string ToString()
-    {
-        return $"ID: {Id}\n" + $"Name: {Name}";
-    }
 }

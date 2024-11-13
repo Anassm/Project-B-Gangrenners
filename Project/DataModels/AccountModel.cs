@@ -25,11 +25,6 @@ public class AccountModel
         FullName = fullName;
     }
 
-    public override string ToString()
-    {
-        return $"ID: {Id}\n" + $"E-mail address: {EmailAddress}\n" + $"Password: {Password}\n" + $"Full name: {FullName}";
-    }
-
 }
 
 

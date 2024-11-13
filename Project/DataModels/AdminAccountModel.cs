@@ -24,9 +24,4 @@ public class AdminAccountModel
         Password = password;
         FullName = fullName;
     }
-
-    public override string ToString()
-    {
-        return $"ID: {Id}\n" + $"E-mail address: {EmailAddress}\n" + $"Password: {Password}\n" + $"Full name: {FullName}";
-    }
 }
