@@ -221,7 +221,7 @@ public static class ChooseMovie
             Console.WriteLine("This seat is already taken. Please choose another one.");
             return null;
         }
-        else if (seat.Type == 2)
+        else if (showtime.Availability[selectedRow, selectedCol] == 2)
         {
             Console.WriteLine("This seat doesnt exist");
             return null;
