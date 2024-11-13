@@ -165,6 +165,47 @@ public static class ChooseMovie
 
                 Console.BackgroundColor = ConsoleColor.Black;
             }
+            // create legend 
+            if (i == 0)
+            {
+                Console.Write("  [ ] = Available seat");
+            }
+            else if (i == 1)
+            {
+                Console.Write("  [X] = Taken seat");
+            }
+            else if (i == 2)
+            {
+                Console.Write("  ");
+                Console.BackgroundColor = ConsoleColor.White;
+                Console.Write("[ ]");
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.Write(" = Regular seat");
+            }
+            else if (i == 3)
+            {
+                Console.Write("  ");
+                Console.BackgroundColor = ConsoleColor.Yellow;
+                Console.Write("[ ]");
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.Write(" = VIP seat");
+            }
+            else if (i == 4)
+            {
+                Console.Write("  ");
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                Console.Write("[ ]");
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.Write(" = VIP+ seat");
+            }
+            else if (i == 5)
+            {
+                Console.Write("  ");
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.Write("[ ]");
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.Write(" = Selected seat");
+            }
             Console.WriteLine();
         }
     }
