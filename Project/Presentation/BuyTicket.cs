@@ -6,6 +6,10 @@ static class BuyTicket
 
     public static void Start((SeatModel seat, ShowtimeModel showtime) info)
     {
+        if (info.seat == null || info.showtime == null)
+        {
+            Menu.MainMenu();
+        }
         Console.WriteLine("Welcome to the ticket buying page");
         _seatsLogic.GetPriceBySeat(info.seat);
         Console.WriteLine("This is what your order looks like now:");
@@ -46,8 +50,18 @@ static class BuyTicket
 
     public static void Start(int seatId, int showtimeId)
     {
+        if (seatId == 0 || showtimeId == 0)
+        {
+            Console.WriteLine("Invalid input");
+            Menu.MainMenu();
+        }
+        
         SeatModel seat = _seatsLogic.GetSeatById(seatId);
         ShowtimeModel showtime = _showtimesLogic.GetShowtimeById(showtimeId);
+        if (seat == null || showtime == null)
+        {
+            Menu.MainMenu();
+        }
         Start((seat, showtime) );
     }
 }

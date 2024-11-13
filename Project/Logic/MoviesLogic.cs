@@ -79,20 +79,21 @@ public class MoviesLogic
         RemoveMovie(movie);
     }
 
-    public static void PromoteMovie(MovieModel movie)
+    public static bool PromoteMovie(MovieModel movie)
     {
         if (movie == null)
         {
-            throw new Exception("Movie does not exist");
+            return false;
         }
         movie.Promoted = true;
         MoviesAccess.WriteAll(_movies);
+        return true;
     }
 
-    public static void PromoteMovie(string name)
+    public static bool PromoteMovie(string name)
     {
         MovieModel movie = GetMovieByName(name);
-        PromoteMovie(movie);
+        return(PromoteMovie(movie));
     }
 
     public static int GetNextId()

@@ -108,6 +108,7 @@ public static class ChooseMovie
             else if (key.Key == ConsoleKey.Escape)
             {
                 isSelecting = false;
+                return(null, null);
             }
             else
             {
@@ -174,15 +175,31 @@ public static class ChooseMovie
         {
             case ConsoleKey.UpArrow:
                 newRow = Math.Max(0, currentRow - 1);
+                if (showtime.Availability[newRow, currentCol] == 2)
+                {
+                    newRow = currentRow;
+                }
                 break;
             case ConsoleKey.DownArrow:
                 newRow = Math.Min(showtime.Availability.GetLength(0) - 1, currentRow + 1);
+                if (showtime.Availability[newRow, currentCol] == 2)
+                {
+                    newRow = currentRow;
+                }
                 break;
             case ConsoleKey.LeftArrow:
                 newCol = Math.Max(0, currentCol - 1);
+                if (showtime.Availability[currentRow, newCol] == 2)
+                {
+                    newCol = currentCol;
+                }
                 break;
             case ConsoleKey.RightArrow:
                 newCol = Math.Min(showtime.Availability.GetLength(1) - 1, currentCol + 1);
+                if (showtime.Availability[currentRow, newCol] == 2)
+                {
+                    newCol = currentCol;
+                }
                 break;
         }
 
@@ -201,6 +218,11 @@ public static class ChooseMovie
         if (showtime.Availability[selectedRow, selectedCol] == 1)
         {
             Console.WriteLine("This seat is already taken. Please choose another one.");
+            return null;
+        }
+        else if (seat.Type == 2)
+        {
+            Console.WriteLine("This seat doesnt exist");
             return null;
         }
         else

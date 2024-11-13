@@ -5,6 +5,8 @@ public static class ManageMovies
     static private MoviesArchiveLogic _moviesArchiveLogic = new MoviesArchiveLogic();
     public static void AddMovieMenu()
     {
+        _moviesLogic.ToString();
+        _moviesArchiveLogic.ToString();
         System.Console.WriteLine("You have chosen to add a movie.");
         System.Console.WriteLine("If you want to quit type Q or quit, this does not work when entering duration.");
         System.Console.WriteLine("Please give the info needed to add a movie.");
@@ -52,16 +54,18 @@ public static class ManageMovies
         System.Console.WriteLine("The movie was successfully added.");
         System.Console.WriteLine("");
         System.Console.WriteLine("Give any input to go back to admin menu.");
-        System.Console.ReadLine();
-        if (true)
-        {
-            Console.Clear();
-            AdminLogin.AdminMenu();
-        }
-    }
+        //register any key input to go back to admin menu
+        
+
+        Console.Clear();
+        AdminLogin.AdminMenu();
+
+    } 
 
     public static void RemoveMovieMenu()
     {
+        _moviesLogic.ToString();
+        _moviesArchiveLogic.ToString();
         System.Console.WriteLine("You have chosen to remove a movie.");
         System.Console.WriteLine("Please give the name of the movie.");
         System.Console.WriteLine("If you want to quit type Q or quit");
@@ -70,6 +74,7 @@ public static class ManageMovies
         {
             AdminLogin.AdminMenu();
         }
+        _moviesLogic.ToString();
         MovieModel movie = MoviesLogic.GetMovieByName(input);
         if (movie == null)
         {
@@ -81,8 +86,8 @@ public static class ManageMovies
         System.Console.WriteLine("Movie successfully removed and added to the archive.");
         System.Console.WriteLine("");
         System.Console.WriteLine("Give any input to go back to admin menu.");
-        System.Console.ReadLine();
-        if (true)
+        ConsoleKeyInfo key = Console.ReadKey(true);
+        if (key.Key != null)
         {
             Console.Clear();
             AdminLogin.AdminMenu();
@@ -91,6 +96,8 @@ public static class ManageMovies
 
     public static void PromoteMovieMenu()
     {
+        _moviesLogic.ToString();
+        _moviesArchiveLogic.ToString();
         System.Console.WriteLine("You have chosen to promote a movie.");
         System.Console.WriteLine("Please give the name of the movie.");
         System.Console.WriteLine("If you want to quit type Q or quit");
@@ -106,8 +113,19 @@ public static class ManageMovies
             System.Console.WriteLine("This movie does not exist.");
             RemoveMovieMenu();
         }
-        MoviesLogic.PromoteMovie(movie);
-        System.Console.WriteLine("Movie was successfully promoted.");
+        bool prom = MoviesLogic.PromoteMovie(movie);
+        if(prom == false)
+        {
+            Console.Clear();
+            System.Console.WriteLine("This movie cannot be promoted.");
+        }
+        else
+        {
+            Console.Clear();
+            System.Console.WriteLine("Movie was successfully promoted.");
+
+        }
+        
         System.Console.WriteLine("");
         System.Console.WriteLine("Give any input to go back to admin menu.");
         System.Console.ReadLine();
@@ -120,6 +138,8 @@ public static class ManageMovies
 
     public static void SeeArchivedMoviesMenu()
     {
+        _moviesLogic.ToString();
+        _moviesArchiveLogic.ToString();
         System.Console.WriteLine("You have chosen to see all archived.");
         System.Console.WriteLine("Do you want to continue? (Y/N)");
         string input = Console.ReadLine().ToLower();
@@ -151,6 +171,8 @@ public static class ManageMovies
 
     public static void SeeCurrentMoviesMenu()
     {
+        _moviesLogic.ToString();
+        _moviesArchiveLogic.ToString();
         System.Console.WriteLine("You have chosen to see all current movies.");
         System.Console.WriteLine("Do you want to continue? (Y/N)");
         string input = Console.ReadLine().ToLower();
