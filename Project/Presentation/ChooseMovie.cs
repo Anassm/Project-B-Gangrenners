@@ -155,7 +155,14 @@ public static class ChooseMovie
                 else if (layout[i, j] == 1)
                 {
                     Console.ResetColor();
-                    Console.BackgroundColor = ConsoleColor.Red;
+                    if (i == selectedRow && j == selectedCol)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Green;
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = ConsoleColor.Red;
+                    }
                     Console.Write("[X]");
                 }
                 else
