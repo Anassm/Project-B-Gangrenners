@@ -252,16 +252,16 @@
     "hallid": 1,
     "row": 4,
     "seat": 6,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 33,
     "hallid": 1,
     "row": 4,
     "seat": 7,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 34,
@@ -340,32 +340,32 @@
     "hallid": 1,
     "row": 5,
     "seat": 5,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 44,
     "hallid": 1,
     "row": 5,
     "seat": 6,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 45,
     "hallid": 1,
     "row": 5,
     "seat": 7,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 46,
     "hallid": 1,
     "row": 5,
     "seat": 8,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 47,
@@ -428,48 +428,48 @@
     "hallid": 1,
     "row": 6,
     "seat": 4,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 55,
     "hallid": 1,
     "row": 6,
     "seat": 5,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 56,
     "hallid": 1,
     "row": 6,
     "seat": 6,
-    "type": 1,
-    "price": 10
+    "type": 3,
+    "price": 20
   },
   {
     "id": 57,
     "hallid": 1,
     "row": 6,
     "seat": 7,
-    "type": 1,
-    "price": 10
+    "type": 3,
+    "price": 20
   },
   {
     "id": 58,
     "hallid": 1,
     "row": 6,
     "seat": 8,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 59,
     "hallid": 1,
     "row": 6,
     "seat": 9,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 60,
@@ -524,48 +524,48 @@
     "hallid": 1,
     "row": 7,
     "seat": 4,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 67,
     "hallid": 1,
     "row": 7,
     "seat": 5,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 68,
     "hallid": 1,
     "row": 7,
     "seat": 6,
-    "type": 1,
-    "price": 10
+    "type": 3,
+    "price": 20
   },
   {
     "id": 69,
     "hallid": 1,
     "row": 7,
     "seat": 7,
-    "type": 1,
-    "price": 10
+    "type": 3,
+    "price": 20
   },
   {
     "id": 70,
     "hallid": 1,
     "row": 7,
     "seat": 8,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 71,
     "hallid": 1,
     "row": 7,
     "seat": 9,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 72,
@@ -620,48 +620,48 @@
     "hallid": 1,
     "row": 8,
     "seat": 4,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 79,
     "hallid": 1,
     "row": 8,
     "seat": 5,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 80,
     "hallid": 1,
     "row": 8,
     "seat": 6,
-    "type": 1,
-    "price": 10
+    "type": 3,
+    "price": 20
   },
   {
     "id": 81,
     "hallid": 1,
     "row": 8,
     "seat": 7,
-    "type": 1,
-    "price": 10
+    "type": 3,
+    "price": 20
   },
   {
     "id": 82,
     "hallid": 1,
     "row": 8,
     "seat": 8,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 83,
     "hallid": 1,
     "row": 8,
     "seat": 9,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 84,
@@ -716,48 +716,48 @@
     "hallid": 1,
     "row": 9,
     "seat": 4,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 91,
     "hallid": 1,
     "row": 9,
     "seat": 5,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 92,
     "hallid": 1,
     "row": 9,
     "seat": 6,
-    "type": 1,
-    "price": 10
+    "type": 3,
+    "price": 20
   },
   {
     "id": 93,
     "hallid": 1,
     "row": 9,
     "seat": 7,
-    "type": 1,
-    "price": 10
+    "type": 3,
+    "price": 20
   },
   {
     "id": 94,
     "hallid": 1,
     "row": 9,
     "seat": 8,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 95,
     "hallid": 1,
     "row": 9,
     "seat": 9,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 96,
@@ -820,32 +820,32 @@
     "hallid": 1,
     "row": 10,
     "seat": 5,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 104,
     "hallid": 1,
     "row": 10,
     "seat": 6,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 105,
     "hallid": 1,
     "row": 10,
     "seat": 7,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 106,
     "hallid": 1,
     "row": 10,
     "seat": 8,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 107,
@@ -924,16 +924,16 @@
     "hallid": 1,
     "row": 11,
     "seat": 6,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 117,
     "hallid": 1,
     "row": 11,
     "seat": 7,
-    "type": 1,
-    "price": 10
+    "type": 2,
+    "price": 15
   },
   {
     "id": 118,
@@ -1044,7 +1044,7 @@
     "hallid": 1,
     "row": 12,
     "seat": 10,
-    "type": 2,
+    "type": 1,
     "price": 15
   },
   {
@@ -1052,7 +1052,7 @@
     "hallid": 1,
     "row": 12,
     "seat": 11,
-    "type": 2,
+    "type": 1,
     "price": 15
   },
   {
