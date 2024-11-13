@@ -68,6 +68,7 @@ public class MoviesLogic
         {
             return;
         }
+        unPromoteMovie(movie)
         MoviesArchiveLogic.AddMovie(movie);
         _movies.Remove(movie);
         MoviesAccess.WriteAll(_movies);
