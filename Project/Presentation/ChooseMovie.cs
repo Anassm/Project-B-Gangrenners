@@ -154,6 +154,7 @@ public static class ChooseMovie
                 }
                 else if (layout[i, j] == 1)
                 {
+                    Console.ResetColor();
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.Write("[X]");
                 }
