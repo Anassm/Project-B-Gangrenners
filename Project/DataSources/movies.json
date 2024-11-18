@@ -5,5 +5,12 @@
     "genre": "Horror",
     "duration": 120,
     "promoted": true
+  },
+  {
+    "id": 3,
+    "name": "Verschrikkelijke ikke",
+    "genre": "comedy",
+    "duration": 120,
+    "promoted": false
   }
 ]
