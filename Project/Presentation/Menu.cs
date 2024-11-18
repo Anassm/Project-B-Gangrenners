@@ -52,8 +52,7 @@ static class Menu
         // TODO: Discuss whether to add interactivity with the user when logged in, or not.
         Console.Clear();
         Console.WriteLine("Enter 1 to buy a ticket");
-        Console.WriteLine("Enter 2 to exit");
-        Console.WriteLine("Enter 3 to go back to the main menu");
+        Console.WriteLine("Enter 2 to logout");
 
         string input = Console.ReadLine();
         Console.Clear();
@@ -63,25 +62,6 @@ static class Menu
             BuyTicket.Start(ChooseMovie.StartMovie());
         }
         else if (input == "2")
-        {
-            Console.WriteLine("Are you sure you want to exit? (y/n)");
-            string exitInput = Console.ReadLine();
-            if (exitInput.ToLower() == "y")
-            {
-                Environment.Exit(0);
-            }
-            else if (exitInput.ToLower() == "n")
-            {
-                MainMenu();
-            }
-            else
-            {
-                Console.WriteLine("Invalid input");
-                MainMenu();
-            }
-            Environment.Exit(0);
-        }
-        else if (input == "3")
         {
             Start();
         }
