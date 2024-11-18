@@ -44,10 +44,67 @@ public static class ManageMovies
         if (MoviesArchiveLogic.CheckIfMovieInArchive(MovieName))
         {
             MovieModel Movie = MoviesArchiveLogic.GetMovieByName(MovieName);
+            if(Movie.Duration != MovieDuration || Movie.Genre != MovieGenre)
+            {
+                Console.Clear();
+                System.Console.WriteLine("The movie you are trying to add is already in the archive but with different genre or duration.");
+                System.Console.WriteLine("Do you want to remove the movie from the archive and add it to current movies? (Y/N)");
+                string input = Console.ReadLine().ToLower();
+                if (input == "n" || input == "no")
+                {
+                    System.Console.WriteLine("Do you want to add the movie with the same name but different genre or duration? (Y/N)");
+                    string input2 = Console.ReadLine().ToLower();
+                    if (input2 == "n" || input2 == "no")
+                    {
+                        Console.Clear();
+                        AdminLogin.AdminMenu();
+                    }
+                    MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration);
+                    System.Console.WriteLine("The movie was successfully added.");
+                    System.Console.WriteLine("");
+                    System.Console.WriteLine("Give any input to go back to admin menu.");
+                    ConsoleKeyInfo key1 = Console.ReadKey(true);
+                    if (key1.Key != null)
+                    {
+                        Console.Clear();
+                        AdminLogin.AdminMenu();
+                    }
+                }
+                MoviesArchiveLogic.RemoveMovie(Movie);
+                MoviesLogic.AddMovie(Movie);
+                System.Console.WriteLine("The movie was removed from the archive and added to current movies.");
+                System.Console.WriteLine("");
+                System.Console.WriteLine("Give any input to go back to admin menu.");
+                ConsoleKeyInfo key3 = Console.ReadKey(true);
+                if (key3.Key != null)
+                {
+                    Console.Clear();
+                    AdminLogin.AdminMenu();
+                }
+            }
+            else if(Movie.Duration == MovieDuration && Movie.Genre == MovieGenre)
+            {
+                Console.Clear();
+                System.Console.WriteLine("The movie you are trying to add is already in the archive.");
+                System.Console.WriteLine("Do you want to remove the movie from the archive and add it to current movies? (Y/N)");
+                string input = Console.ReadLine().ToLower();
+                if (input == "n" || input == "no")
+                {
+                    Console.Clear();
+                    AdminLogin.AdminMenu();
+                }
+            }
             MoviesArchiveLogic.RemoveMovie(Movie);
             MoviesLogic.AddMovie(Movie);
             System.Console.WriteLine("The movie was removed from the archive and added to current movies.");
-            return;
+            System.Console.WriteLine("");
+            System.Console.WriteLine("Give any input to go back to admin menu.");
+            ConsoleKeyInfo key2 = Console.ReadKey(true);
+            if (key2.Key != null)
+            {
+                Console.Clear();
+                AdminLogin.AdminMenu();
+            }
         }
         _moviesLogic.ToString();
         MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration);
