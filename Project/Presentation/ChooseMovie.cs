@@ -20,6 +20,11 @@ public static class ChooseMovie
     {
         System.Console.WriteLine("Please enter the name of the movie you would like to see:");
         MovieToWatch = System.Console.ReadLine();
+        if (MovieToWatch is null || MovieToWatch == "")
+        {
+            System.Console.WriteLine("Please enter a valid movie name.");
+            return MakeChoice();
+        }
         if (CheckChoice(MovieToWatch))
         {
             return MoviesLogic.GetMovieByName(MovieToWatch);
