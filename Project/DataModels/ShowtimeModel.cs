@@ -29,7 +29,7 @@ public class ShowtimeModel
 
     public override string ToString()
     {
-        return $"ID: {Id}\n" + $"Movie ID: {MovieId}\n" + $"Time: {Time}\n" + $"HallId: {HallId}\n";
+        return $"ID: {Id}\n" + $"Movie ID: {MoviesId}\n" + $"Time: {Time}\n" + $"HallId: {HallId}\n";
     }
 }
 
