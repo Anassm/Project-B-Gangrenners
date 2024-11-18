@@ -88,7 +88,7 @@ public static class ChooseMovie
         else
         {
             System.Console.WriteLine("There are no screening times.");
-            System.Console.WriteLine("Going back to main menu.");
+            System.Console.WriteLine("Give any input to go back to the menu.");
             ConsoleKeyInfo key = Console.ReadKey(true);
             if (key.Key != null)
             {
