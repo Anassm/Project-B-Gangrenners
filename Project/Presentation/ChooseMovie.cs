@@ -20,6 +20,11 @@ public static class ChooseMovie
     {
         System.Console.WriteLine("Please enter the name of the movie you would like to see:");
         MovieToWatch = System.Console.ReadLine();
+        if (MovieToWatch is null || MovieToWatch == "")
+        {
+            System.Console.WriteLine("Please enter a valid movie name.");
+            return MakeChoice();
+        }
         if (CheckChoice(MovieToWatch))
         {
             return MoviesLogic.GetMovieByName(MovieToWatch);
@@ -45,6 +50,11 @@ public static class ChooseMovie
         {
             Console.Clear();
             return true;
+        }
+        else if (CorrectChoice == "n" || CorrectChoice == "no")
+        {
+            Console.Clear();
+            Menu.MainMenu();
         }
         Console.Clear();
         return false;
@@ -78,7 +88,7 @@ public static class ChooseMovie
         else
         {
             System.Console.WriteLine("There are no screening times.");
-            System.Console.WriteLine("Going back to main menu.");
+            System.Console.WriteLine("Give any input to go back to the menu.");
             ConsoleKeyInfo key = Console.ReadKey(true);
             if (key.Key != null)
             {
