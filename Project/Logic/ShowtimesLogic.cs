@@ -2,7 +2,7 @@ using System.Dynamic;
 
 public class ShowtimesLogic
 {
-    private List<ShowtimeModel> _showtimes;
+    private List<ShowtimeModel> _showtimes { get; set; }
 
     public ShowtimesLogic()
     {

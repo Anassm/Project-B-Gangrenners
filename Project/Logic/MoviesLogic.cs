@@ -1,6 +1,6 @@
 public class MoviesLogic
 {
-    public static List<MovieModel> _movies = new List<MovieModel>();
+    public static List<MovieModel> _movies { get; set; } = MoviesAccess.LoadAll();
 
     public MoviesLogic()
     {
@@ -68,7 +68,7 @@ public class MoviesLogic
         {
             return;
         }
-        unPromoteMovie(movie)
+        unPromoteMovie(movie);
         MoviesArchiveLogic.AddMovie(movie);
         _movies.Remove(movie);
         MoviesAccess.WriteAll(_movies);

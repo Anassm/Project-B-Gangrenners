@@ -3,7 +3,7 @@ using System.Linq;
 
 public class SeatsLogic
 {
-    private static List<SeatModel> _seats = new List<SeatModel>();
+    private static List<SeatModel> _seats { get; set; } = SeatsAccess.LoadAll();
 
     public SeatsLogic()
     {
