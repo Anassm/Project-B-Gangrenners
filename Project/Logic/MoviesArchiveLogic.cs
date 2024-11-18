@@ -1,6 +1,6 @@
 public class MoviesArchiveLogic
 {
-    public static List<MovieModel> _movies = [];
+    public static List<MovieModel> _movies { get; set;} = MovieArchiveAccess.LoadAll();
 
     public MoviesArchiveLogic()
     {

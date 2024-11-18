@@ -20,6 +20,11 @@ public static class ChooseMovie
     {
         System.Console.WriteLine("Please enter the name of the movie you would like to see:");
         MovieToWatch = System.Console.ReadLine();
+        if (MovieToWatch is null || MovieToWatch == "")
+        {
+            System.Console.WriteLine("Please enter a valid movie name.");
+            return MakeChoice();
+        }
         if (CheckChoice(MovieToWatch))
         {
             return MoviesLogic.GetMovieByName(MovieToWatch);
@@ -46,6 +51,11 @@ public static class ChooseMovie
             Console.Clear();
             return true;
         }
+        else if (CorrectChoice == "n" || CorrectChoice == "no")
+        {
+            Console.Clear();
+            Menu.MainMenu();
+        }
         Console.Clear();
         return false;
     }
@@ -55,23 +65,38 @@ public static class ChooseMovie
         int number = 1;
         List<ShowtimeModel> NewShowtimes = [];
         List<ShowtimeModel> showtimelist = _showtimesLogic.GetShowtimesByMovieId(movieId);
-        System.Console.WriteLine("A list of all al the times:");
-        System.Console.WriteLine($"----------------------------");
-        foreach (ShowtimeModel showTime in showtimelist)
+        if (showtimelist.Count() != 0)
         {
-            if (showTime.MoviesId == movieId)
+            System.Console.WriteLine("A list of all al the times:");
+            System.Console.WriteLine($"----------------------------");
+            foreach (ShowtimeModel showTime in showtimelist)
             {
-                System.Console.WriteLine($"number: {number}");
-                System.Console.WriteLine($"Date / Time: {showTime.Time}");
-                System.Console.WriteLine($"Hall: {showTime.HallId}");
-                System.Console.WriteLine($"----------------------------");
-                NewShowtimes.Add(showTime);
-                number++;
+                if (showTime.MoviesId == movieId)
+                {
+                    System.Console.WriteLine($"number: {number}");
+                    System.Console.WriteLine($"Date / Time: {showTime.Time}");
+                    System.Console.WriteLine($"Hall: {showTime.HallId}");
+                    System.Console.WriteLine($"----------------------------");
+                    NewShowtimes.Add(showTime);
+                    number++;
+                }
             }
+            System.Console.WriteLine("Please choose the number of the corresponding screening time.");
+            int showtimeChoice = Convert.ToInt32(Console.ReadLine());
+            return NewShowtimes[showtimeChoice - 1];
         }
-        System.Console.WriteLine("Please choose the number of the corresponding showtime.");
-        int showtimeChoice = Convert.ToInt32(Console.ReadLine());
-        return NewShowtimes[showtimeChoice - 1];
+        else
+        {
+            System.Console.WriteLine("There are no screening times.");
+            System.Console.WriteLine("Give any input to go back to the menu.");
+            ConsoleKeyInfo key = Console.ReadKey(true);
+            if (key.Key != null)
+            {
+                Console.Clear();
+                Menu.Start();
+            }
+            return null;
+        }
     }
 
     public static (SeatModel, ShowtimeModel) SeatChoice(int showtimeId)
@@ -155,7 +180,14 @@ public static class ChooseMovie
                 else if (layout[i, j] == 1)
                 {
                     Console.ResetColor();
-                    Console.BackgroundColor = ConsoleColor.Red;
+                    if (i == selectedRow && j == selectedCol)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Green;
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = ConsoleColor.Red;
+                    }
                     Console.Write("[X]");
                 }
                 else
@@ -164,6 +196,47 @@ public static class ChooseMovie
                 }
 
                 Console.BackgroundColor = ConsoleColor.Black;
+            }
+            // create legend 
+            if (i == 0)
+            {
+                Console.Write("  [ ] = Available seat");
+            }
+            else if (i == 1)
+            {
+                Console.Write("  [X] = Taken seat");
+            }
+            else if (i == 2)
+            {
+                Console.Write("  ");
+                Console.BackgroundColor = ConsoleColor.White;
+                Console.Write("[ ]");
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.Write(" = Regular seat");
+            }
+            else if (i == 3)
+            {
+                Console.Write("  ");
+                Console.BackgroundColor = ConsoleColor.Yellow;
+                Console.Write("[ ]");
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.Write(" = VIP seat");
+            }
+            else if (i == 4)
+            {
+                Console.Write("  ");
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                Console.Write("[ ]");
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.Write(" = VIP+ seat");
+            }
+            else if (i == 5)
+            {
+                Console.Write("  ");
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.Write("[ ]");
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.Write(" = Selected seat");
             }
             Console.WriteLine();
         }

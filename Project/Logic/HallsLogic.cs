@@ -1,6 +1,6 @@
 public class HallsLogic
 {
-    private static List<HallModel> _halls;
+    private static List<HallModel> _halls { get; set; } = HallsAccess.LoadAll();
 
     public HallsLogic()
     {

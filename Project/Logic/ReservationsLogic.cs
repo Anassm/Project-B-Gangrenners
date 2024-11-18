@@ -1,6 +1,6 @@
 public class ReservationsLogic
 {
-    private List<ReservationModel> _reservations;
+    private List<ReservationModel> _reservations { get; set; }
 
     public ReservationsLogic()
     {
