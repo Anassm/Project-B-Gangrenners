@@ -17,7 +17,7 @@ public class AccountsLogic
     // Load all the accounts to the list inside logic class
     public AccountsLogic()
     {
-        _accounts = AccountsAccess.LoadAll();
+        _accounts = Access<AccountModel>.LoadAll();
     }
 
 
@@ -36,7 +36,8 @@ public class AccountsLogic
             //add new model
             _accounts.Add(acc);
         }
-        AccountsAccess.WriteAll(_accounts);
+
+        Access<AccountModel>.WriteAll(_accounts);
 
     }
 

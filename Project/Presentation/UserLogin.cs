@@ -10,7 +10,8 @@ static class UserLogin
         Console.WriteLine("Please enter your email address");
         string email = Console.ReadLine();
         Console.WriteLine("Please enter your password");
-        string password = HideCharacter();
+        string password = "xyz";
+        //string password = HideCharacter();
         
         // Check if the email and password match an account
         AccountModel acc = accountsLogic.CheckLogin(email, password);

@@ -21,7 +21,7 @@ static class Menu
         Console.WriteLine("Enter 4 to exit");
 
         string input = Console.ReadLine();
-        Console.Clear();
+        //Console.Clear();
         if (input == "1")
         {
             UserLogin.Start();
