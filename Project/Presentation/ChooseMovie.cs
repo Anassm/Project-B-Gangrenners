@@ -46,6 +46,11 @@ public static class ChooseMovie
             Console.Clear();
             return true;
         }
+        else if (CorrectChoice == "n" || CorrectChoice == "no")
+        {
+            Console.Clear();
+            Menu.MainMenu();
+        }
         Console.Clear();
         return false;
     }
