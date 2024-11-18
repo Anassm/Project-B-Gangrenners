@@ -80,6 +80,7 @@ public static class AdminLogin
                 ManageMovies.SeeArchivedMoviesMenu();
                 break;
             case "6":
+                _attemptsLeft = 3;
                 Console.Clear();
                 Menu.Start();
                 break;
