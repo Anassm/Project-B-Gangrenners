@@ -55,23 +55,38 @@ public static class ChooseMovie
         int number = 1;
         List<ShowtimeModel> NewShowtimes = [];
         List<ShowtimeModel> showtimelist = _showtimesLogic.GetShowtimesByMovieId(movieId);
-        System.Console.WriteLine("A list of all al the times:");
-        System.Console.WriteLine($"----------------------------");
-        foreach (ShowtimeModel showTime in showtimelist)
+        if (showtimelist.Count() != 0)
         {
-            if (showTime.MoviesId == movieId)
+            System.Console.WriteLine("A list of all al the times:");
+            System.Console.WriteLine($"----------------------------");
+            foreach (ShowtimeModel showTime in showtimelist)
             {
-                System.Console.WriteLine($"number: {number}");
-                System.Console.WriteLine($"Date / Time: {showTime.Time}");
-                System.Console.WriteLine($"Hall: {showTime.HallId}");
-                System.Console.WriteLine($"----------------------------");
-                NewShowtimes.Add(showTime);
-                number++;
+                if (showTime.MoviesId == movieId)
+                {
+                    System.Console.WriteLine($"number: {number}");
+                    System.Console.WriteLine($"Date / Time: {showTime.Time}");
+                    System.Console.WriteLine($"Hall: {showTime.HallId}");
+                    System.Console.WriteLine($"----------------------------");
+                    NewShowtimes.Add(showTime);
+                    number++;
+                }
             }
+            System.Console.WriteLine("Please choose the number of the corresponding screening time.");
+            int showtimeChoice = Convert.ToInt32(Console.ReadLine());
+            return NewShowtimes[showtimeChoice - 1];
         }
-        System.Console.WriteLine("Please choose the number of the corresponding showtime.");
-        int showtimeChoice = Convert.ToInt32(Console.ReadLine());
-        return NewShowtimes[showtimeChoice - 1];
+        else
+        {
+            System.Console.WriteLine("There are no screening times.");
+            System.Console.WriteLine("Going back to main menu.");
+            ConsoleKeyInfo key = Console.ReadKey(true);
+            if (key.Key != null)
+            {
+                Console.Clear();
+                Menu.Start();
+            }
+            return null;
+        }
     }
 
     public static (SeatModel, ShowtimeModel) SeatChoice(int showtimeId)
