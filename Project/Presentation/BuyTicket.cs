@@ -36,6 +36,13 @@ static class BuyTicket
                 _showtimesLogic.UpdateList(info.showtime);
                 Console.WriteLine("Your reservation has been made, your code is: " + reservation.Code);
                 Console.WriteLine("Thank you for your purchase");
+                Console.WriteLine("Press any key to return to the main menu");
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                if (key.Key != null)
+                {
+                    Console.Clear();
+                    Menu.MainMenu();
+                }
                 Menu.MainMenu();
             }
             catch (Exception e)
