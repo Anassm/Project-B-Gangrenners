@@ -229,11 +229,7 @@ public static class ManageMovies
         System.Console.WriteLine("---------------------------------------");
         foreach (MovieModel movie in MoviesArchiveLogic._movies)
         {
-            System.Console.WriteLine($"ID: {movie.Id}");
-            System.Console.WriteLine($"Name: {movie.Name}");
-            System.Console.WriteLine($"Genre: {movie.Genre}");
-            System.Console.WriteLine($"Duration: {movie.Duration}");
-            System.Console.WriteLine($"Promoted: {movie.Promoted}");
+            System.Console.WriteLine(movie.ToStringComplete());
             System.Console.WriteLine("---------------------------------------");
         }
         System.Console.WriteLine("Archive list shown above.");
@@ -262,11 +258,7 @@ public static class ManageMovies
         System.Console.WriteLine("---------------------------------------");
         foreach (MovieModel movie in MoviesLogic._movies)
         {
-            System.Console.WriteLine($"ID: {movie.Id}");
-            System.Console.WriteLine($"Name: {movie.Name}");
-            System.Console.WriteLine($"Genre: {movie.Genre}");
-            System.Console.WriteLine($"Duration: {movie.Duration}");
-            System.Console.WriteLine($"Promoted: {movie.Promoted}");
+            System.Console.WriteLine(movie.ToStringComplete());
             System.Console.WriteLine("---------------------------------------");
         }
         System.Console.WriteLine("current movie list shown above.");
