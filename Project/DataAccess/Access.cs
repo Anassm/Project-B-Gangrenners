@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices.Marshalling;
 using Newtonsoft.Json;
 
-public abstract class Access<T> where T : Access<T>
+public abstract class Access<T>
 {
     protected static string Path { get; set; }
 
