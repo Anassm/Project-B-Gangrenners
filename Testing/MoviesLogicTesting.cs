@@ -40,7 +40,7 @@ public class TestMoviesLogic
     {
         MoviesLogic ml = new MoviesLogic();
 
-        MovieModel movie = new MovieModel(4, "The Dark Knight", "Action", 152, false);
+        MovieModel movie = new MovieModel(4, "The Dark Knight", "Action", 152, false, "No summary available");
 
         MoviesLogic.AddMovie(movie);
 
