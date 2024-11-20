@@ -143,4 +143,15 @@ public class SeatsLogic
         }
         SeatsAccess.WriteAll(_seats);
     }
+
+    public static void UpdatePrice(int id, double price)
+    {
+        SeatModel seat = _seats.FirstOrDefault(s => s.Id == id);
+
+        if (seat != null)
+        {
+            seat.Price = price;
+            SeatsAccess.WriteAll(_seats);
+        }
+    }
 }
