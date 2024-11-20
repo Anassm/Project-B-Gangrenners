@@ -194,6 +194,48 @@ public static class ManageMovies
         }
     }
 
+    public static void DemoteMovieMenu()
+    {
+        _moviesLogic.ToString();
+        _moviesArchiveLogic.ToString();
+        System.Console.WriteLine("You have chosen to demote a movie.");
+        System.Console.WriteLine("Please give the name of the movie.");
+        System.Console.WriteLine("If you want to quit type Q or quit");
+        string input = System.Console.ReadLine().ToLower();
+        if (input == "q" || input == "quit")
+        {
+            AdminLogin.AdminMenu();
+        }
+        MovieModel movie = MoviesLogic.GetMovieByName(input);
+        if (movie == null && MoviesLogic.CheckIfMovieInMovies(input))
+        {
+            Console.Clear();
+            System.Console.WriteLine("This movie does not exist.");
+            DemoteMovieMenu();
+        }
+        bool prom = MoviesLogic.unPromoteMovie(movie);
+        if(prom == false)
+        {
+            Console.Clear();
+            System.Console.WriteLine("This movie cannot be demoted.");
+        }
+        else
+        {
+            Console.Clear();
+            System.Console.WriteLine("Movie was successfully demoted.");
+
+        }
+        
+        System.Console.WriteLine("");
+        System.Console.WriteLine("Give any input to go back to admin menu.");
+        ConsoleKeyInfo key = Console.ReadKey(true);
+        if (key.Key != null)
+        {
+            Console.Clear();
+            AdminLogin.AdminMenu();
+        }
+    }
+
     public static void SeeArchivedMoviesMenu()
     {
         _moviesLogic.ToString();
