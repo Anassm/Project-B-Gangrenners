@@ -4,6 +4,7 @@
     "name": "test",
     "genre": "test",
     "duration": 123,
-    "promoted": false
+    "promoted": false,
+    "summary": "test"
   }
 ]
