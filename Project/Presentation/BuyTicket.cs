@@ -5,20 +5,94 @@ static class BuyTicket
     static private ReservationsLogic _reservationsLogic = new ReservationsLogic();
     static private string[] _seatTypes = {"Normal", "VIP", "VIP+"};
 
-    public static void Start((SeatModel seat, ShowtimeModel showtime) info)
+    public static string GetSeatTypes(List<SeatModel> seats)
     {
-        if (info.seat == null || info.showtime == null)
+        int countNormal = 0;
+        int countVIP = 0;
+        int countVIPPlus = 0;
+        foreach (SeatModel seat in seats)
+        {
+            if (seat.Type == 1)
+            {
+                countNormal++;
+            }
+            else if (seat.Type == 2)
+            {
+                countVIP++;
+            }
+            else if (seat.Type == 3)
+            {
+                countVIPPlus++;
+            }
+        }
+        string seatTypes = "";
+        if (countNormal > 0)
+        {
+            seatTypes += countNormal + "x normal";
+        }
+        if (countVIP > 0)
+        {
+            if (countNormal > 0)
+            {
+                seatTypes += ", ";
+            }
+            seatTypes += countVIP + "x VIP";
+        }
+        if (countVIPPlus > 0)
+        {
+            if (countNormal > 0 || countVIP > 0)
+            {
+                seatTypes += ", ";
+            }
+            seatTypes += countVIPPlus + "x VIP+";
+        }
+
+        if (seats.Count > 1)
+        {
+            seatTypes += " seats";
+        }
+        else
+        {
+            seatTypes += " seat";
+        }
+        return seatTypes;
+    }
+
+    public static void Start((List<SeatModel> seats, ShowtimeModel showtime) info)
+    {
+        // Check if the input is valid
+        if (info.seats == null || info.showtime == null)
         {
             Menu.MainMenu();
         }
+
+        // Calculate the total price of the order
+        double TotalPrice = 0;
+        foreach (SeatModel seat in info.seats)
+        {
+            TotalPrice += seat.Price;
+        }
+
+        // declare variables
+        string movieName = MoviesLogic.GetMovieById(info.showtime.MoviesId).Name;
+        string seatTypes = GetSeatTypes(info.seats);
+        string time = info.showtime.Time.ToString();
+        string seats = "";
+        foreach (SeatModel seat in info.seats)
+        {
+            seats += $"Row: {seat.Row}, Seat: {seat.Seat}\n";
+        }
+
+    
+        Console.Clear();
         Console.WriteLine("Welcome to the ticket buying page");
-        _seatsLogic.GetPriceBySeat(info.seat);
         Console.WriteLine("This is what your order looks like now:");
-        Console.WriteLine("Movie: " +  MoviesLogic.GetMovieById(info.showtime.MoviesId).Name );
-        Console.WriteLine("Seat type: " + _seatTypes[info.seat.Type - 1]);
-        Console.WriteLine("Price: \u20AC" + Math.Round(info.seat.Price,2).ToString("0.00"));
-        Console.WriteLine("Time of the movie: " + info.showtime.Time);
+        Console.WriteLine("Movie: " +  movieName);
+        Console.WriteLine("Seat types: " + seatTypes);
+        Console.WriteLine("Price: \u20AC" + Math.Round(TotalPrice,2).ToString("0.00"));
+        Console.WriteLine("Time of the movie: " + time);
         Console.WriteLine("Hall: " + info.showtime.HallId);
+        Console.WriteLine("Seats: " + seats);
         Console.WriteLine("Do you want to proceed with the purchase?");
         Console.WriteLine("1. Yes");
         Console.WriteLine("2. No");
@@ -29,13 +103,32 @@ static class BuyTicket
             Console.Clear();
             try
             {
-                _showtimesLogic.ReserveSeat(info.showtime.Id, info.seat.Row, info.seat.Seat);
-                int[] coordinates = SeatsLogic.GetCoordinatesBySeat(info.seat);
-                info.showtime.Availability[coordinates[0], coordinates[1]] = 1;
-                ReservationModel reservation = new ReservationModel(_reservationsLogic.GetNextId(), info.seat.Id, info.showtime.Id, 1, info.seat.Price, _reservationsLogic.GenerateCode());
-                _reservationsLogic.UpdateList(reservation);
+                foreach(SeatModel seat in info.seats)
+                {
+                    _showtimesLogic.ReserveSeat(info.showtime.Id, seat.Row, seat.Seat);
+                    int[] coordinates = SeatsLogic.GetCoordinatesBySeat(seat);
+                    info.showtime.Availability[coordinates[0], coordinates[1]] = 1;
+                }
+
+                List<int> seatIds = new List<int>();
+                foreach (SeatModel seat in info.seats)
+                {
+                    seatIds.Add(seat.Id);
+                }
+
+                List<string> codes = _reservationsLogic.GenerateUniqueCodes(info.seats.Count);
+
+                int accountId = 0;
+                if (AccountsLogic.CurrentAccount != null)
+                {
+                    accountId = AccountsLogic.CurrentAccount.Id;
+                }
+
+
+                ReservationModel reservation = new ReservationModel(_reservationsLogic.GetNextId(),seatIds, info.showtime.Id, accountId, TotalPrice, codes);
+                _reservationsLogic.AddReservation(reservation);
                 _showtimesLogic.UpdateList(info.showtime);
-                Console.WriteLine("Your reservation has been made, your code is: " + reservation.Code);
+                Console.WriteLine("Your reservation has been made, your codes are: " + string.Join(", ", codes));
                 Console.WriteLine("Thank you for your purchase");
                 Console.WriteLine("Press any key to return to the main menu");
                 ConsoleKeyInfo key = Console.ReadKey(true);
@@ -58,22 +151,5 @@ static class BuyTicket
             Menu.MainMenu();
         }
 
-    }
-
-    public static void Start(int seatId, int showtimeId)
-    {
-        if (seatId == 0 || showtimeId == 0)
-        {
-            Console.WriteLine("Invalid input");
-            Menu.MainMenu();
-        }
-        
-        SeatModel seat = _seatsLogic.GetSeatById(seatId);
-        ShowtimeModel showtime = _showtimesLogic.GetShowtimeById(showtimeId);
-        if (seat == null || showtime == null)
-        {
-            Menu.MainMenu();
-        }
-        Start((seat, showtime) );
     }
 }
