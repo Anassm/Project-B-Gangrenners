@@ -50,12 +50,51 @@ static class Menu
     static public void MainMenu()
     {
         // TODO: Discuss whether to add interactivity with the user when logged in, or not.
-        Console.Clear();
-        Console.WriteLine("Enter 1 to buy a ticket");
-        Console.WriteLine("Enter 2 to logout");
-
+        if (AccountsLogic.CurrentAccount != null)
+        {
+            Console.Clear();
+            Console.WriteLine("Enter 1 to buy a ticket");
+            Console.WriteLine("Enter 2 to see reservation");
+            Console.WriteLine("Enter 3 to logout");
+        }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine("Enter 1 to buy a ticket");
+            Console.WriteLine("Enter 2 to register");
+            Console.WriteLine("Enter 3 to logout");
+        }
         string input = Console.ReadLine();
         Console.Clear();
+        switch (input)
+        {
+            case "1":
+                Console.WriteLine("Buying a ticket...");
+                BuyTicket.Start(ChooseMovie.StartMovie());
+                break;
+            case "3":
+                Start();
+                break;
+            case "2":
+                if (AccountsLogic.CurrentAccount != null)
+                {
+                    SeeReservations.SeeReservationSubMenu();
+                    break;
+                }
+                else
+                {
+                    //REGISTER
+                    System.Console.WriteLine("");
+                    break;
+                }
+                
+            default:
+                Console.WriteLine("Invalid input");
+                MainMenu();
+                break;
+        }
+
+
         if (input == "1")
         {
             Console.WriteLine("Buying a ticket...");
