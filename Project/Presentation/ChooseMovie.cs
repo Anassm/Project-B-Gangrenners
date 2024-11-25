@@ -6,7 +6,7 @@ public static class ChooseMovie
     static private SeatsLogic _seatsLogic = new SeatsLogic();
     public static string MovieToWatch;
     public static MovieModel Movie;
-    public static (SeatModel, ShowtimeModel) StartMovie()
+    public static (List<SeatModel>, ShowtimeModel) StartMovie()
     {
         MovieModel Choice1 = MakeChoice();
         if (Choice1 == null)
@@ -99,52 +99,80 @@ public static class ChooseMovie
         }
     }
 
-    public static (SeatModel, ShowtimeModel) SeatChoice(int showtimeId)
+    public static (List<SeatModel>, ShowtimeModel) SeatChoice(int showtimeId)
     {
-        int number = 1;
-        Console.Clear();
-        List<SeatModel> Seats = SeatsAccess.LoadAll();
-        List<SeatModel> NewSeats = [];
-        System.Console.WriteLine("Here are the seats for this Time:");
-        System.Console.WriteLine($"----------------------------");
+        System.Console.WriteLine("Please select the number of seats you would like to reserve:");
+        int amountOfSeats = Convert.ToInt32(Console.ReadLine());
+        ShowtimeModel showtime = ShowtimesLogic.GetShowtimeById(showtimeId);
+
+        if (!CheckIfEnoughAvailableSeats(showtime, amountOfSeats))
+        {
+            Console.WriteLine("There are not enough available seats for the amount you want to reserve.");
+            Console.WriteLine("Please choose a different amount.");
+            return SeatChoice(showtimeId);
+        }
+
+        List<SeatModel> selectedSeats = new List<SeatModel>();
         int selectedRow = 8, selectedCol = 0;
         bool isSelecting = true;
 
-        ShowtimeModel showtime = _showtimesLogic.GetShowtimeById(showtimeId);
+        Console.Clear();
         DisplaySeatMap(showtime, selectedRow, selectedCol);
         Console.WriteLine("Use arrow keys to navigate, Enter to select a seat, or Escape to exit.");
-        (selectedRow, selectedCol) = HandleArrowKeyPress(selectedRow, selectedCol, showtime);
-        Console.Clear();
-        while (isSelecting)
+
+        while (isSelecting && selectedSeats.Count < amountOfSeats)
         {
-            
-            DisplaySeatMap(showtime, selectedRow, selectedCol);
-            Console.WriteLine("Press Enter to confirm your selection.");
             ConsoleKeyInfo key = Console.ReadKey(true);
             Console.Clear();
+
             if (key.Key == ConsoleKey.Enter)
             {
                 SeatModel selectedSeat = ConfirmSelection(showtime, selectedRow, selectedCol);
-                if (selectedSeat != null)
+                if (selectedSeat != null && !selectedSeats.Contains(selectedSeat))
                 {
-                    return (selectedSeat, showtime);
+                    selectedSeats.Add(selectedSeat);
+                    showtime.Availability[selectedRow, selectedCol] = 1;
+                    Console.WriteLine($"Seat {selectedSeats.Count} selected.");
                 }
             }
             else if (key.Key == ConsoleKey.Escape)
             {
                 isSelecting = false;
-                return(null, null);
+                return (null, null);
             }
             else
             {
                 (selectedRow, selectedCol) = HandleArrowKeyPress(selectedRow, selectedCol, showtime, key);
             }
-            
+
+            DisplaySeatMap(showtime, selectedRow, selectedCol);
+            Console.WriteLine($"Seats selected: {selectedSeats.Count}/{amountOfSeats}");
         }
-        
-        return (null, null);
+
+        if (selectedSeats.Count == amountOfSeats)
+        {
+            Console.WriteLine("All seats selected successfully!");
+            return (selectedSeats, showtime);
+        }
+        else
+        {
+            Console.WriteLine("Seat selection canceled.");
+            return (null, null);
+        }
     }
 
+    public static bool CheckIfEnoughAvailableSeats(ShowtimeModel showtime, int numberOfSeats)
+    {
+        int availableSeats = 0;
+        foreach (int seat in showtime.Availability)
+        {
+            if (seat == 0)
+            {
+                availableSeats++;
+            }
+        }
+        return availableSeats >= numberOfSeats;
+    }
     public static void DisplaySeatMap(ShowtimeModel showtime, int selectedRow, int selectedCol)
     {
         int[,] layout = showtime.Availability;
