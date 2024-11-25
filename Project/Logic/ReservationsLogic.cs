@@ -92,12 +92,12 @@ public class ReservationsLogic
         return reservations;
     }
 
-    public List<ReservationModel> SeePastReservations(int accountid, bool includeExpired)
+    public List<ReservationModel> SeePastReservations(int accountid)
     {
         List<ReservationModel> reservations = [];
         foreach (ReservationModel reserv in _reservations)
         {
-            if (reserv.AccountId == accountid && DateTime.Now.CompareTo(ShowtimesLogic.GetShowtimeById(reserv.ShowtimeId).Time) >= -1)
+            if (reserv.AccountId == accountid && DateTime.Now.CompareTo(ShowtimesLogic.GetShowtimeById(reserv.ShowtimeId).Time) = -1)
             {
                 reservations.Add(reserv);
             }
