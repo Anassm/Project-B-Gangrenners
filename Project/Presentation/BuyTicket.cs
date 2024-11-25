@@ -3,6 +3,7 @@ static class BuyTicket
     static private SeatsLogic _seatsLogic = new SeatsLogic();
     static private ShowtimesLogic _showtimesLogic = new ShowtimesLogic();
     static private ReservationsLogic _reservationsLogic = new ReservationsLogic();
+    static private string[] _seatTypes = {"Normal", "VIP", "VIP+"};
 
     public static void Start((SeatModel seat, ShowtimeModel showtime) info)
     {
@@ -13,8 +14,8 @@ static class BuyTicket
         Console.WriteLine("Welcome to the ticket buying page");
         _seatsLogic.GetPriceBySeat(info.seat);
         Console.WriteLine("This is what your order looks like now:");
-        Console.WriteLine("Movie: " + info.showtime.MoviesId);
-        Console.WriteLine("Seat type: " + info.seat.Type);
+        Console.WriteLine("Movie: " +  MoviesLogic.GetMovieById(info.showtime.MoviesId).Name );
+        Console.WriteLine("Seat type: " + _seatTypes[info.seat.Type - 1]);
         Console.WriteLine("Price: \u20AC" + Math.Round(info.seat.Price,2).ToString("0.00"));
         Console.WriteLine("Time of the movie: " + info.showtime.Time);
         Console.WriteLine("Hall: " + info.showtime.HallId);

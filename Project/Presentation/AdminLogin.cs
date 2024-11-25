@@ -53,9 +53,10 @@ public static class AdminLogin
         System.Console.WriteLine("1. Add a movie");
         System.Console.WriteLine("2. Remove movie");
         System.Console.WriteLine("3. Promote movie");
-        System.Console.WriteLine("4. See current movies");
-        System.Console.WriteLine("5. See archived movies");
-        System.Console.WriteLine("6. Log out");
+        System.Console.WriteLine("4. Demote movie");
+        System.Console.WriteLine("5. See current movies");
+        System.Console.WriteLine("6. See archived movies");
+        System.Console.WriteLine("7. Log out");
         string input = System.Console.ReadLine();
         switch (input)
         {
@@ -73,13 +74,17 @@ public static class AdminLogin
                 break;
             case "4":
                 Console.Clear();
-                ManageMovies.SeeCurrentMoviesMenu();
+                ManageMovies.DemoteMovieMenu();
                 break;
             case "5":
                 Console.Clear();
-                ManageMovies.SeeArchivedMoviesMenu();
+                ManageMovies.SeeCurrentMoviesMenu();
                 break;
             case "6":
+                Console.Clear();
+                ManageMovies.SeeArchivedMoviesMenu();
+                break;
+            case "7":
                 _attemptsLeft = 3;
                 Console.Clear();
                 Menu.Start();
@@ -91,6 +96,7 @@ public static class AdminLogin
                 break;
         }
     }
+
 
     public static string HideCharacter()
     {
