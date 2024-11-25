@@ -2,11 +2,10 @@ using System.Dynamic;
 
 public class ShowtimesLogic
 {
-    private List<ShowtimeModel> _showtimes { get; set; }
+    static private List<ShowtimeModel> _showtimes { get; set; } = ShowtimesAccess.LoadAll();
 
     public ShowtimesLogic()
     {
-        _showtimes = ShowtimesAccess.LoadAll();
     }
 
     public List<ShowtimeModel> GetShowtimesByMovieId(int movieId)
@@ -16,7 +15,7 @@ public class ShowtimesLogic
         return showtimes;
     }
 
-    public ShowtimeModel GetShowtimeById(int id)
+    static public ShowtimeModel GetShowtimeById(int id)
     {
         ShowtimeModel showtime = _showtimes.Find(showtime => showtime.Id == id);
 

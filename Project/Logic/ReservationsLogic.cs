@@ -79,4 +79,41 @@ public class ReservationsLogic
         return _reservations.Count == 0 ? 1 : _reservations.Max(s => s.Id) + 1;
     }
 
+    public List<ReservationModel> SeeFutureReservations(int accountid)
+    {
+        List<ReservationModel> reservations = [];
+        foreach (ReservationModel reserv in _reservations)
+        {
+            if (reserv.AccountId == accountid && DateTime.Now.CompareTo(ShowtimesLogic.GetShowtimeById(reserv.ShowtimeId).Time) >= 0)
+            {
+                reservations.Add(reserv);
+            }
+        }
+        return reservations;
+    }
+
+    public List<ReservationModel> SeePastReservations(int accountid)
+    {
+        List<ReservationModel> reservations = [];
+        foreach (ReservationModel reserv in _reservations)
+        {
+            if (reserv.AccountId == accountid && DateTime.Now.CompareTo(ShowtimesLogic.GetShowtimeById(reserv.ShowtimeId).Time) = -1)
+            {
+                reservations.Add(reserv);
+            }
+        }
+        return reservations;
+    }
+
+    public ReservationModel GetReservation(string code, List<ReservationModel> reservations)
+    {
+        foreach (ReservationModel reser in reservations)
+        {
+            if (reser.Codes.Contains(code))
+            {
+                return reser;
+            }
+        }
+        return null;
+    }
 }
