@@ -144,13 +144,13 @@ public class SeatsLogic
         SeatsAccess.WriteAll(_seats);
     }
 
-    public static void UpdatePrice(int id, double price)
+    public static void UpdatePrice(int hallId, int type, double price)
     {
-        SeatModel seat = _seats.FirstOrDefault(s => s.Id == id);
+        SeatModel seatTypeFromHall = _seats.FirstOrDefault(s => s.HallId == hallId && s.Type == type);
 
-        if (seat != null)
+        if (seatTypeFromHall != null)
         {
-            seat.Price = price;
+            seatTypeFromHall.Price = price;
             SeatsAccess.WriteAll(_seats);
         }
     }
