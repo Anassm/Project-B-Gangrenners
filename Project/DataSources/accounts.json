@@ -3,12 +3,17 @@
 		"id": 1,
 		"emailAddress": "n@b.c",
 		"password": "xyz",
-		"fullName": "Nikola Tesla"
+		"firstname": "Nikola",
+		"lastname": "Tesla",
+		"dateofbirth": "2000-10-22T00:00:00"
+
 	},
 	{
 		"id": 2,
 		"emailAddress": "t@b.c",
 		"password": "xyz",
-		"fullName": "Thomas Edison"
+		"firstname": "Thomas",
+		"lastname": "Edison",
+		"dateofbirth": "2000-10-22T00:00:00"
 	}
 ]
