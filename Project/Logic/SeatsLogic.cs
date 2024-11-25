@@ -143,4 +143,18 @@ public class SeatsLogic
         }
         SeatsAccess.WriteAll(_seats);
     }
+
+    // In a hall, change the price for all seats with a specific type
+    public static void UpdatePrice(int hallId, int type, double price)
+    {
+        foreach (SeatModel seat in _seats)
+        {
+            if (seat.HallId == hallId && seat.Type == type)
+            {
+                seat.Price = price;
+            }
+        }
+
+        SeatsAccess.WriteAll(_seats);
+    }
 }
