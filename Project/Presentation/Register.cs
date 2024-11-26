@@ -61,7 +61,8 @@ public class Register
             string password = HideCharacter();
             if (!AccountsLogic.CheckPassword(password))
             {
-                Console.WriteLine("Invalid password, make sure it is at least 8 characters long and contains at least one number, one uppercase letter and one special character");
+                Console.Clear();
+                Console.WriteLine("Invalid password");
                 continue;
             }
 
