@@ -31,6 +31,11 @@ public class ShowtimeModel
     {
         return $"ID: {Id}\n" + $"Movie ID: {MoviesId}\n" + $"Time: {Time}\n" + $"HallId: {HallId}\n";
     }
+
+    public string ToStringWithoutIds()
+    {
+        return $"Time: {Time}\n" + $"HallId: {HallId}\n";
+    }
 }
 
 

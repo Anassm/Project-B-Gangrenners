@@ -1,9 +1,6 @@
 
 public static class ChooseMovie
 {
-    static private MoviesLogic _movieLogic = new MoviesLogic();
-    static private ShowtimesLogic _showtimesLogic = new ShowtimesLogic();
-    static private SeatsLogic _seatsLogic = new SeatsLogic();
     public static string MovieToWatch;
     public static MovieModel Movie;
     public static (List<SeatModel>, ShowtimeModel) StartMovie()
@@ -20,7 +17,7 @@ public static class ChooseMovie
     {
         System.Console.WriteLine("Please enter the name of the movie you would like to see:");
         MovieToWatch = System.Console.ReadLine();
-        if (MovieToWatch is null || MovieToWatch == "")
+        if (string.IsNullOrWhiteSpace(MovieToWatch))
         {
             System.Console.WriteLine("Please enter a valid movie name.");
             return MakeChoice();
@@ -64,7 +61,7 @@ public static class ChooseMovie
     {
         int number = 1;
         List<ShowtimeModel> NewShowtimes = [];
-        List<ShowtimeModel> showtimelist = _showtimesLogic.GetShowtimesByMovieId(movieId);
+        List<ShowtimeModel> showtimelist = ShowtimesLogic.GetShowtimesByMovieId(movieId);
         if (showtimelist.Count() != 0)
         {
             System.Console.WriteLine("A list of all al the times:");
@@ -74,16 +71,14 @@ public static class ChooseMovie
                 if (showTime.MoviesId == movieId)
                 {
                     System.Console.WriteLine($"number: {number}");
-                    System.Console.WriteLine($"Date / Time: {showTime.Time}");
-                    System.Console.WriteLine($"Hall: {showTime.HallId}");
-                    System.Console.WriteLine($"----------------------------");
+                    System.Console.WriteLine($"{showTime.ToStringWithoutIds()}");
+                    System.Console.WriteLine("----------------------------");
                     NewShowtimes.Add(showTime);
                     number++;
                 }
             }
             System.Console.WriteLine("Please choose the number of the corresponding screening time.");
-            int showtimeChoice = Convert.ToInt32(Console.ReadLine());
-            return NewShowtimes[showtimeChoice - 1];
+            return NewShowtimes[Convert.ToInt32(Console.ReadLine()) - 1];
         }
         else
         {

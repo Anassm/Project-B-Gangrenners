@@ -8,14 +8,14 @@ public class ShowtimesLogic
     {
     }
 
-    public List<ShowtimeModel> GetShowtimesByMovieId(int movieId)
+    public static List<ShowtimeModel> GetShowtimesByMovieId(int movieId)
     {
         List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.MoviesId == movieId);
 
         return showtimes;
     }
 
-    static public ShowtimeModel GetShowtimeById(int id)
+    public static ShowtimeModel GetShowtimeById(int id)
     {
         ShowtimeModel showtime = _showtimes.Find(showtime => showtime.Id == id);
 
