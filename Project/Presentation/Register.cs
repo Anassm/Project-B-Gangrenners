@@ -16,7 +16,7 @@ public class Register
         string firstName = GetValidFirstName();
         
         string lastName = GetValidLastName();
-        
+
         DateTime dateOfBirth = GetValidDateOfBirth();
 
         AccountsLogic.AddAccount(email, password, firstName, lastName, dateOfBirth);
@@ -30,13 +30,11 @@ public class Register
         {
             Console.WriteLine("Please enter your first name");
             string firstName = Console.ReadLine();
-            if (firstName.Length < 2)
+            if (AccountsLogic.CheckName(firstName))
             {
-                Console.WriteLine("Invalid first name");
-                continue;
+                return firstName;
             }
-
-            return firstName;
+            Console.WriteLine("Invalid first name");
         }
     }
 
@@ -46,13 +44,11 @@ public class Register
         {
             Console.WriteLine("Please enter your last name");
             string lastName = Console.ReadLine();
-            if (lastName.Length < 2)
+            if (AccountsLogic.CheckName(lastName))
             {
-                Console.WriteLine("Invalid last name");
-                continue;
+                return lastName;
             }
-
-            return lastName;
+            Console.WriteLine("Invalid last name");
         }
     }
 
@@ -86,19 +82,9 @@ public class Register
         {
             Console.WriteLine("Please enter your date of birth (dd-MM-yyyy)");
             string dateOfBirthInput = Console.ReadLine();
-            try
+            if (AccountsLogic.CheckDateOfBirth(dateOfBirthInput))
             {
-                DateTime dateOfBirth = DateTime.Parse(dateOfBirthInput);
-                bool isWithinValidRange = dateOfBirth <= DateTime.Now && dateOfBirth >= DateTime.Now.AddYears(-120);
-
-                if (isWithinValidRange)
-                {
-                    return dateOfBirth;
-                }
-            }
-            catch (FormatException)
-            {
-                // Do nothing, will prompt for input again
+                return DateTime.Parse(dateOfBirthInput);
             }
 
             Console.WriteLine("Invalid date of birth");
