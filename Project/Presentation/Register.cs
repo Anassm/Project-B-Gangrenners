@@ -57,11 +57,11 @@ public class Register
     {
         while (true)
         {
-            Console.WriteLine("Please enter your password");
+            Console.WriteLine("Please enter your password, must be at least 8 characters long and contain at least one number, one uppercase letter and one special character");
             string password = HideCharacter();
             if (!AccountsLogic.CheckPassword(password))
             {
-                Console.WriteLine("Invalid password");
+                Console.WriteLine("Invalid password, make sure it is at least 8 characters long and contains at least one number, one uppercase letter and one special character");
                 continue;
             }
 
