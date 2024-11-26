@@ -53,6 +53,8 @@ public static class ManageHalls
 
         SeatsLogic.UpdatePrice(hall.Id, seatType, newPrice);
 
+        Console.WriteLine($"The price for seat type {seatType} in hall {hall.Id} has been successfully updated to {newPrice}.");
+
         AdminLogin.AdminMenu();
     }
 }
