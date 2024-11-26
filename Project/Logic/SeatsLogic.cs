@@ -14,7 +14,7 @@ public class SeatsLogic
     {
         foreach (SeatModel seat in _seats)
         {
-            if (seat.Id == type)
+            if (seat.Type == type)
             {
                 return true;
             }
@@ -156,5 +156,7 @@ public class SeatsLogic
         }
 
         SeatsAccess.WriteAll(_seats);
+
+        Console.WriteLine($"The price for seat type {type} in hall {hallId} has been successfully updated to {price}.");
     }
 }
