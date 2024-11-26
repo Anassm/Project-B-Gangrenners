@@ -126,6 +126,37 @@ public class AccountsLogic
         
     }
 
+    public static bool CheckDateOfBirth(string dateofbirth)
+    {
+        try
+            {
+                DateTime dateOfBirth = DateTime.Parse(dateofbirth);
+                bool isWithinValidRange = dateOfBirth <= DateTime.Now && dateOfBirth >= DateTime.Now.AddYears(-120);
+
+                if (isWithinValidRange)
+                {
+                    return true;
+                }
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+            return false;
+    }
+
+    public static bool CheckName(string name)
+    {
+        if (name == null)
+        {
+            return false;
+        }
+        if (name.Length < 2)
+        {
+            return false;
+        }
+        return true;
+    }
     public static void AddAccount(string email, string password, string firstname, string lastname, DateTime dateofbirth)
     {
         _accounts.Add(new AccountModel(_accounts.Count+1, email, password, firstname, lastname, dateofbirth));
