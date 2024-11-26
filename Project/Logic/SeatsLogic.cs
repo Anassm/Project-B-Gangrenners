@@ -22,6 +22,18 @@ public class SeatsLogic
         return false;
     }
 
+    public static bool CheckSeatsByType(int hallId, int type)
+    {
+        foreach (SeatModel seat in _seats)
+        {
+            if (seat.HallId == hallId && seat.Type == type)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public SeatModel GetSeatById(int id)
     {
         foreach (SeatModel seat in _seats)
