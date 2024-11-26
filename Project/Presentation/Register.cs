@@ -13,16 +13,49 @@ public class Register
 
         string password = GetValidPassword();
 
-        Console.WriteLine("\nPlease enter your first name");
-        string firstName = Console.ReadLine();
-        Console.WriteLine("Please enter your last name");
-        string lastName = Console.ReadLine();
+        string firstName = GetValidFirstName();
+        
+        string lastName = GetValidLastName();
+        
         DateTime dateOfBirth = GetValidDateOfBirth();
 
         AccountsLogic.AddAccount(email, password, firstName, lastName, dateOfBirth);
         Console.WriteLine("Account created successfully");
         Menu.Start();
     }
+
+    private static string GetValidFirstName()
+    {
+        while (true)
+        {
+            Console.WriteLine("Please enter your first name");
+            string firstName = Console.ReadLine();
+            if (firstName.Length < 2)
+            {
+                Console.WriteLine("Invalid first name");
+                continue;
+            }
+
+            return firstName;
+        }
+    }
+
+    private static string GetValidLastName()
+    {
+        while (true)
+        {
+            Console.WriteLine("Please enter your last name");
+            string lastName = Console.ReadLine();
+            if (lastName.Length < 2)
+            {
+                Console.WriteLine("Invalid last name");
+                continue;
+            }
+
+            return lastName;
+        }
+    }
+
 
     private static string GetValidPassword()
     {
@@ -67,7 +100,7 @@ public class Register
             {
                 // Do nothing, will prompt for input again
             }
-            
+
             Console.WriteLine("Invalid date of birth");
         }
     }
