@@ -7,7 +7,7 @@ public class HallsLogic
         _halls = HallsAccess.LoadAll();
     }
 
-    public HallModel GetHallById(int id)
+    public static HallModel GetHallById(int id)
     {
         HallModel hall = _halls.Find(hall => hall.Id == id);
 

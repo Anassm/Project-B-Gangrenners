@@ -14,7 +14,7 @@ public class SeatsLogic
     {
         foreach (SeatModel seat in _seats)
         {
-            if (seat.Id == type)
+            if (seat.Type == type)
             {
                 return true;
             }
