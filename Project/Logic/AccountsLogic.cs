@@ -56,8 +56,67 @@ public class AccountsLogic
         CurrentAccount = _accounts.Find(i => i.EmailAddress == email && i.Password == password);
         return CurrentAccount;
     }
+
+    public static bool CheckPassword(string password)
+    {
+        if (password.Length < 9)
+        {
+            return false;
+        }
+
+        string SpecialCharacters = "!@#$%^&*()[]?<>:;{}~/";
+
+        bool HasUpperCase = false;
+        bool HasSpecialCharacter = false;
+        bool HasDigit = false;
+
+        foreach (char Char in password)
+        {
+            if (char.IsUpper(Char))
+            {
+                HasUpperCase = true;
+            }
+            if (char.IsDigit(Char))
+            {
+                HasDigit = true;
+            }
+            if (SpecialCharacters.Contains(Char))
+            {
+                HasSpecialCharacter = true;
+            }
+        }
+
+        if (HasUpperCase && HasDigit && HasSpecialCharacter)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public static bool CheckEmail(string email)
+    {
+        bool HasAtSymbol = false;
+        bool HasDotSymbol = false;
+        if (email.Contains("@"))
+        {
+            HasAtSymbol = true;
+        }
+        int DotIndex = email.IndexOf(".");
+        if (DotIndex != -1 && (DotIndex > 0 || DotIndex < email.Length-1))
+        {
+            HasDotSymbol = true;
+        }
+        if (HasAtSymbol && HasDotSymbol)
+        {
+            return true;
+        }
+        return false;
+        
+    }
+
+    public static void AddAccount(string email, string password, string firstname, string lastname, DateTime dateofbirth)
+    {
+        _accounts.Add(new AccountModel(_accounts.Count+1, email, password, firstname, lastname, dateofbirth));
+        AccountsAccess.WriteAll(_accounts);
+    }
 }
-
-
-
-

@@ -14,13 +14,13 @@ public class AccountModel
     public string Password { get; set; }
 
     [JsonPropertyName("firstName")]
-    public string firstName { get; set; }
+    public string FirstName { get; set; }
 
     [JsonPropertyName("lastName")]
-    public string lastName { get; set; }
+    public string LastName { get; set; }
 
     [JsonPropertyName("dateofbirth")]
-    public DateTime dateofbirth { get; set; }
+    public DateTime Dateofbirth { get; set; }
 
 
 
@@ -30,13 +30,13 @@ public class AccountModel
         Id = id;
         EmailAddress = emailAddress;
         Password = password;
-        firstName = firstName;
-        lastName = lastName;
-        dateofbirth = dateofbirth;
+        FirstName = firstName;
+        LastName = lastName;
+        Dateofbirth = dateofbirth;
     }
     public override string ToString()
     {
-        return $"ID: {Id}\n" + $"E-mail address: {EmailAddress}\n" + $"Password: {Password}\n" + $"Full name: {firstName} {lastName}\n" + $"Date of birth: {dateofbirth}\n";
+        return $"ID: {Id}\n" + $"E-mail address: {EmailAddress}\n" + $"Password: {Password}\n" + $"Full name: {FirstName} {LastName}\n" + $"Date of birth: {Dateofbirth}\n";
     }
 
 }
