@@ -10,6 +10,8 @@ public class SeatsLogic
         _seats = SeatsAccess.LoadAll();
     }
 
+    public static List<SeatModel> GetAll() => _seats;
+
     public bool CheckSeatsByType(int type)
     {
         foreach (SeatModel seat in _seats)
