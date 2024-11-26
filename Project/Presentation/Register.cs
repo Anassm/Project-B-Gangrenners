@@ -1,55 +1,75 @@
 public class Register
 {
-
     public static void Start()
     {
         Console.WriteLine("Please enter your email address");
         string email = Console.ReadLine();
-        bool emailCheck = AccountsLogic.CheckEmail(email);
-        if (!emailCheck)
+        if (!AccountsLogic.CheckEmail(email))
         {
-            Console.Clear();
             Console.WriteLine("Invalid email address");
             Start();
             return;
         }
-        string password = "";
-        bool totalCheck = false;
-        while (!totalCheck)
-        {
-            Console.WriteLine("Please enter your password");
-            password = HideCharacter();
-            bool passwordCheck = AccountsLogic.CheckPassword(password);
-            if (!passwordCheck)
-            {
-                continue;
-                Console.Clear();
-            }
-            Console.WriteLine("\nPlease confirm your password");
-            string passwordConfirm = HideCharacter();
-            if (password != passwordConfirm)
-            {
-                Console.Clear();
-                Console.WriteLine("\nPasswords do not match");
-            }
-            else if (password == passwordConfirm && passwordCheck)
-            {
-                totalCheck = true;
-            }
-        }
-        
+
+        string password = GetValidPassword();
+
         Console.WriteLine("\nPlease enter your first name");
         string firstName = Console.ReadLine();
         Console.WriteLine("Please enter your last name");
         string lastName = Console.ReadLine();
-        Console.WriteLine("Please enter your date of birth");
-        string dateofbirth = Console.ReadLine();
-        DateTime dob = DateTime.Parse(dateofbirth);
-        AccountsLogic.AddAccount(email, password, firstName, lastName, dob);
-        Console.Clear();
+        DateTime dateOfBirth = GetValidDateOfBirth();
+
+        AccountsLogic.AddAccount(email, password, firstName, lastName, dateOfBirth);
         Console.WriteLine("Account created successfully");
         Menu.Start();
+    }
 
+    private static string GetValidPassword()
+    {
+        while (true)
+        {
+            Console.WriteLine("Please enter your password");
+            string password = HideCharacter();
+            if (!AccountsLogic.CheckPassword(password))
+            {
+                Console.WriteLine("Invalid password");
+                continue;
+            }
+
+            Console.WriteLine("\nPlease confirm your password");
+            string passwordConfirm = HideCharacter();
+            if (password == passwordConfirm)
+            {
+                return password;
+            }
+
+            Console.WriteLine("Passwords do not match");
+        }
+    }
+
+    private static DateTime GetValidDateOfBirth()
+    {
+        while (true)
+        {
+            Console.WriteLine("Please enter your date of birth (dd-MM-yyyy)");
+            string dateOfBirthInput = Console.ReadLine();
+            try
+            {
+                DateTime dateOfBirth = DateTime.Parse(dateOfBirthInput);
+                bool isWithinValidRange = dateOfBirth <= DateTime.Now && dateOfBirth >= DateTime.Now.AddYears(-120);
+
+                if (isWithinValidRange)
+                {
+                    return dateOfBirth;
+                }
+            }
+            catch (FormatException)
+            {
+                // Do nothing, will prompt for input again
+            }
+            
+            Console.WriteLine("Invalid date of birth");
+        }
     }
 
     public static string HideCharacter()
