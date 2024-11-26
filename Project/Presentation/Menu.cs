@@ -83,11 +83,10 @@ static class Menu
                 }
                 else
                 {
-                    //REGISTER
-                    System.Console.WriteLine("");
+                    Register.Start();
                     break;
                 }
-                
+
             default:
                 Console.WriteLine("Invalid input");
                 MainMenu();
