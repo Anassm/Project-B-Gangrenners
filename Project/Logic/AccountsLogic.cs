@@ -59,7 +59,7 @@ public class AccountsLogic
 
     public static bool CheckPassword(string password)
     {
-        if (password.Length < 9)
+        if (password.Length < 8)
         {
             return false;
         }
@@ -95,6 +95,18 @@ public class AccountsLogic
 
     public static bool CheckEmail(string email)
     {
+        if (email == null)
+        {
+            return false;
+        }
+        if (email.Length < 5)
+        {
+            return false;
+        }
+        if (_accounts.Exists(i => i.EmailAddress == email))
+        {
+            return false;
+        }
         bool HasAtSymbol = false;
         bool HasDotSymbol = false;
         if (email.Contains("@"))

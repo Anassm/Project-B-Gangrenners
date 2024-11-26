@@ -7,16 +7,16 @@ public class AccountModel
     [JsonPropertyName("id")]
     public int Id { get; set; }
 
-    [JsonPropertyName("emailAddress")]
+    [JsonPropertyName("emailaddress")]
     public string EmailAddress { get; set; }
 
     [JsonPropertyName("password")]
     public string Password { get; set; }
 
-    [JsonPropertyName("firstName")]
+    [JsonPropertyName("firstname")]
     public string FirstName { get; set; }
 
-    [JsonPropertyName("lastName")]
+    [JsonPropertyName("lastname")]
     public string LastName { get; set; }
 
     [JsonPropertyName("dateofbirth")]

@@ -16,35 +16,35 @@ static class Menu
 
         //This is the main menu
         Console.WriteLine("Enter 1 to login");
-        Console.WriteLine("Enter 2 to continue as guest");
-        Console.WriteLine("Enter 3 to login as admin");
-        Console.WriteLine("Enter 4 to exit");
+        Console.WriteLine("Enter 2 to register");
+        Console.WriteLine("Enter 3 to continue as guest");
+        Console.WriteLine("Enter 4 to login as admin");
+        Console.WriteLine("Enter 5 to exit");
 
         string input = Console.ReadLine();
         Console.Clear();
-        if (input == "1")
+        switch (input)
         {
-            UserLogin.Start();
+            case "1":
+                UserLogin.Start();
+                break;
+            case "2":
+                Register.Start();
+                break;
+            case "3":
+                MainMenu();
+                break;
+            case "4":
+                AdminLogin.Start();
+                break;
+            case "5":
+                Environment.Exit(0);
+                break;
+            default:
+                Console.WriteLine("Invalid input");
+                Start();
+                break;
         }
-        else if (input == "2")
-        {
-            Console.WriteLine("guest");
-            MainMenu();
-        }
-        else if (input == "3")
-        {
-            AdminLogin.Main();
-        }
-        else if (input == "4")
-        {
-            Environment.Exit(0);
-        }
-        else
-        {
-            Console.WriteLine("Invalid input");
-            Start();
-        }
-
     }
 
     static public void MainMenu()
