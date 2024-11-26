@@ -103,4 +103,22 @@ public class TestSeatsLogic
         SeatsLogic sl = new SeatsLogic();
         Assert.AreEqual(SeatsLogic.GetCoordinatesBySeat(1, 1000), null);
     }
+
+    [TestMethod]
+    //HallID, Type, NewPrice
+    [DataRow(1, 1, 10)]
+    [DataRow(1, 2, 15)]
+    [DataRow(1, 3, 20)]
+    public void UpdatePrice_NewPrice_ReturnPrice(int hallid, int type, double price)
+    {
+        SeatsLogic.UpdatePrice(hallid, type, price);
+        List<SeatModel> seats = new List<SeatModel>();
+        foreach (SeatModel seat in seats)
+        {
+            if (seat.HallId == hallid && seat.Type == type)
+            {
+                Assert.AreEqual(seat.Price, price);
+            }
+        }
+    }
 }
