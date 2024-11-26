@@ -1,14 +1,42 @@
 ﻿[
-	{
-		"id": 1,
-		"emailAddress": "n@b.c",
-		"password": "xyz",
-		"fullName": "Nikola Tesla"
-	},
-	{
-		"id": 2,
-		"emailAddress": "t@b.c",
-		"password": "xyz",
-		"fullName": "Thomas Edison"
-	}
+  {
+    "id": 1,
+    "emailaddress": "n@b.c",
+    "password": "xyz",
+    "firstname": "Nikola",
+    "lastname": "Tesla",
+    "dateofbirth": "2000-10-22T00:00:00"
+  },
+  {
+    "id": 2,
+    "emailaddress": "t@b.c",
+    "password": "xyz",
+    "firstname": "Thomas",
+    "lastname": "Edison",
+    "dateofbirth": "2000-10-22T00:00:00"
+  },
+  {
+    "id": 3,
+    "emailaddress": "test@test.com",
+    "password": "Test1234!",
+    "firstname": "Dirk",
+    "lastname": "Willems",
+    "dateofbirth": "2004-11-22T00:00:00"
+  },
+  {
+    "id": 4,
+    "emailaddress": "test2@test.com",
+    "password": "Test1234!",
+    "firstname": "Piet",
+    "lastname": "Jansen",
+    "dateofbirth": "1999-05-13T00:00:00"
+  },
+  {
+    "id": 5,
+    "emailaddress": "TEst2342@testd.com",
+    "password": "Test123456!",
+    "firstname": "Jan",
+    "lastname": "Klaasen",
+    "dateofbirth": "1980-01-09T00:00:00"
+  }
 ]

@@ -4,13 +4,15 @@
     "name": "Inception",
     "genre": "Horror",
     "duration": 120,
-    "promoted": true
+    "promoted": true,
+    "summary": "Inception is a 2010 science fiction action film written and directed by Christopher Nolan, who also produced the film with Emma Thomas, his wife. The film stars Leonardo DiCaprio as a professional thief who steals information by infiltrating the subconscious of his targets. He is offered a chance to have his criminal history erased as payment for the implantation of another person's idea into a target's subconscious."
   },
   {
     "id": 3,
     "name": "Verschrikkelijke ikke",
     "genre": "comedy",
     "duration": 120,
-    "promoted": false
+    "promoted": false,
+    "summary": "Verschrikkelijke ikke is een Amerikaanse computeranimatiefilm uit 2010, geproduceerd door Illumination Entertainment voor Universal Pictures. Het is de eerste film van de Despicable Me-franchise. De film is geregisseerd door Pierre Coffin en Chris Renaud, en geschreven door Cinco Paul en Ken Daurio. De film vertelt het verhaal van Gru, een superschurk die een plan bedenkt om de maan te stelen."
   }
 ]

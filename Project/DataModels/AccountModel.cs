@@ -7,26 +7,36 @@ public class AccountModel
     [JsonPropertyName("id")]
     public int Id { get; set; }
 
-    [JsonPropertyName("emailAddress")]
+    [JsonPropertyName("emailaddress")]
     public string EmailAddress { get; set; }
 
     [JsonPropertyName("password")]
     public string Password { get; set; }
 
-    [JsonPropertyName("fullName")]
-    public string FullName { get; set; }
+    [JsonPropertyName("firstname")]
+    public string FirstName { get; set; }
+
+    [JsonPropertyName("lastname")]
+    public string LastName { get; set; }
+
+    [JsonPropertyName("dateofbirth")]
+    public DateTime Dateofbirth { get; set; }
+
+
 
     // Constructor
-    public AccountModel(int id, string emailAddress, string password, string fullName)
+    public AccountModel(int id, string emailAddress, string password, string firstName, string lastName, DateTime dateofbirth)
     {
         Id = id;
         EmailAddress = emailAddress;
         Password = password;
-        FullName = fullName;
+        FirstName = firstName;
+        LastName = lastName;
+        Dateofbirth = dateofbirth;
     }
     public override string ToString()
     {
-        return $"ID: {Id}\n" + $"E-mail address: {EmailAddress}\n" + $"Password: {Password}\n" + $"Full name: {FullName}";
+        return $"ID: {Id}\n" + $"E-mail address: {EmailAddress}\n" + $"Password: {Password}\n" + $"Full name: {FirstName} {LastName}\n" + $"Date of birth: {Dateofbirth}\n";
     }
 
 }
