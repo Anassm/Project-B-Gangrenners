@@ -156,7 +156,5 @@ public class SeatsLogic
         }
 
         SeatsAccess.WriteAll(_seats);
-
-        Console.WriteLine($"The price for seat type {type} in hall {hallId} has been successfully updated to {price}.");
     }
 }
