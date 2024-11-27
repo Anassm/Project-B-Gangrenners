@@ -103,6 +103,6 @@ public class TestMoviesArchiveLogic
 
         int result = MoviesArchiveLogic.GetCount();
 
-        Assert.AreEqual(7, result);
+        Assert.AreEqual(8, result);
     }
 }

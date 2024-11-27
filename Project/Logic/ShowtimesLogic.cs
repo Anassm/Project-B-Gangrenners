@@ -45,7 +45,7 @@ public class ShowtimesLogic
     public void RemoveShowtime(int id)
     {
         ShowtimeModel showtime = _showtimes.Find(showtime => showtime.Id == id);
-        
+
         if (showtime != null)
         {
             _showtimes.Remove(showtime);
@@ -101,6 +101,11 @@ public class ShowtimesLogic
 
     public static bool CheckIfEnoughAvailableSeats(ShowtimeModel showtime, int numberOfSeats)
     {
+        if (numberOfSeats <= 0)
+        {
+            return false;
+        }
+
         int availableSeats = 0;
         foreach (int seat in showtime.Availability)
         {
@@ -112,5 +117,9 @@ public class ShowtimesLogic
         return availableSeats >= numberOfSeats;
     }
 
-
+    public static bool CheckIfEnoughAvailableSeats(int showtimeId, int numberOfSeats)
+    {
+        ShowtimeModel showtime = GetShowtimeById(showtimeId);
+        return CheckIfEnoughAvailableSeats(showtime, numberOfSeats);
+    }
 }
