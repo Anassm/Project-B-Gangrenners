@@ -35,10 +35,11 @@ public class ReservationModel
         return $"ID: {Id}\n" + $"Seat IDs: {string.Join(", ", SeatIds)}\n" + $"Showtime ID: {ShowtimeId}\n" + $"Account ID: {AccountId}\n" + $"Total Price: {TotalPrice}\n" + $"Codes: {string.Join(", ", Codes)}";    
     }
 
-    public string ToStringWithSeats()
+public string ToStringWithSeats()
     {
         ShowtimeModel showtime = ShowtimesLogic.GetShowtimeById(ShowtimeId);
         string movieName = MoviesLogic.GetMovieById(showtime.MoviesId).Name;
+        string hallId = Convert.ToString(showtime.HallId);
         string time = showtime.Time.ToString();
         string seats = "";
         foreach (int seatId in SeatIds)
@@ -46,7 +47,7 @@ public class ReservationModel
             SeatModel seat = SeatsLogic.GetSeatById(seatId);
             seats += $"Row: {seat.Row}, Seat: {seat.Seat}\n";
         }
-        return $"Movie: {movieName}\n" + $"Time: {time}\n" + $"Seats:\n{seats}\n" + $"Total Price: \u20AC {Math.Round(TotalPrice,2).ToString("0.00")}\n" + $"Codes: {string.Join(", ", Codes)}";
+        return $"Movie: {movieName}\n" + $"Time: {time}\n" + $"Hall ID: {hallId}\n" + $"Seats:\n{seats}\n" + $"Total Price: \u20AC {Math.Round(TotalPrice,2).ToString("0.00")}\n" + $"Codes: {string.Join(", ", Codes)}";
     }
 
 }
