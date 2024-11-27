@@ -46,7 +46,7 @@ public class ReservationModel
             SeatModel seat = SeatsLogic.GetSeatById(seatId);
             seats += $"Row: {seat.Row}, Seat: {seat.Seat}\n";
         }
-        return $"Movie: {movieName}\n" + $"Time: {time}\n" + $"Seats:\n{seats}\n" + $"Total Price: {TotalPrice}\n" + $"Codes: {string.Join(", ", Codes)}";
+        return $"Movie: {movieName}\n" + $"Time: {time}\n" + $"Seats:\n{seats}\n" + $"Total Price: \u20AC {Math.Round(TotalPrice,2).ToString("0.00")}\n" + $"Codes: {string.Join(", ", Codes)}";
     }
 
 }
