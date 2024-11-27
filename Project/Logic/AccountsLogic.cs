@@ -103,7 +103,7 @@ public class AccountsLogic
         {
             return false;
         }
-        if (_accounts.Exists(i => i.EmailAddress == email))
+        if (CheckEmailInUse(email))
         {
             return false;
         }
@@ -124,6 +124,15 @@ public class AccountsLogic
         }
         return false;
         
+    }
+
+    public static bool CheckEmailInUse(string email)
+    {
+        if (_accounts.Exists(i => i.EmailAddress == email))
+        {
+            return true;
+        }
+        return false;
     }
 
     public static bool CheckDateOfBirth(string dateofbirth)

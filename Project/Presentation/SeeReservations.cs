@@ -7,7 +7,8 @@ public static class SeeReservations
         System.Console.WriteLine("1. Past reservations");
         System.Console.WriteLine("2. Future reservations");
         System.Console.WriteLine("3. All reservations");
-        System.Console.WriteLine("4. Quit");
+        System.Console.WriteLine("4. See reservation by code");
+        System.Console.WriteLine("5. Quit");
         string choice = Console.ReadLine();
         switch(choice)
         {
@@ -46,6 +47,17 @@ public static class SeeReservations
                 break;
             case "4":
                 Console.Clear();
+                SeeReservationByCode();
+                System.Console.WriteLine("Press any key to continue.");
+                ConsoleKeyInfo key4 = Console.ReadKey(true);
+                if (key4.Key != null)
+                {
+                    Console.Clear();
+                    SeeReservationSubMenu();
+                }
+                break;
+            case "5":
+                Console.Clear();
                 Menu.MainMenu();
                 break;
             default:
@@ -68,7 +80,7 @@ public static class SeeReservations
         System.Console.WriteLine("-----------------------------------");
         foreach (ReservationModel reservation in ReservationsLogic.SeeFutureReservations(AccountsLogic.CurrentAccount.Id))
         {
-            System.Console.WriteLine(reservation.ToString());
+            System.Console.WriteLine(reservation.ToStringWithSeats());
             System.Console.WriteLine("-----------------------------------");
         }
     }
@@ -79,7 +91,7 @@ public static class SeeReservations
         System.Console.WriteLine("-----------------------------------");
         foreach (ReservationModel reservation in ReservationsLogic.SeePastReservations(AccountsLogic.CurrentAccount.Id))
         {
-            System.Console.WriteLine(reservation.ToString());
+            System.Console.WriteLine(reservation.ToStringWithSeats());
             System.Console.WriteLine("-----------------------------------");
         }
     }
@@ -89,5 +101,20 @@ public static class SeeReservations
         PastReservationsMenu();
         System.Console.WriteLine("");
         FutureReservationsMenu();
+    }
+
+    public static void SeeReservationByCode()
+    {
+        System.Console.WriteLine("Enter the code of the reservation you want to see:");
+        string code = Console.ReadLine();
+        ReservationModel reservation = ReservationsLogic.GetReservation(code);
+        if (reservation != null)
+        {
+            System.Console.WriteLine(reservation.ToStringWithSeats());
+        }
+        else
+        {
+            System.Console.WriteLine("Reservation not found.");
+        }
     }
 }

@@ -36,7 +36,7 @@ public class SeatsLogic
         return false;
     }
 
-    public SeatModel GetSeatById(int id)
+    public static SeatModel GetSeatById(int id)
     {
         foreach (SeatModel seat in _seats)
         {
