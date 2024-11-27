@@ -42,7 +42,8 @@ public static class ChooseMovie
             return false;
         }
         MovieModel Choice = MoviesLogic.GetMovieByName(ChosenMovie);
-        System.Console.WriteLine($"You have chosen the movie {Choice.Name}.");
+        System.Console.WriteLine($"You have chosen the following movie.");
+        System.Console.WriteLine($"{Choice.ToStringUsers()}");
         System.Console.WriteLine("Is this correct?");
         System.Console.WriteLine("[Y]es / [N]o");
         CorrectChoice = System.Console.ReadLine().ToLower();
@@ -71,6 +72,10 @@ public static class ChooseMovie
             System.Console.WriteLine($"----------------------------");
             foreach (ShowtimeModel showTime in showtimelist)
             {
+                if (showTime.Time < DateTime.Now)
+                {
+                    continue;
+                }
                 if (showTime.MoviesId == movieId)
                 {
                     System.Console.WriteLine($"number: {number}");

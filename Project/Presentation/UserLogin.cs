@@ -37,7 +37,7 @@ static class UserLogin
         {
             key = Console.ReadKey(true);
 
-            if (Char.IsNumber(key.KeyChar) || Char.IsLetter(key.KeyChar))
+            if (Char.IsNumber(key.KeyChar) || Char.IsLetter(key.KeyChar) || Char.IsPunctuation(key.KeyChar) || Char.IsSymbol(key.KeyChar))
             {
                 Console.Write("*");
             }

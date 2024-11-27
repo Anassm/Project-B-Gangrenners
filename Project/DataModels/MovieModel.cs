@@ -40,4 +40,13 @@ public class MovieModel
     {
         return $"ID: {Id}\n" + $"Name: {Name}\n" + $"Genre: {Genre}\n" + $"Duration: {Duration}\n" + $"Promoted: {Promoted}\n" + $"Summary: {Summary}";
     }
+
+    public string ToStringUsers()
+    {
+        int minutes = Duration % 60;
+        int hours = (Duration - minutes) / 60;
+        string time = $"{hours}h {minutes}m";
+
+        return $"Name: {Name}\n" + $"Genre: {Genre}\n" + $"Duration: {time} \n" + $"Summary: {Summary}";
+    }
 }

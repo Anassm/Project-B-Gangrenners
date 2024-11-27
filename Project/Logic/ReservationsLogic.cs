@@ -84,7 +84,7 @@ public class ReservationsLogic
         List<ReservationModel> reservations = [];
         foreach (ReservationModel reserv in _reservations)
         {
-            if (reserv.AccountId == accountid && DateTime.Now.CompareTo(ShowtimesLogic.GetShowtimeById(reserv.ShowtimeId).Time) >= 0)
+            if (reserv.AccountId == accountid && DateTime.Now.CompareTo(ShowtimesLogic.GetShowtimeById(reserv.ShowtimeId).Time) < 0)
             {
                 reservations.Add(reserv);
             }
@@ -97,7 +97,7 @@ public class ReservationsLogic
         List<ReservationModel> reservations = [];
         foreach (ReservationModel reserv in _reservations)
         {
-            if (reserv.AccountId == accountid && (DateTime.Now.CompareTo(ShowtimesLogic.GetShowtimeById(reserv.ShowtimeId).Time) == -1))
+            if (reserv.AccountId == accountid && (DateTime.Now.CompareTo(ShowtimesLogic.GetShowtimeById(reserv.ShowtimeId).Time) >= 0))
             {
                 reservations.Add(reserv);
             }
@@ -105,7 +105,7 @@ public class ReservationsLogic
         return reservations;
     }
 
-    public ReservationModel GetReservation(string code, List<ReservationModel> reservations)
+    public static ReservationModel GetReservation(string code, List<ReservationModel> reservations)
     {
         foreach (ReservationModel reser in reservations)
         {
@@ -115,5 +115,10 @@ public class ReservationsLogic
             }
         }
         return null;
+    }
+
+    public static ReservationModel GetReservation(string code)
+    {
+        return GetReservation(code, _reservations);
     }
 }

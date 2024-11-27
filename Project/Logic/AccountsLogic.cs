@@ -103,7 +103,7 @@ public class AccountsLogic
         {
             return false;
         }
-        if (_accounts.Exists(i => i.EmailAddress == email))
+        if (CheckEmailInUse(email))
         {
             return false;
         }
@@ -113,8 +113,9 @@ public class AccountsLogic
         {
             HasAtSymbol = true;
         }
+        int AtIndex = email.IndexOf("@");
         int DotIndex = email.IndexOf(".");
-        if (DotIndex != -1 && (DotIndex > 0 || DotIndex < email.Length-1))
+        if (DotIndex != -1 && (DotIndex > 0 || DotIndex < email.Length-1) && DotIndex > AtIndex)
         {
             HasDotSymbol = true;
         }
@@ -124,6 +125,15 @@ public class AccountsLogic
         }
         return false;
         
+    }
+
+    public static bool CheckEmailInUse(string email)
+    {
+        if (_accounts.Exists(i => i.EmailAddress == email))
+        {
+            return true;
+        }
+        return false;
     }
 
     public static bool CheckDateOfBirth(string dateofbirth)
@@ -152,6 +162,10 @@ public class AccountsLogic
             return false;
         }
         if (name.Length < 2)
+        {
+            return false;
+        }
+        if (!name.All(Char.IsLetter))
         {
             return false;
         }

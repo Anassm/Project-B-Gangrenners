@@ -3,10 +3,26 @@ public class Register
     public static void Start()
     {
         Console.WriteLine("Please enter your email address");
-        string email = Console.ReadLine();
+        string email = Console.ReadLine().ToLower();
         if (!AccountsLogic.CheckEmail(email))
         {
-            Console.WriteLine("Invalid email address");
+            // Email is already in use
+            if(email == "")
+            {
+                Console.WriteLine("Email address cannot be empty");
+            }
+            else if (email.Length < 5)
+            {
+                Console.WriteLine("Email address is too short");
+            }
+            else if (AccountsLogic.CheckEmailInUse(email))
+            {
+                Console.WriteLine("Email address is already in use");
+            }
+            else
+            {
+                Console.WriteLine("Email address must contain an @ and a .");
+            }
             Start();
             return;
         }
@@ -20,12 +36,14 @@ public class Register
         DateTime dateOfBirth = GetValidDateOfBirth();
 
         AccountsLogic.AddAccount(email, password, firstName, lastName, dateOfBirth);
+        Console.Clear();
         Console.WriteLine("Account created successfully");
         Menu.Start();
     }
 
     private static string GetValidFirstName()
     {
+        Console.Clear();
         while (true)
         {
             Console.WriteLine("Please enter your first name");
@@ -34,6 +52,7 @@ public class Register
             {
                 return firstName;
             }
+            Console.Clear();
             Console.WriteLine("Invalid first name");
         }
     }
@@ -55,6 +74,7 @@ public class Register
 
     private static string GetValidPassword()
     {
+        Console.Clear();
         while (true)
         {
             Console.WriteLine("Please enter your password, must be at least 8 characters long and contain at least one number, one uppercase letter and one special character");
@@ -65,7 +85,6 @@ public class Register
                 Console.WriteLine("Invalid password");
                 continue;
             }
-
             Console.WriteLine("\nPlease confirm your password");
             string passwordConfirm = HideCharacter();
             if (password == passwordConfirm)
@@ -73,12 +92,13 @@ public class Register
                 return password;
             }
 
-            Console.WriteLine("Passwords do not match");
+            Console.WriteLine("\nPasswords do not match");
         }
     }
 
     private static DateTime GetValidDateOfBirth()
     {
+        Console.Clear();
         while (true)
         {
             Console.WriteLine("Please enter your date of birth (dd-MM-yyyy)");
@@ -100,7 +120,7 @@ public class Register
         {
             key = Console.ReadKey(true);
 
-            if (Char.IsNumber(key.KeyChar) || Char.IsLetter(key.KeyChar))
+            if (Char.IsNumber(key.KeyChar) || Char.IsLetter(key.KeyChar) || Char.IsPunctuation(key.KeyChar) || Char.IsSymbol(key.KeyChar))
             {
                 Console.Write("*");
             }
