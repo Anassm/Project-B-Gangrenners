@@ -72,6 +72,10 @@ public static class ChooseMovie
             System.Console.WriteLine($"----------------------------");
             foreach (ShowtimeModel showTime in showtimelist)
             {
+                if (showTime.Time < DateTime.Now)
+                {
+                    continue;
+                }
                 if (showTime.MoviesId == movieId)
                 {
                     System.Console.WriteLine($"number: {number}");
