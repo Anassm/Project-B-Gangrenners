@@ -165,6 +165,10 @@ public class AccountsLogic
         {
             return false;
         }
+        if (!name.All(Char.IsLetter))
+        {
+            return false;
+        }
         return true;
     }
     public static void AddAccount(string email, string password, string firstname, string lastname, DateTime dateofbirth)
