@@ -102,7 +102,12 @@ public static class ChooseMovie
     public static (List<SeatModel>, ShowtimeModel) SeatChoice(int showtimeId)
     {
         System.Console.WriteLine("Please select the number of seats you would like to reserve:");
-        int amountOfSeats = Convert.ToInt32(Console.ReadLine());
+        int amountOfSeats;
+        while (!int.TryParse(Console.ReadLine(), out amountOfSeats) || amountOfSeats < 1 || amountOfSeats > 450)
+        {
+            Console.Clear();
+            Console.WriteLine("Please enter a valid number of seats.");
+        }
         ShowtimeModel showtime = ShowtimesLogic.GetShowtimeById(showtimeId);
 
         if (!ShowtimesLogic.CheckIfEnoughAvailableSeats(showtime, amountOfSeats))

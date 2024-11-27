@@ -128,7 +128,14 @@ static class BuyTicket
                 ReservationModel reservation = new ReservationModel(_reservationsLogic.GetNextId(),seatIds, info.showtime.Id, accountId, TotalPrice, codes);
                 _reservationsLogic.AddReservation(reservation);
                 _showtimesLogic.UpdateList(info.showtime);
-                Console.WriteLine("Your reservation has been made, your codes are: " + string.Join(", ", codes));
+                if (codes.Count == 1)
+                {
+                    Console.WriteLine("Your reservation has been made, your code is: " + codes[0]);
+                }
+                else
+                {
+                    Console.WriteLine("Your reservation has been made, your codes are: " + string.Join(", ", codes));
+                }
                 Console.WriteLine("Thank you for your purchase");
                 Console.WriteLine("Press any key to return to the main menu");
                 ConsoleKeyInfo key = Console.ReadKey(true);
