@@ -76,24 +76,37 @@ public static class SeeReservations
 
     public static void FutureReservationsMenu()
     {
+        List<ReservationModel> _reservations = ReservationsLogic.SeeFutureReservations(AccountsLogic.CurrentAccount.Id);
         System.Console.WriteLine("All future reservations:");
         System.Console.WriteLine("-----------------------------------");
-        foreach (ReservationModel reservation in ReservationsLogic.SeeFutureReservations(AccountsLogic.CurrentAccount.Id))
+        if (_reservations.Count > 0)
         {
-            System.Console.WriteLine(reservation.ToStringWithSeats());
-            System.Console.WriteLine("-----------------------------------");
+
+            foreach (ReservationModel reservation in _reservations)
+            {
+                System.Console.WriteLine(reservation.ToStringWithSeats());
+                System.Console.WriteLine("-----------------------------------");
+            }
+            return;
         }
+        System.Console.WriteLine("No reservations at the moment.");
     }
 
     public static void PastReservationsMenu()
     {
+        List<ReservationModel> _reservations = ReservationsLogic.SeePastReservations(AccountsLogic.CurrentAccount.Id);
         System.Console.WriteLine("All past reservations:");
         System.Console.WriteLine("-----------------------------------");
-        foreach (ReservationModel reservation in ReservationsLogic.SeePastReservations(AccountsLogic.CurrentAccount.Id))
+        if (_reservations.Count > 0)
         {
-            System.Console.WriteLine(reservation.ToStringWithSeats());
-            System.Console.WriteLine("-----------------------------------");
+            foreach (ReservationModel reservation in _reservations)
+            {
+                System.Console.WriteLine(reservation.ToStringWithSeats());
+                System.Console.WriteLine("-----------------------------------");
+            }
+            return;
         }
+        System.Console.WriteLine("No reservations at the moment.");
     }
 
     public static void AllReservationsMenu()
