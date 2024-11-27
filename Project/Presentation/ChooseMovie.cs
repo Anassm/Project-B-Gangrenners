@@ -1,9 +1,7 @@
 
 public static class ChooseMovie
 {
-    static private MoviesLogic _movieLogic = new MoviesLogic();
     static private ShowtimesLogic _showtimesLogic = new ShowtimesLogic();
-    static private SeatsLogic _seatsLogic = new SeatsLogic();
     public static string MovieToWatch;
     public static MovieModel Movie;
     public static (List<SeatModel>, ShowtimeModel) StartMovie()
@@ -162,7 +160,27 @@ public static class ChooseMovie
         if (selectedSeats.Count == amountOfSeats)
         {
             Console.WriteLine("All seats selected successfully!");
-            return (selectedSeats, showtime);
+            Console.WriteLine("You selected the following seats:");
+            foreach (SeatModel seat in selectedSeats)
+            {
+                Console.WriteLine($"Row: {seat.Row}, Seat: {seat.Seat}");
+            }
+            Console.WriteLine("Is this correct?");
+            Console.WriteLine("[Y]es / [N]o");
+            if (Console.ReadLine().ToLower() == "y")
+            {
+                return (selectedSeats, showtime);
+            }
+            else
+            {
+                Console.WriteLine("Seat selection canceled.");
+                foreach (SeatModel seat in selectedSeats)
+                {
+                    int[] coordinates = SeatsLogic.GetCoordinatesBySeat(seat);
+                    showtime.Availability[coordinates[0], coordinates[1]] = 0;
+                }
+                return SeatChoice(showtimeId);
+            }
         }
         else
         {
@@ -177,6 +195,12 @@ public static class ChooseMovie
         int[,] layout = showtime.Availability;
         for (int i = 0; i < layout.GetLength(0); i++)
         {
+            if (i == 1 || i == layout.GetLength(0) - 2){
+                Console.Write("<-");
+            }
+            else{
+                Console.Write("  ");
+            }
             for (int j = 0; j < layout.GetLength(1); j++)
             {
                 if(layout[i, j] == 2)
@@ -224,49 +248,48 @@ public static class ChooseMovie
 
                 Console.BackgroundColor = ConsoleColor.Black;
             }
-            // create legend 
-            if (i == 0)
-            {
-                Console.Write("  [ ] = Available seat");
-            }
-            else if (i == 1)
-            {
-                Console.Write("  [X] = Taken seat");
-            }
-            else if (i == 2)
-            {
-                Console.Write("  ");
-                Console.BackgroundColor = ConsoleColor.White;
-                Console.Write("[ ]");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.Write(" = Regular seat");
-            }
-            else if (i == 3)
-            {
-                Console.Write("  ");
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.Write("[ ]");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.Write(" = VIP seat");
-            }
-            else if (i == 4)
+            // create legend
+            string[] legends = {
+                "  [ ] = Available seat",
+                "  [X] = Taken seat",
+                " = Regular seat",
+                " = VIP seat",
+                " = VIP+ seat",
+                " = Selected seat"
+            };
+
+            ConsoleColor[] colors = {
+                ConsoleColor.Black,
+                ConsoleColor.Red,
+                ConsoleColor.White,
+                ConsoleColor.Yellow,
+                ConsoleColor.DarkYellow,
+                ConsoleColor.Green
+            };
+
+            if (i < legends.Length)
             {
                 Console.Write("  ");
-                Console.BackgroundColor = ConsoleColor.DarkYellow;
-                Console.Write("[ ]");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.Write(" = VIP+ seat");
-            }
-            else if (i == 5)
-            {
-                Console.Write("  ");
-                Console.BackgroundColor = ConsoleColor.Green;
-                Console.Write("[ ]");
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.Write(" = Selected seat");
+                if (i > 1)
+                {
+                    Console.Write("  ");
+                    Console.BackgroundColor = colors[i];
+                    Console.Write("[ ]");
+                    Console.BackgroundColor = ConsoleColor.Black;
+                }
+                Console.Write(legends[i]);
             }
             Console.WriteLine();
         }
+        Console.WriteLine();
+        // Add the screen
+        int screenLength = layout.GetLength(1) * 3;
+        string screenText = "SCREEN";
+        int padding = (screenLength - screenText.Length) / 2;
+
+        Console.WriteLine(new string('-', screenLength));
+        Console.WriteLine(new string(' ', padding) + screenText + new string(' ', padding));
+        Console.WriteLine(new string('-', layout.GetLength(1) * 3));
     }
 
     public static (int, int) HandleArrowKeyPress(int currentRow, int currentCol, ShowtimeModel showtime, ConsoleKeyInfo key)
@@ -333,6 +356,7 @@ public static class ChooseMovie
             Console.WriteLine("You have selected the following seat:");
             Console.WriteLine($"Row: {seat.Row}");
             Console.WriteLine($"Seat: {seat.Seat}");
+            System.Console.WriteLine("Please confirm your selection by pressing Enter.");
             if (Console.ReadKey(true).Key == ConsoleKey.Enter)
             {
                 Console.WriteLine("Seat selection confirmed!");
