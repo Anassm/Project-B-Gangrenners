@@ -113,8 +113,9 @@ public class AccountsLogic
         {
             HasAtSymbol = true;
         }
+        int AtIndex = email.IndexOf("@");
         int DotIndex = email.IndexOf(".");
-        if (DotIndex != -1 && (DotIndex > 0 || DotIndex < email.Length-1))
+        if (DotIndex != -1 && (DotIndex > 0 || DotIndex < email.Length-1) && DotIndex > AtIndex)
         {
             HasDotSymbol = true;
         }
