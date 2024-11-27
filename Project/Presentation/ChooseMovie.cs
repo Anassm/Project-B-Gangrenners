@@ -105,7 +105,7 @@ public static class ChooseMovie
         int amountOfSeats = Convert.ToInt32(Console.ReadLine());
         ShowtimeModel showtime = ShowtimesLogic.GetShowtimeById(showtimeId);
 
-        if (!CheckIfEnoughAvailableSeats(showtime, amountOfSeats))
+        if (!ShowtimesLogic.CheckIfEnoughAvailableSeats(showtime, amountOfSeats))
         {
             Console.WriteLine("There are not enough available seats for the amount you want to reserve.");
             Console.WriteLine("Please choose a different amount.");
@@ -161,18 +161,7 @@ public static class ChooseMovie
         }
     }
 
-    public static bool CheckIfEnoughAvailableSeats(ShowtimeModel showtime, int numberOfSeats)
-    {
-        int availableSeats = 0;
-        foreach (int seat in showtime.Availability)
-        {
-            if (seat == 0)
-            {
-                availableSeats++;
-            }
-        }
-        return availableSeats >= numberOfSeats;
-    }
+    
     public static void DisplaySeatMap(ShowtimeModel showtime, int selectedRow, int selectedCol)
     {
         int[,] layout = showtime.Availability;

@@ -99,5 +99,18 @@ public class ShowtimesLogic
         ShowtimesAccess.WriteAll(_showtimes);
     }
 
+    public static bool CheckIfEnoughAvailableSeats(ShowtimeModel showtime, int numberOfSeats)
+    {
+        int availableSeats = 0;
+        foreach (int seat in showtime.Availability)
+        {
+            if (seat == 0)
+            {
+                availableSeats++;
+            }
+        }
+        return availableSeats >= numberOfSeats;
+    }
+
 
 }
