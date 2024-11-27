@@ -2,11 +2,10 @@ using System.Dynamic;
 
 public class ShowtimesLogic
 {
-    private List<ShowtimeModel> _showtimes { get; set; }
+    static private List<ShowtimeModel> _showtimes { get; set; } = ShowtimesAccess.LoadAll();
 
     public ShowtimesLogic()
     {
-        _showtimes = ShowtimesAccess.LoadAll();
     }
 
     public List<ShowtimeModel> GetShowtimesByMovieId(int movieId)
@@ -16,7 +15,7 @@ public class ShowtimesLogic
         return showtimes;
     }
 
-    public ShowtimeModel GetShowtimeById(int id)
+    static public ShowtimeModel GetShowtimeById(int id)
     {
         ShowtimeModel showtime = _showtimes.Find(showtime => showtime.Id == id);
 
@@ -46,7 +45,7 @@ public class ShowtimesLogic
     public void RemoveShowtime(int id)
     {
         ShowtimeModel showtime = _showtimes.Find(showtime => showtime.Id == id);
-        
+
         if (showtime != null)
         {
             _showtimes.Remove(showtime);
@@ -100,5 +99,27 @@ public class ShowtimesLogic
         ShowtimesAccess.WriteAll(_showtimes);
     }
 
+    public static bool CheckIfEnoughAvailableSeats(ShowtimeModel showtime, int numberOfSeats)
+    {
+        if (numberOfSeats <= 0)
+        {
+            return false;
+        }
 
+        int availableSeats = 0;
+        foreach (int seat in showtime.Availability)
+        {
+            if (seat == 0)
+            {
+                availableSeats++;
+            }
+        }
+        return availableSeats >= numberOfSeats;
+    }
+
+    public static bool CheckIfEnoughAvailableSeats(int showtimeId, int numberOfSeats)
+    {
+        ShowtimeModel showtime = GetShowtimeById(showtimeId);
+        return CheckIfEnoughAvailableSeats(showtime, numberOfSeats);
+    }
 }

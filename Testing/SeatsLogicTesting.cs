@@ -103,4 +103,25 @@ public class TestSeatsLogic
         SeatsLogic sl = new SeatsLogic();
         Assert.AreEqual(SeatsLogic.GetCoordinatesBySeat(1, 1000), null);
     }
+
+    [TestMethod]
+    public void GetHallById_HallShouldExist_ShouldPass()
+    {
+        Assert.IsNull(HallsLogic.GetHallById(-1));
+        Assert.IsNull(HallsLogic.GetHallById(0));
+        Assert.IsNotNull(HallsLogic.GetHallById(1));
+
+        // REMOVE THIS if we have more than 2 halls
+        Assert.IsNull(HallsLogic.GetHallById(2));
+    }
+
+    [TestMethod]
+    public void CheckSeatsByType_SeatTypeShouldExist_ShouldPass()
+    {
+        Assert.IsFalse(SeatsLogic.CheckSeatsByType(1, -1));
+        Assert.IsFalse(SeatsLogic.CheckSeatsByType(1, 0));
+        Assert.IsTrue(SeatsLogic.CheckSeatsByType(1, 2));
+        Assert.IsTrue(SeatsLogic.CheckSeatsByType(1, 3));
+        Assert.IsFalse(SeatsLogic.CheckSeatsByType(1, 4));
+    }
 }

@@ -16,7 +16,7 @@ static class UserLogin
         AccountModel acc = accountsLogic.CheckLogin(email, password);
         if (acc != null)
         {
-            Console.WriteLine("Welcome back " + acc.FullName);
+            Console.WriteLine("Welcome back " + acc.FirstName + " " + acc.LastName);
             Console.WriteLine("Your email is " + acc.EmailAddress);
             Console.Clear();
             Menu.MainMenu();
@@ -37,7 +37,7 @@ static class UserLogin
         {
             key = Console.ReadKey(true);
 
-            if (Char.IsNumber(key.KeyChar) || Char.IsLetter(key.KeyChar))
+            if (Char.IsNumber(key.KeyChar) || Char.IsLetter(key.KeyChar) || Char.IsPunctuation(key.KeyChar) || Char.IsSymbol(key.KeyChar))
             {
                 Console.Write("*");
             }

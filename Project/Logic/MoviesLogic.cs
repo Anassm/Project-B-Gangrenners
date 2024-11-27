@@ -50,16 +50,13 @@ public class MoviesLogic
 
     public static void AddMovie(string name, string genre, int duration)
     {
-        if (CheckIfMovieInMovies(name))
-        {
-            return;
-        }
-        if (MoviesArchiveLogic.CheckIfMovieInArchive(name))
-        {
-            MoviesArchiveLogic.RemoveMovie(GetMovieByName(name));
-        }
-        _movies.Add(new MovieModel(_movies.Count()+MoviesArchiveLogic.GetCount()+1, name, genre, duration, false));
-        MoviesAccess.WriteAll(_movies);
+        AddMovie(name, genre, duration, "No summary available");
+    }
+
+    public static void AddMovie(string name, string genre, int duration, string summary)
+    {
+        MovieModel movie = new MovieModel(GetNextId(), name, genre, duration, false, summary);
+        AddMovie(movie);
     }
 
     public static void RemoveMovie(MovieModel movie)

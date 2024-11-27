@@ -24,13 +24,13 @@ public static class AdminLogin
         string email = Console.ReadLine();
         Console.WriteLine("Please enter your password");
         string password = HideCharacter();
-        
+
         // Check if the email and password match an account
         AdminAccountModel acc = accountsLogic.CheckLogin(email, password);
         if (acc != null)
         {
             Console.Clear();
-            Console.WriteLine( acc.FullName + " was successfully logged in as admin ");
+            Console.WriteLine(acc.FullName + " was successfully logged in as admin ");
             AdminMenu();
         }
         else
@@ -42,7 +42,7 @@ public static class AdminLogin
                 _attemptsLeft = 0;
             }
             Console.WriteLine("No admin account found with that email and/or password");
-            Console.WriteLine($"{_attemptsLeft} attempts left." );
+            Console.WriteLine($"{_attemptsLeft} attempts left.");
             Menu.Start();
         }
     }
@@ -53,9 +53,11 @@ public static class AdminLogin
         System.Console.WriteLine("1. Add a movie");
         System.Console.WriteLine("2. Remove movie");
         System.Console.WriteLine("3. Promote movie");
-        System.Console.WriteLine("4. See current movies");
-        System.Console.WriteLine("5. See archived movies");
-        System.Console.WriteLine("6. Log out");
+        System.Console.WriteLine("4. Demote movie");
+        System.Console.WriteLine("5. See current movies");
+        System.Console.WriteLine("6. See archived movies");
+        System.Console.WriteLine("7. Change seat type price for hall");
+        System.Console.WriteLine("8. Log out");
         string input = System.Console.ReadLine();
         switch (input)
         {
@@ -73,13 +75,20 @@ public static class AdminLogin
                 break;
             case "4":
                 Console.Clear();
-                ManageMovies.SeeCurrentMoviesMenu();
+                ManageMovies.DemoteMovieMenu();
                 break;
             case "5":
                 Console.Clear();
-                ManageMovies.SeeArchivedMoviesMenu();
+                ManageMovies.SeeCurrentMoviesMenu();
                 break;
             case "6":
+                Console.Clear();
+                ManageMovies.SeeArchivedMoviesMenu();
+                break;
+            case "7":
+                ManageHalls.ChangeSeatTypePrice();
+                break;
+            case "8":
                 _attemptsLeft = 3;
                 Console.Clear();
                 Menu.Start();
@@ -92,6 +101,7 @@ public static class AdminLogin
         }
     }
 
+
     public static string HideCharacter()
     {
         ConsoleKeyInfo key;
@@ -100,7 +110,7 @@ public static class AdminLogin
         {
             key = Console.ReadKey(true);
 
-            if (Char.IsNumber(key.KeyChar) || Char.IsLetter(key.KeyChar))
+            if (Char.IsNumber(key.KeyChar) || Char.IsLetter(key.KeyChar) || Char.IsPunctuation(key.KeyChar) || Char.IsSymbol(key.KeyChar))
             {
                 Console.Write("*");
             }

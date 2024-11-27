@@ -10,11 +10,13 @@ public class SeatsLogic
         _seats = SeatsAccess.LoadAll();
     }
 
+    public static List<SeatModel> GetAll() => _seats;
+
     public bool CheckSeatsByType(int type)
     {
         foreach (SeatModel seat in _seats)
         {
-            if (seat.Id == type)
+            if (seat.Type == type)
             {
                 return true;
             }
@@ -22,7 +24,19 @@ public class SeatsLogic
         return false;
     }
 
-    public SeatModel GetSeatById(int id)
+    public static bool CheckSeatsByType(int hallId, int type)
+    {
+        foreach (SeatModel seat in _seats)
+        {
+            if (seat.HallId == hallId && seat.Type == type)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static SeatModel GetSeatById(int id)
     {
         foreach (SeatModel seat in _seats)
         {
@@ -141,6 +155,20 @@ public class SeatsLogic
         {
             _seats.Add(seat);
         }
+        SeatsAccess.WriteAll(_seats);
+    }
+
+    // In a hall, change the price for all seats with a specific type
+    public static void UpdatePrice(int hallId, int type, double price)
+    {
+        foreach (SeatModel seat in _seats)
+        {
+            if (seat.HallId == hallId && seat.Type == type)
+            {
+                seat.Price = price;
+            }
+        }
+
         SeatsAccess.WriteAll(_seats);
     }
 }
