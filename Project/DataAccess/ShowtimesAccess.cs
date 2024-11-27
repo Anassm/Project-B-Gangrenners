@@ -1,34 +1,14 @@
-using Newtonsoft.Json;
-
-static class ShowtimesAccess
+public class ShowtimesAccess : DataAccessLayer<ShowtimeModel>
 {
-    static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/showtimes.json"));
+    private static readonly string fileName = "showtimes";
 
     public static List<ShowtimeModel> LoadAll()
     {
-        try
-        {
-            string json = File.ReadAllText(path);
-            return JsonConvert.DeserializeObject<List<ShowtimeModel>>(json) ?? new List<ShowtimeModel>();
-        }
-        catch (Exception)
-        {
-            return new List<ShowtimeModel>();
-        }
+        return LoadAll(fileName);
     }
 
     public static void WriteAll(List<ShowtimeModel> showtimes)
     {
-        var settings = new JsonSerializerSettings { Formatting = Formatting.Indented };
-        try 
-        {
-            string json = JsonConvert.SerializeObject(showtimes, settings);
-            File.WriteAllText(path, json);
-        }
-        catch (Exception)
-        {
-            return;
-        }
+        WriteAll(fileName, showtimes);
     }
-
 }
