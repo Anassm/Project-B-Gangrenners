@@ -11,6 +11,4 @@ public class AccountsAccess : DataAccessLayer<AccountModel>
     {
         WriteAll(fileName, accounts);
     }
-
-
 }
