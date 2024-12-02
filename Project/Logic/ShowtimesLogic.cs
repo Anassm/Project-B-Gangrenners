@@ -1,3 +1,4 @@
+using System.Data;
 using System.Dynamic;
 
 public class ShowtimesLogic
@@ -8,7 +9,7 @@ public class ShowtimesLogic
     {
     }
 
-    public List<ShowtimeModel> GetShowtimesByMovieId(int movieId)
+    public static List<ShowtimeModel> GetShowtimesByMovieId(int movieId)
     {
         List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.MoviesId == movieId);
 
@@ -139,6 +140,19 @@ public class ShowtimesLogic
             _showtimes.Add(showtime);
         }
         ShowtimesAccess.WriteAll(_showtimes);
+    }
+
+    public static int CheckAvailability(ShowtimeModel showtime)
+    {
+        int availableSeats = 0;
+        foreach (int seat in showtime.Availability)
+        {
+            if (seat == 0)
+            {
+                availableSeats++;
+            }
+        }
+        return availableSeats;
     }
 
     public static bool CheckIfEnoughAvailableSeats(ShowtimeModel showtime, int numberOfSeats)

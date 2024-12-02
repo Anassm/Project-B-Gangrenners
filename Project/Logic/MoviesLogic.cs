@@ -20,6 +20,13 @@ public class MoviesLogic
         return movie;
     }
 
+    public static MovieModel GetMovieByName(string name, List<MovieModel> movies)
+    {
+        MovieModel movie = movies.Find(movie => movie.Name?.Contains(name, StringComparison.OrdinalIgnoreCase) ?? false);
+
+        return movie;
+    }
+      
     public static int GetCurrentMovieId(string name)
     {
         MovieModel movie = _movies.Find(movie => movie.Name?.Contains(name, StringComparison.OrdinalIgnoreCase) ?? false);
