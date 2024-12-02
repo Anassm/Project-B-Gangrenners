@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Runtime.InteropServices;
+
 public class MoviesLogic
 {
     public static List<MovieModel> _movies { get; set; } = MoviesAccess.LoadAll();
@@ -69,14 +72,14 @@ public class MoviesLogic
         MoviesAccess.WriteAll(_movies);
     }
 
-    public static void AddMovie(string name, string genre, int duration)
+    public static void AddMovie(string name, string genre, int duration, double cost)
     {
-        AddMovie(name, genre, duration, "No summary available");
+        AddMovie(name, genre, duration, "No summary available", cost);
     }
 
-    public static void AddMovie(string name, string genre, int duration, string summary)
+    public static void AddMovie(string name, string genre, int duration, string summary, double cost)
     {
-        MovieModel movie = new MovieModel(GetNextId(), name, genre, duration, false, summary);
+        MovieModel movie = new MovieModel(GetNextId(), name, genre, duration, false, summary, cost, 0);
         AddMovie(movie);
     }
 
@@ -112,7 +115,7 @@ public class MoviesLogic
     public static bool PromoteMovie(string name)
     {
         MovieModel movie = GetMovieByName(name);
-        return(PromoteMovie(movie));
+        return (PromoteMovie(movie));
     }
 
     public static bool unPromoteMovie(MovieModel movie)
@@ -129,7 +132,7 @@ public class MoviesLogic
     public static bool unPromoteMovie(string name)
     {
         MovieModel movie = GetMovieByName(name);
-        return(PromoteMovie(movie));
+        return (PromoteMovie(movie));
     }
 
     public static int GetNextId()
@@ -137,6 +140,94 @@ public class MoviesLogic
         return _movies.Count() + MoviesArchiveLogic.GetCount() + 1;
     }
 
+    public static Dictionary<string, int> CalculateTotalReservationsPerMovie(MovieModel movie)
+    {
+        Dictionary<string, int> reservations = new()
+        {
+            { "Regular", 0 },
+            { "VIP", 0 },
+            { "VIP+", 0 },
+        };
+
+        foreach (ShowtimeModel showtime in ShowtimesLogic.GetShowtimesByMovieId(movie.Id))
+        {
+            foreach (ReservationModel reservation in ReservationsLogic.GetReservationsByShowtimeId(showtime.Id))
+            {
+                foreach (int seatId in reservation.SeatIds)
+                {
+                    SeatModel seat = SeatsLogic.GetSeatById(seatId);
+                    if (seat.Type == 1)
+                    {
+                        reservations["Regular"]++;
+                    }
+                    else if (seat.Type == 2)
+                    {
+                        reservations["VIP"]++;
+                    }
+                    else if (seat.Type == 3)
+                    {
+                        reservations["VIP+"]++;
+                    }
+                }
+            }
+        }
+
+        return reservations;
+    }
+
+    public static double CalculateTotalRevenueForFilm(MovieModel movie)
+    {
+        double totalRevenue = 0;
+
+        foreach (ShowtimeModel showtime in ShowtimesLogic.GetShowtimesByMovieId(movie.Id))
+        {
+            foreach (ReservationModel reservation in ReservationsLogic.GetReservationsByShowtimeId(showtime.Id))
+            {
+                totalRevenue += reservation.TotalPrice;
+            }
+        }
+
+        return totalRevenue;
+    }
+
+    // Finance
+    public static string FinancialStatusForMovies(bool current, bool past)
+    {
+        string display = "";
+        foreach (MovieModel movie in _movies)
+        {
+            if (current && !past)
+            {
+                if (ShowtimesLogic.GetShowtimesByMovieId(movie.Id).Count == 0)
+                {
+                    continue;
+                }
+            }
+            else if (!current && past)
+            {
+                if (ShowtimesLogic.GetShowtimesByMovieId(movie.Id).Count != 0)
+                {
+                    continue;
+                }
+            }
+            display += movie.ToString() + "\n";
+            Dictionary<string, int> reservations = CalculateTotalReservationsPerMovie(movie);
+            display += $"Regular: {reservations["Regular"]}\n";
+            display += $"VIP: {reservations["VIP"]}\n";
+            display += $"VIP+: {reservations["VIP+"]}\n";
+            display += $"Total Revenue: {CalculateTotalRevenueForFilm(movie)}\n";
+            display += $"Total Cost: {movie.Cost}\n";
+
+            int profit = CalculateTotalRevenueForFilm(movie) - movie.Cost;
+
+            string profitDisplay = profit >= 0
+                ? $"\u001b[32mTotal Profit: {profit}\u001b[0m\n" // Green for profit
+                : $"\u001b[31mTotal Profit: {profit}\u001b[0m\n"; // Red for loss
+
+            display += profitDisplay;
+            display += "----------------------------------------------\n";
+
+          
     public static List<MovieModel> GetMovies(DateTime dayToShow)
     {
         List<MovieModel> movies = new List<MovieModel>();
@@ -163,5 +254,29 @@ public class MoviesLogic
         return display;
     }
 
+    public static List<MovieModel> GetMovies(bool current, bool past)
+    {
+        List<MovieModel> movies = new();
 
+        foreach (MovieModel movie in _movies)
+        {
+            if (current && !past)
+            {
+                if (ShowtimesLogic.GetShowtimesByMovieId(movie.Id).Count == 0)
+                {
+                    continue;
+                }
+            }
+            else if (!current && past)
+            {
+                if (ShowtimesLogic.GetShowtimesByMovieId(movie.Id).Count != 0)
+                {
+                    continue;
+                }
+            }
+            movies.Add(movie);
+        }
+
+        return movies;
+    }
 }
