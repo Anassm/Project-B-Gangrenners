@@ -52,7 +52,8 @@ static class Menu
         if (AccountsLogic.CurrentAccount != null)
         {
             Console.Clear();
-            Console.WriteLine("Enter 1 to buy a ticket");
+            Console.WriteLine("Enter 1 to search movies by date");
+            Console.WriteLine("Enter 2 to search all movies");
             Console.WriteLine("Enter 2 to see reservation");
             Console.WriteLine("Enter 3 to logout");
         }
@@ -68,13 +69,12 @@ static class Menu
         switch (input)
         {
             case "1":
-                Console.WriteLine("Buying a ticket...");
-                BuyTicket.Start(ChooseMovie.StartMovie());
-                break;
-            case "3":
-                Start();
+                MovieSearch.SearchByDate();
                 break;
             case "2":
+                MovieSearch.SearchAll();
+                break;
+            case "3":
                 if (AccountsLogic.CurrentAccount != null)
                 {
                     SeeReservations.SeeReservationSubMenu();
@@ -85,7 +85,9 @@ static class Menu
                     Register.Start();
                     break;
                 }
-
+            case "4":
+                Start();
+                break;
             default:
                 Console.WriteLine("Invalid input");
                 MainMenu();

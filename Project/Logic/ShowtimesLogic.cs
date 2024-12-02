@@ -1,3 +1,4 @@
+using System.Data;
 using System.Dynamic;
 
 public class ShowtimesLogic
@@ -8,7 +9,7 @@ public class ShowtimesLogic
     {
     }
 
-    public List<ShowtimeModel> GetShowtimesByMovieId(int movieId)
+    public static List<ShowtimeModel> GetShowtimesByMovieId(int movieId)
     {
         List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.MoviesId == movieId);
 
