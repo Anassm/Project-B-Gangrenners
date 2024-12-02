@@ -29,7 +29,7 @@ public class MoviesLogic
 
         return movie;
     }
-      
+
     public static int GetCurrentMovieId(string name)
     {
         MovieModel movie = _movies.Find(movie => movie.Name?.Contains(name, StringComparison.OrdinalIgnoreCase) ?? false);
@@ -218,7 +218,7 @@ public class MoviesLogic
             display += $"Total Revenue: {CalculateTotalRevenueForFilm(movie)}\n";
             display += $"Total Cost: {movie.Cost}\n";
 
-            int profit = CalculateTotalRevenueForFilm(movie) - movie.Cost;
+            double profit = CalculateTotalRevenueForFilm(movie) - movie.Cost;
 
             string profitDisplay = profit >= 0
                 ? $"\u001b[32mTotal Profit: {profit}\u001b[0m\n" // Green for profit
@@ -226,8 +226,12 @@ public class MoviesLogic
 
             display += profitDisplay;
             display += "----------------------------------------------\n";
+        }
 
-          
+        return display;
+    }
+
+
     public static List<MovieModel> GetMovies(DateTime dayToShow)
     {
         List<MovieModel> movies = new List<MovieModel>();
