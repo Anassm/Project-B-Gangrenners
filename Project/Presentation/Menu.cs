@@ -54,8 +54,8 @@ static class Menu
             Console.Clear();
             Console.WriteLine("Enter 1 to search movies by date");
             Console.WriteLine("Enter 2 to search all movies");
-            Console.WriteLine("Enter 2 to see reservation");
-            Console.WriteLine("Enter 3 to logout");
+            Console.WriteLine("Enter 3 to see reservation");
+            Console.WriteLine("Enter 4 to logout");
         }
         else
         {
