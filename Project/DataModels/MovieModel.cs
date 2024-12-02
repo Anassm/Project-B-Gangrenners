@@ -58,4 +58,9 @@ public class MovieModel
 
         return $"Name: {Name}\n" + $"Genre: {Genre}\n" + $"Duration: {time} \n" + $"Summary: {Summary}";
     }
+
+    public string ToStringOneLine()
+    {
+        return $"{Name} - ({Genre}) - {Duration} minutes";
+    }
 }
