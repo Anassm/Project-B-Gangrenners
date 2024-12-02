@@ -20,6 +20,13 @@ public class MoviesLogic
         return movie;
     }
 
+    public static int GetCurrentMovieId(string name)
+    {
+        MovieModel movie = _movies.Find(movie => movie.Name?.Contains(name, StringComparison.OrdinalIgnoreCase) ?? false);
+
+        return movie.Id;
+    }
+
     public static bool CheckIfMovieInMovies(string name)
     {
         MovieModel movie = GetMovieByName(name);
@@ -32,6 +39,13 @@ public class MoviesLogic
         MovieModel movie = GetMovieById(id);
 
         return movie != null;
+    }
+
+    public static bool CheckIfMovieInMovies(MovieModel movie)
+    {
+        MovieModel m = GetMovieById(movie.Id);
+
+        return m != null;
     }
 
     public static void AddMovie(MovieModel movie)
