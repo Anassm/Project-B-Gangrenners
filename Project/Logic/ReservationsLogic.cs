@@ -138,4 +138,19 @@ public class ReservationsLogic
     {
         return GetReservation(code, _reservations);
     }
+
+    public static List<ReservationModel> GetReservationsByShowtimeId(int showtimeId)
+    {
+        List<ReservationModel> reservations = new();
+
+        foreach (ReservationModel reservation in _reservations)
+        {
+            if (reservation.ShowtimeId == showtimeId)
+            {
+                reservations.Add(reservation);
+            }
+        }
+
+        return reservations;
+    }
 }
