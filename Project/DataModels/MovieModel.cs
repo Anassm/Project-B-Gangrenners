@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 
 public class MovieModel
@@ -21,7 +22,13 @@ public class MovieModel
     [JsonPropertyName("summary")]
     public string Summary { get; set; }
 
-    public MovieModel(int id, string name, string genre, int duration, bool promoted, string summary)
+    [JsonPropertyName("cost")]
+    public int Cost { get; set; }
+
+    [JsonPropertyName("revenue")]
+    public int Revenue { get; set; }
+
+    public MovieModel(int id, string name, string genre, int duration, bool promoted, string summary, int cost, int revenue)
     {
         Id = id;
         Name = name;
@@ -29,6 +36,8 @@ public class MovieModel
         Duration = duration;
         Promoted = promoted;
         Summary = summary;
+        Cost = cost;
+        Revenue = revenue;
     }
 
     public override string ToString()
