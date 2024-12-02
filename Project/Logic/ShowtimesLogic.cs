@@ -1,3 +1,4 @@
+using System.Data;
 using System.Dynamic;
 
 public class ShowtimesLogic
@@ -26,13 +27,55 @@ public class ShowtimesLogic
         return showtime;
     }
 
+    public static void AddMovieFromAddShowtimes(string name, string genre, int duration, string summary)
+    {
+        if (MoviesArchiveLogic.CheckIfMovieInArchive(name) && summary != "")
+        {
+            MoviesLogic.AddMovie(name, genre, duration, summary);
+        }
+        else if (MoviesArchiveLogic.CheckIfMovieInArchive(name))
+        {
+            MoviesLogic.AddMovie(name, genre, duration);
+        }
+    }
+
+    public List<DateTime> GenerateDateTimesList(DateOnly begindate, DateOnly enddate, TimeOnly time, int interval)
+    {
+        List<DateTime> Times = [];
+        while (begindate <= enddate)
+        {
+            Times.Add(begindate.ToDateTime(time));
+            begindate = begindate.AddDays(interval+1);
+        }
+        return Times;
+    }
+
+    public List<ShowtimeModel> GenerateShowTimesList(string movieName, int HallId, List<DateTime> times)
+    {
+        MovieModel movie = MoviesLogic.GetMovieByName(movieName);
+        List<ShowtimeModel> ShowTimes = [];
+        foreach (DateTime time in times)
+        {
+            ShowTimes.Add(new ShowtimeModel(GetNextId(), movie.Id, time, HallId, HallsLogic.GetHallLayout(HallId)));
+        }
+        return ShowTimes;
+    }
+
+    public void AddShowTimes(List<ShowtimeModel> ShowtimesToAdd)
+    {
+        foreach (ShowtimeModel showtime in ShowtimesToAdd)
+        {
+            AddShowtime(showtime);
+        }
+    }
+
     public void AddShowtime(ShowtimeModel showtime)
     {
         _showtimes.Add(showtime);
         ShowtimesAccess.WriteAll(_showtimes);
     }
 
-    public void AddShowTime(int movieId, DateTime time, int hallId)
+    public void AddShowtime(int movieId, DateTime time, int hallId)
     {
         int id = _showtimes.Count > 0 ? _showtimes.Max(showtime => showtime.Id) + 1 : 1;
 
@@ -99,6 +142,19 @@ public class ShowtimesLogic
         ShowtimesAccess.WriteAll(_showtimes);
     }
 
+    public static int CheckAvailability(ShowtimeModel showtime)
+    {
+        int availableSeats = 0;
+        foreach (int seat in showtime.Availability)
+        {
+            if (seat == 0)
+            {
+                availableSeats++;
+            }
+        }
+        return availableSeats;
+    }
+
     public static bool CheckIfEnoughAvailableSeats(ShowtimeModel showtime, int numberOfSeats)
     {
         if (numberOfSeats <= 0)
@@ -121,5 +177,32 @@ public class ShowtimesLogic
     {
         ShowtimeModel showtime = GetShowtimeById(showtimeId);
         return CheckIfEnoughAvailableSeats(showtime, numberOfSeats);
+    }
+
+    public static int GetNextId()
+    {
+        return _showtimes.Count() + 1;
+    }
+  
+    public static List<ShowtimeModel> GetShowtimesByDay(DateTime day)
+    {
+        List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.Time.Date == day.Date);
+
+        return showtimes;
+    }
+
+    public static string DisplayShowtimes(DateTime dayToShow, int movieId)
+    {
+        List<ShowtimeModel> showtimes = GetShowtimesByDay(dayToShow);
+        string display = "";
+
+        foreach (ShowtimeModel showtime in showtimes)
+        {
+            if (showtime.MoviesId == movieId)
+            {   
+                display += showtime.ToString() + "\n";
+            }
+        }
+        return display;
     }
 }

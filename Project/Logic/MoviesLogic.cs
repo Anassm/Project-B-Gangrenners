@@ -23,6 +23,20 @@ public class MoviesLogic
         return movie;
     }
 
+    public static MovieModel GetMovieByName(string name, List<MovieModel> movies)
+    {
+        MovieModel movie = movies.Find(movie => movie.Name?.Contains(name, StringComparison.OrdinalIgnoreCase) ?? false);
+
+        return movie;
+    }
+      
+    public static int GetCurrentMovieId(string name)
+    {
+        MovieModel movie = _movies.Find(movie => movie.Name?.Contains(name, StringComparison.OrdinalIgnoreCase) ?? false);
+
+        return movie.Id;
+    }
+
     public static bool CheckIfMovieInMovies(string name)
     {
         MovieModel movie = GetMovieByName(name);
@@ -35,6 +49,13 @@ public class MoviesLogic
         MovieModel movie = GetMovieById(id);
 
         return movie != null;
+    }
+
+    public static bool CheckIfMovieInMovies(MovieModel movie)
+    {
+        MovieModel m = GetMovieById(movie.Id);
+
+        return m != null;
     }
 
     public static void AddMovie(MovieModel movie)
@@ -205,6 +226,30 @@ public class MoviesLogic
 
             display += profitDisplay;
             display += "----------------------------------------------\n";
+
+          
+    public static List<MovieModel> GetMovies(DateTime dayToShow)
+    {
+        List<MovieModel> movies = new List<MovieModel>();
+        List<ShowtimeModel> showtimes = ShowtimesLogic.GetShowtimesByDay(dayToShow);
+        foreach (ShowtimeModel showtime in showtimes)
+        {
+            MovieModel movie = GetMovieById(showtime.MoviesId);
+            if (movie != null && !movies.Contains(movie))
+            {
+                movies.Add(movie);
+            }
+        }
+        return movies;
+    }
+
+    public static string DisplayMovies(DateTime dayToShow)
+    {
+        List<MovieModel> movies = GetMovies(dayToShow);
+        string display = "";
+        foreach (MovieModel movie in movies)
+        {
+            display += movie.ToStringOneLine() + "\n";
         }
         return display;
     }
