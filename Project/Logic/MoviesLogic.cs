@@ -62,7 +62,7 @@ public class MoviesLogic
 
     public static void AddMovie(string name, string genre, int duration, string summary)
     {
-        MovieModel movie = new MovieModel(GetNextId(), name, genre, duration, false, summary, 1000, 1000);
+        MovieModel movie = new MovieModel(GetNextId(), name, genre, duration, false, summary);
         AddMovie(movie);
     }
 
