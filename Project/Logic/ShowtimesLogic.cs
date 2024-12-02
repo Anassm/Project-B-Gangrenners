@@ -122,4 +122,27 @@ public class ShowtimesLogic
         ShowtimeModel showtime = GetShowtimeById(showtimeId);
         return CheckIfEnoughAvailableSeats(showtime, numberOfSeats);
     }
+
+    public static List<ShowtimeModel> GetShowtimesByDay(DateTime day)
+    {
+        List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.Time.Date == day.Date);
+
+        return showtimes;
+    }
+
+    public static string DisplayShowtimes(DateTime dayToShow, int movieId)
+    {
+        List<ShowtimeModel> showtimes = GetShowtimesByDay(dayToShow);
+        string display = "";
+
+        foreach (ShowtimeModel showtime in showtimes)
+        {
+            if (showtime.MoviesId == movieId)
+            {   
+                display += showtime.ToString() + "\n";
+            }
+        }
+
+        return display;
+    }
 }
