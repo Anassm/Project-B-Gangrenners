@@ -128,13 +128,20 @@ static class BuyTicket
                 ReservationModel reservation = new ReservationModel(_reservationsLogic.GetNextId(),seatIds, info.showtime.Id, accountId, TotalPrice, codes);
                 _reservationsLogic.AddReservation(reservation);
                 _showtimesLogic.UpdateList(info.showtime);
+                Console.WriteLine("Your reservation has been made");
+                Console.WriteLine("Movie: " +  movieName);
+                Console.WriteLine("Seat types: " + seatTypes);
+                Console.WriteLine("Price: \u20AC" + Math.Round(TotalPrice,2).ToString("0.00"));
+                Console.WriteLine("Time of the movie: " + time);
+                Console.WriteLine("Hall: " + info.showtime.HallId);
+                Console.WriteLine("Seats: " + seats);
                 if (codes.Count == 1)
                 {
-                    Console.WriteLine("Your reservation has been made, your code is: " + codes[0]);
+                    Console.WriteLine("Your code is: " + codes[0]);
                 }
                 else
                 {
-                    Console.WriteLine("Your reservation has been made, your codes are: " + string.Join(", ", codes));
+                    Console.WriteLine("Your codes are: " + string.Join(", ", codes));
                 }
                 Console.WriteLine("Thank you for your purchase");
                 Console.WriteLine("Press any key to return to the main menu");
@@ -154,6 +161,12 @@ static class BuyTicket
         }
         else
         {   
+            foreach(SeatModel seat in info.seats)
+            {
+                int[] coordinates = SeatsLogic.GetCoordinatesBySeat(seat);
+                info.showtime.Availability[coordinates[0], coordinates[1]] = 0;
+            }
+
             Console.Clear();
             Menu.MainMenu();
         }

@@ -49,7 +49,6 @@ static class Menu
 
     static public void MainMenu()
     {
-        // TODO: Discuss whether to add interactivity with the user when logged in, or not.
         if (AccountsLogic.CurrentAccount != null)
         {
             Console.Clear();
@@ -62,7 +61,7 @@ static class Menu
             Console.Clear();
             Console.WriteLine("Enter 1 to buy a ticket");
             Console.WriteLine("Enter 2 to register");
-            Console.WriteLine("Enter 3 to logout");
+            Console.WriteLine("Enter 3 to go back to main menu");
         }
         string input = Console.ReadLine();
         Console.Clear();

@@ -129,4 +129,32 @@ public class MoviesLogic
     {
         return _movies.Count() + MoviesArchiveLogic.GetCount() + 1;
     }
+
+    public static List<MovieModel> GetMovies(DateTime dayToShow)
+    {
+        List<MovieModel> movies = new List<MovieModel>();
+        List<ShowtimeModel> showtimes = ShowtimesLogic.GetShowtimesByDay(dayToShow);
+        foreach (ShowtimeModel showtime in showtimes)
+        {
+            MovieModel movie = GetMovieById(showtime.MoviesId);
+            if (movie != null && !movies.Contains(movie))
+            {
+                movies.Add(movie);
+            }
+        }
+        return movies;
+    }
+
+    public static string DisplayMovies(DateTime dayToShow)
+    {
+        List<MovieModel> movies = GetMovies(dayToShow);
+        string display = "";
+        foreach (MovieModel movie in movies)
+        {
+            display += movie.ToStringOneLine() + "\n";
+        }
+        return display;
+    }
+
+
 }
