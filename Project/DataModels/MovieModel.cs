@@ -23,12 +23,12 @@ public class MovieModel
     public string Summary { get; set; }
 
     [JsonPropertyName("cost")]
-    public int Cost { get; set; }
+    public double Cost { get; set; }
 
     [JsonPropertyName("revenue")]
-    public int Revenue { get; set; }
+    public double Revenue { get; set; }
 
-    public MovieModel(int id, string name, string genre, int duration, bool promoted, string summary, int cost, int revenue)
+    public MovieModel(int id, string name, string genre, int duration, bool promoted, string summary, double cost, double revenue)
     {
         Id = id;
         Name = name;
