@@ -137,7 +137,7 @@ public class MoviesLogic
         string display = "";
         foreach (MovieModel movie in movies)
         {
-            display += movie.ToStringUsers() + "\n";
+            display += movie.ToStringOneLine() + "\n";
         }
         return display;
     }
