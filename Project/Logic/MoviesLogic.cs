@@ -20,6 +20,13 @@ public class MoviesLogic
         return movie;
     }
 
+    public static MovieModel GetMovieByName(string name, List<MovieModel> movies)
+    {
+        MovieModel movie = movies.Find(movie => movie.Name?.Contains(name, StringComparison.OrdinalIgnoreCase) ?? false);
+
+        return movie;
+    }
+
     public static bool CheckIfMovieInMovies(string name)
     {
         MovieModel movie = GetMovieByName(name);
@@ -55,7 +62,7 @@ public class MoviesLogic
 
     public static void AddMovie(string name, string genre, int duration, string summary)
     {
-        MovieModel movie = new MovieModel(GetNextId(), name, genre, duration, false, summary);
+        MovieModel movie = new MovieModel(GetNextId(), name, genre, duration, false, summary, 1000, 1000);
         AddMovie(movie);
     }
 

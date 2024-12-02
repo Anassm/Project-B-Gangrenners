@@ -20,7 +20,7 @@ public static class ChooseMovie
     public static (List<SeatModel>, ShowtimeModel) StartMovie(MovieModel movie, int amountOfSeats, DateTime day)
     {
         var choice = movie;
-        var showtime = GetShowTimes(choice, day);
+        var showtime = GetShowTimes(choice, day, amountOfSeats);
         return SeatChoice(showtime, amountOfSeats);
     }
 
@@ -117,7 +117,7 @@ public static class ChooseMovie
         return newShowtimes[showtimeChoice - 1];
     }
 
-    public static ShowtimeModel GetShowTimes(MovieModel movie, DateTime day)
+    public static ShowtimeModel GetShowTimes(MovieModel movie, DateTime day, int amountOfTickets)
     {
         var showtimes = ShowtimesLogic.GetShowtimesByMovieId(movie.Id);
         if (!showtimes.Any())
@@ -147,14 +147,31 @@ public static class ChooseMovie
         for (int i = 0; i < newShowtimes.Count; i++)
         {
             var showtime = newShowtimes[i];
-            Console.WriteLine($"Number: {i + 1}");
-            Console.WriteLine($"Date / Time: {showtime.Time}");
-            Console.WriteLine($"Hall: {showtime.HallId}");
-            Console.WriteLine("----------------------------");
+            if(ShowtimesLogic.CheckIfEnoughAvailableSeats(showtime, amountOfTickets))
+            {
+                Console.WriteLine($"Number: {i + 1}");
+                Console.WriteLine($"Date / Time: {showtime.Time}");
+                Console.WriteLine($"Hall: {showtime.HallId}");
+                Console.WriteLine("----------------------------");
+            }
+            else
+            {
+                Console.WriteLine($"\x1B[2mNumber: {i + 1}");
+                Console.WriteLine($"Date / Time: {showtime.Time}");
+                Console.WriteLine($"Hall: {showtime.HallId}\x1B[0m");
+                Console.WriteLine("----------------------------");
+            }
+           
         }
 
         Console.WriteLine("Please choose the number of the corresponding screening time.");
         int showtimeChoice = Convert.ToInt32(Console.ReadLine());
+        if (!ShowtimesLogic.CheckIfEnoughAvailableSeats(newShowtimes[showtimeChoice - 1], amountOfTickets))
+        {
+            Console.WriteLine("There are not enough available seats for the amount you want to reserve.");
+            Console.WriteLine("Please choose a different amount.");
+            return GetShowTimes(movie, day, amountOfTickets);
+        }
         return newShowtimes[showtimeChoice - 1];
     }
 
