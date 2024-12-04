@@ -33,7 +33,7 @@ public class ShowtimesLogic
         {
             MoviesLogic.AddMovie(name, genre, duration, summary);
         }
-        else if (MoviesArchiveLogic.CheckIfMovieInArchive(name) 
+        else if (MoviesArchiveLogic.CheckIfMovieInArchive(name)) 
         {
             MoviesLogic.AddMovie(name, genre, duration);
         }
@@ -211,5 +211,17 @@ public class ShowtimesLogic
             }
         }
         return display;
+    }
+    
+    public static List<ShowtimeModel> GetShowtimes(DateTime beginDate, DateTime endDate, MovieModel movie)
+    {
+        List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.Time.Date >= beginDate.Date && showtime.Time.Date <= endDate.Date && showtime.MoviesId == movie.Id);
+
+        return showtimes;
+    }
+
+    public static List<ShowtimeModel> GetShowtimes(DateTime beginDate, DateTime endDate, int movieId)
+    {
+        return GetShowtimes(beginDate, endDate, MoviesLogic.GetMovieById(movieId));
     }
 }

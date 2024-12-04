@@ -298,4 +298,15 @@ public class MoviesLogic
         }
         return display;
     }
+
+    public static string DisplayMovies(DateTime beginDate, DateTime endDate)
+    {
+        List<MovieModel> movies = GetMovies(beginDate, endDate);
+        string display = "";
+        foreach (MovieModel movie in movies)
+        {
+            display += movie.ToStringOneLine() + "\n";
+        }
+        return display;
+    }
 }
