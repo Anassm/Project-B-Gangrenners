@@ -190,7 +190,6 @@ public class MoviesLogic
         return totalRevenue;
     }
 
-    // Finance
     public static string FinancialStatusForMovies(bool current, bool past)
     {
         string display = "";
