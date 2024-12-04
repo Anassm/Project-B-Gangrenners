@@ -247,15 +247,19 @@ public class MoviesLogic
         return movies;
     }
 
-    public static string DisplayMovies(DateTime dayToShow)
+    public static List<MovieModel> GetMovies(DateTime beginDate, DateTime endDate)
     {
-        List<MovieModel> movies = GetMovies(dayToShow);
-        string display = "";
-        foreach (MovieModel movie in movies)
+        List<MovieModel> movies = new List<MovieModel>();
+        List<ShowtimeModel> showtimes = ShowtimesLogic.GetShowtimesByDay(beginDate, endDate);
+        foreach (ShowtimeModel showtime in showtimes)
         {
-            display += movie.ToStringOneLine() + "\n";
+            MovieModel movie = GetMovieById(showtime.MoviesId);
+            if (movie != null && !movies.Contains(movie))
+            {
+                movies.Add(movie);
+            }
         }
-        return display;
+        return movies;
     }
 
     public static List<MovieModel> GetMovies(bool current, bool past)
@@ -282,5 +286,16 @@ public class MoviesLogic
         }
 
         return movies;
+    }
+
+    public static string DisplayMovies(DateTime dayToShow)
+    {
+        List<MovieModel> movies = GetMovies(dayToShow);
+        string display = "";
+        foreach (MovieModel movie in movies)
+        {
+            display += movie.ToStringOneLine() + "\n";
+        }
+        return display;
     }
 }

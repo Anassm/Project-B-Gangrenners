@@ -33,7 +33,7 @@ public class ShowtimesLogic
         {
             MoviesLogic.AddMovie(name, genre, duration, summary);
         }
-        else if (MoviesArchiveLogic.CheckIfMovieInArchive(name))
+        else if (MoviesArchiveLogic.CheckIfMovieInArchive(name) 
         {
             MoviesLogic.AddMovie(name, genre, duration);
         }
@@ -187,6 +187,13 @@ public class ShowtimesLogic
     public static List<ShowtimeModel> GetShowtimesByDay(DateTime day)
     {
         List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.Time.Date == day.Date);
+
+        return showtimes;
+    }
+
+    public static List<ShowtimeModel> GetShowtimesByDay(DateTime beginDate, DateTime endDate)
+    {
+        List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.Time.Date >= beginDate.Date && showtime.Time.Date <= endDate.Date);
 
         return showtimes;
     }
