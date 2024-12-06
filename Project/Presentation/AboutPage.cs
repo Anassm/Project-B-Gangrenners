@@ -84,6 +84,7 @@ public static class AboutPage
         int hallsAmount = HallsLogic.GetAll().Count;
         (HallModel HallId, int SeatCount) biggestHall = HallsLogic.GetBiggestHall();
 
+        Console.WriteLine($"Address: 1234AB Rotterdam gangrennersstreet 123\n");
         Console.WriteLine($"Seats: {seatsAmount}\n");
         Console.WriteLine($"Biggest hall: Hall {biggestHall.HallId}: {biggestHall.SeatCount} seats\n");
         Console.WriteLine($"Halls: {hallsAmount}\n");
