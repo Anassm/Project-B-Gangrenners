@@ -27,15 +27,15 @@ public class ShowtimesLogic
         return showtime;
     }
 
-    public static void AddMovieFromAddShowtimes(string name, string genre, int duration, string summary)
+    public static void AddMovieFromAddShowtimes(string name, string genre, int duration, string summary, double cost)
     {
         if (MoviesArchiveLogic.CheckIfMovieInArchive(name) && summary != "")
         {
-            MoviesLogic.AddMovie(name, genre, duration, summary);
+            MoviesLogic.AddMovie(name, genre, duration, summary, cost);
         }
-        else if (MoviesArchiveLogic.CheckIfMovieInArchive(name)) 
+        else if (MoviesArchiveLogic.CheckIfMovieInArchive(name))
         {
-            MoviesLogic.AddMovie(name, genre, duration);
+            MoviesLogic.AddMovie(name, genre, duration, cost);
         }
     }
 
@@ -45,7 +45,7 @@ public class ShowtimesLogic
         while (begindate <= enddate)
         {
             Times.Add(begindate.ToDateTime(time));
-            begindate = begindate.AddDays(interval+1);
+            begindate = begindate.AddDays(interval + 1);
         }
         return Times;
     }
@@ -183,7 +183,7 @@ public class ShowtimesLogic
     {
         return _showtimes.Count() + 1;
     }
-  
+
     public static List<ShowtimeModel> GetShowtimesByDay(DateTime day)
     {
         List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.Time.Date == day.Date);
@@ -206,13 +206,13 @@ public class ShowtimesLogic
         foreach (ShowtimeModel showtime in showtimes)
         {
             if (showtime.MoviesId == movieId)
-            {   
+            {
                 display += showtime.ToString() + "\n";
             }
         }
         return display;
     }
-    
+
     public static List<ShowtimeModel> GetShowtimes(DateTime beginDate, DateTime endDate, MovieModel movie)
     {
         List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.Time.Date >= beginDate.Date && showtime.Time.Date <= endDate.Date && showtime.MoviesId == movie.Id);
