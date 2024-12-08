@@ -11,7 +11,7 @@ public static class ManageMovies
         System.Console.WriteLine("If you want to quit type Q or quit, this does not work when entering duration.");
         System.Console.WriteLine("Please give the info needed to add a movie.");
         System.Console.WriteLine("");
-        
+
         // Name input
         System.Console.WriteLine("Please enter the name of the movie:");
         string MovieName = System.Console.ReadLine();
@@ -36,7 +36,7 @@ public static class ManageMovies
             System.Console.WriteLine("");
             System.Console.WriteLine("Please enter the duration of the movie:");
             string input = System.Console.ReadLine();
-            if(input.All(char.IsDigit))
+            if (input.All(char.IsDigit))
             {
                 MovieDuration = Convert.ToInt32(input);
                 break;
@@ -47,10 +47,10 @@ public static class ManageMovies
                 System.Console.WriteLine("Invalid input.");
             }
         }
-        
+
         // Summary input
         System.Console.WriteLine("");
-        System.Console.WriteLine("Please enter the summary of the movie:");
+        System.Console.WriteLine("Please enter the summary of the movie: ");
         string MovieSummary = System.Console.ReadLine();
         if (MovieSummary == "q" || MovieSummary == "quit")
         {
@@ -61,11 +61,20 @@ public static class ManageMovies
             MovieSummary = "No summary available";
         }
 
+        // Cost input
+        System.Console.WriteLine("");
+        System.Console.WriteLine("Please enter the cost of the movie: ");
+        double cost = Convert.ToDouble(System.Console.ReadLine());
+        if (cost <= 0)
+        {
+            System.Console.WriteLine("The cost can't be negative or 0");
+        }
+
         // Check if movie is in archive
         if (MoviesArchiveLogic.CheckIfMovieInArchive(MovieName))
         {
             MovieModel Movie = MoviesArchiveLogic.GetMovieByName(MovieName);
-            if(Movie.Duration != MovieDuration || Movie.Genre != MovieGenre)
+            if (Movie.Duration != MovieDuration || Movie.Genre != MovieGenre)
             {
                 Console.Clear();
                 System.Console.WriteLine("The movie you are trying to add is already in the archive but with different genre or duration.");
@@ -80,7 +89,7 @@ public static class ManageMovies
                         Console.Clear();
                         AdminLogin.AdminMenu();
                     }
-                    MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration, MovieSummary);
+                    MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration, MovieSummary, cost);
                     System.Console.WriteLine("The movie was successfully added.");
                     System.Console.WriteLine("");
                     System.Console.WriteLine("Give any input to go back to admin menu.");
@@ -103,7 +112,7 @@ public static class ManageMovies
                     AdminLogin.AdminMenu();
                 }
             }
-            else if(Movie.Duration == MovieDuration && Movie.Genre == MovieGenre)
+            else if (Movie.Duration == MovieDuration && Movie.Genre == MovieGenre)
             {
                 Console.Clear();
                 System.Console.WriteLine("The movie you are trying to add is already in the archive.");
@@ -127,7 +136,7 @@ public static class ManageMovies
                 AdminLogin.AdminMenu();
             }
         }
-        MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration);
+        MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration, cost);
         System.Console.WriteLine("The movie was successfully added.");
         System.Console.WriteLine("");
         System.Console.WriteLine("Give any input to go back to admin menu.");
@@ -138,7 +147,7 @@ public static class ManageMovies
             AdminLogin.AdminMenu();
         }
 
-    } 
+    }
 
     public static void RemoveMovieMenu()
     {
@@ -192,7 +201,7 @@ public static class ManageMovies
             RemoveMovieMenu();
         }
         bool prom = MoviesLogic.PromoteMovie(movie);
-        if(prom == false)
+        if (prom == false)
         {
             Console.Clear();
             System.Console.WriteLine("This movie cannot be promoted.");
@@ -203,7 +212,7 @@ public static class ManageMovies
             System.Console.WriteLine("Movie was successfully promoted.");
 
         }
-        
+
         System.Console.WriteLine("");
         System.Console.WriteLine("Give any input to go back to admin menu.");
         ConsoleKeyInfo key = Console.ReadKey(true);
@@ -234,7 +243,7 @@ public static class ManageMovies
             DemoteMovieMenu();
         }
         bool prom = MoviesLogic.unPromoteMovie(movie);
-        if(prom == false)
+        if (prom == false)
         {
             Console.Clear();
             System.Console.WriteLine("This movie cannot be demoted.");
@@ -245,7 +254,7 @@ public static class ManageMovies
             System.Console.WriteLine("Movie was successfully demoted.");
 
         }
-        
+
         System.Console.WriteLine("");
         System.Console.WriteLine("Give any input to go back to admin menu.");
         ConsoleKeyInfo key = Console.ReadKey(true);
