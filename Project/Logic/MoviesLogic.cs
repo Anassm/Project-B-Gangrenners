@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using System.Collections;
 using System.Runtime.InteropServices;
 
@@ -81,6 +82,18 @@ public class MoviesLogic
     {
         MovieModel movie = new MovieModel(GetNextId(), name, genre, duration, false, summary, cost, 0);
         AddMovie(movie);
+    }
+
+    public static bool IsValidDateFormat(string date)
+    {
+        string pattern = @"^\d{4}-\d{2}-\d{2}$";
+        return Regex.IsMatch(date, pattern);
+    }
+
+    public static bool IsValidTimeOnlyFormat(string time)
+    {
+        string pattern = @"^(?:[01]\d|2[0-3]):[0-5]\d(?:\:[0-5]\d(?:\.\d{1,7})?)?$";
+        return Regex.IsMatch(time, pattern);
     }
 
     public static void RemoveMovie(MovieModel movie)
