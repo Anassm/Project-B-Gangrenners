@@ -1,4 +1,5 @@
 using System.Dynamic;
+using System.Reflection.Metadata.Ecma335;
 
 public class ShowtimesLogic
 {
@@ -57,7 +58,22 @@ public class ShowtimesLogic
         {
             ShowTimes.Add(new ShowtimeModel(GetNextId(), movie.Id, time, HallId, HallsLogic.GetHallLayout(HallId)));
         }
-        return ShowTimes;
+        return ValdidateAllShowtimes(ShowTimes);
+    }
+
+    public static List<ShowtimeModel> ValdidateAllShowtimes(List<ShowtimeModel> showtimes)
+    {
+        foreach (ShowtimeModel showtime in showtimes)
+        {
+            foreach (ShowtimeModel showtime2 in _showtimes)
+            {
+                if (showtime.Time == showtime2.Time && showtime.HallId == showtime2.HallId)
+                {
+                    showtimes.Remove(showtime);
+                }
+            }
+        }
+        return showtimes;
     }
 
     public static void AddShowTimes(List<ShowtimeModel> ShowtimesToAdd)
