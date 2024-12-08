@@ -38,7 +38,7 @@ public class ShowtimesLogic
         }
     }
 
-    public List<DateTime> GenerateDateTimesList(DateOnly begindate, DateOnly enddate, TimeOnly time, int interval)
+    public static List<DateTime> GenerateDateTimesList(DateOnly begindate, DateOnly enddate, TimeOnly time, int interval)
     {
         List<DateTime> Times = [];
         while (begindate <= enddate)
@@ -49,7 +49,7 @@ public class ShowtimesLogic
         return Times;
     }
 
-    public List<ShowtimeModel> GenerateShowTimesList(string movieName, int HallId, List<DateTime> times)
+    public static List<ShowtimeModel> GenerateShowTimesList(string movieName, int HallId, List<DateTime> times)
     {
         MovieModel movie = MoviesLogic.GetMovieByName(movieName);
         List<ShowtimeModel> ShowTimes = [];
@@ -60,7 +60,7 @@ public class ShowtimesLogic
         return ShowTimes;
     }
 
-    public void AddShowTimes(List<ShowtimeModel> ShowtimesToAdd)
+    public static void AddShowTimes(List<ShowtimeModel> ShowtimesToAdd)
     {
         foreach (ShowtimeModel showtime in ShowtimesToAdd)
         {
@@ -68,7 +68,7 @@ public class ShowtimesLogic
         }
     }
 
-    public void AddShowtime(ShowtimeModel showtime)
+    public static void AddShowtime(ShowtimeModel showtime)
     {
         _showtimes.Add(showtime);
         ShowtimesAccess.WriteAll(_showtimes);
