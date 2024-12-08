@@ -1,3 +1,4 @@
+using System.Data;
 using System.Dynamic;
 using System.Reflection.Metadata.Ecma335;
 
@@ -9,7 +10,7 @@ public class ShowtimesLogic
     {
     }
 
-    public List<ShowtimeModel> GetShowtimesByMovieId(int movieId)
+    public static List<ShowtimeModel> GetShowtimesByMovieId(int movieId)
     {
         List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.MoviesId == movieId);
 
@@ -27,15 +28,15 @@ public class ShowtimesLogic
         return showtime;
     }
 
-    public static void AddMovieFromAddShowtimes(string name, string genre, int duration, string summary)
+    public static void AddMovieFromAddShowtimes(string name, string genre, int duration, string summary, double cost)
     {
         if (MoviesArchiveLogic.CheckIfMovieInArchive(name) && summary != "")
         {
-            MoviesLogic.AddMovie(name, genre, duration, summary);
+            MoviesLogic.AddMovie(name, genre, duration, summary, cost);
         }
         else if (MoviesArchiveLogic.CheckIfMovieInArchive(name))
         {
-            MoviesLogic.AddMovie(name, genre, duration);
+            MoviesLogic.AddMovie(name, genre, duration, cost);
         }
     }
 
@@ -45,7 +46,7 @@ public class ShowtimesLogic
         while (begindate <= enddate)
         {
             Times.Add(begindate.ToDateTime(time));
-            begindate = begindate.AddDays(interval+1);
+            begindate = begindate.AddDays(interval + 1);
         }
         return Times;
     }
@@ -157,6 +158,19 @@ public class ShowtimesLogic
         ShowtimesAccess.WriteAll(_showtimes);
     }
 
+    public static int CheckAvailability(ShowtimeModel showtime)
+    {
+        int availableSeats = 0;
+        foreach (int seat in showtime.Availability)
+        {
+            if (seat == 0)
+            {
+                availableSeats++;
+            }
+        }
+        return availableSeats;
+    }
+
     public static bool CheckIfEnoughAvailableSeats(ShowtimeModel showtime, int numberOfSeats)
     {
         if (numberOfSeats <= 0)
@@ -185,10 +199,17 @@ public class ShowtimesLogic
     {
         return _showtimes.Count() + 1;
     }
-  
+
     public static List<ShowtimeModel> GetShowtimesByDay(DateTime day)
     {
         List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.Time.Date == day.Date);
+
+        return showtimes;
+    }
+
+    public static List<ShowtimeModel> GetShowtimesByDay(DateTime beginDate, DateTime endDate)
+    {
+        List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.Time.Date >= beginDate.Date && showtime.Time.Date <= endDate.Date);
 
         return showtimes;
     }
@@ -201,10 +222,22 @@ public class ShowtimesLogic
         foreach (ShowtimeModel showtime in showtimes)
         {
             if (showtime.MoviesId == movieId)
-            {   
+            {
                 display += showtime.ToString() + "\n";
             }
         }
         return display;
+    }
+
+    public static List<ShowtimeModel> GetShowtimes(DateTime beginDate, DateTime endDate, MovieModel movie)
+    {
+        List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.Time.Date >= beginDate.Date && showtime.Time.Date <= endDate.Date && showtime.MoviesId == movie.Id);
+
+        return showtimes;
+    }
+
+    public static List<ShowtimeModel> GetShowtimes(DateTime beginDate, DateTime endDate, int movieId)
+    {
+        return GetShowtimes(beginDate, endDate, MoviesLogic.GetMovieById(movieId));
     }
 }

@@ -118,6 +118,15 @@ public static class ManageMovies
             }
         }
 
+        // Cost input
+        System.Console.WriteLine("");
+        System.Console.WriteLine("Please enter the cost of the movie: ");
+        double cost = Convert.ToDouble(System.Console.ReadLine());
+        if (cost <= 0)
+        {
+            System.Console.WriteLine("The cost can't be negative or 0");
+        }
+
         // Check if movie is in archive
         if (MoviesArchiveLogic.CheckIfMovieInArchive(MovieName))
         {
@@ -137,7 +146,7 @@ public static class ManageMovies
                         Console.Clear();
                         AdminLogin.AdminMenu();
                     }
-                    MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration, MovieSummary);
+                    MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration, MovieSummary, cost);
                     System.Console.WriteLine("The movie was successfully added.");
                     System.Console.WriteLine("");
                     System.Console.WriteLine("Give any input to go back to admin menu.");
@@ -184,7 +193,7 @@ public static class ManageMovies
                 AdminLogin.AdminMenu();
             }
         }
-        MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration);
+        MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration, cost);
         System.Console.WriteLine("The movie was successfully added.");
         System.Console.WriteLine("");
         System.Console.WriteLine("Give any input to go back to admin menu.");
