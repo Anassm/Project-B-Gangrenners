@@ -118,15 +118,6 @@ public static class ManageMovies
             }
         }
 
-        // Cost input
-        System.Console.WriteLine("");
-        System.Console.WriteLine("Please enter the cost of the movie: ");
-        double cost = Convert.ToDouble(System.Console.ReadLine());
-        if (cost <= 0)
-        {
-            System.Console.WriteLine("The cost can't be negative or 0");
-        }
-
         // Check if movie is in archive
         if (MoviesArchiveLogic.CheckIfMovieInArchive(MovieName))
         {
