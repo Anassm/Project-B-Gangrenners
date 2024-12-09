@@ -64,9 +64,10 @@ static class Menu
         else
         {
             Console.Clear();
-            Console.WriteLine("Enter 1 to buy a ticket");
-            Console.WriteLine("Enter 2 to register");
-            Console.WriteLine("Enter 3 to go back to main menu");
+            Console.WriteLine("Enter 1 to search movies by date");
+            Console.WriteLine("Enter 2 to search all movies");
+            Console.WriteLine("Enter 3 to register");
+            Console.WriteLine("Enter 4 to go back to main menu");
         }
         string input = Console.ReadLine();
         Console.Clear();
@@ -96,22 +97,6 @@ static class Menu
                 Console.WriteLine("Invalid input");
                 MainMenu();
                 break;
-        }
-
-
-        if (input == "1")
-        {
-            Console.WriteLine("Buying a ticket...");
-            BuyTicket.Start(ChooseMovie.StartMovie());
-        }
-        else if (input == "2")
-        {
-            Start();
-        }
-        else
-        {
-            Console.WriteLine("Invalid input");
-            MainMenu();
         }
     }
 }

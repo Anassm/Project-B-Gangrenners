@@ -31,7 +31,7 @@ public static class AboutPage
                 break;
             case "5":
                 Console.Clear();
-                Menu.MainMenu();
+                Menu.Start();
                 break;
             default:
                 Console.WriteLine("Invalid input");
@@ -57,7 +57,7 @@ public static class AboutPage
         {
             Console.WriteLine($"Name: {spot.Key}");
             Console.WriteLine($"Address: {spot.Value.Address}");
-            Console.WriteLine($"Cost per hour: ${spot.Value.CostPerHour:F2}");
+            Console.WriteLine($"Cost per hour: €{spot.Value.CostPerHour:F2}");
             Console.WriteLine();
         }
 
@@ -118,7 +118,7 @@ public static class AboutPage
                 break;
             case "2":
                 Console.Clear();
-                Menu.MainMenu();
+                Menu.Start();
                 break;
             default:
                 Console.WriteLine("Invalid input. Please try again.");
