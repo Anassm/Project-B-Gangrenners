@@ -55,7 +55,8 @@ static class Menu
             Console.WriteLine("Enter 1 to search movies by date");
             Console.WriteLine("Enter 2 to search all movies");
             Console.WriteLine("Enter 3 to see reservation");
-            Console.WriteLine("Enter 4 to logout");
+            Console.WriteLine("Enter 4 to see finance dashboard");
+            Console.WriteLine("Enter 5 to logout");
         }
         else
         {
@@ -69,45 +70,62 @@ static class Menu
         switch (input)
         {
             case "1":
-                MovieSearch.SearchByDate();
+                if (AccountsLogic.CurrentAccount != null)
+                {
+                    MovieSearch.SearchByDate();
+                }
+                else
+                {
+                    Console.WriteLine("Buying a ticket...");
+                    BuyTicket.Start(ChooseMovie.StartMovie());
+                }
                 break;
             case "2":
-                MovieSearch.SearchAll();
+                if (AccountsLogic.CurrentAccount != null)
+                {
+                    MovieSearch.SearchAll();
+                }
+                else
+                {
+                    Register.Start();
+                }
                 break;
             case "3":
                 if (AccountsLogic.CurrentAccount != null)
                 {
                     SeeReservations.SeeReservationSubMenu();
-                    break;
                 }
                 else
                 {
-                    Register.Start();
-                    break;
+                    Start();
                 }
+                break;
             case "4":
-                Start();
+                if (AccountsLogic.CurrentAccount != null)
+                {
+                    Finance.Start();
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input");
+                    MainMenu();
+                }
+                break;
+            case "5":
+                if (AccountsLogic.CurrentAccount != null)
+                {
+                    Start();
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input");
+                    MainMenu();
+                }
                 break;
             default:
                 Console.WriteLine("Invalid input");
                 MainMenu();
                 break;
-        }
-
-
-        if (input == "1")
-        {
-            Console.WriteLine("Buying a ticket...");
-            BuyTicket.Start(ChooseMovie.StartMovie());
-        }
-        else if (input == "2")
-        {
-            Start();
-        }
-        else
-        {
-            Console.WriteLine("Invalid input");
-            MainMenu();
         }
     }
 }
