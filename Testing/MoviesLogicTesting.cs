@@ -19,6 +19,16 @@ public class TestMoviesLogic
         Assert.AreEqual(MoviesLogic.GetMovieByName("Inception").Id, 1);
     }
 
+    public void GetMovieByName_ExistingMovie_ReturnNotNull()
+    {   
+        Assert.IsTrue(MoviesLogic.GetMovieByName("Inception") != null);
+    }
+
+    public void GetMovieByName_NonExistingMovie_ReturnNull()
+    {   
+        Assert.AreEqual(MoviesLogic.GetMovieByName("Alladin"), null);
+    }
+
     [TestMethod]
     public void CheckIfMovieInMoviesName_ExistingMovie_ReturnTrue()
     {
@@ -40,7 +50,7 @@ public class TestMoviesLogic
     {
         MoviesLogic ml = new MoviesLogic();
 
-        MovieModel movie = new MovieModel(4, "The Dark Knight", "Action", 152, false, "No summary available");
+        MovieModel movie = new MovieModel(4, "The Dark Knight", "Action", 152, false, "No summary available", 0, 0);
 
         MoviesLogic.AddMovie(movie);
 
