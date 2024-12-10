@@ -24,14 +24,14 @@ public class TestSeatsLogic
         SeatsLogic sl = new SeatsLogic();
         SeatModel seat = new SeatModel(4, 1, 1, 1, 1, 50);
         sl.UpdateList(seat);
-        Assert.AreEqual(sl.GetSeatById(4), seat);
+        Assert.AreEqual(SeatsLogic.GetSeatById(4), seat);
     }
 
     [TestMethod]
     public void GetSeatById_NonExisting_ReturnNull()
     {
         SeatsLogic sl = new SeatsLogic();
-        Assert.AreEqual(sl.GetSeatById(100000), null);
+        Assert.AreEqual(SeatsLogic.GetSeatById(100000), null);
     }
 
     [TestMethod]
