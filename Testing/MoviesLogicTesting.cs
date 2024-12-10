@@ -79,6 +79,7 @@ public class TestMoviesLogic
         Assert.IsFalse(MoviesLogic.CheckIfMovieInMovies("Inception"));
     }
 
+    [TestMethod]
     public void PromoteMovie_IsPromoted_ReturnTrue()
     {
         MoviesLogic ml = new MoviesLogic();
@@ -90,6 +91,7 @@ public class TestMoviesLogic
         Assert.IsTrue(movie.Promoted);
     }
 
+    [TestMethod]
     public void PromoteMovieName_IsPromoted_ReturnTrue()
     {
         MoviesLogic ml = new MoviesLogic();
@@ -97,6 +99,31 @@ public class TestMoviesLogic
         MoviesLogic.PromoteMovie("Inception");
 
         Assert.IsTrue(MoviesLogic.GetMovieByName("Inception").Promoted);
+    }
+
+
+    [TestMethod]
+    public void GetMovie_InceptionOnDate_ReturnInception()
+    {
+        MoviesLogic ml = new MoviesLogic();
+        
+        DateTime date = new DateTime(2024, 12, 11);
+
+        List<MovieModel> movies = MoviesLogic.GetMovies(date);
+
+        Assert.IsTrue(movies.Contains(MoviesLogic.GetMovieByName("Inception")));
+    }
+
+    [TestMethod]
+    public void GetMovie_InceptionOnDate_NotReturnDarkKnight()
+    {
+        MoviesLogic ml = new MoviesLogic();
+        
+        DateTime date = new DateTime(2024, 12, 11);
+
+        List<MovieModel> movies = MoviesLogic.GetMovies(date);
+
+        Assert.IsFalse(movies.Contains(MoviesLogic.GetMovieByName("The Dark Knight")));
     }
 
 
