@@ -1,5 +1,6 @@
 using System.Data;
 using System.Dynamic;
+using System.Reflection.Metadata.Ecma335;
 
 public class ShowtimesLogic
 {
@@ -27,30 +28,30 @@ public class ShowtimesLogic
         return showtime;
     }
 
-    public static void AddMovieFromAddShowtimes(string name, string genre, int duration, string summary)
+    public static void AddMovieFromAddShowtimes(string name, string genre, int duration, string summary, double cost)
     {
         if (MoviesArchiveLogic.CheckIfMovieInArchive(name) && summary != "")
         {
-            MoviesLogic.AddMovie(name, genre, duration, summary);
+            MoviesLogic.AddMovie(name, genre, duration, summary, cost);
         }
         else if (MoviesArchiveLogic.CheckIfMovieInArchive(name))
         {
-            MoviesLogic.AddMovie(name, genre, duration);
+            MoviesLogic.AddMovie(name, genre, duration, cost);
         }
     }
 
-    public List<DateTime> GenerateDateTimesList(DateOnly begindate, DateOnly enddate, TimeOnly time, int interval)
+    public static List<DateTime> GenerateDateTimesList(DateOnly begindate, DateOnly enddate, TimeOnly time, int interval)
     {
         List<DateTime> Times = [];
         while (begindate <= enddate)
         {
             Times.Add(begindate.ToDateTime(time));
-            begindate = begindate.AddDays(interval+1);
+            begindate = begindate.AddDays(interval + 1);
         }
         return Times;
     }
 
-    public List<ShowtimeModel> GenerateShowTimesList(string movieName, int HallId, List<DateTime> times)
+    public static List<ShowtimeModel> GenerateShowTimesList(string movieName, int HallId, List<DateTime> times)
     {
         MovieModel movie = MoviesLogic.GetMovieByName(movieName);
         List<ShowtimeModel> ShowTimes = [];
@@ -58,10 +59,25 @@ public class ShowtimesLogic
         {
             ShowTimes.Add(new ShowtimeModel(GetNextId(), movie.Id, time, HallId, HallsLogic.GetHallLayout(HallId)));
         }
-        return ShowTimes;
+        return ValdidateAllShowtimes(ShowTimes);
     }
 
-    public void AddShowTimes(List<ShowtimeModel> ShowtimesToAdd)
+    public static List<ShowtimeModel> ValdidateAllShowtimes(List<ShowtimeModel> showtimes)
+    {
+        foreach (ShowtimeModel showtime in showtimes)
+        {
+            foreach (ShowtimeModel showtime2 in _showtimes)
+            {
+                if (showtime.Time == showtime2.Time && showtime.HallId == showtime2.HallId)
+                {
+                    showtimes.Remove(showtime);
+                }
+            }
+        }
+        return showtimes;
+    }
+
+    public static void AddShowTimes(List<ShowtimeModel> ShowtimesToAdd)
     {
         foreach (ShowtimeModel showtime in ShowtimesToAdd)
         {
@@ -69,7 +85,7 @@ public class ShowtimesLogic
         }
     }
 
-    public void AddShowtime(ShowtimeModel showtime)
+    public static void AddShowtime(ShowtimeModel showtime)
     {
         _showtimes.Add(showtime);
         ShowtimesAccess.WriteAll(_showtimes);
@@ -183,10 +199,17 @@ public class ShowtimesLogic
     {
         return _showtimes.Count() + 1;
     }
-  
+
     public static List<ShowtimeModel> GetShowtimesByDay(DateTime day)
     {
         List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.Time.Date == day.Date);
+
+        return showtimes;
+    }
+
+    public static List<ShowtimeModel> GetShowtimesByDay(DateTime beginDate, DateTime endDate)
+    {
+        List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.Time.Date >= beginDate.Date && showtime.Time.Date <= endDate.Date);
 
         return showtimes;
     }
@@ -199,10 +222,22 @@ public class ShowtimesLogic
         foreach (ShowtimeModel showtime in showtimes)
         {
             if (showtime.MoviesId == movieId)
-            {   
+            {
                 display += showtime.ToString() + "\n";
             }
         }
         return display;
+    }
+
+    public static List<ShowtimeModel> GetShowtimes(DateTime beginDate, DateTime endDate, MovieModel movie)
+    {
+        List<ShowtimeModel> showtimes = _showtimes.FindAll(showtime => showtime.Time.Date >= beginDate.Date && showtime.Time.Date <= endDate.Date && showtime.MoviesId == movie.Id);
+
+        return showtimes;
+    }
+
+    public static List<ShowtimeModel> GetShowtimes(DateTime beginDate, DateTime endDate, int movieId)
+    {
+        return GetShowtimes(beginDate, endDate, MoviesLogic.GetMovieById(movieId));
     }
 }

@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using System.Collections;
 using System.Runtime.InteropServices;
 
@@ -81,6 +82,18 @@ public class MoviesLogic
     {
         MovieModel movie = new MovieModel(GetNextId(), name, genre, duration, false, summary, cost, 0);
         AddMovie(movie);
+    }
+
+    public static bool IsValidDateFormat(string date)
+    {
+        string pattern = @"^\d{4}-\d{2}-\d{2}$";
+        return Regex.IsMatch(date, pattern);
+    }
+
+    public static bool IsValidTimeOnlyFormat(string time)
+    {
+        string pattern = @"^(?:[01]\d|2[0-3]):[0-5]\d(?:\:[0-5]\d(?:\.\d{1,7})?)?$";
+        return Regex.IsMatch(time, pattern);
     }
 
     public static void RemoveMovie(MovieModel movie)
@@ -190,7 +203,6 @@ public class MoviesLogic
         return totalRevenue;
     }
 
-    // Finance
     public static string FinancialStatusForMovies(bool current, bool past)
     {
         string display = "";
@@ -247,15 +259,19 @@ public class MoviesLogic
         return movies;
     }
 
-    public static string DisplayMovies(DateTime dayToShow)
+    public static List<MovieModel> GetMovies(DateTime beginDate, DateTime endDate)
     {
-        List<MovieModel> movies = GetMovies(dayToShow);
-        string display = "";
-        foreach (MovieModel movie in movies)
+        List<MovieModel> movies = new List<MovieModel>();
+        List<ShowtimeModel> showtimes = ShowtimesLogic.GetShowtimesByDay(beginDate, endDate);
+        foreach (ShowtimeModel showtime in showtimes)
         {
-            display += movie.ToStringOneLine() + "\n";
+            MovieModel movie = GetMovieById(showtime.MoviesId);
+            if (movie != null && !movies.Contains(movie))
+            {
+                movies.Add(movie);
+            }
         }
-        return display;
+        return movies;
     }
 
     public static List<MovieModel> GetMovies(bool current, bool past)
@@ -282,5 +298,27 @@ public class MoviesLogic
         }
 
         return movies;
+    }
+
+    public static string DisplayMovies(DateTime dayToShow)
+    {
+        List<MovieModel> movies = GetMovies(dayToShow);
+        string display = "";
+        foreach (MovieModel movie in movies)
+        {
+            display += movie.ToStringOneLine() + "\n";
+        }
+        return display;
+    }
+
+    public static string DisplayMovies(DateTime beginDate, DateTime endDate)
+    {
+        List<MovieModel> movies = GetMovies(beginDate, endDate);
+        string display = "";
+        foreach (MovieModel movie in movies)
+        {
+            display += movie.ToStringOneLine() + "\n";
+        }
+        return display;
     }
 }

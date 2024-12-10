@@ -5,7 +5,7 @@
     "row": 1,
     "seat": 3,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "row": 1,
     "seat": 4,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "row": 1,
     "seat": 5,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "row": 1,
     "seat": 6,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@
     "row": 1,
     "seat": 7,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 6,
@@ -45,7 +45,7 @@
     "row": 1,
     "seat": 8,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 7,
@@ -53,7 +53,7 @@
     "row": 1,
     "seat": 9,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 8,
@@ -61,7 +61,7 @@
     "row": 1,
     "seat": 10,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 9,
@@ -69,7 +69,7 @@
     "row": 2,
     "seat": 3,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 10,
@@ -77,7 +77,7 @@
     "row": 2,
     "seat": 4,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 11,
@@ -85,7 +85,7 @@
     "row": 2,
     "seat": 5,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 12,
@@ -93,7 +93,7 @@
     "row": 2,
     "seat": 6,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 13,
@@ -101,7 +101,7 @@
     "row": 2,
     "seat": 7,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 14,
@@ -109,7 +109,7 @@
     "row": 2,
     "seat": 8,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 15,
@@ -117,7 +117,7 @@
     "row": 2,
     "seat": 9,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 16,
@@ -125,7 +125,7 @@
     "row": 2,
     "seat": 10,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 17,
@@ -133,7 +133,7 @@
     "row": 3,
     "seat": 2,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 18,
@@ -141,7 +141,7 @@
     "row": 3,
     "seat": 3,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 19,
@@ -149,7 +149,7 @@
     "row": 3,
     "seat": 4,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 20,
@@ -157,7 +157,7 @@
     "row": 3,
     "seat": 5,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 21,
@@ -165,7 +165,7 @@
     "row": 3,
     "seat": 6,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 22,
@@ -173,7 +173,7 @@
     "row": 3,
     "seat": 7,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 23,
@@ -181,7 +181,7 @@
     "row": 3,
     "seat": 8,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 24,
@@ -189,7 +189,7 @@
     "row": 3,
     "seat": 9,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 25,
@@ -197,7 +197,7 @@
     "row": 3,
     "seat": 10,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 26,
@@ -205,7 +205,7 @@
     "row": 3,
     "seat": 11,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 27,
@@ -213,7 +213,7 @@
     "row": 4,
     "seat": 1,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 28,
@@ -221,7 +221,7 @@
     "row": 4,
     "seat": 2,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 29,
@@ -229,7 +229,7 @@
     "row": 4,
     "seat": 3,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 30,
@@ -237,7 +237,7 @@
     "row": 4,
     "seat": 4,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 31,
@@ -245,7 +245,7 @@
     "row": 4,
     "seat": 5,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 32,
@@ -269,7 +269,7 @@
     "row": 4,
     "seat": 8,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 35,
@@ -277,7 +277,7 @@
     "row": 4,
     "seat": 9,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 36,
@@ -285,7 +285,7 @@
     "row": 4,
     "seat": 10,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 37,
@@ -293,7 +293,7 @@
     "row": 4,
     "seat": 11,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 38,
@@ -301,7 +301,7 @@
     "row": 4,
     "seat": 12,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 39,
@@ -309,7 +309,7 @@
     "row": 5,
     "seat": 1,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 40,
@@ -317,7 +317,7 @@
     "row": 5,
     "seat": 2,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 41,
@@ -325,7 +325,7 @@
     "row": 5,
     "seat": 3,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 42,
@@ -333,7 +333,7 @@
     "row": 5,
     "seat": 4,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 43,
@@ -373,7 +373,7 @@
     "row": 5,
     "seat": 9,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 48,
@@ -381,7 +381,7 @@
     "row": 5,
     "seat": 10,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 49,
@@ -389,7 +389,7 @@
     "row": 5,
     "seat": 11,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 50,
@@ -397,7 +397,7 @@
     "row": 5,
     "seat": 12,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 51,
@@ -405,7 +405,7 @@
     "row": 6,
     "seat": 1,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 52,
@@ -413,7 +413,7 @@
     "row": 6,
     "seat": 2,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 53,
@@ -421,7 +421,7 @@
     "row": 6,
     "seat": 3,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 54,
@@ -477,7 +477,7 @@
     "row": 6,
     "seat": 10,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 61,
@@ -485,7 +485,7 @@
     "row": 6,
     "seat": 11,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 62,
@@ -493,7 +493,7 @@
     "row": 6,
     "seat": 12,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 63,
@@ -501,7 +501,7 @@
     "row": 7,
     "seat": 1,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 64,
@@ -509,7 +509,7 @@
     "row": 7,
     "seat": 2,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 65,
@@ -517,7 +517,7 @@
     "row": 7,
     "seat": 3,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 66,
@@ -573,7 +573,7 @@
     "row": 7,
     "seat": 10,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 73,
@@ -581,7 +581,7 @@
     "row": 7,
     "seat": 11,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 74,
@@ -589,7 +589,7 @@
     "row": 7,
     "seat": 12,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 75,
@@ -597,7 +597,7 @@
     "row": 8,
     "seat": 1,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 76,
@@ -605,7 +605,7 @@
     "row": 8,
     "seat": 2,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 77,
@@ -613,7 +613,7 @@
     "row": 8,
     "seat": 3,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 78,
@@ -669,7 +669,7 @@
     "row": 8,
     "seat": 10,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 85,
@@ -677,7 +677,7 @@
     "row": 8,
     "seat": 11,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 86,
@@ -685,7 +685,7 @@
     "row": 8,
     "seat": 12,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 87,
@@ -693,7 +693,7 @@
     "row": 9,
     "seat": 1,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 88,
@@ -701,7 +701,7 @@
     "row": 9,
     "seat": 2,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 89,
@@ -709,7 +709,7 @@
     "row": 9,
     "seat": 3,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 90,
@@ -765,7 +765,7 @@
     "row": 9,
     "seat": 10,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 97,
@@ -773,7 +773,7 @@
     "row": 9,
     "seat": 11,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 98,
@@ -781,7 +781,7 @@
     "row": 9,
     "seat": 12,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 99,
@@ -789,7 +789,7 @@
     "row": 10,
     "seat": 1,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 100,
@@ -797,7 +797,7 @@
     "row": 10,
     "seat": 2,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 101,
@@ -805,7 +805,7 @@
     "row": 10,
     "seat": 3,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 102,
@@ -813,7 +813,7 @@
     "row": 10,
     "seat": 4,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 103,
@@ -853,7 +853,7 @@
     "row": 10,
     "seat": 9,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 108,
@@ -861,7 +861,7 @@
     "row": 10,
     "seat": 10,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 109,
@@ -869,7 +869,7 @@
     "row": 10,
     "seat": 11,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 110,
@@ -877,7 +877,7 @@
     "row": 10,
     "seat": 12,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 111,
@@ -885,7 +885,7 @@
     "row": 11,
     "seat": 1,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 112,
@@ -893,7 +893,7 @@
     "row": 11,
     "seat": 2,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 113,
@@ -901,7 +901,7 @@
     "row": 11,
     "seat": 3,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 114,
@@ -909,7 +909,7 @@
     "row": 11,
     "seat": 4,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 115,
@@ -917,7 +917,7 @@
     "row": 11,
     "seat": 5,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 116,
@@ -941,7 +941,7 @@
     "row": 11,
     "seat": 8,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 119,
@@ -949,7 +949,7 @@
     "row": 11,
     "seat": 9,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 120,
@@ -957,7 +957,7 @@
     "row": 11,
     "seat": 10,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 121,
@@ -965,7 +965,7 @@
     "row": 11,
     "seat": 11,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 122,
@@ -973,7 +973,7 @@
     "row": 11,
     "seat": 12,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 123,
@@ -981,7 +981,7 @@
     "row": 12,
     "seat": 2,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 124,
@@ -989,7 +989,7 @@
     "row": 12,
     "seat": 3,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 125,
@@ -997,7 +997,7 @@
     "row": 12,
     "seat": 4,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 126,
@@ -1005,7 +1005,7 @@
     "row": 12,
     "seat": 5,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 127,
@@ -1013,7 +1013,7 @@
     "row": 12,
     "seat": 6,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 128,
@@ -1021,7 +1021,7 @@
     "row": 12,
     "seat": 7,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 129,
@@ -1029,7 +1029,7 @@
     "row": 12,
     "seat": 8,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 130,
@@ -1037,7 +1037,7 @@
     "row": 12,
     "seat": 9,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 131,
@@ -1045,7 +1045,7 @@
     "row": 12,
     "seat": 10,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 132,
@@ -1053,7 +1053,7 @@
     "row": 12,
     "seat": 11,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 133,
@@ -1061,7 +1061,7 @@
     "row": 13,
     "seat": 2,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 134,
@@ -1069,7 +1069,7 @@
     "row": 13,
     "seat": 3,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 135,
@@ -1077,7 +1077,7 @@
     "row": 13,
     "seat": 4,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 136,
@@ -1085,7 +1085,7 @@
     "row": 13,
     "seat": 5,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 137,
@@ -1093,7 +1093,7 @@
     "row": 13,
     "seat": 6,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 138,
@@ -1101,7 +1101,7 @@
     "row": 13,
     "seat": 7,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 139,
@@ -1109,7 +1109,7 @@
     "row": 13,
     "seat": 8,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 140,
@@ -1117,7 +1117,7 @@
     "row": 13,
     "seat": 9,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 141,
@@ -1125,7 +1125,7 @@
     "row": 13,
     "seat": 10,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 142,
@@ -1133,7 +1133,7 @@
     "row": 13,
     "seat": 11,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 143,
@@ -1141,7 +1141,7 @@
     "row": 14,
     "seat": 3,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 144,
@@ -1149,7 +1149,7 @@
     "row": 14,
     "seat": 4,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 145,
@@ -1157,7 +1157,7 @@
     "row": 14,
     "seat": 5,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 146,
@@ -1165,7 +1165,7 @@
     "row": 14,
     "seat": 6,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 147,
@@ -1173,7 +1173,7 @@
     "row": 14,
     "seat": 7,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 148,
@@ -1181,7 +1181,7 @@
     "row": 14,
     "seat": 8,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 149,
@@ -1189,7 +1189,7 @@
     "row": 14,
     "seat": 9,
     "type": 1,
-    "price": 13
+    "price": 10
   },
   {
     "id": 150,
@@ -1197,6 +1197,6406 @@
     "row": 14,
     "seat": 10,
     "type": 1,
-    "price": 13
+    "price": 10
+  },
+  {
+    "id": 151,
+    "hallid": 2,
+    "row": 1,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 152,
+    "hallid": 2,
+    "row": 1,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 153,
+    "hallid": 2,
+    "row": 1,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 154,
+    "hallid": 2,
+    "row": 1,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 155,
+    "hallid": 2,
+    "row": 1,
+    "seat": 8,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 156,
+    "hallid": 2,
+    "row": 1,
+    "seat": 9,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 157,
+    "hallid": 2,
+    "row": 1,
+    "seat": 10,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 158,
+    "hallid": 2,
+    "row": 1,
+    "seat": 11,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 159,
+    "hallid": 2,
+    "row": 1,
+    "seat": 12,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 160,
+    "hallid": 2,
+    "row": 1,
+    "seat": 13,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 161,
+    "hallid": 2,
+    "row": 1,
+    "seat": 14,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 162,
+    "hallid": 2,
+    "row": 1,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 163,
+    "hallid": 2,
+    "row": 2,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 164,
+    "hallid": 2,
+    "row": 2,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 165,
+    "hallid": 2,
+    "row": 2,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 166,
+    "hallid": 2,
+    "row": 2,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 167,
+    "hallid": 2,
+    "row": 2,
+    "seat": 8,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 168,
+    "hallid": 2,
+    "row": 2,
+    "seat": 9,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 169,
+    "hallid": 2,
+    "row": 2,
+    "seat": 10,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 170,
+    "hallid": 2,
+    "row": 2,
+    "seat": 11,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 171,
+    "hallid": 2,
+    "row": 2,
+    "seat": 12,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 172,
+    "hallid": 2,
+    "row": 2,
+    "seat": 13,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 173,
+    "hallid": 2,
+    "row": 2,
+    "seat": 14,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 174,
+    "hallid": 2,
+    "row": 2,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 175,
+    "hallid": 2,
+    "row": 3,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 176,
+    "hallid": 2,
+    "row": 3,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 177,
+    "hallid": 2,
+    "row": 3,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 178,
+    "hallid": 2,
+    "row": 3,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 179,
+    "hallid": 2,
+    "row": 3,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 180,
+    "hallid": 2,
+    "row": 3,
+    "seat": 8,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 181,
+    "hallid": 2,
+    "row": 3,
+    "seat": 9,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 182,
+    "hallid": 2,
+    "row": 3,
+    "seat": 10,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 183,
+    "hallid": 2,
+    "row": 3,
+    "seat": 11,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 184,
+    "hallid": 2,
+    "row": 3,
+    "seat": 12,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 185,
+    "hallid": 2,
+    "row": 3,
+    "seat": 13,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 186,
+    "hallid": 2,
+    "row": 3,
+    "seat": 14,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 187,
+    "hallid": 2,
+    "row": 3,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 188,
+    "hallid": 2,
+    "row": 3,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 189,
+    "hallid": 2,
+    "row": 4,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 190,
+    "hallid": 2,
+    "row": 4,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 191,
+    "hallid": 2,
+    "row": 4,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 192,
+    "hallid": 2,
+    "row": 4,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 193,
+    "hallid": 2,
+    "row": 4,
+    "seat": 7,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 194,
+    "hallid": 2,
+    "row": 4,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 195,
+    "hallid": 2,
+    "row": 4,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 196,
+    "hallid": 2,
+    "row": 4,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 197,
+    "hallid": 2,
+    "row": 4,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 198,
+    "hallid": 2,
+    "row": 4,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 199,
+    "hallid": 2,
+    "row": 4,
+    "seat": 13,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 200,
+    "hallid": 2,
+    "row": 4,
+    "seat": 14,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 201,
+    "hallid": 2,
+    "row": 4,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 202,
+    "hallid": 2,
+    "row": 4,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 203,
+    "hallid": 2,
+    "row": 5,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 204,
+    "hallid": 2,
+    "row": 5,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 205,
+    "hallid": 2,
+    "row": 5,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 206,
+    "hallid": 2,
+    "row": 5,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 207,
+    "hallid": 2,
+    "row": 5,
+    "seat": 7,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 208,
+    "hallid": 2,
+    "row": 5,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 209,
+    "hallid": 2,
+    "row": 5,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 210,
+    "hallid": 2,
+    "row": 5,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 211,
+    "hallid": 2,
+    "row": 5,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 212,
+    "hallid": 2,
+    "row": 5,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 213,
+    "hallid": 2,
+    "row": 5,
+    "seat": 13,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 214,
+    "hallid": 2,
+    "row": 5,
+    "seat": 14,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 215,
+    "hallid": 2,
+    "row": 5,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 216,
+    "hallid": 2,
+    "row": 5,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 217,
+    "hallid": 2,
+    "row": 6,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 218,
+    "hallid": 2,
+    "row": 6,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 219,
+    "hallid": 2,
+    "row": 6,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 220,
+    "hallid": 2,
+    "row": 6,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 221,
+    "hallid": 2,
+    "row": 6,
+    "seat": 6,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 222,
+    "hallid": 2,
+    "row": 6,
+    "seat": 7,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 223,
+    "hallid": 2,
+    "row": 6,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 224,
+    "hallid": 2,
+    "row": 6,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 225,
+    "hallid": 2,
+    "row": 6,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 226,
+    "hallid": 2,
+    "row": 6,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 227,
+    "hallid": 2,
+    "row": 6,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 228,
+    "hallid": 2,
+    "row": 6,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 229,
+    "hallid": 2,
+    "row": 6,
+    "seat": 14,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 230,
+    "hallid": 2,
+    "row": 6,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 231,
+    "hallid": 2,
+    "row": 6,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 232,
+    "hallid": 2,
+    "row": 6,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 233,
+    "hallid": 2,
+    "row": 7,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 234,
+    "hallid": 2,
+    "row": 7,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 235,
+    "hallid": 2,
+    "row": 7,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 236,
+    "hallid": 2,
+    "row": 7,
+    "seat": 5,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 237,
+    "hallid": 2,
+    "row": 7,
+    "seat": 6,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 238,
+    "hallid": 2,
+    "row": 7,
+    "seat": 7,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 239,
+    "hallid": 2,
+    "row": 7,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 240,
+    "hallid": 2,
+    "row": 7,
+    "seat": 9,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 241,
+    "hallid": 2,
+    "row": 7,
+    "seat": 10,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 242,
+    "hallid": 2,
+    "row": 7,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 243,
+    "hallid": 2,
+    "row": 7,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 244,
+    "hallid": 2,
+    "row": 7,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 245,
+    "hallid": 2,
+    "row": 7,
+    "seat": 14,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 246,
+    "hallid": 2,
+    "row": 7,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 247,
+    "hallid": 2,
+    "row": 7,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 248,
+    "hallid": 2,
+    "row": 7,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 249,
+    "hallid": 2,
+    "row": 8,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 250,
+    "hallid": 2,
+    "row": 8,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 251,
+    "hallid": 2,
+    "row": 8,
+    "seat": 4,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 252,
+    "hallid": 2,
+    "row": 8,
+    "seat": 5,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 253,
+    "hallid": 2,
+    "row": 8,
+    "seat": 6,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 254,
+    "hallid": 2,
+    "row": 8,
+    "seat": 7,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 255,
+    "hallid": 2,
+    "row": 8,
+    "seat": 8,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 256,
+    "hallid": 2,
+    "row": 8,
+    "seat": 9,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 257,
+    "hallid": 2,
+    "row": 8,
+    "seat": 10,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 258,
+    "hallid": 2,
+    "row": 8,
+    "seat": 11,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 259,
+    "hallid": 2,
+    "row": 8,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 260,
+    "hallid": 2,
+    "row": 8,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 261,
+    "hallid": 2,
+    "row": 8,
+    "seat": 14,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 262,
+    "hallid": 2,
+    "row": 8,
+    "seat": 15,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 263,
+    "hallid": 2,
+    "row": 8,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 264,
+    "hallid": 2,
+    "row": 8,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 265,
+    "hallid": 2,
+    "row": 9,
+    "seat": 1,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 266,
+    "hallid": 2,
+    "row": 9,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 267,
+    "hallid": 2,
+    "row": 9,
+    "seat": 3,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 268,
+    "hallid": 2,
+    "row": 9,
+    "seat": 4,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 269,
+    "hallid": 2,
+    "row": 9,
+    "seat": 5,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 270,
+    "hallid": 2,
+    "row": 9,
+    "seat": 6,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 271,
+    "hallid": 2,
+    "row": 9,
+    "seat": 7,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 272,
+    "hallid": 2,
+    "row": 9,
+    "seat": 8,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 273,
+    "hallid": 2,
+    "row": 9,
+    "seat": 9,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 274,
+    "hallid": 2,
+    "row": 9,
+    "seat": 10,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 275,
+    "hallid": 2,
+    "row": 9,
+    "seat": 11,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 276,
+    "hallid": 2,
+    "row": 9,
+    "seat": 12,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 277,
+    "hallid": 2,
+    "row": 9,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 278,
+    "hallid": 2,
+    "row": 9,
+    "seat": 14,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 279,
+    "hallid": 2,
+    "row": 9,
+    "seat": 15,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 280,
+    "hallid": 2,
+    "row": 9,
+    "seat": 16,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 281,
+    "hallid": 2,
+    "row": 9,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 282,
+    "hallid": 2,
+    "row": 9,
+    "seat": 18,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 283,
+    "hallid": 2,
+    "row": 10,
+    "seat": 1,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 284,
+    "hallid": 2,
+    "row": 10,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 285,
+    "hallid": 2,
+    "row": 10,
+    "seat": 3,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 286,
+    "hallid": 2,
+    "row": 10,
+    "seat": 4,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 287,
+    "hallid": 2,
+    "row": 10,
+    "seat": 5,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 288,
+    "hallid": 2,
+    "row": 10,
+    "seat": 6,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 289,
+    "hallid": 2,
+    "row": 10,
+    "seat": 7,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 290,
+    "hallid": 2,
+    "row": 10,
+    "seat": 8,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 291,
+    "hallid": 2,
+    "row": 10,
+    "seat": 9,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 292,
+    "hallid": 2,
+    "row": 10,
+    "seat": 10,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 293,
+    "hallid": 2,
+    "row": 10,
+    "seat": 11,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 294,
+    "hallid": 2,
+    "row": 10,
+    "seat": 12,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 295,
+    "hallid": 2,
+    "row": 10,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 296,
+    "hallid": 2,
+    "row": 10,
+    "seat": 14,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 297,
+    "hallid": 2,
+    "row": 10,
+    "seat": 15,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 298,
+    "hallid": 2,
+    "row": 10,
+    "seat": 16,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 299,
+    "hallid": 2,
+    "row": 10,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 300,
+    "hallid": 2,
+    "row": 10,
+    "seat": 18,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 301,
+    "hallid": 2,
+    "row": 11,
+    "seat": 1,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 302,
+    "hallid": 2,
+    "row": 11,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 303,
+    "hallid": 2,
+    "row": 11,
+    "seat": 3,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 304,
+    "hallid": 2,
+    "row": 11,
+    "seat": 4,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 305,
+    "hallid": 2,
+    "row": 11,
+    "seat": 5,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 306,
+    "hallid": 2,
+    "row": 11,
+    "seat": 6,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 307,
+    "hallid": 2,
+    "row": 11,
+    "seat": 7,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 308,
+    "hallid": 2,
+    "row": 11,
+    "seat": 8,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 309,
+    "hallid": 2,
+    "row": 11,
+    "seat": 9,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 310,
+    "hallid": 2,
+    "row": 11,
+    "seat": 10,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 311,
+    "hallid": 2,
+    "row": 11,
+    "seat": 11,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 312,
+    "hallid": 2,
+    "row": 11,
+    "seat": 12,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 313,
+    "hallid": 2,
+    "row": 11,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 314,
+    "hallid": 2,
+    "row": 11,
+    "seat": 14,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 315,
+    "hallid": 2,
+    "row": 11,
+    "seat": 15,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 316,
+    "hallid": 2,
+    "row": 11,
+    "seat": 16,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 317,
+    "hallid": 2,
+    "row": 11,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 318,
+    "hallid": 2,
+    "row": 11,
+    "seat": 18,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 319,
+    "hallid": 2,
+    "row": 12,
+    "seat": 1,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 320,
+    "hallid": 2,
+    "row": 12,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 321,
+    "hallid": 2,
+    "row": 12,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 322,
+    "hallid": 2,
+    "row": 12,
+    "seat": 4,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 323,
+    "hallid": 2,
+    "row": 12,
+    "seat": 5,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 324,
+    "hallid": 2,
+    "row": 12,
+    "seat": 6,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 325,
+    "hallid": 2,
+    "row": 12,
+    "seat": 7,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 326,
+    "hallid": 2,
+    "row": 12,
+    "seat": 8,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 327,
+    "hallid": 2,
+    "row": 12,
+    "seat": 9,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 328,
+    "hallid": 2,
+    "row": 12,
+    "seat": 10,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 329,
+    "hallid": 2,
+    "row": 12,
+    "seat": 11,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 330,
+    "hallid": 2,
+    "row": 12,
+    "seat": 12,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 331,
+    "hallid": 2,
+    "row": 12,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 332,
+    "hallid": 2,
+    "row": 12,
+    "seat": 14,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 333,
+    "hallid": 2,
+    "row": 12,
+    "seat": 15,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 334,
+    "hallid": 2,
+    "row": 12,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 335,
+    "hallid": 2,
+    "row": 12,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 336,
+    "hallid": 2,
+    "row": 12,
+    "seat": 18,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 337,
+    "hallid": 2,
+    "row": 13,
+    "seat": 1,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 338,
+    "hallid": 2,
+    "row": 13,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 339,
+    "hallid": 2,
+    "row": 13,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 340,
+    "hallid": 2,
+    "row": 13,
+    "seat": 4,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 341,
+    "hallid": 2,
+    "row": 13,
+    "seat": 5,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 342,
+    "hallid": 2,
+    "row": 13,
+    "seat": 6,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 343,
+    "hallid": 2,
+    "row": 13,
+    "seat": 7,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 344,
+    "hallid": 2,
+    "row": 13,
+    "seat": 8,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 345,
+    "hallid": 2,
+    "row": 13,
+    "seat": 9,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 346,
+    "hallid": 2,
+    "row": 13,
+    "seat": 10,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 347,
+    "hallid": 2,
+    "row": 13,
+    "seat": 11,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 348,
+    "hallid": 2,
+    "row": 13,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 349,
+    "hallid": 2,
+    "row": 13,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 350,
+    "hallid": 2,
+    "row": 13,
+    "seat": 14,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 351,
+    "hallid": 2,
+    "row": 13,
+    "seat": 15,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 352,
+    "hallid": 2,
+    "row": 13,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 353,
+    "hallid": 2,
+    "row": 13,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 354,
+    "hallid": 2,
+    "row": 13,
+    "seat": 18,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 355,
+    "hallid": 2,
+    "row": 14,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 356,
+    "hallid": 2,
+    "row": 14,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 357,
+    "hallid": 2,
+    "row": 14,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 358,
+    "hallid": 2,
+    "row": 14,
+    "seat": 5,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 359,
+    "hallid": 2,
+    "row": 14,
+    "seat": 6,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 360,
+    "hallid": 2,
+    "row": 14,
+    "seat": 7,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 361,
+    "hallid": 2,
+    "row": 14,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 362,
+    "hallid": 2,
+    "row": 14,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 363,
+    "hallid": 2,
+    "row": 14,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 364,
+    "hallid": 2,
+    "row": 14,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 365,
+    "hallid": 2,
+    "row": 14,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 366,
+    "hallid": 2,
+    "row": 14,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 367,
+    "hallid": 2,
+    "row": 14,
+    "seat": 14,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 368,
+    "hallid": 2,
+    "row": 14,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 369,
+    "hallid": 2,
+    "row": 14,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 370,
+    "hallid": 2,
+    "row": 14,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 371,
+    "hallid": 2,
+    "row": 15,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 372,
+    "hallid": 2,
+    "row": 15,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 373,
+    "hallid": 2,
+    "row": 15,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 374,
+    "hallid": 2,
+    "row": 15,
+    "seat": 5,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 375,
+    "hallid": 2,
+    "row": 15,
+    "seat": 6,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 376,
+    "hallid": 2,
+    "row": 15,
+    "seat": 7,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 377,
+    "hallid": 2,
+    "row": 15,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 378,
+    "hallid": 2,
+    "row": 15,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 379,
+    "hallid": 2,
+    "row": 15,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 380,
+    "hallid": 2,
+    "row": 15,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 381,
+    "hallid": 2,
+    "row": 15,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 382,
+    "hallid": 2,
+    "row": 15,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 383,
+    "hallid": 2,
+    "row": 15,
+    "seat": 14,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 384,
+    "hallid": 2,
+    "row": 15,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 385,
+    "hallid": 2,
+    "row": 15,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 386,
+    "hallid": 2,
+    "row": 15,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 387,
+    "hallid": 2,
+    "row": 16,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 388,
+    "hallid": 2,
+    "row": 16,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 389,
+    "hallid": 2,
+    "row": 16,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 390,
+    "hallid": 2,
+    "row": 16,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 391,
+    "hallid": 2,
+    "row": 16,
+    "seat": 6,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 392,
+    "hallid": 2,
+    "row": 16,
+    "seat": 7,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 393,
+    "hallid": 2,
+    "row": 16,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 394,
+    "hallid": 2,
+    "row": 16,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 395,
+    "hallid": 2,
+    "row": 16,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 396,
+    "hallid": 2,
+    "row": 16,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 397,
+    "hallid": 2,
+    "row": 16,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 398,
+    "hallid": 2,
+    "row": 16,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 399,
+    "hallid": 2,
+    "row": 16,
+    "seat": 14,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 400,
+    "hallid": 2,
+    "row": 16,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 401,
+    "hallid": 2,
+    "row": 16,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 402,
+    "hallid": 2,
+    "row": 16,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 403,
+    "hallid": 2,
+    "row": 17,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 404,
+    "hallid": 2,
+    "row": 17,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 405,
+    "hallid": 2,
+    "row": 17,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 406,
+    "hallid": 2,
+    "row": 17,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 407,
+    "hallid": 2,
+    "row": 17,
+    "seat": 6,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 408,
+    "hallid": 2,
+    "row": 17,
+    "seat": 7,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 409,
+    "hallid": 2,
+    "row": 17,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 410,
+    "hallid": 2,
+    "row": 17,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 411,
+    "hallid": 2,
+    "row": 17,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 412,
+    "hallid": 2,
+    "row": 17,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 413,
+    "hallid": 2,
+    "row": 17,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 414,
+    "hallid": 2,
+    "row": 17,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 415,
+    "hallid": 2,
+    "row": 17,
+    "seat": 14,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 416,
+    "hallid": 2,
+    "row": 17,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 417,
+    "hallid": 2,
+    "row": 17,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 418,
+    "hallid": 2,
+    "row": 17,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 419,
+    "hallid": 2,
+    "row": 18,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 420,
+    "hallid": 2,
+    "row": 18,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 421,
+    "hallid": 2,
+    "row": 18,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 422,
+    "hallid": 2,
+    "row": 18,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 423,
+    "hallid": 2,
+    "row": 18,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 424,
+    "hallid": 2,
+    "row": 18,
+    "seat": 7,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 425,
+    "hallid": 2,
+    "row": 18,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 426,
+    "hallid": 2,
+    "row": 18,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 427,
+    "hallid": 2,
+    "row": 18,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 428,
+    "hallid": 2,
+    "row": 18,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 429,
+    "hallid": 2,
+    "row": 18,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 430,
+    "hallid": 2,
+    "row": 18,
+    "seat": 13,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 431,
+    "hallid": 2,
+    "row": 18,
+    "seat": 14,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 432,
+    "hallid": 2,
+    "row": 18,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 433,
+    "hallid": 2,
+    "row": 18,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 434,
+    "hallid": 2,
+    "row": 18,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 435,
+    "hallid": 2,
+    "row": 19,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 436,
+    "hallid": 2,
+    "row": 19,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 437,
+    "hallid": 2,
+    "row": 19,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 438,
+    "hallid": 2,
+    "row": 19,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 439,
+    "hallid": 2,
+    "row": 19,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 440,
+    "hallid": 2,
+    "row": 19,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 441,
+    "hallid": 2,
+    "row": 19,
+    "seat": 8,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 442,
+    "hallid": 2,
+    "row": 19,
+    "seat": 9,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 443,
+    "hallid": 2,
+    "row": 19,
+    "seat": 10,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 444,
+    "hallid": 2,
+    "row": 19,
+    "seat": 11,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 445,
+    "hallid": 2,
+    "row": 19,
+    "seat": 12,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 446,
+    "hallid": 2,
+    "row": 19,
+    "seat": 13,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 447,
+    "hallid": 2,
+    "row": 19,
+    "seat": 14,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 448,
+    "hallid": 2,
+    "row": 19,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 449,
+    "hallid": 2,
+    "row": 19,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 450,
+    "hallid": 2,
+    "row": 19,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 451,
+    "hallid": 3,
+    "row": 1,
+    "seat": 9,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 452,
+    "hallid": 3,
+    "row": 1,
+    "seat": 10,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 453,
+    "hallid": 3,
+    "row": 1,
+    "seat": 11,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 454,
+    "hallid": 3,
+    "row": 1,
+    "seat": 12,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 455,
+    "hallid": 3,
+    "row": 1,
+    "seat": 13,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 456,
+    "hallid": 3,
+    "row": 1,
+    "seat": 14,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 457,
+    "hallid": 3,
+    "row": 1,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 458,
+    "hallid": 3,
+    "row": 1,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 459,
+    "hallid": 3,
+    "row": 1,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 460,
+    "hallid": 3,
+    "row": 1,
+    "seat": 18,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 461,
+    "hallid": 3,
+    "row": 1,
+    "seat": 19,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 462,
+    "hallid": 3,
+    "row": 1,
+    "seat": 20,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 463,
+    "hallid": 3,
+    "row": 1,
+    "seat": 21,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 464,
+    "hallid": 3,
+    "row": 1,
+    "seat": 22,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 465,
+    "hallid": 3,
+    "row": 2,
+    "seat": 8,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 466,
+    "hallid": 3,
+    "row": 2,
+    "seat": 9,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 467,
+    "hallid": 3,
+    "row": 2,
+    "seat": 10,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 468,
+    "hallid": 3,
+    "row": 2,
+    "seat": 11,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 469,
+    "hallid": 3,
+    "row": 2,
+    "seat": 12,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 470,
+    "hallid": 3,
+    "row": 2,
+    "seat": 13,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 471,
+    "hallid": 3,
+    "row": 2,
+    "seat": 14,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 472,
+    "hallid": 3,
+    "row": 2,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 473,
+    "hallid": 3,
+    "row": 2,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 474,
+    "hallid": 3,
+    "row": 2,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 475,
+    "hallid": 3,
+    "row": 2,
+    "seat": 18,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 476,
+    "hallid": 3,
+    "row": 2,
+    "seat": 19,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 477,
+    "hallid": 3,
+    "row": 2,
+    "seat": 20,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 478,
+    "hallid": 3,
+    "row": 2,
+    "seat": 21,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 479,
+    "hallid": 3,
+    "row": 2,
+    "seat": 22,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 480,
+    "hallid": 3,
+    "row": 2,
+    "seat": 23,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 481,
+    "hallid": 3,
+    "row": 3,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 482,
+    "hallid": 3,
+    "row": 3,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 483,
+    "hallid": 3,
+    "row": 3,
+    "seat": 8,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 484,
+    "hallid": 3,
+    "row": 3,
+    "seat": 9,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 485,
+    "hallid": 3,
+    "row": 3,
+    "seat": 10,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 486,
+    "hallid": 3,
+    "row": 3,
+    "seat": 11,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 487,
+    "hallid": 3,
+    "row": 3,
+    "seat": 12,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 488,
+    "hallid": 3,
+    "row": 3,
+    "seat": 13,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 489,
+    "hallid": 3,
+    "row": 3,
+    "seat": 14,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 490,
+    "hallid": 3,
+    "row": 3,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 491,
+    "hallid": 3,
+    "row": 3,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 492,
+    "hallid": 3,
+    "row": 3,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 493,
+    "hallid": 3,
+    "row": 3,
+    "seat": 18,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 494,
+    "hallid": 3,
+    "row": 3,
+    "seat": 19,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 495,
+    "hallid": 3,
+    "row": 3,
+    "seat": 20,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 496,
+    "hallid": 3,
+    "row": 3,
+    "seat": 21,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 497,
+    "hallid": 3,
+    "row": 3,
+    "seat": 22,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 498,
+    "hallid": 3,
+    "row": 3,
+    "seat": 23,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 499,
+    "hallid": 3,
+    "row": 3,
+    "seat": 24,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 500,
+    "hallid": 3,
+    "row": 3,
+    "seat": 25,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 501,
+    "hallid": 3,
+    "row": 4,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 502,
+    "hallid": 3,
+    "row": 4,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 503,
+    "hallid": 3,
+    "row": 4,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 504,
+    "hallid": 3,
+    "row": 4,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 505,
+    "hallid": 3,
+    "row": 4,
+    "seat": 8,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 506,
+    "hallid": 3,
+    "row": 4,
+    "seat": 9,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 507,
+    "hallid": 3,
+    "row": 4,
+    "seat": 10,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 508,
+    "hallid": 3,
+    "row": 4,
+    "seat": 11,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 509,
+    "hallid": 3,
+    "row": 4,
+    "seat": 12,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 510,
+    "hallid": 3,
+    "row": 4,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 511,
+    "hallid": 3,
+    "row": 4,
+    "seat": 14,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 512,
+    "hallid": 3,
+    "row": 4,
+    "seat": 15,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 513,
+    "hallid": 3,
+    "row": 4,
+    "seat": 16,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 514,
+    "hallid": 3,
+    "row": 4,
+    "seat": 17,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 515,
+    "hallid": 3,
+    "row": 4,
+    "seat": 18,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 516,
+    "hallid": 3,
+    "row": 4,
+    "seat": 19,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 517,
+    "hallid": 3,
+    "row": 4,
+    "seat": 20,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 518,
+    "hallid": 3,
+    "row": 4,
+    "seat": 21,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 519,
+    "hallid": 3,
+    "row": 4,
+    "seat": 22,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 520,
+    "hallid": 3,
+    "row": 4,
+    "seat": 23,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 521,
+    "hallid": 3,
+    "row": 4,
+    "seat": 24,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 522,
+    "hallid": 3,
+    "row": 4,
+    "seat": 25,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 523,
+    "hallid": 3,
+    "row": 4,
+    "seat": 26,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 524,
+    "hallid": 3,
+    "row": 4,
+    "seat": 27,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 525,
+    "hallid": 3,
+    "row": 5,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 526,
+    "hallid": 3,
+    "row": 5,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 527,
+    "hallid": 3,
+    "row": 5,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 528,
+    "hallid": 3,
+    "row": 5,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 529,
+    "hallid": 3,
+    "row": 5,
+    "seat": 8,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 530,
+    "hallid": 3,
+    "row": 5,
+    "seat": 9,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 531,
+    "hallid": 3,
+    "row": 5,
+    "seat": 10,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 532,
+    "hallid": 3,
+    "row": 5,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 533,
+    "hallid": 3,
+    "row": 5,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 534,
+    "hallid": 3,
+    "row": 5,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 535,
+    "hallid": 3,
+    "row": 5,
+    "seat": 14,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 536,
+    "hallid": 3,
+    "row": 5,
+    "seat": 15,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 537,
+    "hallid": 3,
+    "row": 5,
+    "seat": 16,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 538,
+    "hallid": 3,
+    "row": 5,
+    "seat": 17,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 539,
+    "hallid": 3,
+    "row": 5,
+    "seat": 18,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 540,
+    "hallid": 3,
+    "row": 5,
+    "seat": 19,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 541,
+    "hallid": 3,
+    "row": 5,
+    "seat": 20,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 542,
+    "hallid": 3,
+    "row": 5,
+    "seat": 21,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 543,
+    "hallid": 3,
+    "row": 5,
+    "seat": 22,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 544,
+    "hallid": 3,
+    "row": 5,
+    "seat": 23,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 545,
+    "hallid": 3,
+    "row": 5,
+    "seat": 24,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 546,
+    "hallid": 3,
+    "row": 5,
+    "seat": 25,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 547,
+    "hallid": 3,
+    "row": 5,
+    "seat": 26,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 548,
+    "hallid": 3,
+    "row": 5,
+    "seat": 27,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 549,
+    "hallid": 3,
+    "row": 6,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 550,
+    "hallid": 3,
+    "row": 6,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 551,
+    "hallid": 3,
+    "row": 6,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 552,
+    "hallid": 3,
+    "row": 6,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 553,
+    "hallid": 3,
+    "row": 6,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 554,
+    "hallid": 3,
+    "row": 6,
+    "seat": 8,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 555,
+    "hallid": 3,
+    "row": 6,
+    "seat": 9,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 556,
+    "hallid": 3,
+    "row": 6,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 557,
+    "hallid": 3,
+    "row": 6,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 558,
+    "hallid": 3,
+    "row": 6,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 559,
+    "hallid": 3,
+    "row": 6,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 560,
+    "hallid": 3,
+    "row": 6,
+    "seat": 14,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 561,
+    "hallid": 3,
+    "row": 6,
+    "seat": 15,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 562,
+    "hallid": 3,
+    "row": 6,
+    "seat": 16,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 563,
+    "hallid": 3,
+    "row": 6,
+    "seat": 17,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 564,
+    "hallid": 3,
+    "row": 6,
+    "seat": 18,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 565,
+    "hallid": 3,
+    "row": 6,
+    "seat": 19,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 566,
+    "hallid": 3,
+    "row": 6,
+    "seat": 20,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 567,
+    "hallid": 3,
+    "row": 6,
+    "seat": 21,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 568,
+    "hallid": 3,
+    "row": 6,
+    "seat": 22,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 569,
+    "hallid": 3,
+    "row": 6,
+    "seat": 23,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 570,
+    "hallid": 3,
+    "row": 6,
+    "seat": 24,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 571,
+    "hallid": 3,
+    "row": 6,
+    "seat": 25,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 572,
+    "hallid": 3,
+    "row": 6,
+    "seat": 26,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 573,
+    "hallid": 3,
+    "row": 6,
+    "seat": 27,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 574,
+    "hallid": 3,
+    "row": 6,
+    "seat": 28,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 575,
+    "hallid": 3,
+    "row": 7,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 576,
+    "hallid": 3,
+    "row": 7,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 577,
+    "hallid": 3,
+    "row": 7,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 578,
+    "hallid": 3,
+    "row": 7,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 579,
+    "hallid": 3,
+    "row": 7,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 580,
+    "hallid": 3,
+    "row": 7,
+    "seat": 8,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 581,
+    "hallid": 3,
+    "row": 7,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 582,
+    "hallid": 3,
+    "row": 7,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 583,
+    "hallid": 3,
+    "row": 7,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 584,
+    "hallid": 3,
+    "row": 7,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 585,
+    "hallid": 3,
+    "row": 7,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 586,
+    "hallid": 3,
+    "row": 7,
+    "seat": 14,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 587,
+    "hallid": 3,
+    "row": 7,
+    "seat": 15,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 588,
+    "hallid": 3,
+    "row": 7,
+    "seat": 16,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 589,
+    "hallid": 3,
+    "row": 7,
+    "seat": 17,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 590,
+    "hallid": 3,
+    "row": 7,
+    "seat": 18,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 591,
+    "hallid": 3,
+    "row": 7,
+    "seat": 19,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 592,
+    "hallid": 3,
+    "row": 7,
+    "seat": 20,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 593,
+    "hallid": 3,
+    "row": 7,
+    "seat": 21,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 594,
+    "hallid": 3,
+    "row": 7,
+    "seat": 22,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 595,
+    "hallid": 3,
+    "row": 7,
+    "seat": 23,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 596,
+    "hallid": 3,
+    "row": 7,
+    "seat": 24,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 597,
+    "hallid": 3,
+    "row": 7,
+    "seat": 25,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 598,
+    "hallid": 3,
+    "row": 7,
+    "seat": 26,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 599,
+    "hallid": 3,
+    "row": 7,
+    "seat": 27,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 600,
+    "hallid": 3,
+    "row": 7,
+    "seat": 28,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 601,
+    "hallid": 3,
+    "row": 8,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 602,
+    "hallid": 3,
+    "row": 8,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 603,
+    "hallid": 3,
+    "row": 8,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 604,
+    "hallid": 3,
+    "row": 8,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 605,
+    "hallid": 3,
+    "row": 8,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 606,
+    "hallid": 3,
+    "row": 8,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 607,
+    "hallid": 3,
+    "row": 8,
+    "seat": 8,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 608,
+    "hallid": 3,
+    "row": 8,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 609,
+    "hallid": 3,
+    "row": 8,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 610,
+    "hallid": 3,
+    "row": 8,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 611,
+    "hallid": 3,
+    "row": 8,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 612,
+    "hallid": 3,
+    "row": 8,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 613,
+    "hallid": 3,
+    "row": 8,
+    "seat": 14,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 614,
+    "hallid": 3,
+    "row": 8,
+    "seat": 15,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 615,
+    "hallid": 3,
+    "row": 8,
+    "seat": 16,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 616,
+    "hallid": 3,
+    "row": 8,
+    "seat": 17,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 617,
+    "hallid": 3,
+    "row": 8,
+    "seat": 18,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 618,
+    "hallid": 3,
+    "row": 8,
+    "seat": 19,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 619,
+    "hallid": 3,
+    "row": 8,
+    "seat": 20,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 620,
+    "hallid": 3,
+    "row": 8,
+    "seat": 21,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 621,
+    "hallid": 3,
+    "row": 8,
+    "seat": 22,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 622,
+    "hallid": 3,
+    "row": 8,
+    "seat": 23,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 623,
+    "hallid": 3,
+    "row": 8,
+    "seat": 24,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 624,
+    "hallid": 3,
+    "row": 8,
+    "seat": 25,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 625,
+    "hallid": 3,
+    "row": 8,
+    "seat": 26,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 626,
+    "hallid": 3,
+    "row": 8,
+    "seat": 27,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 627,
+    "hallid": 3,
+    "row": 8,
+    "seat": 28,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 628,
+    "hallid": 3,
+    "row": 8,
+    "seat": 29,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 629,
+    "hallid": 3,
+    "row": 9,
+    "seat": 1,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 630,
+    "hallid": 3,
+    "row": 9,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 631,
+    "hallid": 3,
+    "row": 9,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 632,
+    "hallid": 3,
+    "row": 9,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 633,
+    "hallid": 3,
+    "row": 9,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 634,
+    "hallid": 3,
+    "row": 9,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 635,
+    "hallid": 3,
+    "row": 9,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 636,
+    "hallid": 3,
+    "row": 9,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 637,
+    "hallid": 3,
+    "row": 9,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 638,
+    "hallid": 3,
+    "row": 9,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 639,
+    "hallid": 3,
+    "row": 9,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 640,
+    "hallid": 3,
+    "row": 9,
+    "seat": 12,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 641,
+    "hallid": 3,
+    "row": 9,
+    "seat": 13,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 642,
+    "hallid": 3,
+    "row": 9,
+    "seat": 14,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 643,
+    "hallid": 3,
+    "row": 9,
+    "seat": 15,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 644,
+    "hallid": 3,
+    "row": 9,
+    "seat": 16,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 645,
+    "hallid": 3,
+    "row": 9,
+    "seat": 17,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 646,
+    "hallid": 3,
+    "row": 9,
+    "seat": 18,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 647,
+    "hallid": 3,
+    "row": 9,
+    "seat": 19,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 648,
+    "hallid": 3,
+    "row": 9,
+    "seat": 20,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 649,
+    "hallid": 3,
+    "row": 9,
+    "seat": 21,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 650,
+    "hallid": 3,
+    "row": 9,
+    "seat": 22,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 651,
+    "hallid": 3,
+    "row": 9,
+    "seat": 23,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 652,
+    "hallid": 3,
+    "row": 9,
+    "seat": 24,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 653,
+    "hallid": 3,
+    "row": 9,
+    "seat": 25,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 654,
+    "hallid": 3,
+    "row": 9,
+    "seat": 26,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 655,
+    "hallid": 3,
+    "row": 9,
+    "seat": 27,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 656,
+    "hallid": 3,
+    "row": 9,
+    "seat": 28,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 657,
+    "hallid": 3,
+    "row": 9,
+    "seat": 29,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 658,
+    "hallid": 3,
+    "row": 9,
+    "seat": 30,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 659,
+    "hallid": 3,
+    "row": 10,
+    "seat": 1,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 660,
+    "hallid": 3,
+    "row": 10,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 661,
+    "hallid": 3,
+    "row": 10,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 662,
+    "hallid": 3,
+    "row": 10,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 663,
+    "hallid": 3,
+    "row": 10,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 664,
+    "hallid": 3,
+    "row": 10,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 665,
+    "hallid": 3,
+    "row": 10,
+    "seat": 7,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 666,
+    "hallid": 3,
+    "row": 10,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 667,
+    "hallid": 3,
+    "row": 10,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 668,
+    "hallid": 3,
+    "row": 10,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 669,
+    "hallid": 3,
+    "row": 10,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 670,
+    "hallid": 3,
+    "row": 10,
+    "seat": 12,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 671,
+    "hallid": 3,
+    "row": 10,
+    "seat": 13,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 672,
+    "hallid": 3,
+    "row": 10,
+    "seat": 14,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 673,
+    "hallid": 3,
+    "row": 10,
+    "seat": 15,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 674,
+    "hallid": 3,
+    "row": 10,
+    "seat": 16,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 675,
+    "hallid": 3,
+    "row": 10,
+    "seat": 17,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 676,
+    "hallid": 3,
+    "row": 10,
+    "seat": 18,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 677,
+    "hallid": 3,
+    "row": 10,
+    "seat": 19,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 678,
+    "hallid": 3,
+    "row": 10,
+    "seat": 20,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 679,
+    "hallid": 3,
+    "row": 10,
+    "seat": 21,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 680,
+    "hallid": 3,
+    "row": 10,
+    "seat": 22,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 681,
+    "hallid": 3,
+    "row": 10,
+    "seat": 23,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 682,
+    "hallid": 3,
+    "row": 10,
+    "seat": 24,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 683,
+    "hallid": 3,
+    "row": 10,
+    "seat": 25,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 684,
+    "hallid": 3,
+    "row": 10,
+    "seat": 26,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 685,
+    "hallid": 3,
+    "row": 10,
+    "seat": 27,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 686,
+    "hallid": 3,
+    "row": 10,
+    "seat": 28,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 687,
+    "hallid": 3,
+    "row": 10,
+    "seat": 29,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 688,
+    "hallid": 3,
+    "row": 10,
+    "seat": 30,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 689,
+    "hallid": 3,
+    "row": 11,
+    "seat": 1,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 690,
+    "hallid": 3,
+    "row": 11,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 691,
+    "hallid": 3,
+    "row": 11,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 692,
+    "hallid": 3,
+    "row": 11,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 693,
+    "hallid": 3,
+    "row": 11,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 694,
+    "hallid": 3,
+    "row": 11,
+    "seat": 6,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 695,
+    "hallid": 3,
+    "row": 11,
+    "seat": 7,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 696,
+    "hallid": 3,
+    "row": 11,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 697,
+    "hallid": 3,
+    "row": 11,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 698,
+    "hallid": 3,
+    "row": 11,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 699,
+    "hallid": 3,
+    "row": 11,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 700,
+    "hallid": 3,
+    "row": 11,
+    "seat": 12,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 701,
+    "hallid": 3,
+    "row": 11,
+    "seat": 13,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 702,
+    "hallid": 3,
+    "row": 11,
+    "seat": 14,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 703,
+    "hallid": 3,
+    "row": 11,
+    "seat": 15,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 704,
+    "hallid": 3,
+    "row": 11,
+    "seat": 16,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 705,
+    "hallid": 3,
+    "row": 11,
+    "seat": 17,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 706,
+    "hallid": 3,
+    "row": 11,
+    "seat": 18,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 707,
+    "hallid": 3,
+    "row": 11,
+    "seat": 19,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 708,
+    "hallid": 3,
+    "row": 11,
+    "seat": 20,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 709,
+    "hallid": 3,
+    "row": 11,
+    "seat": 21,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 710,
+    "hallid": 3,
+    "row": 11,
+    "seat": 22,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 711,
+    "hallid": 3,
+    "row": 11,
+    "seat": 23,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 712,
+    "hallid": 3,
+    "row": 11,
+    "seat": 24,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 713,
+    "hallid": 3,
+    "row": 11,
+    "seat": 25,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 714,
+    "hallid": 3,
+    "row": 11,
+    "seat": 26,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 715,
+    "hallid": 3,
+    "row": 11,
+    "seat": 27,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 716,
+    "hallid": 3,
+    "row": 11,
+    "seat": 28,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 717,
+    "hallid": 3,
+    "row": 11,
+    "seat": 29,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 718,
+    "hallid": 3,
+    "row": 11,
+    "seat": 30,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 719,
+    "hallid": 3,
+    "row": 12,
+    "seat": 1,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 720,
+    "hallid": 3,
+    "row": 12,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 721,
+    "hallid": 3,
+    "row": 12,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 722,
+    "hallid": 3,
+    "row": 12,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 723,
+    "hallid": 3,
+    "row": 12,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 724,
+    "hallid": 3,
+    "row": 12,
+    "seat": 6,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 725,
+    "hallid": 3,
+    "row": 12,
+    "seat": 7,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 726,
+    "hallid": 3,
+    "row": 12,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 727,
+    "hallid": 3,
+    "row": 12,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 728,
+    "hallid": 3,
+    "row": 12,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 729,
+    "hallid": 3,
+    "row": 12,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 730,
+    "hallid": 3,
+    "row": 12,
+    "seat": 12,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 731,
+    "hallid": 3,
+    "row": 12,
+    "seat": 13,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 732,
+    "hallid": 3,
+    "row": 12,
+    "seat": 14,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 733,
+    "hallid": 3,
+    "row": 12,
+    "seat": 15,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 734,
+    "hallid": 3,
+    "row": 12,
+    "seat": 16,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 735,
+    "hallid": 3,
+    "row": 12,
+    "seat": 17,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 736,
+    "hallid": 3,
+    "row": 12,
+    "seat": 18,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 737,
+    "hallid": 3,
+    "row": 12,
+    "seat": 19,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 738,
+    "hallid": 3,
+    "row": 12,
+    "seat": 20,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 739,
+    "hallid": 3,
+    "row": 12,
+    "seat": 21,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 740,
+    "hallid": 3,
+    "row": 12,
+    "seat": 22,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 741,
+    "hallid": 3,
+    "row": 12,
+    "seat": 23,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 742,
+    "hallid": 3,
+    "row": 12,
+    "seat": 24,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 743,
+    "hallid": 3,
+    "row": 12,
+    "seat": 25,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 744,
+    "hallid": 3,
+    "row": 12,
+    "seat": 26,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 745,
+    "hallid": 3,
+    "row": 12,
+    "seat": 27,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 746,
+    "hallid": 3,
+    "row": 12,
+    "seat": 28,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 747,
+    "hallid": 3,
+    "row": 12,
+    "seat": 29,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 748,
+    "hallid": 3,
+    "row": 12,
+    "seat": 30,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 749,
+    "hallid": 3,
+    "row": 13,
+    "seat": 1,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 750,
+    "hallid": 3,
+    "row": 13,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 751,
+    "hallid": 3,
+    "row": 13,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 752,
+    "hallid": 3,
+    "row": 13,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 753,
+    "hallid": 3,
+    "row": 13,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 754,
+    "hallid": 3,
+    "row": 13,
+    "seat": 6,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 755,
+    "hallid": 3,
+    "row": 13,
+    "seat": 7,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 756,
+    "hallid": 3,
+    "row": 13,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 757,
+    "hallid": 3,
+    "row": 13,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 758,
+    "hallid": 3,
+    "row": 13,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 759,
+    "hallid": 3,
+    "row": 13,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 760,
+    "hallid": 3,
+    "row": 13,
+    "seat": 12,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 761,
+    "hallid": 3,
+    "row": 13,
+    "seat": 13,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 762,
+    "hallid": 3,
+    "row": 13,
+    "seat": 14,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 763,
+    "hallid": 3,
+    "row": 13,
+    "seat": 15,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 764,
+    "hallid": 3,
+    "row": 13,
+    "seat": 16,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 765,
+    "hallid": 3,
+    "row": 13,
+    "seat": 17,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 766,
+    "hallid": 3,
+    "row": 13,
+    "seat": 18,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 767,
+    "hallid": 3,
+    "row": 13,
+    "seat": 19,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 768,
+    "hallid": 3,
+    "row": 13,
+    "seat": 20,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 769,
+    "hallid": 3,
+    "row": 13,
+    "seat": 21,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 770,
+    "hallid": 3,
+    "row": 13,
+    "seat": 22,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 771,
+    "hallid": 3,
+    "row": 13,
+    "seat": 23,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 772,
+    "hallid": 3,
+    "row": 13,
+    "seat": 24,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 773,
+    "hallid": 3,
+    "row": 13,
+    "seat": 25,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 774,
+    "hallid": 3,
+    "row": 13,
+    "seat": 26,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 775,
+    "hallid": 3,
+    "row": 13,
+    "seat": 27,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 776,
+    "hallid": 3,
+    "row": 13,
+    "seat": 28,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 777,
+    "hallid": 3,
+    "row": 13,
+    "seat": 29,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 778,
+    "hallid": 3,
+    "row": 13,
+    "seat": 30,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 779,
+    "hallid": 3,
+    "row": 14,
+    "seat": 2,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 780,
+    "hallid": 3,
+    "row": 14,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 781,
+    "hallid": 3,
+    "row": 14,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 782,
+    "hallid": 3,
+    "row": 14,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 783,
+    "hallid": 3,
+    "row": 14,
+    "seat": 6,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 784,
+    "hallid": 3,
+    "row": 14,
+    "seat": 7,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 785,
+    "hallid": 3,
+    "row": 14,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 786,
+    "hallid": 3,
+    "row": 14,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 787,
+    "hallid": 3,
+    "row": 14,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 788,
+    "hallid": 3,
+    "row": 14,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 789,
+    "hallid": 3,
+    "row": 14,
+    "seat": 12,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 790,
+    "hallid": 3,
+    "row": 14,
+    "seat": 13,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 791,
+    "hallid": 3,
+    "row": 14,
+    "seat": 14,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 792,
+    "hallid": 3,
+    "row": 14,
+    "seat": 15,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 793,
+    "hallid": 3,
+    "row": 14,
+    "seat": 16,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 794,
+    "hallid": 3,
+    "row": 14,
+    "seat": 17,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 795,
+    "hallid": 3,
+    "row": 14,
+    "seat": 18,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 796,
+    "hallid": 3,
+    "row": 14,
+    "seat": 19,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 797,
+    "hallid": 3,
+    "row": 14,
+    "seat": 20,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 798,
+    "hallid": 3,
+    "row": 14,
+    "seat": 21,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 799,
+    "hallid": 3,
+    "row": 14,
+    "seat": 22,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 800,
+    "hallid": 3,
+    "row": 14,
+    "seat": 23,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 801,
+    "hallid": 3,
+    "row": 14,
+    "seat": 24,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 802,
+    "hallid": 3,
+    "row": 14,
+    "seat": 25,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 803,
+    "hallid": 3,
+    "row": 14,
+    "seat": 26,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 804,
+    "hallid": 3,
+    "row": 14,
+    "seat": 27,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 805,
+    "hallid": 3,
+    "row": 14,
+    "seat": 28,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 806,
+    "hallid": 3,
+    "row": 14,
+    "seat": 29,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 807,
+    "hallid": 3,
+    "row": 15,
+    "seat": 3,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 808,
+    "hallid": 3,
+    "row": 15,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 809,
+    "hallid": 3,
+    "row": 15,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 810,
+    "hallid": 3,
+    "row": 15,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 811,
+    "hallid": 3,
+    "row": 15,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 812,
+    "hallid": 3,
+    "row": 15,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 813,
+    "hallid": 3,
+    "row": 15,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 814,
+    "hallid": 3,
+    "row": 15,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 815,
+    "hallid": 3,
+    "row": 15,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 816,
+    "hallid": 3,
+    "row": 15,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 817,
+    "hallid": 3,
+    "row": 15,
+    "seat": 13,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 818,
+    "hallid": 3,
+    "row": 15,
+    "seat": 14,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 819,
+    "hallid": 3,
+    "row": 15,
+    "seat": 15,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 820,
+    "hallid": 3,
+    "row": 15,
+    "seat": 16,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 821,
+    "hallid": 3,
+    "row": 15,
+    "seat": 17,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 822,
+    "hallid": 3,
+    "row": 15,
+    "seat": 18,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 823,
+    "hallid": 3,
+    "row": 15,
+    "seat": 19,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 824,
+    "hallid": 3,
+    "row": 15,
+    "seat": 20,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 825,
+    "hallid": 3,
+    "row": 15,
+    "seat": 21,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 826,
+    "hallid": 3,
+    "row": 15,
+    "seat": 22,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 827,
+    "hallid": 3,
+    "row": 15,
+    "seat": 23,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 828,
+    "hallid": 3,
+    "row": 15,
+    "seat": 24,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 829,
+    "hallid": 3,
+    "row": 15,
+    "seat": 25,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 830,
+    "hallid": 3,
+    "row": 15,
+    "seat": 26,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 831,
+    "hallid": 3,
+    "row": 15,
+    "seat": 27,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 832,
+    "hallid": 3,
+    "row": 15,
+    "seat": 28,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 833,
+    "hallid": 3,
+    "row": 16,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 834,
+    "hallid": 3,
+    "row": 16,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 835,
+    "hallid": 3,
+    "row": 16,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 836,
+    "hallid": 3,
+    "row": 16,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 837,
+    "hallid": 3,
+    "row": 16,
+    "seat": 8,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 838,
+    "hallid": 3,
+    "row": 16,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 839,
+    "hallid": 3,
+    "row": 16,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 840,
+    "hallid": 3,
+    "row": 16,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 841,
+    "hallid": 3,
+    "row": 16,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 842,
+    "hallid": 3,
+    "row": 16,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 843,
+    "hallid": 3,
+    "row": 16,
+    "seat": 14,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 844,
+    "hallid": 3,
+    "row": 16,
+    "seat": 15,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 845,
+    "hallid": 3,
+    "row": 16,
+    "seat": 16,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 846,
+    "hallid": 3,
+    "row": 16,
+    "seat": 17,
+    "type": 3,
+    "price": 20
+  },
+  {
+    "id": 847,
+    "hallid": 3,
+    "row": 16,
+    "seat": 18,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 848,
+    "hallid": 3,
+    "row": 16,
+    "seat": 19,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 849,
+    "hallid": 3,
+    "row": 16,
+    "seat": 20,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 850,
+    "hallid": 3,
+    "row": 16,
+    "seat": 21,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 851,
+    "hallid": 3,
+    "row": 16,
+    "seat": 22,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 852,
+    "hallid": 3,
+    "row": 16,
+    "seat": 23,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 853,
+    "hallid": 3,
+    "row": 16,
+    "seat": 24,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 854,
+    "hallid": 3,
+    "row": 16,
+    "seat": 25,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 855,
+    "hallid": 3,
+    "row": 16,
+    "seat": 26,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 856,
+    "hallid": 3,
+    "row": 16,
+    "seat": 27,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 857,
+    "hallid": 3,
+    "row": 17,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 858,
+    "hallid": 3,
+    "row": 17,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 859,
+    "hallid": 3,
+    "row": 17,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 860,
+    "hallid": 3,
+    "row": 17,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 861,
+    "hallid": 3,
+    "row": 17,
+    "seat": 8,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 862,
+    "hallid": 3,
+    "row": 17,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 863,
+    "hallid": 3,
+    "row": 17,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 864,
+    "hallid": 3,
+    "row": 17,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 865,
+    "hallid": 3,
+    "row": 17,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 866,
+    "hallid": 3,
+    "row": 17,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 867,
+    "hallid": 3,
+    "row": 17,
+    "seat": 14,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 868,
+    "hallid": 3,
+    "row": 17,
+    "seat": 15,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 869,
+    "hallid": 3,
+    "row": 17,
+    "seat": 16,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 870,
+    "hallid": 3,
+    "row": 17,
+    "seat": 17,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 871,
+    "hallid": 3,
+    "row": 17,
+    "seat": 18,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 872,
+    "hallid": 3,
+    "row": 17,
+    "seat": 19,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 873,
+    "hallid": 3,
+    "row": 17,
+    "seat": 20,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 874,
+    "hallid": 3,
+    "row": 17,
+    "seat": 21,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 875,
+    "hallid": 3,
+    "row": 17,
+    "seat": 22,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 876,
+    "hallid": 3,
+    "row": 17,
+    "seat": 23,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 877,
+    "hallid": 3,
+    "row": 17,
+    "seat": 24,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 878,
+    "hallid": 3,
+    "row": 17,
+    "seat": 25,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 879,
+    "hallid": 3,
+    "row": 17,
+    "seat": 26,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 880,
+    "hallid": 3,
+    "row": 17,
+    "seat": 27,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 881,
+    "hallid": 3,
+    "row": 18,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 882,
+    "hallid": 3,
+    "row": 18,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 883,
+    "hallid": 3,
+    "row": 18,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 884,
+    "hallid": 3,
+    "row": 18,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 885,
+    "hallid": 3,
+    "row": 18,
+    "seat": 8,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 886,
+    "hallid": 3,
+    "row": 18,
+    "seat": 9,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 887,
+    "hallid": 3,
+    "row": 18,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 888,
+    "hallid": 3,
+    "row": 18,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 889,
+    "hallid": 3,
+    "row": 18,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 890,
+    "hallid": 3,
+    "row": 18,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 891,
+    "hallid": 3,
+    "row": 18,
+    "seat": 14,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 892,
+    "hallid": 3,
+    "row": 18,
+    "seat": 15,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 893,
+    "hallid": 3,
+    "row": 18,
+    "seat": 16,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 894,
+    "hallid": 3,
+    "row": 18,
+    "seat": 17,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 895,
+    "hallid": 3,
+    "row": 18,
+    "seat": 18,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 896,
+    "hallid": 3,
+    "row": 18,
+    "seat": 19,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 897,
+    "hallid": 3,
+    "row": 18,
+    "seat": 20,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 898,
+    "hallid": 3,
+    "row": 18,
+    "seat": 21,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 899,
+    "hallid": 3,
+    "row": 18,
+    "seat": 22,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 900,
+    "hallid": 3,
+    "row": 18,
+    "seat": 23,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 901,
+    "hallid": 3,
+    "row": 18,
+    "seat": 24,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 902,
+    "hallid": 3,
+    "row": 18,
+    "seat": 25,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 903,
+    "hallid": 3,
+    "row": 18,
+    "seat": 26,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 904,
+    "hallid": 3,
+    "row": 18,
+    "seat": 27,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 905,
+    "hallid": 3,
+    "row": 19,
+    "seat": 4,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 906,
+    "hallid": 3,
+    "row": 19,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 907,
+    "hallid": 3,
+    "row": 19,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 908,
+    "hallid": 3,
+    "row": 19,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 909,
+    "hallid": 3,
+    "row": 19,
+    "seat": 8,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 910,
+    "hallid": 3,
+    "row": 19,
+    "seat": 9,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 911,
+    "hallid": 3,
+    "row": 19,
+    "seat": 10,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 912,
+    "hallid": 3,
+    "row": 19,
+    "seat": 11,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 913,
+    "hallid": 3,
+    "row": 19,
+    "seat": 12,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 914,
+    "hallid": 3,
+    "row": 19,
+    "seat": 13,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 915,
+    "hallid": 3,
+    "row": 19,
+    "seat": 14,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 916,
+    "hallid": 3,
+    "row": 19,
+    "seat": 15,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 917,
+    "hallid": 3,
+    "row": 19,
+    "seat": 16,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 918,
+    "hallid": 3,
+    "row": 19,
+    "seat": 17,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 919,
+    "hallid": 3,
+    "row": 19,
+    "seat": 18,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 920,
+    "hallid": 3,
+    "row": 19,
+    "seat": 19,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 921,
+    "hallid": 3,
+    "row": 19,
+    "seat": 20,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 922,
+    "hallid": 3,
+    "row": 19,
+    "seat": 21,
+    "type": 2,
+    "price": 15
+  },
+  {
+    "id": 923,
+    "hallid": 3,
+    "row": 19,
+    "seat": 22,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 924,
+    "hallid": 3,
+    "row": 19,
+    "seat": 23,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 925,
+    "hallid": 3,
+    "row": 19,
+    "seat": 24,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 926,
+    "hallid": 3,
+    "row": 19,
+    "seat": 25,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 927,
+    "hallid": 3,
+    "row": 19,
+    "seat": 26,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 928,
+    "hallid": 3,
+    "row": 19,
+    "seat": 27,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 929,
+    "hallid": 3,
+    "row": 20,
+    "seat": 5,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 930,
+    "hallid": 3,
+    "row": 20,
+    "seat": 6,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 931,
+    "hallid": 3,
+    "row": 20,
+    "seat": 7,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 932,
+    "hallid": 3,
+    "row": 20,
+    "seat": 8,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 933,
+    "hallid": 3,
+    "row": 20,
+    "seat": 9,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 934,
+    "hallid": 3,
+    "row": 20,
+    "seat": 10,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 935,
+    "hallid": 3,
+    "row": 20,
+    "seat": 11,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 936,
+    "hallid": 3,
+    "row": 20,
+    "seat": 12,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 937,
+    "hallid": 3,
+    "row": 20,
+    "seat": 13,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 938,
+    "hallid": 3,
+    "row": 20,
+    "seat": 14,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 939,
+    "hallid": 3,
+    "row": 20,
+    "seat": 15,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 940,
+    "hallid": 3,
+    "row": 20,
+    "seat": 16,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 941,
+    "hallid": 3,
+    "row": 20,
+    "seat": 17,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 942,
+    "hallid": 3,
+    "row": 20,
+    "seat": 18,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 943,
+    "hallid": 3,
+    "row": 20,
+    "seat": 19,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 944,
+    "hallid": 3,
+    "row": 20,
+    "seat": 20,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 945,
+    "hallid": 3,
+    "row": 20,
+    "seat": 21,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 946,
+    "hallid": 3,
+    "row": 20,
+    "seat": 22,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 947,
+    "hallid": 3,
+    "row": 20,
+    "seat": 23,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 948,
+    "hallid": 3,
+    "row": 20,
+    "seat": 24,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 949,
+    "hallid": 3,
+    "row": 20,
+    "seat": 25,
+    "type": 1,
+    "price": 10
+  },
+  {
+    "id": 950,
+    "hallid": 3,
+    "row": 20,
+    "seat": 26,
+    "type": 1,
+    "price": 10
   }
 ]

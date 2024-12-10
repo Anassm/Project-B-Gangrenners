@@ -19,7 +19,8 @@ static class Menu
         Console.WriteLine("Enter 2 to register");
         Console.WriteLine("Enter 3 to continue as guest");
         Console.WriteLine("Enter 4 to login as admin");
-        Console.WriteLine("Enter 5 to exit");
+        Console.WriteLine("Enter 5 to go to our about page");
+        Console.WriteLine("Enter 6 to exit");
 
         string input = Console.ReadLine();
         Console.Clear();
@@ -38,6 +39,9 @@ static class Menu
                 AdminLogin.Start();
                 break;
             case "5":
+                AboutPage.Start();
+                break;
+            case "6":
                 Environment.Exit(0);
                 break;
             default:
@@ -61,9 +65,10 @@ static class Menu
         else
         {
             Console.Clear();
-            Console.WriteLine("Enter 1 to buy a ticket");
-            Console.WriteLine("Enter 2 to register");
-            Console.WriteLine("Enter 3 to go back to main menu");
+            Console.WriteLine("Enter 1 to search movies by date");
+            Console.WriteLine("Enter 2 to search all movies");
+            Console.WriteLine("Enter 3 to register");
+            Console.WriteLine("Enter 4 to go back to main menu");
         }
         string input = Console.ReadLine();
         Console.Clear();
