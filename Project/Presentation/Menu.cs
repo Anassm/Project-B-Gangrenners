@@ -75,25 +75,10 @@ static class Menu
         switch (input)
         {
             case "1":
-                if (AccountsLogic.CurrentAccount != null)
-                {
-                    MovieSearch.SearchByDate();
-                }
-                else
-                {
-                    Console.WriteLine("Buying a ticket...");
-                    BuyTicket.Start(ChooseMovie.StartMovie());
-                }
+                MovieSearch.SearchByDate();
                 break;
             case "2":
-                if (AccountsLogic.CurrentAccount != null)
-                {
-                    MovieSearch.SearchAll();
-                }
-                else
-                {
-                    Register.Start();
-                }
+                MovieSearch.SearchAll();
                 break;
             case "3":
                 if (AccountsLogic.CurrentAccount != null)
@@ -102,7 +87,7 @@ static class Menu
                 }
                 else
                 {
-                    Start();
+                    Register.Start();
                 }
                 break;
             case "4":
@@ -112,13 +97,13 @@ static class Menu
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input");
-                    MainMenu();
+                    Start();
                 }
                 break;
             case "5":
                 if (AccountsLogic.CurrentAccount != null)
                 {
+                    AccountsLogic.CurrentAccount = null;
                     Start();
                 }
                 else
