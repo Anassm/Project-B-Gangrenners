@@ -110,9 +110,6 @@ public class TestSeatsLogic
         Assert.IsNull(HallsLogic.GetHallById(-1));
         Assert.IsNull(HallsLogic.GetHallById(0));
         Assert.IsNotNull(HallsLogic.GetHallById(1));
-
-        // REMOVE THIS if we have more than 2 halls
-        Assert.IsNull(HallsLogic.GetHallById(2));
     }
 
     [TestMethod]
