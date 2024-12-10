@@ -118,15 +118,6 @@ public static class ManageMovies
             }
         }
 
-        // Cost input
-        System.Console.WriteLine("");
-        System.Console.WriteLine("Please enter the cost of the movie: ");
-        double cost = Convert.ToDouble(System.Console.ReadLine());
-        if (cost <= 0)
-        {
-            System.Console.WriteLine("The cost can't be negative or 0");
-        }
-
         // Check if movie is in archive
         if (MoviesArchiveLogic.CheckIfMovieInArchive(MovieName))
         {
@@ -374,6 +365,30 @@ public static class ManageMovies
     {
         while (true)
         {
+            System.Console.WriteLine("Would you like to see all current movies? (Y/N)");
+            string showallmovies = Console.ReadLine().ToLower();
+            if (showallmovies == "y" || showallmovies == "yes")
+            {
+                Console.Clear();
+                System.Console.WriteLine("All movies:");
+                System.Console.WriteLine("------------------------");
+                System.Console.WriteLine(MoviesLogic.ShowAllMovieNames());
+                System.Console.WriteLine("------------------------");
+                break;
+            }
+            else if (showallmovies == "n" || showallmovies == "no")
+            {
+                Console.Clear();
+                break;
+            }
+            else
+            {
+                Console.Clear();
+                System.Console.WriteLine("Invalid input.");
+            }
+        }
+        while (true)
+        {
             System.Console.WriteLine("you have chosen to add a single showtime.");
             System.Console.WriteLine("Do you want to continue? (Y/N)");
             string input = Console.ReadLine().ToLower();
@@ -381,7 +396,7 @@ public static class ManageMovies
             {
                 AdminLogin.AdminMenu();
             }
-            if (input == "y" && input == "yes")
+            if (input == "y" || input == "yes")
             {
                 break;
             }
@@ -412,7 +427,7 @@ public static class ManageMovies
         }
 
         //date
-        DateOnly date = DateOnly.Parse("0000-00-00");
+        DateOnly date = DateOnly.Parse("2024-12-12");
         TimeOnly time = TimeOnly.Parse("00:00");
         DateTime datetime = date.ToDateTime(time);
         DateOnly today = DateOnly.FromDateTime(DateTime.Now);
@@ -556,7 +571,7 @@ public static class ManageMovies
             {
                 AdminLogin.AdminMenu();
             }
-            if (input == "y" && input == "yes")
+            if (input == "y" || input == "yes")
             {
                 break;
             }
@@ -571,6 +586,30 @@ public static class ManageMovies
         Console.Clear();
 
         //moviename input
+        while (true)
+        {
+            System.Console.WriteLine("Would you like to see all current movies? (Y/N)");
+            string showallmovies = Console.ReadLine().ToLower();
+            if (showallmovies == "y" || showallmovies == "yes")
+            {
+                Console.Clear();
+                System.Console.WriteLine("All movies:");
+                System.Console.WriteLine("------------------------");
+                System.Console.WriteLine(MoviesLogic.ShowAllMovieNames());
+                System.Console.WriteLine("------------------------");
+                break;
+            }
+            else if (showallmovies == "n" || showallmovies == "no")
+            {
+                Console.Clear();
+                break;
+            }
+            else
+            {
+                Console.Clear();
+                System.Console.WriteLine("Invalid input.");
+            }
+        }
         System.Console.WriteLine("");
         System.Console.WriteLine("Please give the name of the movie:");
         string movieName = Console.ReadLine();
@@ -603,8 +642,8 @@ public static class ManageMovies
         }
 
         //start date input
-        DateOnly startdate = DateOnly.Parse("0000-00-00");
-        DateOnly enddate = DateOnly.Parse("0000-00-00");
+        DateOnly startdate = DateOnly.Parse("2024-12-12");
+        DateOnly enddate = DateOnly.Parse("2024-12-12");
         TimeOnly time = TimeOnly.Parse("00:00");
         DateTime datetime = startdate.ToDateTime(time);
         DateOnly today = DateOnly.FromDateTime(DateTime.Now);
@@ -666,6 +705,7 @@ public static class ManageMovies
                     break;
                 }
             }
+            Console.Clear();
 
             //confirm
             while (true)
@@ -790,7 +830,7 @@ public static class ManageMovies
                 ShowtimesLogic.AddShowTimes(showtimes);
                 Console.Clear();
                 System.Console.WriteLine("Showtimes were succesfully added.");
-                break;
+                AdminLogin.AdminMenu();
             }
             else if (input2 == "n" || input2 == "no")
             {

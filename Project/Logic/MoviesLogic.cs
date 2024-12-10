@@ -11,6 +11,17 @@ public class MoviesLogic
         _movies = MoviesAccess.LoadAll() ?? new List<MovieModel>();
     }
 
+        public static string ShowAllMovieNames()
+    {
+        string allmovies = $"";
+        foreach (MovieModel movie in _movies)
+        {
+            allmovies += $"{movie.Name}\n";
+        }
+        allmovies = allmovies.Remove(allmovies.Length-1);
+        return allmovies;
+    }
+
     public static MovieModel GetMovieById(int id)
     {
         MovieModel movie = _movies.Find(movie => movie.Id == id);
