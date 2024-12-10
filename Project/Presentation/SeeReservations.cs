@@ -8,7 +8,7 @@ public static class SeeReservations
         System.Console.WriteLine("2. Future reservations");
         System.Console.WriteLine("3. All reservations");
         System.Console.WriteLine("4. See reservation by code");
-        System.Console.WriteLine("5. Quit");
+        System.Console.WriteLine("5. Go back");
         string choice = Console.ReadLine();
         switch(choice)
         {

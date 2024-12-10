@@ -1,7 +1,3 @@
-using System.Data;
-using System.Dynamic;
-using System.Reflection.Metadata.Ecma335;
-
 public class ShowtimesLogic
 {
     static private List<ShowtimeModel> _showtimes { get; set; } = ShowtimesAccess.LoadAll();

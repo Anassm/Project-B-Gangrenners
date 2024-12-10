@@ -56,11 +56,20 @@ public class MovieModel
         int hours = (Duration - minutes) / 60;
         string time = $"{hours}h {minutes}m";
 
-        return $"Name: {Name}\n" + $"Genre: {Genre}\n" + $"Duration: {time} \n" + $"Summary: {Summary}";
+        return $"\nName: {Name}\n" + $"Genre: {Genre}\n" + $"Duration: {time} \n" + $"Summary: {Summary}";
     }
 
     public string ToStringOneLine()
     {
         return $"{Name} - ({Genre}) - {Duration} minutes";
+    }
+
+    public string ToStringUsersShort()
+    {
+        int minutes = Duration % 60;
+        int hours = (Duration - minutes) / 60;
+        string time = $"{hours}h {minutes}m";
+
+        return $"Name: {Name}\n" + $"Genre: {Genre}\n" + $"Duration: {time}";
     }
 }

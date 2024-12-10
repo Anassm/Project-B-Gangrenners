@@ -56,16 +56,16 @@ static class Menu
         if (AccountsLogic.CurrentAccount != null)
         {
             Console.Clear();
-            Console.WriteLine("Enter 1 to search movies by date");
-            Console.WriteLine("Enter 2 to search all movies");
+            Console.WriteLine("Enter 1 to search movies by date and buy ticket");
+            Console.WriteLine("Enter 2 to search all movies and buy ticket");
             Console.WriteLine("Enter 3 to see reservation");
             Console.WriteLine("Enter 4 to logout");
         }
         else
         {
             Console.Clear();
-            Console.WriteLine("Enter 1 to search movies by date");
-            Console.WriteLine("Enter 2 to search all movies");
+            Console.WriteLine("Enter 1 to search movies by date and buy ticket");
+            Console.WriteLine("Enter 2 to search all movies and buy ticket");
             Console.WriteLine("Enter 3 to register");
             Console.WriteLine("Enter 4 to go back to main menu");
         }
@@ -83,14 +83,14 @@ static class Menu
                 if (AccountsLogic.CurrentAccount != null)
                 {
                     SeeReservations.SeeReservationSubMenu();
-                    break;
                 }
                 else
                 {
                     Register.Start();
-                    break;
                 }
+                break;
             case "4":
+                AccountsLogic.CurrentAccount = null;
                 Start();
                 break;
             default:
