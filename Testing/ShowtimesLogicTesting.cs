@@ -8,7 +8,7 @@ public class TestShowtimesLogic
     {
         ShowtimesLogic showtimesLogic = new ShowtimesLogic();
 
-        Assert.IsInstanceOfType(showtimesLogic.GetShowtimesByMovieId(1), typeof(List<ShowtimeModel>));
+        Assert.IsInstanceOfType(ShowtimesLogic.GetShowtimesByMovieId(1), typeof(List<ShowtimeModel>));
     }
 
     [TestMethod]
@@ -16,7 +16,7 @@ public class TestShowtimesLogic
     {
         ShowtimesLogic showtimesLogic = new ShowtimesLogic();
 
-        Assert.AreEqual(showtimesLogic.GetShowtimesByMovieId(0).Count, 0);
+        Assert.AreEqual(ShowtimesLogic.GetShowtimesByMovieId(0).Count, 0);
     }
 
     [TestMethod]
@@ -41,7 +41,7 @@ public class TestShowtimesLogic
         ShowtimesLogic showtimesLogic = new ShowtimesLogic();
         ShowtimeModel showtime = new ShowtimeModel(4, 1, DateTime.Now, 1, new int[10, 10]);
 
-        showtimesLogic.AddShowtime(showtime);
+        ShowtimesLogic.AddShowtime(showtime);
 
         Assert.IsNotNull(ShowtimesLogic.GetShowtimeById(4));
     }
