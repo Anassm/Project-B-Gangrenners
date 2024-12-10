@@ -79,7 +79,7 @@ public class TestAccountLogic
     }
 
     [TestMethod]
-    [DataRow("28-11-1904")]
+    [DataRow("28-11-1905")]
     [DataRow("27-11-1905")]
     [DataRow("27-11-2023")]
     [DataRow("27-11-2024")]
@@ -90,7 +90,7 @@ public class TestAccountLogic
     }
 
     [TestMethod]
-    [DataRow("28-11-2024")]
+    [DataRow("28-11-2030")]
     [DataRow("27-11-2025")]
     public void CheckDateOfBirth_FutureDateOfBirth_ReturnFalse(string bodString)
     {

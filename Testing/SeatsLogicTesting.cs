@@ -24,14 +24,14 @@ public class TestSeatsLogic
         SeatsLogic sl = new SeatsLogic();
         SeatModel seat = new SeatModel(4, 1, 1, 1, 1, 50);
         sl.UpdateList(seat);
-        Assert.AreEqual(sl.GetSeatById(4), seat);
+        Assert.AreEqual(SeatsLogic.GetSeatById(4), seat);
     }
 
     [TestMethod]
     public void GetSeatById_NonExisting_ReturnNull()
     {
         SeatsLogic sl = new SeatsLogic();
-        Assert.AreEqual(sl.GetSeatById(100000), null);
+        Assert.AreEqual(SeatsLogic.GetSeatById(100000), null);
     }
 
     [TestMethod]
@@ -110,9 +110,6 @@ public class TestSeatsLogic
         Assert.IsNull(HallsLogic.GetHallById(-1));
         Assert.IsNull(HallsLogic.GetHallById(0));
         Assert.IsNotNull(HallsLogic.GetHallById(1));
-
-        // REMOVE THIS if we have more than 2 halls
-        Assert.IsNull(HallsLogic.GetHallById(2));
     }
 
     [TestMethod]
