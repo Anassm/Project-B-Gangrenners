@@ -56,17 +56,16 @@ static class Menu
         if (AccountsLogic.CurrentAccount != null)
         {
             Console.Clear();
-            Console.WriteLine("Enter 1 to search movies by date");
-            Console.WriteLine("Enter 2 to search all movies");
+            Console.WriteLine("Enter 1 to search movies by date and buy ticket");
+            Console.WriteLine("Enter 2 to search all movies and buy ticket");
             Console.WriteLine("Enter 3 to see reservation");
-            Console.WriteLine("Enter 4 to see finance dashboard");
-            Console.WriteLine("Enter 5 to logout");
+            Console.WriteLine("Enter 4 to logout");
         }
         else
         {
             Console.Clear();
-            Console.WriteLine("Enter 1 to search movies by date");
-            Console.WriteLine("Enter 2 to search all movies");
+            Console.WriteLine("Enter 1 to search movies by date and buy ticket");
+            Console.WriteLine("Enter 2 to search all movies and buy ticket");
             Console.WriteLine("Enter 3 to register");
             Console.WriteLine("Enter 4 to go back to main menu");
         }
@@ -91,26 +90,8 @@ static class Menu
                 }
                 break;
             case "4":
-                if (AccountsLogic.CurrentAccount != null)
-                {
-                    Finance.Start();
-                }
-                else
-                {
-                    Start();
-                }
-                break;
-            case "5":
-                if (AccountsLogic.CurrentAccount != null)
-                {
-                    AccountsLogic.CurrentAccount = null;
-                    Start();
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input");
-                    MainMenu();
-                }
+                AccountsLogic.CurrentAccount = null;
+                Start();
                 break;
             default:
                 Console.WriteLine("Invalid input");

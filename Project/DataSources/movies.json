@@ -1,42 +1,42 @@
 [
   {
-    "id": 1,
-    "name": "Inception",
-    "genre": "Horror",
-    "duration": 120,
-    "promoted": true,
-    "summary": "Inception is a 2010 science fiction action film written and directed by Christopher Nolan, who also produced the film with Emma Thomas, his wife. The film stars Leonardo DiCaprio as a professional thief who steals information by infiltrating the subconscious of his targets. He is offered a chance to have his criminal history erased as payment for the implantation of another person's idea into a target's subconscious.",
-    "cost": 2400,
-    "revenue": 3100
+    "Id": 1,
+    "Name": "Inception",
+    "Genre": "Horror",
+    "Duration": 120,
+    "Promoted": true,
+    "Summary": "Inception is a 2010 science fiction action film written and directed by Christopher Nolan, who also produced the film with Emma Thomas, his wife. The film stars Leonardo DiCaprio as a professional thief who steals information by infiltrating the subconscious of his targets. He is offered a chance to have his criminal history erased as payment for the implantation of another person's idea into a target's subconscious.",
+    "Cost": 200.0,
+    "Revenue": 500.0
   },
   {
-    "id": 3,
-    "name": "Verschrikkelijke ikke",
-    "genre": "comedy",
-    "duration": 120,
-    "promoted": false,
-    "summary": "Verschrikkelijke ikke is een Amerikaanse computeranimatiefilm uit 2010, geproduceerd door Illumination Entertainment voor Universal Pictures. Het is de eerste film van de Despicable Me-franchise. De film is geregisseerd door Pierre Coffin en Chris Renaud, en geschreven door Cinco Paul en Ken Daurio. De film vertelt het verhaal van Gru, een superschurk die een plan bedenkt om de maan te stelen.",
-    "cost": 2400,
-    "revenue": 3100
+    "Id": 3,
+    "Name": "Verschrikkelijke ikke",
+    "Genre": "comedy",
+    "Duration": 120,
+    "Promoted": false,
+    "Summary": "Verschrikkelijke ikke is een Amerikaanse computeranimatiefilm uit 2010, geproduceerd door Illumination Entertainment voor Universal Pictures. Het is de eerste film van de Despicable Me-franchise. De film is geregisseerd door Pierre Coffin en Chris Renaud, en geschreven door Cinco Paul en Ken Daurio. De film vertelt het verhaal van Gru, een superschurk die een plan bedenkt om de maan te stelen.",
+    "Cost": 200.0,
+    "Revenue": 0.0
   },
   {
-    "id": 4,
-    "name": "The Dark Knight",
-    "genre": "Action",
-    "duration": 152,
-    "promoted": true,
-    "summary": "The Dark Knight is a 2008 superhero film directed, produced, and co-written by Christopher Nolan. Based on the DC Comics character Batman, the film is the second installment of Nolan's The Dark Knight Trilogy and a sequel to 2005's Batman Begins, starring Christian Bale and supported by Michael Caine, Heath Ledger, Gary Oldman, Aaron Eckhart, Maggie Gyllenhaal, and Morgan Freeman.",
-    "cost": 2400,
-    "revenue": 3100
+    "Id": 4,
+    "Name": "The Dark Knight",
+    "Genre": "Action",
+    "Duration": 152,
+    "Promoted": true,
+    "Summary": "The Dark Knight is a 2008 superhero film directed, produced, and co-written by Christopher Nolan. Based on the DC Comics character Batman, the film is the second installment of Nolan's The Dark Knight Trilogy and a sequel to 2005's Batman Begins, starring Christian Bale and supported by Michael Caine, Heath Ledger, Gary Oldman, Aaron Eckhart, Maggie Gyllenhaal, and Morgan Freeman.",
+    "Cost": 2400.0,
+    "Revenue": 0.0
   },
   {
-    "id": 5,
-    "name": "The Shawshank Redemption",
-    "genre": "Drama",
-    "duration": 142,
-    "promoted": false,
-    "summary": "The Shawshank Redemption is a 1994 American drama film written and directed by Frank Darabont, based on the 1982 Stephen King novella Rita Hayworth and Shawshank Redemption. It tells the story of banker Andy Dufresne (Tim Robbins), who is sentenced to life in Shawshank State Penitentiary for the murders of his wife and her lover, despite his claims of innocence.",
-    "cost": 2400,
-    "revenue": 3100
+    "Id": 5,
+    "Name": "The Shawshank Redemption",
+    "Genre": "Drama",
+    "Duration": 142,
+    "Promoted": false,
+    "Summary": "The Shawshank Redemption is a 1994 American drama film written and directed by Frank Darabont, based on the 1982 Stephen King novella Rita Hayworth and Shawshank Redemption. It tells the story of banker Andy Dufresne (Tim Robbins), who is sentenced to life in Shawshank State Penitentiary for the murders of his wife and her lover, despite his claims of innocence.",
+    "Cost": 2400.0,
+    "Revenue": 0.0
   }
 ]

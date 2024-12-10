@@ -1,6 +1,4 @@
 using System.Text.RegularExpressions;
-using System.Collections;
-using System.Runtime.InteropServices;
 
 public class MoviesLogic
 {
@@ -10,7 +8,7 @@ public class MoviesLogic
     {
         _movies = MoviesAccess.LoadAll() ?? new List<MovieModel>();
     }
-
+    
     public static MovieModel GetMovieById(int id)
     {
         MovieModel movie = _movies.Find(movie => movie.Id == id);
@@ -222,6 +220,7 @@ public class MoviesLogic
                     continue;
                 }
             }
+
             display += movie.ToString() + "\n";
             Dictionary<string, int> reservations = CalculateTotalReservationsPerMovie(movie);
             display += $"Regular: {reservations["Regular"]}\n";

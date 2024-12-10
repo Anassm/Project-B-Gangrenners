@@ -11,10 +11,10 @@ public static class MovieSearch
             Menu.MainMenu();
         }
 
-         while (true)
+        while (true)
         {
             Console.WriteLine($"You have chosen the following movie:\n{selectedMovie.ToStringUsers()}");
-            Console.WriteLine("Is this correct? [Y]es / [N]o");
+            Console.WriteLine("\nDo you want to buy a ticket for this movie? [Y]es / [N]o");
 
             var correctChoice = Console.ReadLine().ToLower();
             if (correctChoice == "y" || correctChoice == "yes")
@@ -34,24 +34,24 @@ public static class MovieSearch
         string ticketsInput = Console.ReadLine();
         List<ShowtimeModel> showtimes = ShowtimesLogic.GetShowtimesByDay(selectedDate);
         int maxSeats = 0;
-        foreach(ShowtimeModel showtime in showtimes)
+        foreach (ShowtimeModel showtime in showtimes)
         {
-            if(showtime.MoviesId == selectedMovie.Id)
+            if (showtime.MoviesId == selectedMovie.Id)
             {
-                if(ShowtimesLogic.CheckAvailability(showtime) >= maxSeats)
+                if (ShowtimesLogic.CheckAvailability(showtime) >= maxSeats)
                 {
                     maxSeats = ShowtimesLogic.CheckAvailability(showtime);
                 }
             }
         }
-        if(int.TryParse(ticketsInput, out int tickets) && tickets > 0)
+        if (int.TryParse(ticketsInput, out int tickets) && tickets > 0)
         {
-            if(tickets > maxSeats)
+            if (tickets > maxSeats)
             {
                 Console.WriteLine($"There are only {maxSeats} seats available for this movie");
                 Console.WriteLine("Would you like to buy tickets for the available seats? ([y]es/[n]o)");
                 string response = Console.ReadLine();
-                if(response.ToLower() == "y")
+                if (response.ToLower() == "y")
                 {
                     tickets = maxSeats;
                 }
@@ -96,7 +96,7 @@ public static class MovieSearch
     public static MovieModel SelectMovie(DateTime selectedDate)
     {
         List<MovieModel> movies = MoviesLogic.GetMovies(selectedDate);
-        if(movies.Count == 0)
+        if (movies.Count == 0)
         {
             Console.WriteLine("No movies found for this date");
             Console.WriteLine("Would you like to select another date? ([y]es/[n]o)");
@@ -115,17 +115,17 @@ public static class MovieSearch
         else
         {
             Console.Clear();
-            
+
         }
 
         while (true)
-        {   
+        {
             Console.WriteLine($"Movies for {selectedDate.ToShortDateString()}");
             Console.WriteLine(MoviesLogic.DisplayMovies(selectedDate));
             Console.WriteLine("Enter the name of the movie you want to see");
             string movieName = Console.ReadLine();
             MovieModel selectedMovie = MoviesLogic.GetMovieByName(movieName, MoviesLogic.GetMovies(selectedDate));
-            if(selectedMovie == null)
+            if (selectedMovie == null)
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -147,26 +147,31 @@ public static class MovieSearch
 
         }
     }
-    
+
     public static void SearchAll()
     {
-        Console.WriteLine("All movies");
-        Console.WriteLine("----------");
+        Console.WriteLine("All movies for upcoming 14 days");
+        Console.WriteLine("-------------------------------------");
         Console.WriteLine(MoviesLogic.DisplayMovies(DateTime.Now, DateTime.Now.AddDays(14)));
         Console.WriteLine("Enter the name of the movie you want to see");
         string movieName = Console.ReadLine();
         MovieModel selectedMovie = MoviesLogic.GetMovieByName(movieName, MoviesLogic.GetMovies(DateTime.Now, DateTime.Now.AddDays(14)));
-        if(selectedMovie == null)
+        if (selectedMovie == null)
         {
             Console.WriteLine("Movie not found");
-            Console.WriteLine("Going back to main menu");
-            Menu.MainMenu();
+            Console.WriteLine("Press any key to go back to main menu");
+
+            ConsoleKeyInfo key = Console.ReadKey(true);
+            if (key.Key != null)
+            {
+                Menu.MainMenu();
+            }
         }
-        
+
         while (true)
         {
             Console.WriteLine($"You have chosen the following movie:\n{selectedMovie.ToStringUsers()}");
-            Console.WriteLine("Is this correct? [Y]es / [N]o");
+            Console.WriteLine("\nDo you want to buy a ticket for this movie? [Y]es / [N]o");
 
             var correctChoice = Console.ReadLine().ToLower();
             if (correctChoice == "y" || correctChoice == "yes")
@@ -181,30 +186,30 @@ public static class MovieSearch
                 Menu.MainMenu();
             }
         }
-        
+
 
         Console.WriteLine("Please enter the number of tickets you want to buy");
         string ticketsInput = Console.ReadLine();
         List<ShowtimeModel> showtimes = ShowtimesLogic.GetShowtimesByDay(DateTime.Now, DateTime.Now.AddDays(14));
         int maxSeats = 0;
-        foreach(ShowtimeModel showtime in showtimes)
+        foreach (ShowtimeModel showtime in showtimes)
         {
-            if(showtime.MoviesId == selectedMovie.Id)
+            if (showtime.MoviesId == selectedMovie.Id)
             {
-                if(ShowtimesLogic.CheckAvailability(showtime) >= maxSeats)
+                if (ShowtimesLogic.CheckAvailability(showtime) >= maxSeats)
                 {
                     maxSeats = ShowtimesLogic.CheckAvailability(showtime);
                 }
             }
         }
-        if(int.TryParse(ticketsInput, out int tickets) && tickets > 0)
+        if (int.TryParse(ticketsInput, out int tickets) && tickets > 0)
         {
-            if(tickets > maxSeats)
+            if (tickets > maxSeats)
             {
                 Console.WriteLine($"There are only {maxSeats} seats available for this movie");
                 Console.WriteLine("Would you like to buy tickets for the available seats? ([y]es/[n]o)");
                 string response = Console.ReadLine();
-                if(response.ToLower() == "y")
+                if (response.ToLower() == "y")
                 {
                     tickets = maxSeats;
                 }
@@ -222,7 +227,7 @@ public static class MovieSearch
             SearchByDate();
         }
 
-        
+
     }
 
 
