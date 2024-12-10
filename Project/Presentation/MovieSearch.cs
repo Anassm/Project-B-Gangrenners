@@ -11,6 +11,25 @@ public static class MovieSearch
             Menu.MainMenu();
         }
 
+         while (true)
+        {
+            Console.WriteLine($"You have chosen the following movie:\n{selectedMovie.ToStringUsers()}");
+            Console.WriteLine("Is this correct? [Y]es / [N]o");
+
+            var correctChoice = Console.ReadLine().ToLower();
+            if (correctChoice == "y" || correctChoice == "yes")
+            {
+                Console.Clear();
+                break;
+            }
+
+            if (correctChoice == "n" || correctChoice == "no")
+            {
+                Console.Clear();
+                Menu.MainMenu();
+            }
+        }
+
         Console.WriteLine("Please enter the number of tickets you want to buy");
         string ticketsInput = Console.ReadLine();
         List<ShowtimeModel> showtimes = ShowtimesLogic.GetShowtimesByDay(selectedDate);
@@ -131,7 +150,79 @@ public static class MovieSearch
     
     public static void SearchAll()
     {
+        Console.WriteLine("All movies");
+        Console.WriteLine("----------");
+        Console.WriteLine(MoviesLogic.DisplayMovies(DateTime.Now, DateTime.Now.AddDays(14)));
+        Console.WriteLine("Enter the name of the movie you want to see");
+        string movieName = Console.ReadLine();
+        MovieModel selectedMovie = MoviesLogic.GetMovieByName(movieName, MoviesLogic.GetMovies(DateTime.Now, DateTime.Now.AddDays(14)));
+        if(selectedMovie == null)
+        {
+            Console.WriteLine("Movie not found");
+            Console.WriteLine("Going back to main menu");
+            Menu.MainMenu();
+        }
+        
+        while (true)
+        {
+            Console.WriteLine($"You have chosen the following movie:\n{selectedMovie.ToStringUsers()}");
+            Console.WriteLine("Is this correct? [Y]es / [N]o");
 
+            var correctChoice = Console.ReadLine().ToLower();
+            if (correctChoice == "y" || correctChoice == "yes")
+            {
+                Console.Clear();
+                break;
+            }
+
+            if (correctChoice == "n" || correctChoice == "no")
+            {
+                Console.Clear();
+                Menu.MainMenu();
+            }
+        }
+        
+
+        Console.WriteLine("Please enter the number of tickets you want to buy");
+        string ticketsInput = Console.ReadLine();
+        List<ShowtimeModel> showtimes = ShowtimesLogic.GetShowtimesByDay(DateTime.Now, DateTime.Now.AddDays(14));
+        int maxSeats = 0;
+        foreach(ShowtimeModel showtime in showtimes)
+        {
+            if(showtime.MoviesId == selectedMovie.Id)
+            {
+                if(ShowtimesLogic.CheckAvailability(showtime) >= maxSeats)
+                {
+                    maxSeats = ShowtimesLogic.CheckAvailability(showtime);
+                }
+            }
+        }
+        if(int.TryParse(ticketsInput, out int tickets) && tickets > 0)
+        {
+            if(tickets > maxSeats)
+            {
+                Console.WriteLine($"There are only {maxSeats} seats available for this movie");
+                Console.WriteLine("Would you like to buy tickets for the available seats? ([y]es/[n]o)");
+                string response = Console.ReadLine();
+                if(response.ToLower() == "y")
+                {
+                    tickets = maxSeats;
+                }
+                else
+                {
+                    Console.WriteLine("Exiting search.");
+                    Menu.MainMenu();
+                }
+            }
+            BuyTicket.Start(ChooseMovie.StartMovie(selectedMovie, tickets, DateTime.Now, DateTime.Now.AddDays(14)));
+        }
+        else
+        {
+            Console.WriteLine("Invalid input");
+            SearchByDate();
+        }
+
+        
     }
 
 
