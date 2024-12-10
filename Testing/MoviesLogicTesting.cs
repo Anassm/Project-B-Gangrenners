@@ -19,11 +19,13 @@ public class TestMoviesLogic
         Assert.AreEqual(MoviesLogic.GetMovieByName("Inception").Id, 1);
     }
 
+    [TestMethod]
     public void GetMovieByName_ExistingMovie_ReturnNotNull()
     {   
         Assert.IsTrue(MoviesLogic.GetMovieByName("Inception") != null);
     }
 
+    [TestMethod]
     public void GetMovieByName_NonExistingMovie_ReturnNull()
     {   
         Assert.AreEqual(MoviesLogic.GetMovieByName("Alladin"), null);
