@@ -99,6 +99,7 @@ public static class ChooseMovie
         }
 
         var newShowtimes = showtimes.Where(st => st.Time >= DateTime.Now && st.MoviesId == movieId).ToList();
+        newShowtimes = newShowtimes.OrderBy(st => st.Time).ToList();
         if (!newShowtimes.Any())
         {
             Console.WriteLine("There are no upcoming screening times.");
@@ -140,6 +141,7 @@ public static class ChooseMovie
         }
 
         var newShowtimes = showtimes.Where(st => st.Time >= DateTime.Now && st.MoviesId == movie.Id && st.Time.Date == day.Date).ToList();
+        newShowtimes = newShowtimes.OrderBy(st => st.Time).ToList();
         if (!newShowtimes.Any())
         {
             Console.WriteLine("There are no upcoming screening times.");
@@ -165,10 +167,12 @@ public static class ChooseMovie
             }
             else
             {
-                Console.WriteLine($"\x1B[2mNumber: {i + 1}");
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine($"Number: {i + 1}");
                 Console.WriteLine($"Date / Time: {showtime.Time}");
-                Console.WriteLine($"Hall: {showtime.HallId}\x1B[0m");
+                Console.WriteLine($"Hall: {showtime.HallId}");
                 Console.WriteLine("----------------------------");
+                Console.ResetColor();
             }
            
         }
@@ -198,6 +202,7 @@ public static class ChooseMovie
         }
 
         var newShowtimes = showtimes.Where(st => st.Time >= DateTime.Now && st.MoviesId == movie.Id && st.Time.Date <= endDay.Date).ToList();
+        newShowtimes = newShowtimes.OrderBy(st => st.Time).ToList();
         if (!newShowtimes.Any())
         {
             Console.WriteLine("There are no upcoming screening times.");
