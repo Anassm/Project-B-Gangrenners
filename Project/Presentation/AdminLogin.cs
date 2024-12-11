@@ -57,8 +57,8 @@ public static class AdminLogin
         System.Console.WriteLine("5. See current movies");
         System.Console.WriteLine("6. See archived movies");
         System.Console.WriteLine("7. Change seat type price for hall");
-        System.Console.WriteLine("8. Add single showtime.");
-        System.Console.WriteLine("9. Add multiple showtimes");
+        System.Console.WriteLine("8. Add single screening");
+        System.Console.WriteLine("9. Add multiple screenings");
         System.Console.WriteLine("10. See financial data about movies");
         System.Console.WriteLine("11. Log out");
         string input = System.Console.ReadLine();

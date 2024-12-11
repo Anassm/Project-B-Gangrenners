@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 public class ShowtimesLogic
 {
     static private List<ShowtimeModel> _showtimes { get; set; } = ShowtimesAccess.LoadAll();
@@ -60,17 +62,21 @@ public class ShowtimesLogic
 
     public static List<ShowtimeModel> ValdidateAllShowtimes(List<ShowtimeModel> showtimes)
     {
+        
+        List<ShowtimeModel> returnshowtimes = showtimes;
         foreach (ShowtimeModel showtime in showtimes)
         {
+            int minutesToAdd = MoviesLogic.GetMovieById(showtime.MoviesId).Duration + 30;
+            DateTime endtime = showtime.Time.AddMinutes(minutesToAdd);
             foreach (ShowtimeModel showtime2 in _showtimes)
             {
-                if (showtime.Time == showtime2.Time && showtime.HallId == showtime2.HallId)
+                if (endtime >= showtime2.Time && showtime.HallId == showtime2.HallId)
                 {
-                    showtimes.Remove(showtime);
+                    returnshowtimes.Remove(showtime);
                 }
             }
         }
-        return showtimes;
+        return returnshowtimes;
     }
 
     public static void AddShowTimes(List<ShowtimeModel> ShowtimesToAdd)
@@ -81,14 +87,25 @@ public class ShowtimesLogic
         }
     }
 
-    public static void AddShowtime(ShowtimeModel showtime)
+    public static bool AddShowtime(ShowtimeModel showtime)
     {
+        int minutesToAdd = MoviesLogic.GetMovieById(showtime.MoviesId).Duration + 30;
+        DateTime endtime = showtime.Time.AddMinutes(minutesToAdd);
+        foreach (ShowtimeModel _showtime in _showtimes)
+        {
+            if (endtime >= _showtime.Time && showtime.HallId == _showtime.HallId)
+            {
+                return false;
+            }
+        }
         _showtimes.Add(showtime);
         ShowtimesAccess.WriteAll(_showtimes);
+        return true;
     }
 
-    public void AddShowtime(int movieId, DateTime time, int hallId)
+    public static void AddShowtime(int movieId, DateTime time, int hallId)
     {
+
         int id = _showtimes.Count > 0 ? _showtimes.Max(showtime => showtime.Id) + 1 : 1;
 
         ShowtimeModel showtime = new ShowtimeModel(id, movieId, time, hallId, HallsLogic.GetHallLayout(hallId));
