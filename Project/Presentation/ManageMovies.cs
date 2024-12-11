@@ -367,6 +367,7 @@ public static class ManageMovies
         //confirm to continue
         while (true)
         {
+            Console.Clear();
             System.Console.WriteLine("you have chosen to add a single screening.");
                         System.Console.WriteLine("Do you want to continue? (Y/N)");
             string input = Console.ReadLine().ToLower();
@@ -581,6 +582,7 @@ public static class ManageMovies
     {
         while (true)
         {
+            Console.Clear();
             System.Console.WriteLine("you have chosen to add screenings.");
             System.Console.WriteLine("Do you want to continue? (Y/N)");
             string input = Console.ReadLine().ToLower();
@@ -843,10 +845,17 @@ public static class ManageMovies
             string input2 = Console.ReadLine().ToLower();
             if (input2 == "y" || input2 == "yes")
             {
+                Console.Clear();
                 List<DateTime> datetimes = ShowtimesLogic.GenerateDateTimesList(startdate, enddate, time, interval);
                 List<ShowtimeModel> showtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes);
+                foreach(ShowtimeModel showti in showtimes)
+                {
+                    Console.WriteLine("---------------------------");
+                    Console.WriteLine(showti.ToString());
+                }
                 ShowtimesLogic.AddShowTimes(showtimes);
-                Console.Clear();
+                
+                Console.WriteLine(showtimes.Count);
                 System.Console.WriteLine("Screenings were successfully added.");
                 AdminLogin.AdminMenu();
             }
