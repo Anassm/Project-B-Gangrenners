@@ -57,7 +57,10 @@ public static class AdminLogin
         System.Console.WriteLine("5. See current movies");
         System.Console.WriteLine("6. See archived movies");
         System.Console.WriteLine("7. Change seat type price for hall");
-        System.Console.WriteLine("8. Log out");
+        System.Console.WriteLine("8. Add single screening");
+        System.Console.WriteLine("9. Add multiple screenings");
+        System.Console.WriteLine("10. See financial data about movies");
+        System.Console.WriteLine("11. Log out");
         string input = System.Console.ReadLine();
         switch (input)
         {
@@ -89,6 +92,16 @@ public static class AdminLogin
                 ManageHalls.ChangeSeatTypePrice();
                 break;
             case "8":
+                ManageMovies.AddSingleShowTimeMenu();
+                break;
+            case "9":
+                ManageMovies.AddShowTimesMenu();
+                break;
+            case "10":
+                Console.Clear();
+                Finance.Start();
+                break;
+            case "11":
                 _attemptsLeft = 3;
                 Console.Clear();
                 Menu.Start();

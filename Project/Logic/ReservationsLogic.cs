@@ -8,6 +8,23 @@ public class ReservationsLogic
         //_reservations = ReservationsAccess.LoadAll();
     }
 
+    public static List<ReservationModel> OrderReservations()
+    {
+        List<ShowtimeModel> showtimes = ShowtimesAccess.LoadAll();
+
+        List<ReservationModel> orderedReservations = _reservations
+            .Join(showtimes,
+                  reservation => reservation.ShowtimeId,
+                  showtime => showtime.Id,
+                  (reservation, showtime) => new { Reservation = reservation, ShowtimeTime = showtime.Time })
+            .OrderBy(joined => joined.ShowtimeTime)
+            .Select(joined => joined.Reservation)
+            .ToList();
+
+        return orderedReservations;
+    }
+
+
     // Adding and updating reservations
     public static void UpdateReservationList(ReservationModel res)
     {
@@ -79,10 +96,11 @@ public class ReservationsLogic
         return _reservations.Count == 0 ? 1 : _reservations.Max(s => s.Id) + 1;
     }
 
-    public static  List<ReservationModel> SeeFutureReservations(int accountid)
+    public static List<ReservationModel> SeeFutureReservations(int accountid)
     {
-        List<ReservationModel> reservations = [];
-        foreach (ReservationModel reserv in _reservations)
+        List<ReservationModel> reservations2 = OrderReservations();
+        List<ReservationModel> reservations = new();
+        foreach (ReservationModel reserv in reservations2)
         {
             if (reserv.AccountId == accountid && DateTime.Now.CompareTo(ShowtimesLogic.GetShowtimeById(reserv.ShowtimeId).Time) < 0)
             {
@@ -94,8 +112,10 @@ public class ReservationsLogic
 
     public static List<ReservationModel> SeePastReservations(int accountid)
     {
-        List<ReservationModel> reservations = [];
-        foreach (ReservationModel reserv in _reservations)
+        List<ReservationModel> reservations2 = OrderReservations();
+        List<ReservationModel> reservations = new();
+
+        foreach (ReservationModel reserv in reservations2)
         {
             if (reserv.AccountId == accountid && (DateTime.Now.CompareTo(ShowtimesLogic.GetShowtimeById(reserv.ShowtimeId).Time) >= 0))
             {
@@ -120,5 +140,20 @@ public class ReservationsLogic
     public static ReservationModel GetReservation(string code)
     {
         return GetReservation(code, _reservations);
+    }
+
+    public static List<ReservationModel> GetReservationsByShowtimeId(int showtimeId)
+    {
+        List<ReservationModel> reservations = new();
+
+        foreach (ReservationModel reservation in _reservations)
+        {
+            if (reservation.ShowtimeId == showtimeId)
+            {
+                reservations.Add(reservation);
+            }
+        }
+
+        return reservations;
     }
 }

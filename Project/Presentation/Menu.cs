@@ -19,7 +19,8 @@ static class Menu
         Console.WriteLine("Enter 2 to register");
         Console.WriteLine("Enter 3 to continue as guest");
         Console.WriteLine("Enter 4 to login as admin");
-        Console.WriteLine("Enter 5 to exit");
+        Console.WriteLine("Enter 5 to go to our about page");
+        Console.WriteLine("Enter 6 to exit");
 
         string input = Console.ReadLine();
         Console.Clear();
@@ -38,6 +39,9 @@ static class Menu
                 AdminLogin.Start();
                 break;
             case "5":
+                AboutPage.Start();
+                break;
+            case "6":
                 Environment.Exit(0);
                 break;
             default:
@@ -49,64 +53,50 @@ static class Menu
 
     static public void MainMenu()
     {
-        // TODO: Discuss whether to add interactivity with the user when logged in, or not.
         if (AccountsLogic.CurrentAccount != null)
         {
             Console.Clear();
-            Console.WriteLine("Enter 1 to buy a ticket");
-            Console.WriteLine("Enter 2 to see reservation");
-            Console.WriteLine("Enter 3 to logout");
+            Console.WriteLine("Enter 1 to search movies by date and buy ticket");
+            Console.WriteLine("Enter 2 to search all movies and buy ticket");
+            Console.WriteLine("Enter 3 to see reservation");
+            Console.WriteLine("Enter 4 to logout");
         }
         else
         {
             Console.Clear();
-            Console.WriteLine("Enter 1 to buy a ticket");
-            Console.WriteLine("Enter 2 to register");
-            Console.WriteLine("Enter 3 to logout");
+            Console.WriteLine("Enter 1 to search movies by date and buy ticket");
+            Console.WriteLine("Enter 2 to search all movies and buy ticket");
+            Console.WriteLine("Enter 3 to register");
+            Console.WriteLine("Enter 4 to go back to main menu");
         }
         string input = Console.ReadLine();
         Console.Clear();
         switch (input)
         {
             case "1":
-                Console.WriteLine("Buying a ticket...");
-                BuyTicket.Start(ChooseMovie.StartMovie());
-                break;
-            case "3":
-                Start();
+                MovieSearch.SearchByDate();
                 break;
             case "2":
+                MovieSearch.SearchAll();
+                break;
+            case "3":
                 if (AccountsLogic.CurrentAccount != null)
                 {
                     SeeReservations.SeeReservationSubMenu();
-                    break;
                 }
                 else
                 {
                     Register.Start();
-                    break;
                 }
-
+                break;
+            case "4":
+                AccountsLogic.CurrentAccount = null;
+                Start();
+                break;
             default:
                 Console.WriteLine("Invalid input");
                 MainMenu();
                 break;
-        }
-
-
-        if (input == "1")
-        {
-            Console.WriteLine("Buying a ticket...");
-            BuyTicket.Start(ChooseMovie.StartMovie());
-        }
-        else if (input == "2")
-        {
-            Start();
-        }
-        else
-        {
-            Console.WriteLine("Invalid input");
-            MainMenu();
         }
     }
 }

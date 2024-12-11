@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 
 public class MovieModel
@@ -21,7 +22,13 @@ public class MovieModel
     [JsonPropertyName("summary")]
     public string Summary { get; set; }
 
-    public MovieModel(int id, string name, string genre, int duration, bool promoted, string summary)
+    [JsonPropertyName("cost")]
+    public double Cost { get; set; }
+
+    [JsonPropertyName("revenue")]
+    public double Revenue { get; set; }
+
+    public MovieModel(int id, string name, string genre, int duration, bool promoted, string summary, double cost, double revenue)
     {
         Id = id;
         Name = name;
@@ -29,6 +36,8 @@ public class MovieModel
         Duration = duration;
         Promoted = promoted;
         Summary = summary;
+        Cost = cost;
+        Revenue = revenue;
     }
 
     public override string ToString()
@@ -47,6 +56,20 @@ public class MovieModel
         int hours = (Duration - minutes) / 60;
         string time = $"{hours}h {minutes}m";
 
-        return $"Name: {Name}\n" + $"Genre: {Genre}\n" + $"Duration: {time} \n" + $"Summary: {Summary}";
+        return $"\nName: {Name}\n" + $"Genre: {Genre}\n" + $"Duration: {time} \n" + $"Summary: {Summary}";
+    }
+
+    public string ToStringOneLine()
+    {
+        return $"{Name} - ({Genre}) - {Duration} minutes";
+    }
+
+    public string ToStringUsersShort()
+    {
+        int minutes = Duration % 60;
+        int hours = (Duration - minutes) / 60;
+        string time = $"{hours}h {minutes}m";
+
+        return $"Name: {Name}\n" + $"Genre: {Genre}\n" + $"Duration: {time}";
     }
 }

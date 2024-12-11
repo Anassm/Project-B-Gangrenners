@@ -4,6 +4,7 @@ using System.Linq;
 public class SeatsLogic
 {
     private static List<SeatModel> _seats { get; set; } = SeatsAccess.LoadAll();
+    private static string[] _seatTypes = { "Regular", "VIP", "VIP+" };
 
     public SeatsLogic()
     {
@@ -23,6 +24,8 @@ public class SeatsLogic
         }
         return false;
     }
+
+    public static Array GetSeatTypes() => _seatTypes;
 
     public static bool CheckSeatsByType(int hallId, int type)
     {

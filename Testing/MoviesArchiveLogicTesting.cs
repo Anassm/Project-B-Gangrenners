@@ -6,7 +6,7 @@ public class TestMoviesArchiveLogic
     [TestMethod]
     public void GetMovieById_ExistingMovie_ReturnMovie()
     {
-        MovieModel movie = new(5, "The Matrix", "Sci-Fi", 136, false, "No summary available");
+        MovieModel movie = new(5, "The Matrix", "Sci-Fi", 136, false, "No summary available", 0, 0);
 
         MoviesArchiveLogic.AddMovie(movie);
 
@@ -18,7 +18,7 @@ public class TestMoviesArchiveLogic
     [TestMethod]
     public void GetMovieByName_ExistingMovie_ReturnMovie()
     {
-        MovieModel movie = new(5, "The Matrix", "Sci-Fi", 136, false, "No summary available");
+        MovieModel movie = new(5, "The Matrix", "Sci-Fi", 136, false, "No summary available", 0, 0);
 
         MoviesArchiveLogic.AddMovie(movie);
 
@@ -30,7 +30,7 @@ public class TestMoviesArchiveLogic
     [TestMethod]
     public void CheckIfMovieInArchiveName_ExistingMovie_ReturnTrue()
     {
-        MovieModel movie = new(1, "The Matrix", "Sci-Fi", 136, false, "No summary available");
+        MovieModel movie = new(1, "The Matrix", "Sci-Fi", 136, false, "No summary available", 0, 0);
 
         MoviesArchiveLogic.AddMovie(movie);
 
@@ -42,7 +42,7 @@ public class TestMoviesArchiveLogic
     [TestMethod]
     public void CheckIfMovieInArchiveId_ExistingMovie_ReturnTrue()
     {
-        MovieModel movie = new(7, "The Matrix", "Sci-Fi", 136, false, "No summary available");
+        MovieModel movie = new(7, "The Matrix", "Sci-Fi", 136, false, "No summary available", 0, 0);
 
         MoviesArchiveLogic.AddMovie(movie);
 
@@ -54,7 +54,7 @@ public class TestMoviesArchiveLogic
     [TestMethod]
     public void AddMovie_NewMovie_AddMovie()
     {
-        MovieModel movie = new(4, "The Dark Knight", "Action", 152, false, "No summary available");
+        MovieModel movie = new(4, "The Dark Knight", "Action", 152, false, "No summary available", 0, 0);
 
         MoviesArchiveLogic.AddMovie(movie);
 
@@ -66,7 +66,7 @@ public class TestMoviesArchiveLogic
     [TestMethod]
     public void RemoveMovie_ExistingMovie_RemoveMovie()
     {
-        MovieModel movie = new(6, "The Matrixx", "Sci-Fi", 136, false, "No summary available");
+        MovieModel movie = new(6, "The Matrixx", "Sci-Fi", 136, false, "No summary available", 0, 0);
 
         MoviesArchiveLogic.AddMovie(movie);
 
@@ -80,7 +80,7 @@ public class TestMoviesArchiveLogic
     [TestMethod]
     public void RemoveMovie_ExistingMovieName_RemoveMovie()
     {
-        MovieModel movie = new(1, "The Matrixxx", "Sci-Fi", 136, false, "No summary available");
+        MovieModel movie = new(1, "The Matrixxx", "Sci-Fi", 136, false, "No summary available", 0, 0);
 
         MoviesArchiveLogic.AddMovie(movie);
 
@@ -95,8 +95,8 @@ public class TestMoviesArchiveLogic
     [TestMethod]
     public void GetCount_ExistingMovies_ReturnCount()
     {
-        MovieModel movie1 = new(1, "The Matrix", "Sci-Fi", 136, false, "No summary available");
-        MovieModel movie2 = new(2, "Inception", "Sci-Fi", 148, false, "No summary available");
+        MovieModel movie1 = new(1, "The Matrix", "Sci-Fi", 136, false, "No summary available", 0, 0);
+        MovieModel movie2 = new(2, "Inception", "Sci-Fi", 148, false, "No summary available", 0, 0);
 
         MoviesArchiveLogic.AddMovie(movie1);
         MoviesArchiveLogic.AddMovie(movie2);
