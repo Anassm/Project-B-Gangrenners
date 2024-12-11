@@ -157,8 +157,8 @@ public static class MovieSearch
     public static void SearchAll()
     {
         Console.WriteLine("All movies for upcoming 14 days");
-        Console.WriteLine("-------------------------------------");
-        Console.WriteLine(MoviesLogic.DisplayMovies(DateTime.Now, DateTime.Now.AddDays(14)));
+        Console.WriteLine("----------------------------------------------");
+        Console.WriteLine(MoviesLogic.DisplayMovies(DateTime.Now, DateTime.Now.AddDays(14), true));
         Console.WriteLine("Enter the name of the movie you want to see");
         string movieName = Console.ReadLine();
         MovieModel selectedMovie = MoviesLogic.GetMovieByName(movieName, MoviesLogic.GetMovies(DateTime.Now, DateTime.Now.AddDays(14)));
