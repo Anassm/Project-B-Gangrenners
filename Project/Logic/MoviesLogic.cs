@@ -331,4 +331,39 @@ public class MoviesLogic
         }
         return display;
     }
+
+    public static string DisplayMovies(DateTime beginDate, DateTime endDate, bool orderPromoted)
+    {
+        List<MovieModel> movies = GetMovies(beginDate, endDate);
+        
+        string display = "";
+        if (orderPromoted)
+        {
+            display += "Trending Movies:\n";
+            bool hasPromotedMovies = false;
+            foreach (MovieModel movie in movies)
+            {
+                if (movie.Promoted)
+                {
+                    display += movie.ToStringOneLine() + "\n";
+                    hasPromotedMovies = true;
+                }
+            }
+            if (!hasPromotedMovies)
+            {
+                display += "No movies are trending at the moment\n";
+            }
+            display += "----------------------------------------------\n";
+        }
+
+        foreach (MovieModel movie in movies )
+        {
+            if (orderPromoted && movie.Promoted)
+            {
+                continue;
+            }
+            display += movie.ToStringOneLine() + "\n";
+        }
+        return display;
+    }
 }
