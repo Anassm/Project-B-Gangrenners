@@ -126,7 +126,13 @@ public static class ChooseMovie
         while (true)
         {
             Console.WriteLine("Please choose the number of the corresponding screening time.");
-            showtimeChoice = Convert.ToInt32(Console.ReadLine());
+            string choice = Console.ReadLine();
+            if (string.IsNullOrEmpty(choice) || !int.TryParse(choice, out _) || choice.All(char.IsLetter))
+            {
+                Console.WriteLine("Please enter a valid number.");
+                continue;
+            }
+            showtimeChoice = Convert.ToInt32(choice);
             if (showtimeChoice < 1 || showtimeChoice > newShowtimes.Count)
             {
                 Console.WriteLine("Please enter a valid number.");
@@ -191,7 +197,13 @@ public static class ChooseMovie
         while (true)
         {
             Console.WriteLine("Please choose the number of the corresponding screening time.");
-            showtimeChoice = Convert.ToInt32(Console.ReadLine());
+            string choice = Console.ReadLine();
+            if (string.IsNullOrEmpty(choice) || !int.TryParse(choice, out _) || choice.All(char.IsLetter))
+            {
+                Console.WriteLine("Please enter a valid number.");
+                continue;
+            }
+            showtimeChoice = Convert.ToInt32(choice);
             if (showtimeChoice < 1 || showtimeChoice > newShowtimes.Count)
             {
                 Console.WriteLine("Please enter a valid number.");
@@ -260,7 +272,13 @@ public static class ChooseMovie
         while (true)
         {
             Console.WriteLine("Please choose the number of the corresponding screening time.");
-            showtimeChoice = Convert.ToInt32(Console.ReadLine());
+            string choice = Console.ReadLine();
+            if (string.IsNullOrEmpty(choice) || !int.TryParse(choice, out _) || choice.All(char.IsLetter))
+            {
+                Console.WriteLine("Please enter a valid number.");
+                continue;
+            }
+            showtimeChoice = Convert.ToInt32(choice);
             if (showtimeChoice < 1 || showtimeChoice > newShowtimes.Count)
             {
                 Console.WriteLine("Please enter a valid number.");
