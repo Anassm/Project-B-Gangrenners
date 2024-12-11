@@ -85,9 +85,9 @@ public static class AboutPage
         (HallModel HallId, int SeatCount) biggestHall = HallsLogic.GetBiggestHall();
 
         Console.WriteLine($"Address: 1234AB Rotterdam gangrennersstreet 123\n");
-        Console.WriteLine($"Seats: {seatsAmount}\n");
-        Console.WriteLine($"Biggest hall: Hall {biggestHall.HallId}: {biggestHall.SeatCount} seats\n");
-        Console.WriteLine($"Halls: {hallsAmount}\n");
+        Console.WriteLine($"Seats: {seatsAmount} seats\n");
+        Console.WriteLine($"Biggest hall: {biggestHall.HallId.Id}, {biggestHall.SeatCount} seats\n");
+        Console.WriteLine($"Halls: {hallsAmount} halls\n");
         Console.WriteLine("Sound system: Dolby Gangrenners Atmos special\n");
         Console.WriteLine("Support: Wheelchair, Auditory and visual support, Found objects and Nuisance SMS code: SMS 'GANGRENNERS' 'room number' 'reason for support' to 1234");
 
