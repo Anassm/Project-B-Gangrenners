@@ -848,14 +848,7 @@ public static class ManageMovies
                 Console.Clear();
                 List<DateTime> datetimes = ShowtimesLogic.GenerateDateTimesList(startdate, enddate, time, interval);
                 List<ShowtimeModel> showtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes);
-                foreach(ShowtimeModel showti in showtimes)
-                {
-                    Console.WriteLine("---------------------------");
-                    Console.WriteLine(showti.ToString());
-                }
                 ShowtimesLogic.AddShowTimes(showtimes);
-                
-                Console.WriteLine(showtimes.Count);
                 System.Console.WriteLine("Screenings were successfully added.");
                 AdminLogin.AdminMenu();
             }
