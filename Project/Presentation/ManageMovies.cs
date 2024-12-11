@@ -364,6 +364,30 @@ public static class ManageMovies
 
     public static void AddSingleShowTimeMenu()
     {
+        //confirm to continue
+        while (true)
+        {
+            System.Console.WriteLine("you have chosen to add a single screening.");
+                        System.Console.WriteLine("Do you want to continue? (Y/N)");
+            string input = Console.ReadLine().ToLower();
+            if (input == "n" || input == "no")
+            {
+                Console.Clear();
+                AdminLogin.AdminMenu();
+            }
+            if (input == "y" || input == "yes")
+            {
+                break;
+            }
+            else
+            {
+                Console.Clear();
+                System.Console.WriteLine("Invalid input.");
+                continue;
+            }
+        }
+        Console.Clear();
+        //show all movies
         while (true)
         {
             System.Console.WriteLine("Would you like to see all current movies? (Y/N)");
@@ -388,26 +412,6 @@ public static class ManageMovies
                 System.Console.WriteLine("Invalid input.");
             }
         }
-        while (true)
-        {
-            System.Console.WriteLine("you have chosen to add a single showtime.");
-            System.Console.WriteLine("Do you want to continue? (Y/N)");
-            string input = Console.ReadLine().ToLower();
-            if (input == "n" || input == "no")
-            {
-                AdminLogin.AdminMenu();
-            }
-            if (input == "y" || input == "yes")
-            {
-                break;
-            }
-            else
-            {
-                Console.Clear();
-                System.Console.WriteLine("Invalid input.");
-                continue;
-            }
-        }
 
         //Movie Name
         string movieName = "";
@@ -419,6 +423,7 @@ public static class ManageMovies
             if (MoviesLogic.GetMovieByName(movieName) == null)
             {
                 System.Console.WriteLine("Please enter an existing movie");
+                Console.Clear();
                 continue;
             }
             else
@@ -523,9 +528,20 @@ public static class ManageMovies
             string input2 = Console.ReadLine().ToLower();
             if (input2 == "y" || input2 == "yes")
             {
-                ShowtimesLogic.AddShowtime(new ShowtimeModel(ShowtimesLogic.GetNextId(), MoviesLogic.GetMovieByName(movieName).Id, datetime, hallId, HallsLogic.GetHallLayout(hallId)));
+                if (ShowtimesLogic.AddShowtime(new ShowtimeModel(ShowtimesLogic.GetNextId(), MoviesLogic.GetMovieByName(movieName).Id, datetime, hallId, HallsLogic.GetHallLayout(hallId))) == false)
+                {
+                    System.Console.WriteLine($"screening could not be added, there is already a screening at {datetime} in hall {hallId}");
+                    System.Console.WriteLine("Press anything to go back to the menu.");
+                    ConsoleKeyInfo key2 = Console.ReadKey(true);
+                    if (key2.Key != null)
+                    {
+                        Console.Clear();
+                        AdminLogin.AdminMenu();
+                    }
+
+                }
                 Console.Clear();
-                System.Console.WriteLine("Showtime was succesfully added.");
+                System.Console.WriteLine("screening was succesfully added.");
                 break;
             }
             else if (input2 == "n" || input2 == "no")
@@ -565,11 +581,12 @@ public static class ManageMovies
     {
         while (true)
         {
-            System.Console.WriteLine("you have chosen to add showtimes.");
+            System.Console.WriteLine("you have chosen to add screenings.");
             System.Console.WriteLine("Do you want to continue? (Y/N)");
             string input = Console.ReadLine().ToLower();
             if (input == "n" || input == "no")
             {
+                Console.Clear();
                 AdminLogin.AdminMenu();
             }
             if (input == "y" || input == "yes")
@@ -830,7 +847,7 @@ public static class ManageMovies
                 List<ShowtimeModel> showtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes);
                 ShowtimesLogic.AddShowTimes(showtimes);
                 Console.Clear();
-                System.Console.WriteLine("Showtimes were succesfully added.");
+                System.Console.WriteLine("Screenings were successfully added.");
                 AdminLogin.AdminMenu();
             }
             else if (input2 == "n" || input2 == "no")
