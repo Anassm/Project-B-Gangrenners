@@ -98,8 +98,9 @@ public class ReservationsLogic
 
     public static List<ReservationModel> SeeFutureReservations(int accountid)
     {
-        List<ReservationModel> reservations = OrderReservations();
-        foreach (ReservationModel reserv in _reservations)
+        List<ReservationModel> reservations2 = OrderReservations();
+        List<ReservationModel> reservations = new();
+        foreach (ReservationModel reserv in reservations2)
         {
             if (reserv.AccountId == accountid && DateTime.Now.CompareTo(ShowtimesLogic.GetShowtimeById(reserv.ShowtimeId).Time) < 0)
             {
@@ -111,8 +112,10 @@ public class ReservationsLogic
 
     public static List<ReservationModel> SeePastReservations(int accountid)
     {
-        List<ReservationModel> reservations = OrderReservations();
-        foreach (ReservationModel reserv in _reservations)
+        List<ReservationModel> reservations2 = OrderReservations();
+        List<ReservationModel> reservations = new();
+
+        foreach (ReservationModel reserv in reservations2)
         {
             if (reserv.AccountId == accountid && (DateTime.Now.CompareTo(ShowtimesLogic.GetShowtimeById(reserv.ShowtimeId).Time) >= 0))
             {
