@@ -6,6 +6,7 @@ static class Finance
         Console.WriteLine("1. Current movies");
         Console.WriteLine("2. Past movies");
         Console.WriteLine("3. All movies");
+        Console.WriteLine("4. Go back to admin menu");
 
         string input = Console.ReadLine();
 
@@ -13,21 +14,30 @@ static class Finance
         {
             case "1":
                 Console.Clear();
+                Console.WriteLine("\x1b[3J");
                 DisplayMoviesFinance(true, false);
                 FollowUp();
                 break;
             case "2":
                 Console.Clear();
+                Console.WriteLine("\x1b[3J");
                 DisplayMoviesFinance(false, true);
                 FollowUp();
                 break;
             case "3":
                 Console.Clear();
+                Console.WriteLine("\x1b[3J");
                 DisplayMoviesFinance(true, true);
                 FollowUp();
                 break;
+            case "4":
+                Console.Clear();
+                Console.WriteLine("\x1b[3J");
+                AdminLogin.AdminMenu();
+                break;
             default:
                 Console.WriteLine("Invalid input");
+                Start();
                 break;
         }
     }
@@ -50,12 +60,15 @@ static class Finance
                 break;
             default:
                 Console.WriteLine("Invalid input");
+                FollowUp();
                 break;
         }
     }
 
     public static void DisplayMoviesFinance(bool current, bool past)
     {
+        bool hasDisplayedMovies = false; // Track if any movies are displayed
+
         foreach (MovieModel movie in MoviesLogic._movies)
         {
             if (current && !past)
@@ -72,6 +85,9 @@ static class Finance
                     continue;
                 }
             }
+
+            // If we reach here, at least one movie matches the criteria
+            hasDisplayedMovies = true;
 
             Dictionary<string, int> reservations = MoviesLogic.CalculateTotalReservationsPerMovie(movie);
             double profit = MoviesLogic.CalculateTotalRevenueForFilm(movie) - movie.Cost;
@@ -97,6 +113,13 @@ static class Finance
             Console.WriteLine("----------------------------------------------");
         }
 
+        // If no movies were displayed, show a message
+        if (!hasDisplayedMovies)
+        {
+            Console.WriteLine("There are no movies to display.");
+        }
+
         Console.WriteLine("");
     }
+
 }
