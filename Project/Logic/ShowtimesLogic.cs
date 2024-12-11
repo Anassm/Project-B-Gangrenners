@@ -95,7 +95,7 @@ public class ShowtimesLogic
     }
 
     public static bool AddShowtime(ShowtimeModel showtime)
-    {
+    {   
         _showtimes.Add(showtime);
         ShowtimesAccess.WriteAll(_showtimes);
         return true;
