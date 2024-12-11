@@ -53,30 +53,37 @@ public class ShowtimesLogic
     {
         MovieModel movie = MoviesLogic.GetMovieByName(movieName);
         List<ShowtimeModel> ShowTimes = [];
+        int firstId = GetNextId();
         foreach (DateTime time in times)
         {
-            ShowTimes.Add(new ShowtimeModel(GetNextId(), movie.Id, time, HallId, HallsLogic.GetHallLayout(HallId)));
+            ShowTimes.Add(new ShowtimeModel(firstId, movie.Id, time, HallId, HallsLogic.GetHallLayout(HallId)));
+            firstId++;
         }
         return ValdidateAllShowtimes(ShowTimes);
     }
 
     public static List<ShowtimeModel> ValdidateAllShowtimes(List<ShowtimeModel> showtimes)
     {
-        
-        List<ShowtimeModel> returnshowtimes = showtimes;
+        List<ShowtimeModel> validShowtimes = [];
         foreach (ShowtimeModel showtime in showtimes)
         {
             int minutesToAdd = MoviesLogic.GetMovieById(showtime.MoviesId).Duration + 30;
             DateTime endtime = showtime.Time.AddMinutes(minutesToAdd);
+            bool valid = true;
             foreach (ShowtimeModel showtime2 in _showtimes)
             {
-                if (endtime >= showtime2.Time && showtime.HallId == showtime2.HallId)
+                if (endtime >= showtime2.Time && endtime.Date == showtime2.Time.Date && showtime.Time < showtime2.Time && showtime.HallId == showtime2.HallId)
                 {
-                    returnshowtimes.Remove(showtime);
+                    valid = false;
                 }
             }
+            if (valid)
+            {
+                validShowtimes.Add(showtime);
+            }
         }
-        return returnshowtimes;
+
+        return validShowtimes;
     }
 
     public static void AddShowTimes(List<ShowtimeModel> ShowtimesToAdd)
@@ -89,15 +96,6 @@ public class ShowtimesLogic
 
     public static bool AddShowtime(ShowtimeModel showtime)
     {
-        int minutesToAdd = MoviesLogic.GetMovieById(showtime.MoviesId).Duration + 30;
-        DateTime endtime = showtime.Time.AddMinutes(minutesToAdd);
-        foreach (ShowtimeModel _showtime in _showtimes)
-        {
-            if (endtime >= _showtime.Time && showtime.HallId == _showtime.HallId)
-            {
-                return false;
-            }
-        }
         _showtimes.Add(showtime);
         ShowtimesAccess.WriteAll(_showtimes);
         return true;
