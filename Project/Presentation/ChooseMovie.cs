@@ -99,6 +99,7 @@ public static class ChooseMovie
         }
 
         var newShowtimes = showtimes.Where(st => st.Time >= DateTime.Now && st.MoviesId == movieId).ToList();
+        newShowtimes = newShowtimes.OrderBy(st => st.Time).ToList();
         if (!newShowtimes.Any())
         {
             Console.WriteLine("There are no upcoming screening times.");
@@ -121,8 +122,18 @@ public static class ChooseMovie
             Console.WriteLine("----------------------------");
         }
 
-        Console.WriteLine("Please choose the number of the corresponding screening time.");
-        int showtimeChoice = Convert.ToInt32(Console.ReadLine());
+        int showtimeChoice = 1;
+        while (true)
+        {
+            Console.WriteLine("Please choose the number of the corresponding screening time.");
+            showtimeChoice = Convert.ToInt32(Console.ReadLine());
+            if (showtimeChoice < 1 || showtimeChoice > newShowtimes.Count)
+            {
+                Console.WriteLine("Please enter a valid number.");
+                continue;
+            }
+            break;
+        }
         return newShowtimes[showtimeChoice - 1];
     }
 
@@ -140,6 +151,7 @@ public static class ChooseMovie
         }
 
         var newShowtimes = showtimes.Where(st => st.Time >= DateTime.Now && st.MoviesId == movie.Id && st.Time.Date == day.Date).ToList();
+        newShowtimes = newShowtimes.OrderBy(st => st.Time).ToList();
         if (!newShowtimes.Any())
         {
             Console.WriteLine("There are no upcoming screening times.");
@@ -165,16 +177,28 @@ public static class ChooseMovie
             }
             else
             {
-                Console.WriteLine($"\x1B[2mNumber: {i + 1}");
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine($"Number: {i + 1}");
                 Console.WriteLine($"Date / Time: {showtime.Time}");
-                Console.WriteLine($"Hall: {showtime.HallId}\x1B[0m");
+                Console.WriteLine($"Hall: {showtime.HallId}");
                 Console.WriteLine("----------------------------");
+                Console.ResetColor();
             }
            
         }
 
-        Console.WriteLine("Please choose the number of the corresponding screening time.");
-        int showtimeChoice = Convert.ToInt32(Console.ReadLine());
+        int showtimeChoice = 1;
+        while (true)
+        {
+            Console.WriteLine("Please choose the number of the corresponding screening time.");
+            showtimeChoice = Convert.ToInt32(Console.ReadLine());
+            if (showtimeChoice < 1 || showtimeChoice > newShowtimes.Count)
+            {
+                Console.WriteLine("Please enter a valid number.");
+                continue;
+            }
+            break;
+        }
         if (!ShowtimesLogic.CheckIfEnoughAvailableSeats(newShowtimes[showtimeChoice - 1], amountOfTickets))
         {
             Console.WriteLine("There are not enough available seats for the amount you want to reserve.");
@@ -198,6 +222,7 @@ public static class ChooseMovie
         }
 
         var newShowtimes = showtimes.Where(st => st.Time >= DateTime.Now && st.MoviesId == movie.Id && st.Time.Date <= endDay.Date).ToList();
+        newShowtimes = newShowtimes.OrderBy(st => st.Time).ToList();
         if (!newShowtimes.Any())
         {
             Console.WriteLine("There are no upcoming screening times.");
@@ -231,8 +256,19 @@ public static class ChooseMovie
            
         }
 
-        Console.WriteLine("Please choose the number of the corresponding screening time.");
-        int showtimeChoice = Convert.ToInt32(Console.ReadLine());
+        int showtimeChoice = 1;
+        while (true)
+        {
+            Console.WriteLine("Please choose the number of the corresponding screening time.");
+            showtimeChoice = Convert.ToInt32(Console.ReadLine());
+            if (showtimeChoice < 1 || showtimeChoice > newShowtimes.Count)
+            {
+                Console.WriteLine("Please enter a valid number.");
+                continue;
+            }
+            break;
+        }
+        
         if (!ShowtimesLogic.CheckIfEnoughAvailableSeats(newShowtimes[showtimeChoice - 1], amountOfTickets))
         {
             Console.WriteLine("There are not enough available seats for the amount you want to reserve.");
@@ -243,6 +279,7 @@ public static class ChooseMovie
         }
         return newShowtimes[showtimeChoice - 1];
     }
+
 
 
     public static (List<SeatModel>, ShowtimeModel) SeatChoice(int showtimeId)
@@ -280,6 +317,7 @@ public static class ChooseMovie
         bool isSelecting = true;
 
         Console.Clear();
+        Console.WriteLine("\x1b[3J");
         DisplaySeatMap(showtime, selectedRow, selectedCol);
         Console.WriteLine("Use arrow keys to navigate, Enter to select a seat, or Escape to exit.");
 
@@ -287,6 +325,7 @@ public static class ChooseMovie
         {
             var key = Console.ReadKey(true);
             Console.Clear();
+            Console.WriteLine("\x1b[3J");
 
             if (key.Key == ConsoleKey.Enter)
             {
