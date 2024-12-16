@@ -190,7 +190,7 @@ public static class ManageMovies
                 AdminLogin.AdminMenu();
             }
         }
-        MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration, MovieSummary,cost);
+        MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration, MovieSummary, cost);
         System.Console.WriteLine("The movie was successfully added.");
         System.Console.WriteLine("");
         System.Console.WriteLine("Give any input to go back to admin menu.");
