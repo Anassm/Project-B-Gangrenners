@@ -95,7 +95,7 @@ public class MoviesLogic
 
     public static bool IsValidDateFormat(string date)
     {
-        string pattern = @"^\d{4}-\d{2}-\d{2}$";
+        string pattern = @"^(?:(?:31-(0[13578]|1[02]))|(?:30-(0[13-9]|1[0-2]))|(?:29-02-(?:(?:19|20)(?:[02468][048]|[13579][26])|2000))|(?:28-02-(?:19|20)\d{2})|(?:0[1-9]|1[0-9]|2[0-8])-(0[1-9]|1[0-2]))-(19|20)\d{2}$";
         return Regex.IsMatch(date, pattern);
     }
 
@@ -339,7 +339,7 @@ public class MoviesLogic
         string display = "";
         if (orderPromoted)
         {
-            display += "Trending Movies:\n";
+            display += "Recommended Movies:\n";
             bool hasPromotedMovies = false;
             foreach (MovieModel movie in movies)
             {
@@ -351,7 +351,7 @@ public class MoviesLogic
             }
             if (!hasPromotedMovies)
             {
-                display += "No movies are trending at the moment\n";
+                display += "No movies are recommended at the moment\n";
             }
             display += "----------------------------------------------\n";
         }

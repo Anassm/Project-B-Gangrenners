@@ -49,7 +49,7 @@ public class ShowtimesLogic
         return Times;
     }
 
-    public static List<ShowtimeModel> GenerateShowTimesList(string movieName, int HallId, List<DateTime> times)
+    public static (List<ShowtimeModel> ValidShowtimes, List<ShowtimeModel> InvalidShowtimes) GenerateShowTimesList(string movieName, int HallId, List<DateTime> times)
     {
         MovieModel movie = MoviesLogic.GetMovieByName(movieName);
         List<ShowtimeModel> ShowTimes = [];
@@ -62,9 +62,10 @@ public class ShowtimesLogic
         return ValdidateAllShowtimes(ShowTimes);
     }
 
-    public static List<ShowtimeModel> ValdidateAllShowtimes(List<ShowtimeModel> showtimes)
+    public static (List<ShowtimeModel> ValidShowtimes, List<ShowtimeModel> InvalidShowtimes) ValdidateAllShowtimes(List<ShowtimeModel> showtimes)
     {
         List<ShowtimeModel> validShowtimes = [];
+        List<ShowtimeModel> invalidShowtimes = [];
         foreach (ShowtimeModel showtime in showtimes)
         {
             int minutesToAdd = MoviesLogic.GetMovieById(showtime.MoviesId).Duration + 30;
@@ -81,9 +82,13 @@ public class ShowtimesLogic
             {
                 validShowtimes.Add(showtime);
             }
+            else
+            {
+                invalidShowtimes.Add(showtime);
+            }
         }
 
-        return validShowtimes;
+        return (validShowtimes, invalidShowtimes);
     }
 
     public static void AddShowTimes(List<ShowtimeModel> ShowtimesToAdd)
