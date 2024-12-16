@@ -339,7 +339,7 @@ public class MoviesLogic
         string display = "";
         if (orderPromoted)
         {
-            display += "Trending Movies:\n";
+            display += "Recommended Movies:\n";
             bool hasPromotedMovies = false;
             foreach (MovieModel movie in movies)
             {
@@ -351,7 +351,7 @@ public class MoviesLogic
             }
             if (!hasPromotedMovies)
             {
-                display += "No movies are trending at the moment\n";
+                display += "No movies are recommended at the moment\n";
             }
             display += "----------------------------------------------\n";
         }
