@@ -1,4 +1,4 @@
-public class AccountAccountsAccess : DataAccessLayer<AccountantAccountModel>
+public class AccountantAccountsAccess : DataAccessLayer<AccountantAccountModel>
 {
     private static readonly string fileName = "accountantaccounts";
 

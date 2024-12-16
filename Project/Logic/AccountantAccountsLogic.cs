@@ -5,7 +5,7 @@ public class AccountantAccountsLogic
 
     public AccountantAccountsLogic()
     {
-        _accountantAccounts = AdminAccountsAccess.LoadAll();
+        _accountantAccounts = AccountantAccountsAccess.LoadAll();
     }
 
     public void UpdateList(AccountantAccountModel acc)
