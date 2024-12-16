@@ -45,7 +45,7 @@ static class Finance
     public static void FollowUp()
     {
         Console.WriteLine("1. Go back to finance menu");
-        Console.WriteLine("2. Go back to admin menu");
+        Console.WriteLine("2. Go back to accountant menu");
 
         string input = Console.ReadLine();
         switch (input)
@@ -56,7 +56,7 @@ static class Finance
                 break;
             case "2":
                 Console.Clear();
-                AdminLogin.AdminMenu();
+                AccountantLogin.AccountantMenu();
                 break;
             default:
                 Console.WriteLine("Invalid input");

@@ -1,12 +1,13 @@
-public static class AdminLogin
+public static class AccountantLogin
 {
-    static private AdminAccountsLogic accountsLogic = new AdminAccountsLogic();
+    static private AccountantAccountsLogic accountsLogic = new AccountantAccountsLogic();
+
     static private int _attemptsLeft = 3;
 
     public static void Main()
     {
         Start();
-        AdminMenu();
+        AccountantMenu();
     }
 
     public static void Start()
@@ -26,12 +27,12 @@ public static class AdminLogin
         string password = HideCharacter();
 
         // Check if the email and password match an account
-        AdminAccountModel acc = accountsLogic.CheckLogin(email, password);
+        AccountantAccountModel acc = accountsLogic.CheckLogin(email, password);
         if (acc != null)
         {
             Console.Clear();
             Console.WriteLine(acc.FullName + " was successfully logged in as admin ");
-            AdminMenu();
+            AccountantMenu();
         }
         else
         {
@@ -47,68 +48,29 @@ public static class AdminLogin
         }
     }
 
-    public static void AdminMenu()
+    public static void AccountantMenu()
     {
         System.Console.WriteLine("What do you want to do?");
-        System.Console.WriteLine("1. Add a movie");
-        System.Console.WriteLine("2. Remove movie");
-        System.Console.WriteLine("3. Promote movie");
-        System.Console.WriteLine("4. Demote movie");
-        System.Console.WriteLine("5. See current movies");
-        System.Console.WriteLine("6. See archived movies");
-        System.Console.WriteLine("7. Change seat type price for hall");
-        System.Console.WriteLine("8. Add single screening");
-        System.Console.WriteLine("9. Add multiple screenings");
-        System.Console.WriteLine("10. Log out");
+        System.Console.WriteLine("1. See financial data about movies");
+        System.Console.WriteLine("2. Log out");
         string input = System.Console.ReadLine();
         switch (input)
         {
             case "1":
                 Console.Clear();
-                ManageMovies.AddMovieMenu();
+                Finance.Start();
                 break;
             case "2":
-                Console.Clear();
-                ManageMovies.RemoveMovieMenu();
-                break;
-            case "3":
-                Console.Clear();
-                ManageMovies.PromoteMovieMenu();
-                break;
-            case "4":
-                Console.Clear();
-                ManageMovies.DemoteMovieMenu();
-                break;
-            case "5":
-                Console.Clear();
-                ManageMovies.SeeCurrentMoviesMenu();
-                break;
-            case "6":
-                Console.Clear();
-                ManageMovies.SeeArchivedMoviesMenu();
-                break;
-            case "7":
-                ManageHalls.ChangeSeatTypePrice();
-                break;
-            case "8":
-                ManageShowtimes.AddSingleShowTimeMenu();
-                break;
-            case "9":
-                ManageShowtimes.AddShowTimesMenu();
-                break;
-            case "10":
                 _attemptsLeft = 3;
                 Console.Clear();
                 Menu.Start();
                 break;
             default:
                 Console.Clear();
-                System.Console.WriteLine("Invalid input.");
-                AdminMenu();
+                AccountantMenu();
                 break;
         }
     }
-
 
     public static string HideCharacter()
     {
