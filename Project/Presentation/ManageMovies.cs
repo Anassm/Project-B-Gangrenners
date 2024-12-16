@@ -87,8 +87,13 @@ public static class ManageMovies
                 AdminLogin.AdminMenu();
             }
             if (MovieSummary == "")
-            {
+            {   
+                Console.WriteLine(MovieSummary);
                 MovieSummary = "No summary available";
+                break;
+            }
+            if (MovieSummary != "")
+            {
                 break;
             }
             Console.Clear();
@@ -185,7 +190,7 @@ public static class ManageMovies
                 AdminLogin.AdminMenu();
             }
         }
-        MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration, cost);
+        MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration, MovieSummary,cost);
         System.Console.WriteLine("The movie was successfully added.");
         System.Console.WriteLine("");
         System.Console.WriteLine("Give any input to go back to admin menu.");
