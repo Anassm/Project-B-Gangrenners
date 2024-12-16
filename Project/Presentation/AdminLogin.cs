@@ -92,10 +92,10 @@ public static class AdminLogin
                 ManageHalls.ChangeSeatTypePrice();
                 break;
             case "8":
-                ManageMovies.AddSingleShowTimeMenu();
+                ManageShowtimes.AddSingleShowTimeMenu();
                 break;
             case "9":
-                ManageMovies.AddShowTimesMenu();
+                ManageShowtimes.AddShowTimesMenu();
                 break;
             case "10":
                 Console.Clear();
