@@ -106,7 +106,7 @@ public static class AboutPage
     private static void AskToKnowMore()
     {
         Console.WriteLine("\nWould you like to:");
-        Console.WriteLine("1. Ask more about the cinema");
+        Console.WriteLine("1. Go back to the about page");
         Console.WriteLine("2. Go back to the main menu");
 
         string input = Console.ReadLine();
