@@ -11,16 +11,16 @@ public class SubscriptionModel
     [JsonPropertyName("name")]
     public string Name { get; set; }
 
-    [JsonPropertyName("membershipNumber")]
+    [JsonPropertyName("membershipnumber")]
     public int MembershipNumber { get; set; }
 
     [JsonPropertyName("views")]
     public int Views { get; set; }
 
-    [JsonPropertyName("StartDate")]
+    [JsonPropertyName("startdate")]
     public DateTime StartDate { get; set; }
 
-    [JsonPropertyName("endDate")]
+    [JsonPropertyName("enddate")]
     public DateTime ExpirationDate { get; set; }
 
     // End date isn't given but rather calculated on creation
