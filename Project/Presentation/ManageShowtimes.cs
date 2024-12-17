@@ -5,35 +5,27 @@ public class ManageShowtimes
     public static void AddSingleShowTimeMenu()
     {
         //confirm to continue
+        PresentationHelper.ClearConsole();
         while (true)
         {
-            Console.Clear();
             System.Console.WriteLine("you have chosen to add a single screening.");
-            System.Console.WriteLine("Do you want to continue? (Y/N)");
-            string input = Console.ReadLine().ToLower();
-            if (input == "n" || input == "no")
-            {
-                Console.Clear();
-                AdminLogin.AdminMenu();
-            }
-            if (input == "y" || input == "yes")
+            if (PresentationHelper.Continue(AdminLogin.AdminMenu))
             {
                 break;
             }
             else
             {
-                Console.Clear();
-                System.Console.WriteLine("Invalid input.");
                 continue;
             }
         }
+
         Console.Clear();
         //show all movies
         while (true)
         {
             System.Console.WriteLine("Would you like to see all current movies? (Y/N)");
-            string showallmovies = Console.ReadLine().ToLower();
-            if (showallmovies == "y" || showallmovies == "yes")
+            int ShowAllMoviesInput = PresentationHelper.AlteredContinue();
+            if ( ShowAllMoviesInput == 1)
             {
                 Console.Clear();
                 System.Console.WriteLine("All movies:");
@@ -42,15 +34,10 @@ public class ManageShowtimes
                 System.Console.WriteLine("------------------------");
                 break;
             }
-            else if (showallmovies == "n" || showallmovies == "no")
+            else if (ShowAllMoviesInput == 0)
             {
                 Console.Clear();
                 break;
-            }
-            else
-            {
-                Console.Clear();
-                System.Console.WriteLine("Invalid input.");
             }
         }
 
@@ -166,79 +153,43 @@ public class ManageShowtimes
             System.Console.WriteLine("---------------------------------------");
             System.Console.WriteLine("");
             System.Console.WriteLine("is the above correct? (Y/N)");
-            string input2 = Console.ReadLine().ToLower();
-            if (input2 == "y" || input2 == "yes")
+            int AboveCorrectInput = PresentationHelper.AlteredContinue();
+            if ( AboveCorrectInput == 1)
             {
                 if (ShowtimesLogic.AddShowtime(new ShowtimeModel(ShowtimesLogic.GetNextId(), MoviesLogic.GetMovieByName(movieName).Id, datetime, hallId, HallsLogic.GetHallLayout(hallId))) == false)
                 {
                     System.Console.WriteLine($"screening could not be added, there is already a screening at {datetime} in hall {hallId}");
-                    System.Console.WriteLine("Press anything to go back to the menu.");
-                    ConsoleKeyInfo key2 = Console.ReadKey(true);
-                    if (key2.Key != null)
-                    {
-                        Console.Clear();
-                        AdminLogin.AdminMenu();
-                    }
-
+                    System.Console.WriteLine("Press anything to go back to the admin menu.");
+                    PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
                 }
                 Console.Clear();
                 System.Console.WriteLine("screening was succesfully added.");
                 break;
             }
-            else if (input2 == "n" || input2 == "no")
+            else if ( AboveCorrectInput == 0)
             {
                 Console.Clear();
                 System.Console.WriteLine("Press anything to go back to the menu.");
-                ConsoleKeyInfo key2 = Console.ReadKey(true);
-                if (key2.Key != null)
-                {
-                    Console.Clear();
-                    AdminLogin.AdminMenu();
-                }
-            }
-            else
-            {
-                Console.Clear();
-                System.Console.WriteLine("Invalid input, press anything to try again.");
-                ConsoleKeyInfo key3 = Console.ReadKey(true);
-                if (key3.Key != null)
-                {
-                    Console.Clear();
-                    continue;
-                }
+                PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
             }
         }
         Console.Clear();
         System.Console.WriteLine("Press anything to go back to the menu.");
-        ConsoleKeyInfo key = Console.ReadKey(true);
-        if (key.Key != null)
-        {
-            Console.Clear();
-            AdminLogin.AdminMenu();
-        }
+        PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
     }
 
     public static void AddShowTimesMenu()
     {
+        PresentationHelper.ClearConsole();
         while (true)
         {
-            Console.Clear();
-            System.Console.WriteLine("you have chosen to add screenings.");
-            System.Console.WriteLine("Do you want to continue? (Y/N)");
-            string input = Console.ReadLine().ToLower();
-            if (input == "n" || input == "no")
-            {
-                Console.Clear();
-                AdminLogin.AdminMenu();
-            }
-            if (input == "y" || input == "yes")
+            System.Console.WriteLine("you have chosen to add a single screening.");
+            if (PresentationHelper.Continue(AdminLogin.AdminMenu))
             {
                 break;
             }
             else
             {
-                Console.Clear();
-                System.Console.WriteLine("Invalid input.");
                 continue;
             }
         }
@@ -249,8 +200,8 @@ public class ManageShowtimes
         while (true)
         {
             System.Console.WriteLine("Would you like to see all current movies? (Y/N)");
-            string showallmovies = Console.ReadLine().ToLower();
-            if (showallmovies == "y" || showallmovies == "yes")
+            int SeeAllMoviesInput = PresentationHelper.AlteredContinue();
+            if (SeeAllMoviesInput == 1)
             {
                 Console.Clear();
                 System.Console.WriteLine("All movies:");
@@ -259,17 +210,13 @@ public class ManageShowtimes
                 System.Console.WriteLine("------------------------");
                 break;
             }
-            else if (showallmovies == "n" || showallmovies == "no")
+            else if (SeeAllMoviesInput == 0)
             {
                 Console.Clear();
                 break;
             }
-            else
-            {
-                Console.Clear();
-                System.Console.WriteLine("Invalid input.");
-            }
         }
+
         System.Console.WriteLine("");
         System.Console.WriteLine("Please give the name of the movie:");
         string movieName = Console.ReadLine();
@@ -278,25 +225,15 @@ public class ManageShowtimes
             while (true)
             {
                 System.Console.WriteLine("This movie does not exist, would you like to add the movie? (Y/N)");
-                string input1 = Console.ReadLine().ToLower();
-                if (input1 == "y" || input1 == "yes")
+                int AddMovieInput = PresentationHelper.AlteredContinue();
+                if (AddMovieInput == 1)
                 {
                     ManageMovies.AddMovieMenu();
                 }
-                else if (input1 == "n" || input1 == "no")
+                else if (AddMovieInput == 0)
                 {
                     System.Console.WriteLine("Chosen not to add a new movie, press anything to go back to the menu.");
-                    ConsoleKeyInfo key = Console.ReadKey(true);
-                    if (key.Key != null)
-                    {
-                        Console.Clear();
-                        AdminLogin.AdminMenu();
-                    }
-                }
-                else
-                {
-                    Console.Clear();
-                    System.Console.WriteLine("Invalid input.");
+                    PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
                 }
             }
         }
@@ -372,18 +309,14 @@ public class ManageShowtimes
             {
                 System.Console.WriteLine($"Start date and time: {datetime}");
                 System.Console.WriteLine("Is this correct? (Y/N)");
-                string check1 = Console.ReadLine().ToLower();
-                if (check1 == "y" || check1 == "yes")
+                int check1 = PresentationHelper.AlteredContinue();
+                if (check1 == 1)
                 {
                     break;
                 }
-                else if (check1 == "n" || check1 == "no")
+                else if (check1 == 0)
                 {
                     AddShowTimesMenu();
-                }
-                else
-                {
-                    System.Console.WriteLine("Invalid input.");
                 }
             }
             break;
@@ -482,8 +415,8 @@ public class ManageShowtimes
             System.Console.WriteLine("---------------------------------------");
             System.Console.WriteLine("");
             System.Console.WriteLine("is the above correct? (Y/N)");
-            string input2 = Console.ReadLine().ToLower();
-            if (input2 == "y" || input2 == "yes")
+            int input2 = PresentationHelper.AlteredContinue();
+            if (input2 == 1)
             {
                 Console.Clear();
                 List<DateTime> datetimes = ShowtimesLogic.GenerateDateTimesList(startdate, enddate, time, interval);
@@ -507,56 +440,23 @@ public class ManageShowtimes
                 while (true)
                 {
                     Console.Clear();
-                    System.Console.WriteLine("Add the valid screen times?");
-                    System.Console.WriteLine("Do you want to continue? (Y/N)");
-                    string input = Console.ReadLine().ToLower();
-                    if (input == "n" || input == "no")
-                    {
-                        Console.Clear();
-                        AdminLogin.AdminMenu();
-                    }
-                    if (input == "y" || input == "yes")
+                    System.Console.WriteLine("Add the valid screen times? (Y/N)");
+                    if (PresentationHelper.Continue(AdminLogin.AdminMenu))
                     {
                         ShowtimesLogic.AddShowTimes(validshowtimes);
                         System.Console.WriteLine("Successfully added valid screenings.");
                         break;
                     }
-                    else
-                    {
-                        Console.Clear();
-                        System.Console.WriteLine("Invalid input.");
-                        continue;
-                    }
                 }
-                ConsoleKeyInfo key = Console.ReadKey(true);
-                if (key.Key != null)
-                {
-                    Console.Clear();
-                    AdminLogin.AdminMenu();
-                }
+                System.Console.WriteLine("Press anything to go back to the menu.");
+                PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
 
             }
-            else if (input2 == "n" || input2 == "no")
+            else if (input2 == 0)
             {
                 Console.Clear();
                 System.Console.WriteLine("Press anything to go back to the menu.");
-                ConsoleKeyInfo key = Console.ReadKey(true);
-                if (key.Key != null)
-                {
-                    Console.Clear();
-                    AdminLogin.AdminMenu();
-                }
-            }
-            else
-            {
-                Console.Clear();
-                System.Console.WriteLine("Invalid input, press anything to try again.");
-                ConsoleKeyInfo key = Console.ReadKey(true);
-                if (key.Key != null)
-                {
-                    Console.Clear();
-                    continue;
-                }
+                PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
             }
         }
     }
