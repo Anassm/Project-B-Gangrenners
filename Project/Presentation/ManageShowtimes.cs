@@ -144,35 +144,71 @@ public class ManageShowtimes
             }
         }
 
-        while (true)
+        string data = $"---------------------------------------\nMovie name: {movieName}\nDate and time: {datetime}\nHall ID: {hallId}\n---------------------------------------\n\nis the above correct?";
+
+
+        bool ConfirmInput = SelectingMenu.YesNoSelect(data);
+        if (ConfirmInput)
         {
-            System.Console.WriteLine("---------------------------------------");
-            System.Console.WriteLine($"Movie name: {movieName}");
-            System.Console.WriteLine($"Date and time: {datetime}");
-            System.Console.WriteLine($"Hall ID: {hallId}");
-            System.Console.WriteLine("---------------------------------------");
-            System.Console.WriteLine("");
-            System.Console.WriteLine("is the above correct? (Y/N)");
-            int AboveCorrectInput = PresentationHelper.AlteredContinue();
-            if ( AboveCorrectInput == 1)
+            if (ShowtimesLogic.AddShowtime(new ShowtimeModel(ShowtimesLogic.GetNextId(), MoviesLogic.GetMovieByName(movieName).Id, datetime, hallId, HallsLogic.GetHallLayout(hallId))) == false)
             {
-                if (ShowtimesLogic.AddShowtime(new ShowtimeModel(ShowtimesLogic.GetNextId(), MoviesLogic.GetMovieByName(movieName).Id, datetime, hallId, HallsLogic.GetHallLayout(hallId))) == false)
-                {
-                    System.Console.WriteLine($"screening could not be added, there is already a screening at {datetime} in hall {hallId}");
-                    System.Console.WriteLine("Press anything to go back to the admin menu.");
-                    PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
-                }
-                Console.Clear();
-                System.Console.WriteLine("screening was succesfully added.");
-                break;
-            }
-            else if ( AboveCorrectInput == 0)
-            {
-                Console.Clear();
+                System.Console.WriteLine($"screening could not be added, there is already a screening at {datetime} in hall {hallId}");
                 System.Console.WriteLine("Press anything to go back to the menu.");
-                PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
+                ConsoleKeyInfo key2 = Console.ReadKey(true);
+                if (key2.Key != null)
+                {
+                    Console.Clear();
+                    AdminLogin.AdminMenu();
+                }
+            }
+            Console.Clear();
+            System.Console.WriteLine("screening was succesfully added.");
+        }
+        else
+        {
+            Console.Clear();
+            System.Console.WriteLine("Press anything to go back to the menu.");
+            ConsoleKeyInfo key2 = Console.ReadKey(true);
+            if (key2.Key != null)
+            {
+                Console.Clear();
+                AdminLogin.AdminMenu();
             }
         }
+        // while (true)
+        // {
+        // System.Console.WriteLine("---------------------------------------");
+        // System.Console.WriteLine($"Movie name: {movieName}");
+        // System.Console.WriteLine($"Date and time: {datetime}");
+        // System.Console.WriteLine($"Hall ID: {hallId}");
+        // System.Console.WriteLine("---------------------------------------");
+        // System.Console.WriteLine("");
+        // System.Console.WriteLine("is the above correct? (Y/N)");
+        // string input2 = Console.ReadLine().ToLower();
+        // if (input2 == "y" || input2 == "yes")
+        // {
+
+
+        // }
+
+        //     break;
+        // }
+        // else if (input2 == "n" || input2 == "no")
+        // {
+
+        // }
+        // else
+        // {
+        //     Console.Clear();
+        //     System.Console.WriteLine("Invalid input, press anything to try again.");
+        //     ConsoleKeyInfo key3 = Console.ReadKey(true);
+        //     if (key3.Key != null)
+        //     {
+        //         Console.Clear();
+        //         continue;
+        //     }
+        // }
+        // }
         Console.Clear();
         System.Console.WriteLine("Press anything to go back to the menu.");
         PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
