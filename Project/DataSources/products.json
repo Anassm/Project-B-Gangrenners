@@ -1,3 +1,23 @@
 [
-    
+    {
+        "id": 1,
+        "name": "3d glasses",
+        "price": 5.00,
+        "category": "Movie accessories",
+        "description": "3D glasses for the best 3d movie experience"
+    },
+    {
+        "id": 2,
+        "name": "Movie Poster",
+        "price": 10.00,
+        "category": "Decorations",
+        "description": "Poster of the latest blockbuster movie"
+    },
+    {
+        "id": 4,
+        "name": "Cinema T-Shirt",
+        "price": 20.00,
+        "category": "Merchandise",
+        "description": "T-shirt with cinema logo"
+    }
 ]
