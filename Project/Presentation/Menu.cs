@@ -12,51 +12,51 @@ static class Menu
 
     static public void Start()
     {
-        string[] MenuNames = {"Login", "Register", "Continue as quest", "Login as admin", "Login as accountant", "About page", "Exit"};
-        Action[] Actions = {UserLogin.Start, Register.Start, MainMenu, AdminLogin.Start, AccountantLogin.Start, AboutPage.Start, Exit,};
+        string[] MenuNames = { "Login", "Register", "Continue as quest", "Login as admin", "Login as accountant", "About page", "Exit" };
+        Action[] Actions = { UserLogin.Start, Register.Start, MainMenu, AdminLogin.Start, AccountantLogin.Start, AboutPage.Start, Exit, };
         SelectingMenu.MenusSelect(MenuNames, Actions);
 
         //Implement logic to show different menus depending on the user's role
 
         //This is the main menu
-    //     Console.WriteLine("Enter 1 to login");
-    //     Console.WriteLine("Enter 2 to register");
-    //     Console.WriteLine("Enter 3 to continue as guest");
-    //     Console.WriteLine("Enter 4 to login as admin");
-    //     Console.WriteLine("Enter 5 to login as accountant");
-    //     Console.WriteLine("Enter 6 to go to our about page");
-    //     Console.WriteLine("Enter 7 to exit");
+        //     Console.WriteLine("Enter 1 to login");
+        //     Console.WriteLine("Enter 2 to register");
+        //     Console.WriteLine("Enter 3 to continue as guest");
+        //     Console.WriteLine("Enter 4 to login as admin");
+        //     Console.WriteLine("Enter 5 to login as accountant");
+        //     Console.WriteLine("Enter 6 to go to our about page");
+        //     Console.WriteLine("Enter 7 to exit");
 
-    //     string input = Console.ReadLine();
-    //     Console.Clear();
-    //     switch (input)
-    //     {
-    //         case "1":
-    //             UserLogin.Start();
-    //             break;
-    //         case "2":
-    //             Register.Start();
-    //             break;
-    //         case "3":
-    //             MainMenu();
-    //             break;
-    //         case "4":
-    //             AdminLogin.Start();
-    //             break;
-    //         case "5":
-    //             AccountantLogin.Start();
-    //             break;
-    //         case "6":
-    //             AboutPage.Start();
-    //             break;
-    //         case "7":
-    //             Exit();
-    //             break;
-    //         default:
-    //             Console.WriteLine("Invalid input");
-    //             Start();
-    //             break;
-    //     }
+        //     string input = Console.ReadLine();
+        //     Console.Clear();
+        //     switch (input)
+        //     {
+        //         case "1":
+        //             UserLogin.Start();
+        //             break;
+        //         case "2":
+        //             Register.Start();
+        //             break;
+        //         case "3":
+        //             MainMenu();
+        //             break;
+        //         case "4":
+        //             AdminLogin.Start();
+        //             break;
+        //         case "5":
+        //             AccountantLogin.Start();
+        //             break;
+        //         case "6":
+        //             AboutPage.Start();
+        //             break;
+        //         case "7":
+        //             Exit();
+        //             break;
+        //         default:
+        //             Console.WriteLine("Invalid input");
+        //             Start();
+        //             break;
+        //     }
     }
 
     public static void Exit()
@@ -67,13 +67,16 @@ static class Menu
 
     static public void MainMenu()
     {
+        string subscriptionText = SubscriptionLogic.CheckIfUserHasSubscription(AccountsLogic.CurrentAccount.Id) ? "out of" : "in to";
+
         if (AccountsLogic.CurrentAccount != null)
         {
             Console.Clear();
             Console.WriteLine("Enter 1 to search movies by date and buy ticket");
             Console.WriteLine("Enter 2 to search all movies and buy ticket");
             Console.WriteLine("Enter 3 to see reservation");
-            Console.WriteLine("Enter 4 to logout");
+            Console.WriteLine($"Enter 4 to opt {subscriptionText} subscription");
+            Console.WriteLine("Enter 5 to logout");
         }
         else
         {
@@ -104,7 +107,27 @@ static class Menu
                 }
                 break;
             case "4":
-                AccountsLogic.CurrentAccount = null;
+                if (AccountsLogic.CurrentAccount != null)
+                {
+                    if (SubscriptionLogic.CheckIfUserHasSubscription(AccountsLogic.CurrentAccount.Id))
+                    {
+                        SubscriptionLogic.RemoveSubscription(AccountsLogic.CurrentAccount.Id);
+                        Console.WriteLine("You have successfully opted out of the subscription");
+                    }
+                    else
+                    {
+                        SubscriptionLogic.AddSubscription(AccountsLogic.CurrentAccount.Id);
+                        Console.WriteLine("You have successfully opted in to the subscription");
+                    }
+                    MainMenu();
+                    break;
+                }
+                else
+                {
+                    Start();
+                    break;
+                }
+            case "5":
                 Start();
                 break;
             default:

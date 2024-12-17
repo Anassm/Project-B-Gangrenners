@@ -4,7 +4,7 @@ public class SubscriptionLogic
 {
     static private List<SubscriptionModel> _subscriptions { get; set; } = SubscriptionAccess.LoadAll();
 
-    public void AddSubscription(int userId)
+    public static void AddSubscription(int userId)
     {
         int id = _subscriptions.Count + 1;
         string name = "Loyal";
@@ -18,7 +18,7 @@ public class SubscriptionLogic
         SubscriptionAccess.WriteAll(_subscriptions);
     }
 
-    public bool RemoveSubscription(int userId)
+    public static bool RemoveSubscription(int userId)
     {
         SubscriptionModel? subscription = _subscriptions.Find(sub => sub.UserId == userId);
         if (subscription == null)
@@ -28,6 +28,17 @@ public class SubscriptionLogic
 
         _subscriptions.Remove(subscription);
         SubscriptionAccess.WriteAll(_subscriptions);
+
+        return true;
+    }
+
+    public static bool CheckIfUserHasSubscription(int userId)
+    {
+        SubscriptionModel? subscription = _subscriptions.Find(sub => sub.UserId == userId);
+        if (subscription == null)
+        {
+            return false;
+        }
 
         return true;
     }
