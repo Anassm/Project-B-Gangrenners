@@ -11,6 +11,7 @@ public static class AdminLogin
 
     public static void Start()
     {
+        Console.Clear();
         if (_attemptsLeft <= 0)
         {
             System.Console.WriteLine("Too many incorrect, locked out for 30 seconds.");
