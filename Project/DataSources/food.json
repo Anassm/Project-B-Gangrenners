@@ -1,0 +1,198 @@
+[
+    {
+        "id": 1,
+        "name": "Popcorn salt small",
+        "subcategory": "Savoury",
+        "price": 4.00,
+        "calories": 100
+    },
+    {
+        "id": 2,
+        "name": "Popcorn salt large",
+        "subcategory": "Savoury",
+        "price": 6.00,
+        "calories": 200
+    },
+    {
+        "id": 3,
+        "name": "Popcorn sweet small",
+        "subcategory": "Sweet",
+        "price": 4.00,
+        "calories": 100
+    },
+    {
+        "id": 4,
+        "name": "Popcorn sweet large",
+        "subcategory": "Sweet",
+        "price": 6.00,
+        "calories": 200
+    },
+    {
+        "id": 5,
+        "name": "Nachos",
+        "subcategory": "Savoury",
+        "price": 5.00,
+        "calories": 300
+    },
+    {
+        "id": 6,
+        "name": "Pretzels",
+        "subcategory": "Savoury",
+        "price": 4.00,
+        "calories": 200
+    },
+    {
+        "id": 7,
+        "name": "Skittles",
+        "subcategory": "Sweet",
+        "price": 4.00,
+        "calories": 100
+    },
+    {
+        "id": 8,
+        "name": "Twix bar",
+        "subcategory": "Sweet",
+        "price": 4.00,
+        "calories": 200
+    },
+    {
+        "id": 9,
+        "name": "M&M's",
+        "subcategory": "Sweet",
+        "price": 5.00,
+        "calories": 200
+    },
+    {
+        "id": 10,
+        "name": "Snickers bar",
+        "subcategory": "Sweet",
+        "price": 4.00,
+        "calories": 200
+    },
+    {
+        "id": 11,
+        "name": "Peanuts",
+        "subcategory": "Savoury",
+        "price": 4.00,
+        "calories": 200
+    },
+    {
+        "id": 12,
+        "name": "Cashews",
+        "subcategory": "Savoury",
+        "price": 5.00,
+        "calories": 200
+    },
+    {
+        "id": 13,
+        "name": "Almonds",
+        "subcategory": "Savoury",
+        "price": 5.00,
+        "calories": 250
+    },
+    {
+        "id": 14,
+        "name": "Hot Dog",
+        "subcategory": "Savoury",
+        "price": 7.00,
+        "calories": 400
+    },
+    {
+        "id": 15,
+        "name": "Cheese Nachos",
+        "subcategory": "Savoury",
+        "price": 6.50,
+        "calories": 350
+    },
+    {
+        "id": 16,
+        "name": "Milka chocolate",
+        "subcategory": "Sweet",
+        "price": 3.50,
+        "calories": 250
+    },
+    {
+        "id": 17,
+        "name": "Magnum dark",
+        "subcategory": "Ice Cream",
+        "price": 5.00,
+        "calories": 300
+    },
+    {
+        "id": 18,
+        "name": "Magnum white",
+        "subcategory": "Ice Cream",
+        "price": 5.00,
+        "calories": 300
+    },
+    {
+        "id": 19,
+        "name": "Magnum almond",
+        "subcategory": "Ice Cream",
+        "price": 5.00,
+        "calories": 300
+    },
+    {
+        "id": 20,
+        "name": "Magnum classic",
+        "subcategory": "Ice Cream",
+        "price": 5.00,
+        "calories": 300
+    },
+    {
+        "id": 21,
+        "name": "Magnum white almond",
+        "subcategory": "Ice Cream",
+        "price": 5.00,
+        "calories": 300
+    },
+    {
+        "id": 22,
+        "name": "Magnum white chocolate",
+        "subcategory": "Ice Cream",
+        "price": 5.00,
+        "calories": 300
+    },
+    {
+        "id": 23,
+        "name": "Magnum white chocolate almond",
+        "subcategory": "Ice Cream",
+        "price": 5.00,
+        "calories": 300
+    },
+    {
+        "id": 24,
+        "name": "Magnum white chocolate classic",
+        "subcategory": "Ice Cream",
+        "price": 5.00,
+        "calories": 300
+    },
+    {
+        "id": 25,
+        "name": "Magnum white chocolate almond classic",
+        "subcategory": "Ice Cream",
+        "price": 5.00,
+        "calories": 300
+    },
+    {
+        "id": 26,
+        "name": "Magnum white chocolate almond classic",
+        "subcategory": "Ice Cream",
+        "price": 5.00,
+        "calories": 300
+    },
+    {
+        "id": 27,
+        "name": "Magnum white chocolate almond classic",
+        "subcategory": "Ice Cream",
+        "price": 5.00,
+        "calories": 300
+    },
+    {
+        "id": 28,
+        "name": "Magnum white chocolate almond classic",
+        "subcategory": "Ice Cream",
+        "price": 5.00,
+        "calories": 300
+    }
+]
