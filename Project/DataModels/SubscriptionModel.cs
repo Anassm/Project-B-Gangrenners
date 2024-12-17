@@ -20,10 +20,10 @@ public class SubscriptionModel
     [JsonPropertyName("StartDate")]
     public DateTime StartDate { get; set; }
 
-    [JsonPropertyName("expirationDate")]
+    [JsonPropertyName("endDate")]
     public DateTime ExpirationDate { get; set; }
 
-    // Default Constructor, end date isn't given but calculated on creation
+    // End date isn't given but rather calculated on creation
     public SubscriptionModel(int id, int userid, string name, int membershipNumber, int views, DateTime startDate)
     {
         Id = id;
