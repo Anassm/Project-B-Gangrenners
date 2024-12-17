@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-public class Order
+public class OrderModel
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }
@@ -20,7 +20,7 @@ public class Order
     [JsonPropertyName("totalPrice")]
     public double TotalPrice { get; set; }
 
-    public Order(int id, int reservationId, string pickupCode)
+    public OrderModel(int id, int reservationId, string pickupCode)
     {
         Id = id;
         ReservationId = reservationId;

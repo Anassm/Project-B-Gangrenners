@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-public class Drink : IItem
+public class DrinkModel : IItem
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }
@@ -23,7 +23,7 @@ public class Drink : IItem
     [JsonIgnore]
     public string FileName => "drinks";
 
-    public Drink(int id, string name, string subCategory, double price, bool alcoholic, int volume)
+    public DrinkModel(int id, string name, string subCategory, double price, bool alcoholic, int volume)
     {
         Id = id;
         Name = name;
