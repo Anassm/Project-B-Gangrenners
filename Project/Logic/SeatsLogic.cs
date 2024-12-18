@@ -11,6 +11,59 @@ public class SeatsLogic
         _seats = SeatsAccess.LoadAll();
     }
 
+    public static string GetSeatTypes(List<SeatModel> seats)
+    {
+        int countNormal = 0;
+        int countVIP = 0;
+        int countVIPPlus = 0;
+        foreach (SeatModel seat in seats)
+        {
+            if (seat.Type == 1)
+            {
+                countNormal++;
+            }
+            else if (seat.Type == 2)
+            {
+                countVIP++;
+            }
+            else if (seat.Type == 3)
+            {
+                countVIPPlus++;
+            }
+        }
+        string seatTypes = "";
+        if (countNormal > 0)
+        {
+            seatTypes += countNormal + "x normal";
+        }
+        if (countVIP > 0)
+        {
+            if (countNormal > 0)
+            {
+                seatTypes += ", ";
+            }
+            seatTypes += countVIP + "x VIP";
+        }
+        if (countVIPPlus > 0)
+        {
+            if (countNormal > 0 || countVIP > 0)
+            {
+                seatTypes += ", ";
+            }
+            seatTypes += countVIPPlus + "x VIP+";
+        }
+
+        if (seats.Count > 1)
+        {
+            seatTypes += " seats";
+        }
+        else
+        {
+            seatTypes += " seat";
+        }
+        return seatTypes;
+    }
+
     public static List<SeatModel> GetAll() => _seats;
 
     public bool CheckSeatsByType(int type)

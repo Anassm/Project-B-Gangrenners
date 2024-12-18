@@ -3,60 +3,6 @@ static class BuyTicket
     static private SeatsLogic _seatsLogic = new SeatsLogic();
     static private ShowtimesLogic _showtimesLogic = new ShowtimesLogic();
     static private ReservationsLogic _reservationsLogic = new ReservationsLogic();
-    static private string[] _seatTypes = {"Normal", "VIP", "VIP+"};
-
-    public static string GetSeatTypes(List<SeatModel> seats)
-    {
-        int countNormal = 0;
-        int countVIP = 0;
-        int countVIPPlus = 0;
-        foreach (SeatModel seat in seats)
-        {
-            if (seat.Type == 1)
-            {
-                countNormal++;
-            }
-            else if (seat.Type == 2)
-            {
-                countVIP++;
-            }
-            else if (seat.Type == 3)
-            {
-                countVIPPlus++;
-            }
-        }
-        string seatTypes = "";
-        if (countNormal > 0)
-        {
-            seatTypes += countNormal + "x normal";
-        }
-        if (countVIP > 0)
-        {
-            if (countNormal > 0)
-            {
-                seatTypes += ", ";
-            }
-            seatTypes += countVIP + "x VIP";
-        }
-        if (countVIPPlus > 0)
-        {
-            if (countNormal > 0 || countVIP > 0)
-            {
-                seatTypes += ", ";
-            }
-            seatTypes += countVIPPlus + "x VIP+";
-        }
-
-        if (seats.Count > 1)
-        {
-            seatTypes += " seats";
-        }
-        else
-        {
-            seatTypes += " seat";
-        }
-        return seatTypes;
-    }
 
     public static void Start((List<SeatModel> seats, ShowtimeModel showtime) info)
     {
@@ -75,7 +21,7 @@ static class BuyTicket
 
         // declare variables
         string movieName = MoviesLogic.GetMovieById(info.showtime.MoviesId).Name;
-        string seatTypes = GetSeatTypes(info.seats);
+        string seatTypes = SeatsLogic.GetSeatTypes(info.seats);
         string time = info.showtime.Time.ToString();
         string seats = "";
         foreach (SeatModel seat in info.seats)
@@ -93,13 +39,10 @@ static class BuyTicket
         Console.WriteLine("Time of the movie: " + time);
         Console.WriteLine("Hall: " + info.showtime.HallId);
         Console.WriteLine("Seats: " + seats);
-        Console.WriteLine("Do you want to proceed with the purchase?");
-        Console.WriteLine("1. Yes");
-        Console.WriteLine("2. No");
-        int choice = Convert.ToInt32(Console.ReadLine());
-        if (choice == 1)
+        string StartMessage = "Do you want to proceed with the purchase?";
+        bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
+        if (YesNo)
         {
-            
             Console.Clear();
             try
             {
@@ -124,7 +67,6 @@ static class BuyTicket
                     accountId = AccountsLogic.CurrentAccount.Id;
                 }
 
-
                 ReservationModel reservation = new ReservationModel(_reservationsLogic.GetNextId(),seatIds, info.showtime.Id, accountId, TotalPrice, codes);
                 _reservationsLogic.AddReservation(reservation);
                 _showtimesLogic.UpdateList(info.showtime);
@@ -146,21 +88,15 @@ static class BuyTicket
                 Console.WriteLine("Thank you for your purchase");
                 Console.WriteLine("Press any key to return to the main menu");
                 ConsoleKeyInfo key = Console.ReadKey(true);
-                if (key.Key != null)
-                {
-                    Console.Clear();
-                    Menu.MainMenu();
-                }
-                Menu.MainMenu();
+                PresentationHelper.PressAnyToContinue(Menu.MainMenu);
             }
             catch (Exception e)
             {
                 Console.WriteLine("Something went wrong, please try again");
             }
-
         }
         else
-        {   
+        {
             foreach(SeatModel seat in info.seats)
             {
                 int[] coordinates = SeatsLogic.GetCoordinatesBySeat(seat);
@@ -170,6 +106,5 @@ static class BuyTicket
             Console.Clear();
             Menu.MainMenu();
         }
-
     }
 }
