@@ -6,8 +6,7 @@ public static class SelectingMenu
 
         while (true)
         {
-            Console.Clear();
-            Console.WriteLine("\x1b[3J");
+            PresentationHelper.ClearConsole();
             System.Console.WriteLine(StartMessage);
 
             for (int i = 0; i < menuOptions.Length; i++)
@@ -56,7 +55,7 @@ public static class SelectingMenu
 
         while (true)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             System.Console.WriteLine(message);
             for (int i = 0; i < menuOptions.Length; i++)
             {
