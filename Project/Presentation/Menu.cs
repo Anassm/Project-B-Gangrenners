@@ -12,9 +12,10 @@ static class Menu
 
     static public void Start()
     {
+        string StartMessage = "Welcome to this Cinema";
         string[] MenuNames = {"Login", "Register", "Continue as quest", "Login as admin", "Login as accountant", "About page", "Exit"};
         Action[] Actions = {UserLogin.Start, Register.Start, MainMenu, AdminLogin.Start, AccountantLogin.Start, AboutPage.Start, Exit,};
-        SelectingMenu.MenusSelect(MenuNames, Actions);
+        SelectingMenu.MenusSelect(MenuNames, Actions, StartMessage);
 
         //Implement logic to show different menus depending on the user's role
 

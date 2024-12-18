@@ -2,42 +2,10 @@ public static class AboutPage
 {
     public static void Start()
     {
-        Console.WriteLine("Welcome to the about page!");
-        Console.WriteLine("Please select an option you would like to be informed about:");
-        Console.WriteLine("1. Accessability");
-        Console.WriteLine("2. Opening hours");
-        Console.WriteLine("3. General information");
-        Console.WriteLine("4. Contact");
-        Console.WriteLine("5. Go back to main menu");
-
-        string input = Console.ReadLine();
-        switch (input)
-        {
-            case "1":
-                Console.Clear();
-                Accessability();
-                break;
-            case "2":
-                Console.Clear();
-                OpeningHours();
-                break;
-            case "3":
-                Console.Clear();
-                GeneralInformation();
-                break;
-            case "4":
-                Console.Clear();
-                Contact();
-                break;
-            case "5":
-                Console.Clear();
-                Menu.Start();
-                break;
-            default:
-                Console.WriteLine("Invalid input");
-                Start();
-                break;
-        }
+        string StartMessage = "Welcome to the about page!\nPlease select an option you would like to be informed about:";
+        string[] MenuNames = {"Accessablity", "Opening hours", "General information", "Contact information", "Go back to main menu"};
+        Action[] Actions = {Accessability, OpeningHours, GeneralInformation, Contact, Menu.Start,};
+        SelectingMenu.MenusSelect(MenuNames, Actions, StartMessage);
     }
 
     public static void Accessability()
@@ -105,25 +73,9 @@ public static class AboutPage
 
     private static void AskToKnowMore()
     {
-        Console.WriteLine("\nWould you like to:");
-        Console.WriteLine("1. Go back to the about page");
-        Console.WriteLine("2. Go back to the main menu");
-
-        string input = Console.ReadLine();
-        switch (input)
-        {
-            case "1":
-                Console.Clear();
-                Start();
-                break;
-            case "2":
-                Console.Clear();
-                Menu.Start();
-                break;
-            default:
-                Console.WriteLine("Invalid input. Please try again.");
-                AskToKnowMore();
-                break;
-        }
+        string StartMessage = "\nWould you like to:";
+        string[] MenuNames = {"Go back to the about page", "Go back to the main menu"};
+        Action[] Actions = {Start, Menu.Start};
+        SelectingMenu.MenusSelect(MenuNames, Actions, StartMessage);
     }
 }
