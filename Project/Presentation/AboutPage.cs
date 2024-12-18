@@ -3,7 +3,7 @@ public static class AboutPage
     public static void Start()
     {
         string StartMessage = "Welcome to the about page!\nPlease select an option you would like to be informed about:";
-        string[] MenuNames = {"Accessablity", "Opening hours", "General information", "Contact information", "Go back to main menu"};
+        string[] MenuNames = {"Accessability", "Opening hours", "General information", "Contact information", "Go back to main menu"};
         Action[] Actions = {Accessability, OpeningHours, GeneralInformation, Contact, Menu.Start,};
         SelectingMenu.MenusSelect(MenuNames, Actions, StartMessage);
     }
