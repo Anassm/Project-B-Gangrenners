@@ -20,10 +20,12 @@ public class SubscriptionModel
     [JsonPropertyName("startdate")]
     public DateTime StartDate { get; set; }
 
-    [JsonPropertyName("enddate")]
-    public DateTime ExpirationDate { get; set; }
+    [JsonPropertyName("renewaldate")]
+    public DateTime? RenewalDate { get; set; }
 
-    // End date isn't given but rather calculated on creation
+    [JsonPropertyName("enddate")]
+    public DateTime? ExpirationDate { get; set; }
+
     public SubscriptionModel(int id, int userid, string name, int membershipNumber, int views, DateTime startDate)
     {
         Id = id;
@@ -32,7 +34,8 @@ public class SubscriptionModel
         MembershipNumber = membershipNumber;
         Views = views;
         StartDate = startDate;
-        ExpirationDate = startDate.AddYears(1); // Sub duration is 1 year
+        RenewalDate = startDate.AddYears(1);
+        ExpirationDate = null;
     }
 
 }

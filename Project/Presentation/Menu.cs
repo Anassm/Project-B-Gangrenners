@@ -67,7 +67,7 @@ static class Menu
 
     static public void MainMenu()
     {
-        string subscriptionText = SubscriptionLogic.CheckIfUserHasSubscription(AccountsLogic.CurrentAccount.Id) ? "out of" : "in to";
+        string subscriptionText = SubscriptionLogic.IsSubscribed(AccountsLogic.CurrentAccount.Id) ? "out of" : "in to";
 
         if (AccountsLogic.CurrentAccount != null)
         {
@@ -109,9 +109,9 @@ static class Menu
             case "4":
                 if (AccountsLogic.CurrentAccount != null)
                 {
-                    if (SubscriptionLogic.CheckIfUserHasSubscription(AccountsLogic.CurrentAccount.Id))
+                    if (SubscriptionLogic.IsSubscribed(AccountsLogic.CurrentAccount.Id))
                     {
-                        SubscriptionLogic.RemoveSubscription(AccountsLogic.CurrentAccount.Id);
+                        SubscriptionLogic.CancelSubscription(AccountsLogic.CurrentAccount.Id);
                         Console.WriteLine("You have successfully opted out of the subscription");
                     }
                     else

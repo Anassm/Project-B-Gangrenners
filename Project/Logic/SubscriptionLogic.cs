@@ -18,7 +18,7 @@ public class SubscriptionLogic
         SubscriptionAccess.WriteAll(_subscriptions);
     }
 
-    public static bool RemoveSubscription(int userId)
+    public static bool CancelSubscription(int userId)
     {
         SubscriptionModel? subscription = _subscriptions.Find(sub => sub.UserId == userId);
         if (subscription == null)
@@ -26,20 +26,23 @@ public class SubscriptionLogic
             return false;
         }
 
-        _subscriptions.Remove(subscription);
+        subscription.ExpirationDate = subscription.RenewalDate;
+        subscription.RenewalDate = null;
+
         SubscriptionAccess.WriteAll(_subscriptions);
 
         return true;
     }
 
-    public static bool CheckIfUserHasSubscription(int userId)
+    public static bool IsSubscribed(int userId)
     {
         SubscriptionModel? subscription = _subscriptions.Find(sub => sub.UserId == userId);
-        if (subscription == null)
+        if (subscription == null || subscription.ExpirationDate < DateTime.Now)
         {
             return false;
         }
 
         return true;
     }
+
 }
