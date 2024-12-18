@@ -1,6 +1,6 @@
 public static class SelectingMenu
 {
-    public static  void MenusSelect(string[] menuOptions, Action[] menuActions)
+    public static  void MenusSelect(string[] menuOptions, Action[] menuActions, string StartMessage)
     {
         int selectedIndex = 0;
 
@@ -8,6 +8,7 @@ public static class SelectingMenu
         {
             Console.Clear();
             Console.WriteLine("\x1b[3J");
+            System.Console.WriteLine(StartMessage);
 
             for (int i = 0; i < menuOptions.Length; i++)
             {
