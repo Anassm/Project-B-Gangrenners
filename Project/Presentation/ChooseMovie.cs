@@ -58,29 +58,33 @@ public static class ChooseMovie
     {
         if (!MoviesLogic.CheckIfMovieInMovies(chosenMovie))
         {
-            Console.WriteLine($"There is no movie with the (partial) name {chosenMovie}");
-            Console.WriteLine("Please choose a different movie.");
-            return false;
+            string StartMessage = $"There is no movie with the (partial) name {chosenMovie}\nWould you like to choose a different movie?.";
+            bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
+            if (YesNo)
+            {
+                MakeChoice();
+            }
+            else
+            {
+                Menu.MainMenu();
+            }
+            
         }
 
         var choice = MoviesLogic.GetMovieByName(chosenMovie);
-        Console.WriteLine($"You have chosen the following movie:\n{choice.ToStringUsers()}");
-        Console.WriteLine("Is this correct? [Y]es / [N]o");
-
-        var correctChoice = Console.ReadLine().ToLower();
-        if (correctChoice == "y" || correctChoice == "yes")
+        string StartMessage2 = $"You have chosen the following movie:\n{choice.ToStringUsers()}";
+        bool YesNo2 = SelectingMenu.YesNoSelect(StartMessage2);
+        if (YesNo2)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             return true;
         }
-
-        if (correctChoice == "n" || correctChoice == "no")
+        else
         {
             Console.Clear();
             Menu.MainMenu();
         }
-
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         return false;
     }
 
@@ -92,9 +96,7 @@ public static class ChooseMovie
         {
             Console.WriteLine("There are no screening times.");
             Console.WriteLine("Press any key to go back to the menu.");
-            Console.ReadKey(true);
-            Console.Clear();
-            Menu.Start();
+            PresentationHelper.PressAnyToContinue(Menu.Start);
             return null;
         }
 
@@ -104,9 +106,7 @@ public static class ChooseMovie
         {
             Console.WriteLine("There are no upcoming screening times.");
             Console.WriteLine("Press any key to go back to the menu.");
-            Console.ReadKey(true);
-            Console.Clear();
-            Menu.Start();
+            PresentationHelper.PressAnyToContinue(Menu.Start);
             return null;
         }
 
@@ -150,9 +150,7 @@ public static class ChooseMovie
         {
             Console.WriteLine("There are no screening times.");
             Console.WriteLine("Press any key to go back to the menu.");
-            Console.ReadKey(true);
-            Console.Clear();
-            Menu.Start();
+            PresentationHelper.PressAnyToContinue(Menu.Start);
             return null;
         }
 
@@ -162,9 +160,7 @@ public static class ChooseMovie
         {
             Console.WriteLine("There are no upcoming screening times.");
             Console.WriteLine("Press any key to go back to the menu.");
-            Console.ReadKey(true);
-            Console.Clear();
-            Menu.Start();
+            PresentationHelper.PressAnyToContinue(Menu.Start);
             return null;
         }
 
@@ -227,9 +223,7 @@ public static class ChooseMovie
         {
             Console.WriteLine("There are no screening times.");
             Console.WriteLine("Press any key to go back to the menu.");
-            Console.ReadKey(true);
-            Console.Clear();
-            Menu.Start();
+          PresentationHelper.PressAnyToContinue(Menu.Start);
             return null;
         }
 
@@ -239,9 +233,7 @@ public static class ChooseMovie
         {
             Console.WriteLine("There are no upcoming screening times.");
             Console.WriteLine("Press any key to go back to the menu.");
-            Console.ReadKey(true);
-            Console.Clear();
-            Menu.Start();
+            PresentationHelper.PressAnyToContinue(Menu.Start);
             return null;
         }
 
