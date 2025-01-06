@@ -26,4 +26,9 @@ public class OrderModel
         ReservationId = reservationId;
         PickupCode = pickupCode;
     }
+
+    public override string ToString()
+    {
+        return $"Pickup code: {PickupCode}\n" + $"Total price: {TotalPrice}";
+    }
 }
