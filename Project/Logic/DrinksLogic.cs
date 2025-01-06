@@ -16,5 +16,15 @@ public class DrinksLogic
     {
         return _drinkItems.Where(x => x.SubCategory == category).ToList();
     }
+
+    public static List<String> GetCategories()
+    {
+        return _drinkItems.Select(x => x.SubCategory).Distinct().ToList();
+    }
+
+    public static DrinkModel GetByName(string name)
+    {
+        return _drinkItems.FirstOrDefault(x => x.Name == name);
+    }
     
 }

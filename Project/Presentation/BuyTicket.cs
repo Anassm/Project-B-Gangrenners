@@ -70,6 +70,9 @@ static class BuyTicket
                 ReservationModel reservation = new ReservationModel(_reservationsLogic.GetNextId(),seatIds, info.showtime.Id, accountId, TotalPrice, codes);
                 _reservationsLogic.AddReservation(reservation);
                 _showtimesLogic.UpdateList(info.showtime);
+                Console.WriteLine("Do you want to add extras to your order?");
+                BuyExtras.ProductMenu(true, reservation);
+                
                 Console.WriteLine("Your reservation has been made");
                 Console.WriteLine("Movie: " +  movieName);
                 Console.WriteLine("Seat types: " + seatTypes);
@@ -84,6 +87,14 @@ static class BuyTicket
                 else
                 {
                     Console.WriteLine("Your codes are: " + string.Join(", ", codes));
+                }
+                if (OrdersLogic.GetOrderByReservationId(reservation.Id) != null)
+                {
+                    System.Console.WriteLine("You have added extras to your reservation");
+                    System.Console.WriteLine("This is your order:");
+                    System.Console.WriteLine(OrdersLogic.GetProductString(OrdersLogic.GetOrderByReservationId(reservation.Id)));
+
+
                 }
                 Console.WriteLine("Thank you for your purchase");
                 Console.WriteLine("Press any key to return to the main menu");
@@ -106,5 +117,57 @@ static class BuyTicket
             Console.Clear();
             Menu.MainMenu();
         }
+    }
+
+    public static void ReservationOverview(ReservationModel reservation)
+    {
+        System.Console.WriteLine("This is your reservation:");
+        List<SeatModel> seats = new List<SeatModel>();
+        foreach (int seatId in reservation.SeatIds)
+        {
+            seats.Add(SeatsLogic.GetSeatById(seatId));
+        }
+        string seatTypes = SeatsLogic.GetSeatTypes(seats);
+        string time = ShowtimesLogic.GetShowtimeById(reservation.ShowtimeId).Time.ToString();
+        double TotalPrice = reservation.TotalPrice;
+        string hall = ShowtimesLogic.GetShowtimeById(reservation.ShowtimeId).HallId.ToString();
+        List<string> codes = reservation.Codes;
+
+        string seatsstring = "";
+        foreach (SeatModel seat in seats)
+        {
+            seatsstring += $"Row: {seat.Row}, Seat: {seat.Seat}";
+        }
+        Console.Clear();
+        Console.WriteLine("This is your reservation:");
+        Console.WriteLine("Movie: " + MoviesLogic.GetMovieById(ShowtimesLogic.GetShowtimeById(reservation.ShowtimeId).MoviesId).Name);
+        Console.WriteLine("Seat types: " + seatTypes);
+        Console.WriteLine("Price: \u20AC" + Math.Round(TotalPrice,2).ToString("0.00"));
+        Console.WriteLine("Time of the movie: " + time);
+        Console.WriteLine("Hall: " + hall);
+        Console.WriteLine("Seats: " + seatsstring);
+        if (codes.Count == 1)
+        {
+            Console.WriteLine("Your code is: " + codes[0]);
+        }
+        else
+        {
+            Console.WriteLine("Your codes are: " + string.Join(", ", codes));
+        }
+        if (OrdersLogic.GetOrderByReservationId(reservation.Id) != 0)
+        {
+            System.Console.WriteLine("");
+            System.Console.WriteLine("You have added extras to your reservation");
+            System.Console.WriteLine("This is your order:");
+            System.Console.WriteLine(OrdersLogic.GetProductString(OrdersLogic.GetOrderByReservationId(reservation.Id)));
+            System.Console.WriteLine("Pickup code: " + OrdersLogic.GetOrderById(OrdersLogic.GetOrderByReservationId(reservation.Id)).PickupCode);
+            System.Console.WriteLine("Price of the items: \u20AC" + OrdersLogic.GetTotalPrice(OrdersLogic.GetOrderByReservationId(reservation.Id)).ToString("0.00"));
+            System.Console.WriteLine("Total price of the reservation: \u20AC" + (TotalPrice + OrdersLogic.GetTotalPrice(OrdersLogic.GetOrderByReservationId(reservation.Id))).ToString("0.00"));
+        }
+        System.Console.WriteLine("");
+        Console.WriteLine("Thank you for your purchase");
+        Console.WriteLine("Press any key to return to the main menu");
+        ConsoleKeyInfo key = Console.ReadKey(true);
+        PresentationHelper.PressAnyToContinue(Menu.MainMenu);
     }
 }

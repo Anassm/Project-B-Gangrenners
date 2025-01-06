@@ -1,23 +1,23 @@
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 public class OrderModel
 {
-    [JsonPropertyName("id")]
+    [JsonProperty("id")]
     public int Id { get; set; }
 
-    [JsonPropertyName("reservationId")]
+    [JsonProperty("reservationId")]
     public int ReservationId { get; set; }
 
-    [JsonPropertyName("pickupCode")]
+    [JsonProperty("pickupCode")]
     public string PickupCode { get; set; }
 
-    [JsonPropertyName("items")]
+    [JsonProperty("items")]
     public List<(int itemId, string fileName, int quantity)> ItemReferences { get; set; }
 
     [JsonIgnore]
     public List<(IItem item, int quantity)> Items { get; set; }
 
-    [JsonPropertyName("totalPrice")]
+    [JsonProperty("totalPrice")]
     public double TotalPrice { get; set; }
 
     public OrderModel(int id, int reservationId, string pickupCode)

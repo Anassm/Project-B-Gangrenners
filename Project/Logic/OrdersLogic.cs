@@ -48,7 +48,8 @@ public class OrdersLogic
     }   
 
     public static bool AddItemToOrder(int orderId, IItem item, int quantity)
-    {
+    {  
+
         var CurrentOrder = GetOrderById(orderId);
 
         if (CurrentOrder == null)
@@ -58,10 +59,12 @@ public class OrdersLogic
 
         if (CurrentOrder.Items == null)
         {
+
             CurrentOrder.Items = new List<(IItem item, int quantity)>();
         }
         else
         {
+
             var existingItem = CurrentOrder.Items.FirstOrDefault(x => x.item.Id == item.Id && x.item.FileName == item.FileName);
             if (existingItem.item != null)
             {
@@ -69,6 +72,7 @@ public class OrdersLogic
                 quantity += existingItem.quantity;
             }
         }
+
 
         CurrentOrder.Items.Add((item, quantity));
 
@@ -93,8 +97,11 @@ public class OrdersLogic
             return false;
         }
 
-         var existingReference = currentOrder.ItemReferences
-            .FirstOrDefault(i => i.itemId == item.Id && i.fileName == item.FileName);
+        if (currentOrder.ItemReferences == null)
+        {
+            currentOrder.ItemReferences = new List<(int itemId, string fileName, int quantity)>();
+        }
+        var existingReference = currentOrder.ItemReferences.FirstOrDefault(i => i.itemId == item.Id && i.fileName == item.FileName);
 
         if (existingReference != default)
         {
@@ -157,6 +164,12 @@ public class OrdersLogic
         GetTotalPrice(order);
 
         UpdateOrders(order);
+    }
+
+    public static int GetOrderByReservationId(int reservationId)
+    {
+        var order = _orders.FirstOrDefault(x => x.ReservationId == reservationId);
+        return order != null ? order.Id : -1;
     }
 
     public static string GetProductString(int orderId)

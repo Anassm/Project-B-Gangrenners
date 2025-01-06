@@ -18,12 +18,12 @@ public class DrinkModel : IItem
     public bool Alcoholic { get; set; }
 
     [JsonPropertyName("volume")]
-    public int Volume { get; set; }
+    public double Volume { get; set; }
 
     [JsonIgnore]
     public string FileName => "drinks";
 
-    public DrinkModel(int id, string name, string subCategory, double price, bool alcoholic, int volume)
+    public DrinkModel(int id, string name, string subCategory, double price, bool alcoholic, double volume)
     {
         Id = id;
         Name = name;
@@ -31,5 +31,11 @@ public class DrinkModel : IItem
         Price = price;
         Alcoholic = alcoholic;
         Volume = volume;
+    }
+
+    public override string ToString()
+    {
+
+        return $"{Name} - {Volume}L - \u20AC{Price}" + (Alcoholic ? " - 18+" : "");
     }
 }

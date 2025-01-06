@@ -28,4 +28,9 @@ public class FoodModel : IItem
         Price = price;
         Calories = calories;
     }
+
+    public override string ToString()
+    {
+        return $"{Name} - {Calories}kcal - \u20AC{Price}";
+    }
 }
