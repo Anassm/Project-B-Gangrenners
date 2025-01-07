@@ -12,14 +12,21 @@ static class Menu
 
     static public void Start()
     {
-        AccountsLogic.CurrentAccount = null;
         string[] MenuNames = { "Login", "Register", "Continue as quest", "Login as admin", "Login as accountant", "About page", "Exit" };
-        Action[] Actions = { UserLogin.Start, Register.Start, MainMenu, AdminLogin.Start, AccountantLogin.Start, AboutPage.Start, () => Environment.Exit(0) };
-        SelectingMenu.MenusSelectMainMenu(MenuNames, Actions);
+        Action[] Actions = { UserLogin.Start, Register.Start, MainMenu, AdminLogin.Start, AccountantLogin.Start, AboutPage.Start, Exit, };
+        SelectingMenu.MenusSelect(MenuNames, Actions);
+    }
+
+    public static void Exit()
+    {
+        System.Console.WriteLine("bye bye");
+        Environment.Exit(0);
     }
 
     static public void MainMenu()
     {
+        string subscriptionText = SubscriptionLogic.IsSubscribed(AccountsLogic.CurrentAccount.Id) || SubscriptionLogic.IsSubscriptionCancelledButValid(AccountsLogic.CurrentAccount.Id) ? "manage your" : "opt in to a";
+
         if (AccountsLogic.CurrentAccount != null)
         {
             string StartMessage = "Welcome back " + AccountsLogic.CurrentAccount.FirstName + " " + AccountsLogic.CurrentAccount.LastName + ", what would you like to do?";
