@@ -5,18 +5,21 @@ static class UserLogin
 
     public static void Start()
     {
+        PresentationHelper.ClearConsole();
         // This is the login page
-        Console.WriteLine("Welcome to the login page");
-        Console.WriteLine("Please enter your email address");
+        PresentationHelper.PrintGreen("Welcome to the login page");
+        Console.WriteLine();
+        PresentationHelper.PrintYellow("Please enter your email address");
         string email = Console.ReadLine();
-        Console.WriteLine("Please enter your password");
+        Console.WriteLine();
+        PresentationHelper.PrintYellow("Please enter your password");
         string password = HideCharacter();
         
         // Check if the email and password match an account
         AccountModel acc = accountsLogic.CheckLogin(email, password);
         if (acc != null)
         {
-            Console.WriteLine("Welcome back " + acc.FirstName + " " + acc.LastName);
+            PresentationHelper.PrintGreen("Welcome back " + acc.FirstName + " " + acc.LastName);
             Console.WriteLine("Your email is " + acc.EmailAddress);
             Console.Clear();
             Menu.MainMenu();

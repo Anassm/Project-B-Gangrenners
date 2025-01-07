@@ -7,9 +7,9 @@ public static class ManageMovies
 
     public static void AddMovieMenu()
     {
-        System.Console.WriteLine("You have chosen to add a movie.");
-        System.Console.WriteLine("If you want to quit type q or quit.");
-        System.Console.WriteLine("Please give the info needed to add a movie.");
+        PresentationHelper.ClearConsole();
+        PresentationHelper.PrintGreen("You have chosen to add a movie.");
+        PresentationHelper.PrintYellow("Please give the info needed to add a movie.");
         System.Console.WriteLine("");
 
         // Name input
@@ -17,7 +17,7 @@ public static class ManageMovies
         while (true)
         {
             System.Console.WriteLine("");
-            System.Console.WriteLine("Please enter the name of the movie:");
+            PresentationHelper.PrintYellow("Please enter the name of the movie:");
             MovieName = PresentationHelper.StringInput(AdminLogin.AdminMenu);
             if (MovieName != "")
             {
@@ -30,7 +30,7 @@ public static class ManageMovies
         while (true)
         {
             System.Console.WriteLine("");
-            System.Console.WriteLine("Please enter the genre of the movie:");
+            PresentationHelper.PrintYellow("Please enter the genre of the movie:");
             MovieGenre = PresentationHelper.StringInput(AdminLogin.AdminMenu);
             if (MovieGenre != "")
             {
@@ -43,7 +43,7 @@ public static class ManageMovies
         while (true)
         {
             System.Console.WriteLine("");
-            System.Console.WriteLine("Please enter the duration of the movie:");
+            PresentationHelper.PrintYellow("Please enter the duration of the movie:");
             MovieDuration = PresentationHelper.IntInput(AdminLogin.AdminMenu);
             if (MovieDuration > 0)
             {
@@ -56,7 +56,7 @@ public static class ManageMovies
         while (true)
         {
             System.Console.WriteLine("");
-            System.Console.WriteLine("Please enter the Summary of the movie:");
+            PresentationHelper.PrintYellow("Please enter the Summary of the movie:");
             MovieSummary = PresentationHelper.StringInput(AdminLogin.AdminMenu);
             Console.Clear();
             if (MovieSummary == "")
@@ -64,6 +64,7 @@ public static class ManageMovies
                 MovieSummary = "No summary available";
                 break;
             }
+            break;
         }
 
         // Cost input
@@ -71,7 +72,7 @@ public static class ManageMovies
         while (true)
         {
             System.Console.WriteLine("");
-            System.Console.WriteLine("Please give the cost:");
+            PresentationHelper.PrintYellow("Please give the cost:");
             Cost = PresentationHelper.IntInput(AdminLogin.AdminMenu);
             if (Cost > 0)
             {
@@ -85,63 +86,71 @@ public static class ManageMovies
             MovieModel Movie = MoviesArchiveLogic.GetMovieByName(MovieName);
             if (Movie.Duration != MovieDuration || Movie.Genre != MovieGenre)
             {
-                Console.Clear();
-                System.Console.WriteLine("The movie you are trying to add is already in the archive but with different genre or duration.");
-                System.Console.WriteLine("Do you want to remove the movie from the archive and add it to current movies? (Y/N)");
-                string input = Console.ReadLine().ToLower();
-                if (input == "n" || input == "no")
+                PresentationHelper.ClearConsole();
+                string StartMessage = "the movie you are trying to add is already in the archive but with different genre and/or duration.\nDo you want to remove the movie from the archive and add it to current movies?";
+                bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
+                if (YesNo)
                 {
-                    System.Console.WriteLine("Do you want to add the movie with the same name but different genre or duration? (Y/N)");
-                    string input2 = Console.ReadLine().ToLower();
-                    if (input2 == "n" || input2 == "no")
-                    {
-                        Console.Clear();
-                        AdminLogin.AdminMenu();
-                    }
-                    MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration, MovieSummary, Cost);
-                    System.Console.WriteLine("The movie was successfully added.");
+                    MoviesArchiveLogic.RemoveMovie(Movie);
+                    MoviesLogic.AddMovie(Movie);
+                    PresentationHelper.PrintGreen("The movie was removed from the archive and added to current movies.");
                     System.Console.WriteLine("");
-                    System.Console.WriteLine("Give any input to go back to admin menu.");
+                    PresentationHelper.PrintYellow("Give any input to go back to admin menu.");
                     PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
                 }
-                MoviesArchiveLogic.RemoveMovie(Movie);
-                MoviesLogic.AddMovie(Movie);
-                System.Console.WriteLine("The movie was removed from the archive and added to current movies.");
-                System.Console.WriteLine("");
-                System.Console.WriteLine("Give any input to go back to admin menu.");
-                PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
+                else
+                {
+                    string StartMessage2 = "Do you want to add the movie with the same name but different genre or duration?";
+                    bool YesNo2 = SelectingMenu.YesNoSelect(StartMessage2);
+                    if (YesNo2)
+                    {
+                        MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration, MovieSummary, Cost);
+                        PresentationHelper.PrintGreen("The movie was successfully added.");
+                        System.Console.WriteLine("");
+                        PresentationHelper.PrintYellow("Give any input to go back to admin menu.");
+                        PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
+                    }
+                    else
+                    {
+                        PresentationHelper.ClearConsole();
+                        AdminLogin.AdminMenu();
+                    }
+                }
             }
             else if (Movie.Duration == MovieDuration && Movie.Genre == MovieGenre)
             {
                 Console.Clear();
                 System.Console.WriteLine("The movie you are trying to add is already in the archive.");
-                System.Console.WriteLine("Do you want to remove the movie from the archive and add it to current movies? (Y/N)");
-                string input = Console.ReadLine().ToLower();
-                if (input == "n" || input == "no")
+                string StartMessage = "Do you want to remove the movie from the archive and add it to current movies?";
+                bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
+                if (YesNo)
+                {
+                    MoviesArchiveLogic.RemoveMovie(Movie);
+                    MoviesLogic.AddMovie(Movie);
+                    PresentationHelper.PrintGreen("The movie was removed from the archive and added to current movies.");
+                    System.Console.WriteLine("");
+                    PresentationHelper.PrintYellow("Give any input to go back to admin menu.");
+                    PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
+                }
+                else
                 {
                     Console.Clear();
                     AdminLogin.AdminMenu();
                 }
             }
-            MoviesArchiveLogic.RemoveMovie(Movie);
-            MoviesLogic.AddMovie(Movie);
-            System.Console.WriteLine("The movie was removed from the archive and added to current movies.");
-            System.Console.WriteLine("");
-            System.Console.WriteLine("Give any input to go back to admin menu.");
-            PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
         }
         MoviesLogic.AddMovie(MovieName, MovieGenre, MovieDuration, MovieSummary, Cost);
-        System.Console.WriteLine("The movie was successfully added.");
+        PresentationHelper.PrintGreen("The movie was successfully added.");
         System.Console.WriteLine("");
-        System.Console.WriteLine("Give any input to go back to admin menu.");
+        PresentationHelper.PrintYellow("Give any input to go back to admin menu.");
         PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
     }
 
     public static void RemoveMovieMenu()
     {
-        System.Console.WriteLine("You have chosen to remove a movie.");
-        System.Console.WriteLine("Please give the name of the movie.");
-        System.Console.WriteLine("If you want to quit type Q or quit");
+        PresentationHelper.ClearConsole();
+        PresentationHelper.PrintGreen("You have chosen to remove a movie.");
+        PresentationHelper.PrintYellow("Please give the name of the movie.");
         string input = System.Console.ReadLine().ToLower();
         if (input == "q" || input == "quit")
         {
@@ -152,57 +161,24 @@ public static class ManageMovies
         if (movie == null)
         {
             Console.Clear();
-            System.Console.WriteLine("This movie does not exist.");
-            RemoveMovieMenu();
+            PresentationHelper.PrintRed("This movie does not exist.");
+            System.Console.WriteLine();
+            PresentationHelper.PrintYellow("Give any input to go back to admin menu.");
+            PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
         }
         MoviesLogic.RemoveMovie(movie);
-        System.Console.WriteLine("Movie successfully removed and added to the archive.");
+        PresentationHelper.PrintGreen("Movie successfully removed and added to the archive.");
         System.Console.WriteLine("");
-        System.Console.WriteLine("Give any input to go back to admin menu.");
+        PresentationHelper.PrintYellow("Give any input to go back to admin menu.");
         PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
     }
 
 
     public static void PromoteMovieMenu()
     {
-        System.Console.WriteLine("You have chosen to promote a movie.");
-        System.Console.WriteLine("Please give the name of the movie.");
-        System.Console.WriteLine("If you want to quit type Q or quit");
-        string input = System.Console.ReadLine().ToLower();
-        if (input == "q" || input == "quit")
-        {
-            AdminLogin.AdminMenu();
-        }
-        MovieModel movie = MoviesLogic.GetMovieByName(input);
-        if (movie == null || !MoviesLogic.CheckIfMovieInMovies(input) == false)
-        {
-            Console.Clear();
-            System.Console.WriteLine("This movie does not exist.");
-            RemoveMovieMenu();
-        }
-        bool prom = MoviesLogic.PromoteMovie(movie);
-        if (prom == false)
-        {
-            Console.Clear();
-            System.Console.WriteLine("This movie cannot be promoted.");
-        }
-        else
-        {
-            Console.Clear();
-            System.Console.WriteLine("Movie was successfully promoted.");
-
-        }
-
-        System.Console.WriteLine("");
-        System.Console.WriteLine("Give any input to go back to admin menu.");
-        PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
-    }
-
-    public static void DemoteMovieMenu()
-    {
-        System.Console.WriteLine("You have chosen to demote a movie.");
-        System.Console.WriteLine("Please give the name of the movie.");
-        System.Console.WriteLine("If you want to quit type Q or quit");
+        PresentationHelper.ClearConsole();
+        PresentationHelper.PrintGreen("You have chosen to promote a movie.");
+        PresentationHelper.PrintYellow("Please give the name of the movie.");
         string input = System.Console.ReadLine().ToLower();
         if (input == "q" || input == "quit")
         {
@@ -212,75 +188,91 @@ public static class ManageMovies
         if (movie == null || MoviesLogic.CheckIfMovieInMovies(input) == false)
         {
             Console.Clear();
-            System.Console.WriteLine("This movie does not exist.");
+            PresentationHelper.PrintRed("This movie does not exist.");
+            System.Console.WriteLine();
+            PresentationHelper.PrintYellow("Give any input to go back to admin menu.");
+            PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
+        }
+        bool prom = MoviesLogic.PromoteMovie(movie);
+        if (prom == false)
+        {
+            Console.Clear();
+            PresentationHelper.PrintRed("This movie cannot be promoted.");
+        }
+        else
+        {
+            Console.Clear();
+            PresentationHelper.PrintGreen("Movie was successfully promoted.");
+
+        }
+
+        System.Console.WriteLine("");
+        PresentationHelper.PrintYellow("Give any input to go back to admin menu.");
+        PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
+    }
+
+    public static void DemoteMovieMenu()
+    {
+        PresentationHelper.ClearConsole();
+        PresentationHelper.PrintGreen("You have chosen to demote a movie.");
+        PresentationHelper.PrintYellow("Please give the name of the movie.");
+        string input = System.Console.ReadLine().ToLower();
+        if (input == "q" || input == "quit")
+        {
+            AdminLogin.AdminMenu();
+        }
+        MovieModel movie = MoviesLogic.GetMovieByName(input);
+        if (movie == null || MoviesLogic.CheckIfMovieInMovies(input) == false)
+        {
+            Console.Clear();
+            PresentationHelper.PrintRed("This movie does not exist.");
             DemoteMovieMenu();
         }
         bool prom = MoviesLogic.unPromoteMovie(movie);
         if (prom == false)
         {
             Console.Clear();
-            System.Console.WriteLine("This movie cannot be demoted.");
+            PresentationHelper.PrintRed("This movie cannot be demoted.");
         }
         else
         {
             Console.Clear();
-            System.Console.WriteLine("Movie was successfully demoted.");
+            PresentationHelper.PrintGreen("Movie was successfully demoted.");
 
         }
         System.Console.WriteLine("");
-        System.Console.WriteLine("Give any input to go back to admin menu.");
+        PresentationHelper.PrintYellow("Give any input to go back to admin menu.");
         PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
     }
 
     public static void SeeArchivedMoviesMenu()
     {
         PresentationHelper.ClearConsole();
-        while (true)
+
+        System.Console.WriteLine("---------------------------------------");
+        foreach (MovieModel movie in MoviesArchiveLogic._movies)
         {
-            System.Console.WriteLine("You have chosen to see all archived movies.");
-            if (PresentationHelper.Continue(AdminLogin.AdminMenu))
-            {
-                System.Console.WriteLine("---------------------------------------");
-                foreach (MovieModel movie in MoviesArchiveLogic._movies)
-                {
-                    System.Console.WriteLine(movie.ToStringComplete());
-                    System.Console.WriteLine("---------------------------------------");
-                }
-                System.Console.WriteLine("Archived list shown above.");
-                System.Console.WriteLine("");
-                System.Console.WriteLine("Give any input to go back to admin menu.");
-                PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
-            }
-            else
-            {
-                continue;
-            }
+            System.Console.WriteLine(movie.ToStringComplete());
+            System.Console.WriteLine("---------------------------------------");
         }
+        PresentationHelper.PrintGreen("Archived list shown above.");
+        System.Console.WriteLine("");
+        PresentationHelper.PrintYellow("Give any input to go back to admin menu.");
+        PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
     }
 
     public static void SeeCurrentMoviesMenu()
     {
         PresentationHelper.ClearConsole();
-        while (true)
+        System.Console.WriteLine("---------------------------------------");
+        foreach (MovieModel movie in MoviesLogic._movies)
         {
-            System.Console.WriteLine("You have chosen to see all current movies.");
-            if (PresentationHelper.Continue(AdminLogin.AdminMenu))
-            {
-                System.Console.WriteLine("---------------------------------------");
-                foreach (MovieModel movie in MoviesLogic._movies)
-                {
-                    System.Console.WriteLine(movie.ToStringComplete());
-                    System.Console.WriteLine("---------------------------------------");
-                }
-                System.Console.WriteLine("Current movie list shown above.");
-                System.Console.WriteLine("");
-                System.Console.WriteLine("Give any input to go back to admin menu.");
-                PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
-            }
-            else
-            {
-                continue;
-            }
+            System.Console.WriteLine(movie.ToStringComplete());
+            System.Console.WriteLine("---------------------------------------");
         }
+        PresentationHelper.PrintGreen("Current movie list shown above.");
+        System.Console.WriteLine("");
+        PresentationHelper.PrintYellow("Give any input to go back to admin menu.");
+        PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
     }
 }

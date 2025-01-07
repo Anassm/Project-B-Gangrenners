@@ -56,7 +56,7 @@ public class MovieModel
         int hours = (Duration - minutes) / 60;
         string time = $"{hours}h {minutes}m";
 
-        return $"\nName: {Name}\n" + $"Genre: {Genre}\n" + $"Duration: {time} \n" + $"Summary: {Summary}";
+        return $"\nName: {Name}\n" + $"Genre: {Genre}\n" + $"Duration: {time} \n" + $"\nSummary: {Summary}";
     }
 
     public string ToStringOneLine()

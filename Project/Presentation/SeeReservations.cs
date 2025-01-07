@@ -2,77 +2,48 @@ public static class SeeReservations
 {
     public static void SeeReservationSubMenu()
     {
-        System.Console.WriteLine("You have chosen to see your reservations.");
-        System.Console.WriteLine("would you like to see:");
-        System.Console.WriteLine("1. Past reservations");
-        System.Console.WriteLine("2. Future reservations");
-        System.Console.WriteLine("3. All reservations");
-        System.Console.WriteLine("4. See reservation by code");
-        System.Console.WriteLine("5. Go back");
-        string choice = Console.ReadLine();
-        switch(choice)
-        {
-            case "1":
-                Console.Clear();
-                PastReservationsMenu();
-                System.Console.WriteLine("Press any key to continue.");
-                ConsoleKeyInfo key = Console.ReadKey(true);
-                if (key.Key != null)
-                {
-                    Console.Clear();
-                    SeeReservationSubMenu();
-                }
-                break;
-            case "2":
-                Console.Clear();
-                FutureReservationsMenu();
-                System.Console.WriteLine("Press any key to continue.");
-                ConsoleKeyInfo key2 = Console.ReadKey(true);
-                if (key2.Key != null)
-                {
-                    Console.Clear();
-                    SeeReservationSubMenu();
-                }
-                break;
-            case "3":
-                Console.Clear();
-                AllReservationsMenu();
-                System.Console.WriteLine("Press any key to continue.");
-                ConsoleKeyInfo key3 = Console.ReadKey(true);
-                if (key3.Key != null)
-                {
-                    Console.Clear();
-                    SeeReservationSubMenu();
-                }
-                break;
-            case "4":
-                Console.Clear();
-                SeeReservationByCode();
-                System.Console.WriteLine("Press any key to continue.");
-                ConsoleKeyInfo key4 = Console.ReadKey(true);
-                if (key4.Key != null)
-                {
-                    Console.Clear();
-                    SeeReservationSubMenu();
-                }
-                break;
-            case "5":
-                Console.Clear();
-                Menu.MainMenu();
-                break;
-            default:
-                Console.Clear();
-                System.Console.WriteLine("Invalid input.");
-                System.Console.WriteLine("Press any key.");
-                ConsoleKeyInfo key5 = Console.ReadKey(true);
-                if (key5.Key != null)
-                {
-                    Console.Clear();
-                    SeeReservationSubMenu();
-                }
-                break;
-        }
+        string StartMessage = "You have chosen to see your reservations.\nWould you like to see:";
+        string[] MenuNames = { "Past reservations", "Future reservations", "All reservations", "See reservations by code", "Go back" };
+        Action[] Actions = {PastReservations, FutureReservations, AllReservations, ReservationByCode, Menu.MainMenu};
+        SelectingMenu.MenusSelect(MenuNames, Actions, StartMessage);
     }
+
+    public static void PastReservations()
+    {
+        Console.Clear();
+        PastReservationsMenu();
+        PresentationHelper.PrintYellow("Press any key to continue.");
+        System.Console.WriteLine();
+        PresentationHelper.PressAnyToContinue(SeeReservationSubMenu);
+    }
+
+    public static void FutureReservations()
+    {
+        Console.Clear();
+        FutureReservationsMenu();
+        PresentationHelper.PrintYellow("Press any key to continue.");
+        System.Console.WriteLine();
+        PresentationHelper.PressAnyToContinue(SeeReservationSubMenu);
+    }
+
+    public static void AllReservations()
+    {
+        Console.Clear();
+        AllReservationsMenu();
+        PresentationHelper.PrintYellow("Press any key to continue.");
+        System.Console.WriteLine();
+        PresentationHelper.PressAnyToContinue(SeeReservationSubMenu);
+    }
+
+    public static void ReservationByCode()
+    {
+        Console.Clear();
+        SeeReservationByCode();
+        System.Console.WriteLine();
+        PresentationHelper.PrintYellow("Press any key to continue.");
+        PresentationHelper.PressAnyToContinue(SeeReservationSubMenu);
+    }
+
 
     public static void FutureReservationsMenu()
     {
@@ -118,7 +89,7 @@ public static class SeeReservations
 
     public static void SeeReservationByCode()
     {
-        System.Console.WriteLine("Enter the code of the reservation you want to see:");
+        PresentationHelper.PrintYellow("Enter the code of the reservation you want to see:");
         string code = Console.ReadLine();
         ReservationModel reservation = ReservationsLogic.GetReservation(code);
         if (reservation != null)
