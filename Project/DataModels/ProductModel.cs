@@ -28,4 +28,9 @@ public class ProductModel : IItem
         SubCategory = subCategory;
         Description = description;
     }
+
+    public override string ToString()
+    {
+        return $"{Name} - \u20AC{Price}\n{Description}";
+    }
 }

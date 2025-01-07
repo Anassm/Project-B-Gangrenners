@@ -16,5 +16,15 @@ public class ProductsLogic
     {
         return _productItems.Where(x => x.SubCategory == category).ToList();
     }
+
+    public static List<String> GetCategories()
+    {
+        return _productItems.Select(x => x.SubCategory).Distinct().ToList();
+    }
+
+    public static ProductModel GetByName(string name)
+    {
+        return _productItems.FirstOrDefault(x => x.Name == name);
+    }
     
 }

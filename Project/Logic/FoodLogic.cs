@@ -16,4 +16,14 @@ public class FoodLogic
     {
         return _foodItems.Where(x => x.SubCategory == category).ToList();
     }
+
+    public static List<String> GetCategories()
+    {
+        return _foodItems.Select(x => x.SubCategory).Distinct().ToList();
+    }
+
+    public static FoodModel GetByName(string name)
+    {
+        return _foodItems.FirstOrDefault(x => x.Name == name);
+    }
 }
