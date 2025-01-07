@@ -18,15 +18,6 @@ public class ManageShowtimes
             {
                 continue;
             }
-            // System.Console.WriteLine("you have chosen to add a single screening.");
-            // if (PresentationHelper.C-ontinue(AdminLogin.AdminMenu))
-            // {
-            //     break;
-            // }
-            // else
-            // {
-            //     continue;
-            // }
         }
 
         Console.Clear();
@@ -45,27 +36,6 @@ public class ManageShowtimes
         {
             Console.Clear();
         }
-
-
-        // while (true)
-        // {
-        //     System.Console.WriteLine("Would you like to see all current movies?");
-        //     int ShowAllMoviesInput = PresentationHelper.AlteredContinue();
-        //     if ( ShowAllMoviesInput == 1)
-        //     {
-        //         Console.Clear();
-        //         System.Console.WriteLine("All movies:");
-        //         System.Console.WriteLine("------------------------");
-        //         System.Console.WriteLine(MoviesLogic.ShowAllMovieNames());
-        //         System.Console.WriteLine("------------------------");
-        //         break;
-        //     }
-        //     else if (ShowAllMoviesInput == 0)
-        //     {
-        //         Console.Clear();
-        //         break;
-        //     }
-        // }
 
         //Movie Name
         string movieName = "";
@@ -201,40 +171,7 @@ public class ManageShowtimes
                 AdminLogin.AdminMenu();
             }
         }
-        // while (true)
-        // {
-        // System.Console.WriteLine("---------------------------------------");
-        // System.Console.WriteLine($"Movie name: {movieName}");
-        // System.Console.WriteLine($"Date and time: {datetime}");
-        // System.Console.WriteLine($"Hall ID: {hallId}");
-        // System.Console.WriteLine("---------------------------------------");
-        // System.Console.WriteLine("");
-        // System.Console.WriteLine("is the above correct? ");
-        // string input2 = Console.ReadLine().ToLower();
-        // if (input2 == "y" || input2 == "yes")
-        // {
-
-
-        // }
-
-        //     break;
-        // }
-        // else if (input2 == "n" || input2 == "no")
-        // {
-
-        // }
-        // else
-        // {
-        //     Console.Clear();
-        //     System.Console.WriteLine("Invalid input, press anything to try again.");
-        //     ConsoleKeyInfo key3 = Console.ReadKey(true);
-        //     if (key3.Key != null)
-        //     {
-        //         Console.Clear();
-        //         continue;
-        //     }
-        // }
-        // }
+        
         Console.Clear();
         PresentationHelper.PrintYellow("Press anything to go back to the menu.");
         PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
@@ -272,26 +209,6 @@ public class ManageShowtimes
             Console.Clear();
         }
 
-        // while (true)
-        // {
-        //     System.Console.WriteLine("Would you like to see all current movies?");
-        //     int SeeAllMoviesInput = PresentationHelper.AlteredContinue();
-        //     if (SeeAllMoviesInput == 1)
-        //     {
-        //         Console.Clear();
-        //         System.Console.WriteLine("All movies:");
-        //         System.Console.WriteLine("------------------------");
-        //         System.Console.WriteLine(MoviesLogic.ShowAllMovieNames());
-        //         System.Console.WriteLine("------------------------");
-        //         break;
-        //     }
-        //     else if (SeeAllMoviesInput == 0)
-        //     {
-        //         Console.Clear();
-        //         break;
-        //     }
-        // }
-
         System.Console.WriteLine("");
         PresentationHelper.PrintYellow("Please give the name of the movie:");
         string movieName = Console.ReadLine();
@@ -308,21 +225,6 @@ public class ManageShowtimes
                 PresentationHelper.PrintYellow("Chosen not to add a new movie, press anything to go back to the menu.");
                 PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
             }
-
-            // while (true)
-            // {
-            //     System.Console.WriteLine("This movie does not exist, would you like to add the movie? ");
-            //     int AddMovieInput = PresentationHelper.AlteredContinue();
-            //     if (AddMovieInput == 1)
-            //     {
-            //         ManageMovies.AddMovieMenu();
-            //     }
-            //     else if (AddMovieInput == 0)
-            //     {
-            //         System.Console.WriteLine("Chosen not to add a new movie, press anything to go back to the menu.");
-            //         PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
-            //     }
-            // }
         }
 
         //start date input
@@ -402,21 +304,6 @@ public class ManageShowtimes
             {
                 AddShowTimesMenu();
             }
-
-            // while (true)
-            // {
-            //     System.Console.WriteLine($"Start date and time: {datetime}");
-            //     System.Console.WriteLine("Is this correct? ");
-            //     int check1 = PresentationHelper.AlteredContinue();
-            //     if (check1 == 1)
-            //     {
-            //         break;
-            //     }
-            //     else if (check1 == 0)
-            //     {
-            //         AddShowTimesMenu();
-            //     }
-            // }
             break;
         }
 
@@ -503,16 +390,7 @@ public class ManageShowtimes
         //confirm all data
         while (true)
         {
-            // System.Console.WriteLine("---------------------------------------");
-            // System.Console.WriteLine($"Movie name: {movieName}");
-            // System.Console.WriteLine($"Start date: {startdate}");
-            // System.Console.WriteLine($"End date: {enddate}");
-            // System.Console.WriteLine($"Days between showings: {interval}");
-            // System.Console.WriteLine($"Time of showing: {time}");
-            // System.Console.WriteLine($"Hall ID: {hallId}");
-            // System.Console.WriteLine("---------------------------------------");
-            // System.Console.WriteLine("");
-            // System.Console.WriteLine("is the above correct? ");
+
             string StartMessage2 =
                 $"---------------------------------------" +
                 $"\nMovie name: {movieName}" +
@@ -562,50 +440,6 @@ public class ManageShowtimes
                 PresentationHelper.PrintYellow("Press anything to go back to the menu.");
                 PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
             }
-
-            //     int input2 = PresentationHelper.AlteredContinue();
-            //     if (input2 == 1)
-            //     {
-            //         Console.Clear();
-            //         List<DateTime> datetimes = ShowtimesLogic.GenerateDateTimesList(startdate, enddate, time, interval);
-            //         List<ShowtimeModel> validshowtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes).ValidShowtimes;
-            //         List<ShowtimeModel> invalidshowtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes).InvalidShowtimes;
-            //         System.Console.WriteLine("Valid screen times:");
-            //         System.Console.WriteLine("---------------------------------------");
-            //         foreach (ShowtimeModel showtime in validshowtimes)
-            //         {
-            //             System.Console.WriteLine($"Date: {showtime.Time}");
-            //             System.Console.WriteLine("---------------------------------------");
-            //         }
-            //         System.Console.WriteLine("");
-            //         System.Console.WriteLine("Invalid screen times:");
-            //         System.Console.WriteLine("---------------------------------------");
-            //         foreach (ShowtimeModel showtime in invalidshowtimes)
-            //         {
-            //             System.Console.WriteLine($"Date: {showtime.Time}");
-            //             System.Console.WriteLine("---------------------------------------");
-            //         }
-            //         while (true)
-            //         {
-            //             Console.Clear();
-            //             System.Console.WriteLine("Add the valid screen times? ");
-            //             if (PresentationHelper.Continue(AdminLogin.AdminMenu))
-            //             {
-            //                 ShowtimesLogic.AddShowTimes(validshowtimes);
-            //                 System.Console.WriteLine("Successfully added valid screenings.");
-            //                 break;
-            //             }
-            //         }
-            //         System.Console.WriteLine("Press anything to go back to the menu.");
-            //         PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
-
-            //     }
-            //     else if (input2 == 0)
-            //     {
-            //         Console.Clear();
-            //         System.Console.WriteLine("Press anything to go back to the menu.");
-            //         PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
-            //     }
         }
     }
 }
