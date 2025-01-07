@@ -16,9 +16,37 @@ public static class PresentationHelper
         }
     }
 
+    public static void PrintGray(string message)
+    {
+        Console.ForegroundColor = ConsoleColor.DarkGray;
+        System.Console.WriteLine(message);
+        Console.ResetColor();
+    }
+
+    public static void PrintRed(string message)
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        System.Console.WriteLine(message);
+        Console.ResetColor();
+    }
+
+    public static void PrintGreen(string message)
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        System.Console.WriteLine(message);
+        Console.ResetColor();
+    }
+
+    public static void PrintYellow(string message)
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        System.Console.WriteLine(message);
+        Console.ResetColor();
+    }
+
     public static bool Continue(Action method)
     {
-        System.Console.WriteLine("Do you want to continue? (Y/N)");
+        PresentationHelper.PrintYellow("Do you want to continue? (Y/N)");
         string input = Console.ReadLine().ToLower();
         if (input == "n" || input == "no")
         {
@@ -32,7 +60,7 @@ public static class PresentationHelper
         else
         {
             Console.Clear();
-            System.Console.WriteLine("Invalid input.");
+            PrintRed("Invalid input.");
             return false;
         }
     }
@@ -51,7 +79,7 @@ public static class PresentationHelper
         else
         {
             Console.Clear();
-            System.Console.WriteLine("Invalid input.");
+            PrintRed("Invalid input.");
             return -1;
         }
     }
@@ -59,19 +87,14 @@ public static class PresentationHelper
     public static string StringInput(Action method)
     {
         string input = System.Console.ReadLine();
-        if (input == "q" || input == "quit")
-        {
-            method();
-        }
         if (input == "")
         {
             ClearConsole();
-            System.Console.WriteLine("Can not input nothing, please give an input.");
+            PrintRed("Can not input nothing, please give an input.");
             return "";
         }
         else
         {
-            Console.Clear();
             return input;
         }
     }
@@ -79,17 +102,13 @@ public static class PresentationHelper
     public static int IntInput(Action method)
     {
         string Input = System.Console.ReadLine().ToLower();
-        if (Input == "q" || Input == "quit")
-        {
-            method();
-        }
         if (Input.All(char.IsDigit))
         {
             int ConvertedInput = Convert.ToInt32(Input);
             if (ConvertedInput <= 0)
             {
                 Console.Clear();
-                System.Console.WriteLine("Input has to be larger than 0.");
+                PrintRed("Input has to be larger than 0.");
                 return 0;
             }
             return ConvertedInput;
@@ -97,7 +116,7 @@ public static class PresentationHelper
         else
         {
             Console.Clear();
-            System.Console.WriteLine("Invalid input, Enter a number.");
+            PrintRed("Invalid input, Enter a number.");
             return 0;
         }
     }

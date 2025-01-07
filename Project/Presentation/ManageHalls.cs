@@ -5,7 +5,7 @@ public static class ManageHalls
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("You have chosen to change the price of a seat type to the corresponding hall.");
+            PresentationHelper.PrintGreen("You have chosen to change the price of a seat type to the corresponding hall.");
 
             HallModel hall;
             int seatType;
@@ -19,7 +19,7 @@ public static class ManageHalls
 
                 if (totalHalls > 1)
                 {
-                    Console.WriteLine($"Please enter the hall id between 1 and {totalHalls} to change the seat type price.");
+                    PresentationHelper.PrintYellow($"Please enter the hall id between 1 and {totalHalls} to change the seat type price.");
                     if (int.TryParse(Console.ReadLine(), out hallId))
                     {
                         hall = HallsLogic.GetHallById(hallId);
@@ -53,7 +53,7 @@ public static class ManageHalls
             {
                 Array seatTypes = SeatsLogic.GetSeatTypes();
 
-                Console.Write("Please enter the number of the seat type you want to change the price for: ");
+                PresentationHelper.PrintYellow("Please enter the number of the seat type you want to change the price for: ");
                 Console.WriteLine("Available seat types: ");
                 foreach (string type in seatTypes)
                 {
@@ -78,7 +78,7 @@ public static class ManageHalls
 
             while (true)
             {
-                Console.Write("Please enter the new price for the seat type: ");
+                PresentationHelper.PrintYellow("Please enter the new price for the seat type: ");
                 if (double.TryParse(Console.ReadLine(), out newPrice))
                 {
                     // Price can't be lower than 0
@@ -94,43 +94,19 @@ public static class ManageHalls
                     Console.WriteLine("Invalid input. Please enter a numeric price.");
                 }
             }
-
-            Console.WriteLine("Are you sure you want to change the price of the seat type? (Y/N)");
-
-            while (true)
+            string StartMessage = "Are you sure you want to change the price of the seat type?";
+            bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
+            if (YesNo)
             {
-                string confirmation = Console.ReadLine().ToLower();
-
-                if (confirmation == "y")
-                {
-                    SeatsLogic.UpdatePrice(hall.Id, seatType, newPrice);
-                    Console.WriteLine($"The price for seat type {seatType} in hall {hall.Id} has been successfully updated to {newPrice}.");
-                    AdminLogin.AdminMenu();
-                    return;
-                }
-                else if (confirmation == "n")
-                {
-                    Console.WriteLine("Do you want to go back to the main menu or change the price again? (M for main menu / C for change price again)");
-                    string choice = Console.ReadLine().ToLower();
-
-                    if (choice == "m")
-                    {
-                        AdminLogin.AdminMenu();
-                        return;
-                    }
-                    else if (choice == "c")
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid input. Please enter M or C.");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter Y or N.");
-                }
+                SeatsLogic.UpdatePrice(hall.Id, seatType, newPrice);
+                Console.WriteLine($"The price for seat type {seatType} in hall {hall.Id} has been successfully updated to {newPrice}.");
+                AdminLogin.AdminMenu();
+                return;
+            }
+            else
+            {
+                string StartMessage2 = "Do you want to go back to the main menu or change the price again?";
+                SelectingMenu.MenusSelect(new string[] { "Main Menu", "Change Price Again" }, new Action[] { AdminLogin.AdminMenu, ChangeSeatTypePrice }, StartMessage2);
             }
         }
     }

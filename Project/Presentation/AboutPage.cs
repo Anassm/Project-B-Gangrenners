@@ -10,6 +10,7 @@ public static class AboutPage
 
     public static void Accessability()
     {
+        PresentationHelper.ClearConsole();
         var parkingSpots = new Dictionary<string, (string Address, decimal CostPerHour)>
         {
             { "Central Parking", ("123 Main St", 5.50m) },
@@ -17,7 +18,7 @@ public static class AboutPage
             { "East Side Garage", ("789 Oak Ave", 6.25m) }
         };
 
-        Console.WriteLine("Accessability");
+        PresentationHelper.PrintGreen("Accessability");
         Console.WriteLine("Parking");
         Console.WriteLine("------------------");
 
@@ -26,27 +27,31 @@ public static class AboutPage
             Console.WriteLine($"Name: {spot.Key}");
             Console.WriteLine($"Address: {spot.Value.Address}");
             Console.WriteLine($"Cost per hour: €{spot.Value.CostPerHour:F2}");
-            Console.WriteLine();
+            System.Console.WriteLine();
         }
 
         Console.WriteLine("Public Transport");
         Console.WriteLine("------------------");
         Console.WriteLine("Tram: If you are coming to our cinema by public transport, you could buy a ticket online for the tram heading to tram/bus stop `Gangrenners`.");
-
-        AskToKnowMore();
+        System.Console.WriteLine();
+        PresentationHelper.PrintYellow("Press any key to return to the main menu");
+        PresentationHelper.PressAnyToContinue(Start);
     }
 
     public static void OpeningHours()
     {
-        Console.WriteLine("Opening hours");
+        PresentationHelper.ClearConsole();
+        PresentationHelper.PrintGreen("Opening hours");
         Console.WriteLine("Everyday: Our cinema opens 15 minutes before the first showtime, and closes 30 minutes after the last showtime.");
-
-        AskToKnowMore();
+        System.Console.WriteLine();
+        PresentationHelper.PrintYellow("Press any key to return to the main menu");
+        PresentationHelper.PressAnyToContinue(Start);
     }
 
     public static void GeneralInformation()
     {
-        Console.WriteLine("General information");
+        PresentationHelper.ClearConsole();
+        PresentationHelper.PrintGreen("General information");
 
         int seatsAmount = SeatsLogic.GetAll().Count;
         int hallsAmount = HallsLogic.GetAll().Count;
@@ -58,24 +63,19 @@ public static class AboutPage
         Console.WriteLine($"Halls: {hallsAmount} halls\n");
         Console.WriteLine("Sound system: Dolby Gangrenners Atmos special\n");
         Console.WriteLine("Support: Wheelchair, Auditory and visual support, Found objects and Nuisance SMS code: SMS 'GANGRENNERS' 'room number' 'reason for support' to 1234");
-
-        AskToKnowMore();
+        System.Console.WriteLine();
+        PresentationHelper.PrintYellow("Press any key to return to the main menu");
+        PresentationHelper.PressAnyToContinue(Start);
     }
 
     public static void Contact()
     {
+        PresentationHelper.ClearConsole();
         Console.WriteLine("Contact");
         Console.WriteLine("Phone: 123-456-7890");
         Console.WriteLine("Email: service@gangrenners.com");
-
-        AskToKnowMore();
-    }
-
-    private static void AskToKnowMore()
-    {
-        string StartMessage = "\nWould you like to:";
-        string[] MenuNames = {"Go back to the about page", "Go back to the main menu"};
-        Action[] Actions = {Start, Menu.Start};
-        SelectingMenu.MenusSelect(MenuNames, Actions, StartMessage);
+        System.Console.WriteLine();
+        PresentationHelper.PrintYellow("Press any key to return to the main menu");
+        PresentationHelper.PressAnyToContinue(Start);
     }
 }
