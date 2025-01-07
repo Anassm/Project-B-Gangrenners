@@ -67,7 +67,7 @@ static class Menu
 
     static public void MainMenu()
     {
-        string subscriptionText = SubscriptionLogic.IsSubscribed(AccountsLogic.CurrentAccount.Id) ? "out of" : "in to";
+        string subscriptionText = SubscriptionLogic.IsSubscribed(AccountsLogic.CurrentAccount.Id) ? "manage your" : "opt in to a";
 
         if (AccountsLogic.CurrentAccount != null)
         {
@@ -75,7 +75,7 @@ static class Menu
             Console.WriteLine("Enter 1 to search movies by date and buy ticket");
             Console.WriteLine("Enter 2 to search all movies and buy ticket");
             Console.WriteLine("Enter 3 to see reservation");
-            Console.WriteLine($"Enter 4 to opt {subscriptionText} subscription");
+            Console.WriteLine($"Enter 4 to {subscriptionText} subscription");
             Console.WriteLine("Enter 5 to logout");
         }
         else
@@ -111,13 +111,12 @@ static class Menu
                 {
                     if (SubscriptionLogic.IsSubscribed(AccountsLogic.CurrentAccount.Id))
                     {
-                        SubscriptionLogic.CancelSubscription(AccountsLogic.CurrentAccount.Id);
-                        Console.WriteLine("You have successfully opted out of the subscription");
+                        Subscription.ManageMenu();
                     }
                     else
                     {
                         SubscriptionLogic.AddSubscription(AccountsLogic.CurrentAccount.Id);
-                        Console.WriteLine("You have successfully opted in to the subscription");
+                        Console.WriteLine("You have successfully opted in to a subscription");
                     }
                     MainMenu();
                     break;

@@ -37,7 +37,7 @@ public class SubscriptionLogic
     public static bool IsSubscribed(int userId)
     {
         SubscriptionModel? subscription = _subscriptions.Find(sub => sub.UserId == userId);
-        if (subscription == null || subscription.ExpirationDate < DateTime.Now)
+        if (subscription == null || subscription.RenewalDate < DateTime.Now)
         {
             return false;
         }
@@ -45,4 +45,16 @@ public class SubscriptionLogic
         return true;
     }
 
+    public static bool
+
+    public static SubscriptionModel? GetUserSubscription(int userId)
+    {
+        SubscriptionModel? subscription = _subscriptions.Find(sub => sub.UserId == userId);
+        if (subscription == null)
+        {
+            return null;
+        }
+
+        return subscription;
+    }
 }
