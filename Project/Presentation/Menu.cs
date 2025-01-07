@@ -67,7 +67,7 @@ static class Menu
 
     static public void MainMenu()
     {
-        string subscriptionText = SubscriptionLogic.IsSubscribed(AccountsLogic.CurrentAccount.Id) ? "manage your" : "opt in to a";
+        string subscriptionText = SubscriptionLogic.IsSubscribed(AccountsLogic.CurrentAccount.Id) || SubscriptionLogic.IsSubscriptionCancelledButValid(AccountsLogic.CurrentAccount.Id) ? "manage your" : "opt in to a";
 
         if (AccountsLogic.CurrentAccount != null)
         {
@@ -109,15 +109,23 @@ static class Menu
             case "4":
                 if (AccountsLogic.CurrentAccount != null)
                 {
-                    if (SubscriptionLogic.IsSubscribed(AccountsLogic.CurrentAccount.Id))
+                    if (SubscriptionLogic.IsSubscribed(AccountsLogic.CurrentAccount.Id) || SubscriptionLogic.IsSubscriptionCancelledButValid(AccountsLogic.CurrentAccount.Id))
                     {
                         Subscription.ManageMenu();
                     }
                     else
                     {
-                        SubscriptionLogic.AddSubscription(AccountsLogic.CurrentAccount.Id);
-                        Console.WriteLine("You have successfully opted in to a subscription");
+                        if (Subscription.TermsAndServicesAgreement() == 0)
+                        {
+                            MainMenu();
+                            break;
+                        }
+                        else
+                        {
+                            SubscriptionLogic.AddSubscription(AccountsLogic.CurrentAccount.Id);
+                        }
                     }
+
                     MainMenu();
                     break;
                 }
