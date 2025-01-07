@@ -12,7 +12,8 @@ public static class SeeReservations
     {
         Console.Clear();
         PastReservationsMenu();
-        System.Console.WriteLine("Press any key to continue.");
+        PresentationHelper.PrintYellow("Press any key to continue.");
+        System.Console.WriteLine();
         PresentationHelper.PressAnyToContinue(SeeReservationSubMenu);
     }
 
@@ -20,7 +21,8 @@ public static class SeeReservations
     {
         Console.Clear();
         FutureReservationsMenu();
-        System.Console.WriteLine("Press any key to continue.");
+        PresentationHelper.PrintYellow("Press any key to continue.");
+        System.Console.WriteLine();
         PresentationHelper.PressAnyToContinue(SeeReservationSubMenu);
     }
 
@@ -28,7 +30,8 @@ public static class SeeReservations
     {
         Console.Clear();
         AllReservationsMenu();
-        System.Console.WriteLine("Press any key to continue.");
+        PresentationHelper.PrintYellow("Press any key to continue.");
+        System.Console.WriteLine();
         PresentationHelper.PressAnyToContinue(SeeReservationSubMenu);
     }
 
@@ -36,7 +39,8 @@ public static class SeeReservations
     {
         Console.Clear();
         SeeReservationByCode();
-        System.Console.WriteLine("Press any key to continue.");
+        System.Console.WriteLine();
+        PresentationHelper.PrintYellow("Press any key to continue.");
         PresentationHelper.PressAnyToContinue(SeeReservationSubMenu);
     }
 
@@ -85,7 +89,7 @@ public static class SeeReservations
 
     public static void SeeReservationByCode()
     {
-        System.Console.WriteLine("Enter the code of the reservation you want to see:");
+        PresentationHelper.PrintYellow("Enter the code of the reservation you want to see:");
         string code = Console.ReadLine();
         ReservationModel reservation = ReservationsLogic.GetReservation(code);
         if (reservation != null)

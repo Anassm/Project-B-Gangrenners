@@ -14,16 +14,17 @@ public static class AdminLogin
         Console.Clear();
         if (_attemptsLeft <= 0)
         {
-            System.Console.WriteLine("Too many incorrect, locked out for 30 seconds.");
+            PresentationHelper.PrintRed("Too many incorrect, locked out for 30 seconds.");
             Thread.Sleep(30000);
-            System.Console.WriteLine("The lock out has ended, you may continue by pressing enter.");
+            PresentationHelper.PrintYellow("The lock out has ended, you may continue by pressing enter.");
             System.Console.ReadLine();
         }
         // This is the login page
-        Console.WriteLine("Welcome to the admin login page");
-        Console.WriteLine("Please enter your email address");
+        PresentationHelper.PrintGreen("Welcome to the admin login page");
+        PresentationHelper.PrintYellow("Please enter your email address");
         string email = Console.ReadLine();
-        Console.WriteLine("Please enter your password");
+        System.Console.WriteLine();
+        PresentationHelper.PrintYellow("Please enter your password");
         string password = HideCharacter();
 
         // Check if the email and password match an account

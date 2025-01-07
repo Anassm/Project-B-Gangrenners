@@ -31,7 +31,6 @@ static class BuyTicket
 
     
         Console.Clear();
-        Console.WriteLine("Welcome to the ticket buying page");
         Console.WriteLine("This is what your order looks like now:");
         Console.WriteLine("Movie: " +  movieName);
         Console.WriteLine("Seat types: " + seatTypes);
@@ -39,7 +38,17 @@ static class BuyTicket
         Console.WriteLine("Time of the movie: " + time);
         Console.WriteLine("Hall: " + info.showtime.HallId);
         Console.WriteLine("Seats: " + seats);
-        string StartMessage = "Do you want to proceed with the purchase?";
+        string StartMessage = 
+            $"This is what your order looks like now:" +
+            $"\nMovie: {movieName}" +
+            $"\nSeat types: {seatTypes}" +
+            $"\nPrice: {Math.Round(TotalPrice,2).ToString("0.00")}" +
+            $"\nTime of the movie: {time}" +
+            $"\nHall: {info.showtime.HallId}" +
+            $"\nSeats: {seats}" +
+            "Do you want to continue with the purchase?";
+
+
         bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
         if (YesNo)
         {
@@ -86,13 +95,13 @@ static class BuyTicket
                     Console.WriteLine("Your codes are: " + string.Join(", ", codes));
                 }
                 Console.WriteLine("Thank you for your purchase");
-                Console.WriteLine("Press any key to return to the main menu");
+                PresentationHelper.PrintYellow("Press any key to return to the main menu");
                 ConsoleKeyInfo key = Console.ReadKey(true);
                 PresentationHelper.PressAnyToContinue(Menu.MainMenu);
             }
             catch (Exception e)
             {
-                Console.WriteLine("Something went wrong, please try again");
+                PresentationHelper.PrintRed("Something went wrong, please try again");
             }
         }
         else

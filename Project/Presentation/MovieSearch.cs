@@ -6,8 +6,8 @@ public static class MovieSearch
         MovieModel selectedMovie = SelectMovie(selectedDate);
         if (selectedMovie == null)
         {
-            Console.WriteLine("No movie selected");
-            Console.WriteLine("Going back to main menu");
+            PresentationHelper.PrintRed("No movie selected");
+            PresentationHelper.PrintRed("Going back to main menu");
             Menu.MainMenu();
         }
 
@@ -25,7 +25,7 @@ public static class MovieSearch
 
         while (true)
         {
-            Console.WriteLine("Please enter the number of tickets you want to buy");
+            PresentationHelper.PrintYellow("Please enter the number of tickets you want to buy");
             string ticketsInput = Console.ReadLine();
             List<ShowtimeModel> showtimes = ShowtimesLogic.GetShowtimesByDay(selectedDate);
             int maxSeats = 0;
@@ -53,21 +53,6 @@ public static class MovieSearch
                     {
                         Menu.MainMenu();
                     }
-
-
-                    // Console.WriteLine($"There are only {maxSeats} seats available for this movie");
-                    // Console.WriteLine("Would you like to buy tickets for the available seats? ([y]es/[n]o)");
-                    // string response = Console.ReadLine();
-                    // if (response.ToLower() == "y")
-                    // {
-                    //     tickets = maxSeats;
-                    // }
-                    // else
-                    // {
-                    //     Console.WriteLine("Exiting search.");
-                    //     Menu.MainMenu();
-                    //     break;
-                    // }
                 }
                 BuyTicket.Start(ChooseMovie.StartMovie(selectedMovie, tickets, selectedDate));
                 break;
@@ -83,7 +68,8 @@ public static class MovieSearch
 
     public static DateTime SelectDate()
     {
-        Console.WriteLine("Select one of the following dates:");
+        PresentationHelper.ClearConsole();
+        PresentationHelper.PrintYellow("Select one of the following dates:");
         List<DateTime> dates = Enumerable.Range(0, 15).Select(offset => DateTime.Now.Date.AddDays(offset)).ToList();
         for (int i = 0; i < dates.Count; i++)
         {
@@ -109,31 +95,18 @@ public static class MovieSearch
         List<MovieModel> movies = MoviesLogic.GetMovies(selectedDate);
         if (movies.Count == 0)
         {
-            string StartMessage = "No movies found for this date";
+            string StartMessage = "No movies found for this date, would you like to select another date?";
             bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
             if (YesNo)
             {
-                DateTime newDate = SelectDate();
-                SelectMovie(newDate);
+                Menu.MainMenu();
             }
             else
             {
-                Menu.MainMenu();
+                
+                DateTime newDate = SelectDate();
+                SelectMovie(newDate);
             }
-
-            // Console.WriteLine("No movies found for this date");
-            // Console.WriteLine("Would you like to select another date? ([y]es/[n]o)");
-            // string response = Console.ReadLine();
-            // if (response.ToLower() == "y")
-            // {
-            //     DateTime newDate = SelectDate();
-            //     SelectMovie(newDate);
-            // }
-            // else
-            // {
-            //     Console.WriteLine("Exiting search.");
-            //     Menu.MainMenu();
-            // }
         }
         else
         {
@@ -145,7 +118,7 @@ public static class MovieSearch
         {
             Console.WriteLine($"Movies for {selectedDate.ToShortDateString()}");
             Console.WriteLine(MoviesLogic.DisplayMovies(selectedDate));
-            Console.WriteLine("Enter the name of the movie you want to see");
+            PresentationHelper.PrintYellow("Enter the name of the movie you want to see");
             string movieName = Console.ReadLine();
             MovieModel selectedMovie = MoviesLogic.GetMovieByName(movieName, MoviesLogic.GetMovies(selectedDate));
             if (selectedMovie == null)
@@ -168,32 +141,22 @@ public static class MovieSearch
             {
                 Console.Clear();
             }
-
-            // Console.WriteLine("You selected the following movie:");
-            // Console.WriteLine(selectedMovie.ToStringOneLine());
-            // Console.WriteLine("Is this the movie you want to see? ([y]es/[n]o)");
-            // string response = Console.ReadLine();
-            // if (response.ToLower() == "y")
-            // {
-            //     Console.Clear();
-            //     return selectedMovie;
-            // }
-            // Console.Clear();
         }
     }
 
     public static void SearchAll()
     {
+        PresentationHelper.ClearConsole();
         Console.WriteLine("All movies for upcoming 14 days");
         Console.WriteLine("----------------------------------------------");
         Console.WriteLine(MoviesLogic.DisplayMovies(DateTime.Now, DateTime.Now.AddDays(14), true));
-        Console.WriteLine("Enter the name of the movie you want to see");
+        PresentationHelper.PrintYellow("Enter the name of the movie you want to see");
         string movieName = Console.ReadLine();
         MovieModel selectedMovie = MoviesLogic.GetMovieByName(movieName, MoviesLogic.GetMovies(DateTime.Now, DateTime.Now.AddDays(14)));
         if (selectedMovie == null)
         {
-            Console.WriteLine("Movie not found");
-            Console.WriteLine("Press any key to go back to main menu");
+            PresentationHelper.PrintRed("Movie not found");
+            PresentationHelper.PrintYellow("Press any key to go back to main menu");
             PresentationHelper.PressAnyToContinue(Menu.MainMenu);
         }
 
@@ -211,7 +174,7 @@ public static class MovieSearch
 
         while (true)
         {
-            Console.WriteLine("Please enter the number of tickets you want to buy");
+            PresentationHelper.PrintYellow("Please enter the number of tickets you want to buy");
             string ticketsInput = Console.ReadLine();
             List<ShowtimeModel> showtimes = ShowtimesLogic.GetShowtimesByDay(DateTime.Now, DateTime.Now.AddDays(14));
             int maxSeats = 0;
@@ -240,20 +203,6 @@ public static class MovieSearch
                     {
                         Menu.MainMenu();
                     }
-
-                    // Console.WriteLine($"There are only {maxSeats} seats available for this movie");
-                    // Console.WriteLine("Would you like to buy tickets for the available seats? ([y]es/[n]o)");
-                    // string response = Console.ReadLine();
-                    // if (response.ToLower() == "y")
-                    // {
-                    //     tickets = maxSeats;
-                    // }
-                    // else
-                    // {
-                    //     Console.WriteLine("Exiting search.");
-                    //     Menu.MainMenu();
-                    //     break;
-                    // }
                 }
                 BuyTicket.Start(ChooseMovie.StartMovie(selectedMovie, tickets, DateTime.Now, DateTime.Now.AddDays(14)));
                 break;
