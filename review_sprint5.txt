@@ -1,0 +1,34 @@
+Before vacation bit slow, then back on track and again off track
+
+RETROSPECTIVE
+ok
+
+DEMO
+
+    REFINEMENT
+    -Loop fixed                 V
+    -Changes about              V
+    -Trending to recommended    V
+    -ADD PROMOTED TO HOME       X   (verandering van plan???)
+    -LOGIN AND THEN USE SUBMENU X   (eerder mocht dit niet???)
+    -REGISTER ON HOME PAGE      X   
+    -SEARCH OPTIONS ON HOME     X
+    -REMOVE CONTINUE AS GUEST   X
+    -LOGIN AFTER RESERVING????
+    -ACCOUNTANT PAGE            V
+    -DATE EUROPEAN              V
+    -CONFIRMATION SCREENINGS    V
+
+    USER STORY UI
+    -Well done with actions 
+    -Looks good                 
+
+    USER STORY SUBSCRIPTION
+    -Very nice made
+    -
+
+    USER STORY FOOD
+    -Continue to checkout change 
+
+    
+
