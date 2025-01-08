@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Popcorn drink combo",
+        "price": 7.50,
+        "description": "Get a large popcorn and a drink of your choice"
+    },
+    {
+        "id": 2,
+        "name": "Nachos and soda combo",
+        "price": 8.00,
+        "description": "Enjoy a serving of nachos with cheese and a soda"
+    },
+    {
+        "id": 3,
+        "name": "Hotdog and beer combo",
+        "price": 10.00,
+        "description": "A hotdog with your choice of beer"
+    },
+    {
+        "id": 4,
+        "name": "Candy and water combo",
+        "price": 5.00,
+        "description": "A selection of candies and a bottle of water"
+    }
+]
