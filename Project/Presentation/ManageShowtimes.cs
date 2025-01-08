@@ -171,17 +171,20 @@ public class ManageShowtimes
                 AdminLogin.AdminMenu();
             }
         }
-        
+
         Console.Clear();
         PresentationHelper.PrintYellow("Press anything to go back to the menu.");
         PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
     }
+    public static List<ShowtimeModel> invalidshowtimes = [];
+    public static List<ShowtimeModel> validshowtimes = [];
+    public static List<DateTime> datetimes = [];
 
     public static void AddShowTimesMenu()
     {
         //confirm to continue
         PresentationHelper.ClearConsole();
-        string StartMessage4 = "you have chosen to add multiple screenings.\n Do you want to continue?";
+        string StartMessage4 = "you have chosen to add multiple screenings.\nDo you want to continue?";
         bool YesNo4 = SelectingMenu.YesNoSelect(StartMessage4);
         if (!YesNo4)
         {
@@ -190,7 +193,7 @@ public class ManageShowtimes
         else
         {
             PresentationHelper.ClearConsole();
-        
+
         }
 
         //moviename input
@@ -405,26 +408,26 @@ public class ManageShowtimes
             if (YesNo2)
             {
                 Console.Clear();
-                List<DateTime> datetimes = ShowtimesLogic.GenerateDateTimesList(startdate, enddate, time, interval);
-                List<ShowtimeModel> validshowtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes).ValidShowtimes;
-                List<ShowtimeModel> invalidshowtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes).InvalidShowtimes;
-                System.Console.WriteLine("Valid screen times:");
-                System.Console.WriteLine("---------------------------------------");
-                foreach (ShowtimeModel showtime in validshowtimes)
-                {
-                    System.Console.WriteLine($"Date: {showtime.Time}");
-                    System.Console.WriteLine("---------------------------------------");
-                }
-                System.Console.WriteLine("");
-                System.Console.WriteLine("Invalid screen times:");
-                System.Console.WriteLine("---------------------------------------");
-                foreach (ShowtimeModel showtime in invalidshowtimes)
-                {
-                    System.Console.WriteLine($"Date: {showtime.Time}");
-                    System.Console.WriteLine("---------------------------------------");
-                }
-                string StartMessage3 = "Add the valid screen times?";
-                bool YesNo3 = SelectingMenu.YesNoSelect(StartMessage3);
+                datetimes = ShowtimesLogic.GenerateDateTimesList(startdate, enddate, time, interval);
+                validshowtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes).ValidShowtimes;
+                invalidshowtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes).InvalidShowtimes;
+                // System.Console.WriteLine("Valid screen times:");
+                // System.Console.WriteLine("---------------------------------------");
+                // foreach (ShowtimeModel showtime in validshowtimes)
+                // {
+                //     System.Console.WriteLine($"Date: {showtime.Time}");
+                //     System.Console.WriteLine("---------------------------------------");
+                // }
+                // System.Console.WriteLine("");
+                // System.Console.WriteLine("Invalid screen times:");
+                // System.Console.WriteLine("---------------------------------------");
+                // foreach (ShowtimeModel showtime in invalidshowtimes)
+                // {
+                //     System.Console.WriteLine($"Date: {showtime.Time}");
+                //     System.Console.WriteLine("---------------------------------------");
+                // }
+                // string StartMessage3 = "Add the valid screen times?";
+                bool YesNo3 = SelectingMenu.YesNoSelect(Print);
                 if (YesNo3)
                 {
                     ShowtimesLogic.AddShowTimes(validshowtimes);
@@ -441,5 +444,26 @@ public class ManageShowtimes
                 PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
             }
         }
+    }
+
+    public static void Print()
+    {
+        System.Console.WriteLine("Valid screen times:");
+        System.Console.WriteLine("---------------------------------------");
+        foreach (ShowtimeModel showtime in validshowtimes)
+        {
+            System.Console.WriteLine($"Date: {showtime.Time}");
+            System.Console.WriteLine("---------------------------------------");
+        }
+        System.Console.WriteLine("");
+        System.Console.WriteLine("Invalid screen times:");
+        System.Console.WriteLine("---------------------------------------");
+        foreach (ShowtimeModel showtime in invalidshowtimes)
+        {
+            System.Console.WriteLine($"Date: {showtime.Time}");
+            System.Console.WriteLine("---------------------------------------");
+        }
+        System.Console.WriteLine();
+        System.Console.WriteLine("Add the valid screen times?");
     }
 }
