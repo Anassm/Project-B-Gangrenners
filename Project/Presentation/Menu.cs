@@ -12,7 +12,7 @@ static class Menu
 
     static public void Start()
     {
-        string[] MenuNames = { "Login", "Register", "Continue as quest", "Login as admin", "Login as accountant", "About page", "Exit" };
+        string[] MenuNames = { "Login", "Register", "Continue as guest", "Login as admin", "Login as accountant", "About page", "Exit" };
         Action[] Actions = { UserLogin.Start, Register.Start, MainMenu, AdminLogin.Start, AccountantLogin.Start, AboutPage.Start, Exit, };
         SelectingMenu.MenusSelectMainMenu(MenuNames, Actions);
     }

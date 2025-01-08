@@ -28,7 +28,7 @@ public static class Subscription
         SubscriptionModel subscription = SubscriptionLogic.GetUserSubscription(userId);
         string RenewalOrEndDate = SubscriptionLogic.IsSubscribed(userId) ? $"renewal date: {subscription.RenewalDate}" : $"end date: {subscription.ExpirationDate}";
 
-        Console.WriteLine("You have a valid subscription:");
+        PresentationHelper.PrintGreen("You have a valid subscription:");
         Console.WriteLine("");
 
         Console.WriteLine($"Free movies left: {subscription.Views}");
@@ -37,7 +37,7 @@ public static class Subscription
         Console.WriteLine($"Subscription {RenewalOrEndDate}");
 
         Console.WriteLine("");
-        Console.WriteLine("Press any key to go back");
+        PresentationHelper.PrintYellow("Press any key to go back");
 
         PresentationHelper.PressAnyToContinue(ManageMenu);
     }
@@ -46,7 +46,7 @@ public static class Subscription
     {
         PresentationHelper.ClearConsole();
 
-        Console.WriteLine("Terms and services");
+        PresentationHelper.PrintYellow("Terms and services");
         Console.WriteLine("");
 
         Console.WriteLine("1. The purchaser acknowledges that the subscription is valid for one year from the purchase date and will renew automatically.");
@@ -55,13 +55,14 @@ public static class Subscription
         Console.WriteLine("4. The purchaser acknowledges and agrees to the cheapest seats being assigned when using the membership codes, for example when using in bulk.");
         Console.WriteLine("5. The purchaser acknowledges and agrees that any misuse of the subscription may result in the loss of access without compensation.");
         Console.WriteLine("6. The purchaser acknowledges and agrees that changes to the Terms of Service may occur and will be communicated in advance.");
+        Console.WriteLine("7. The purchaser acknowledges and agrees that while an active subscription is in place, even if a cancellation request has been submitted, they are not permitted to create a new subscription until the current subscription has fully expired.");
 
         Console.WriteLine("");
 
 
         if (SubscriptionLogic.IsSubscribed(AccountsLogic.CurrentAccount.Id) || SubscriptionLogic.IsSubscriptionCancelledButValid(AccountsLogic.CurrentAccount.Id))
         {
-            Console.WriteLine("Press any key to go back");
+            PresentationHelper.PrintYellow("Press any key to go back");
             PresentationHelper.PressAnyToContinue(ManageMenu);
         }
     }
@@ -71,16 +72,17 @@ public static class Subscription
         TermsAndServices();
 
         if (SelectingMenu.YesNoSelect(
-            
+
             """
             Terms and services
 
             1. The purchaser acknowledges that the subscription is valid for one year from the purchase date and will renew automatically.
             2. The purchaser acknowledges that upon cancellation, the cancellation date will align with the renewal date.
             3. The purchaser acknowledges and agrees this subscription is non-refundable under any circumstances.
-            4. The purchaser acknowledges and agrees to comply with all applicable laws and regulations when using the subscription.
+            4. The purchaser acknowledges and agrees to the cheapest seats being assigned when using the membership codes, for example when using in bulk.
             5. The purchaser acknowledges and agrees that any misuse of the subscription may result in the loss of access without compensation.
             6. The purchaser acknowledges and agrees that changes to the Terms of Service may occur and will be communicated in advance.
+            7. The purchaser acknowledges and agrees that while an active subscription is in place, even if a cancellation request has been submitted, they are not permitted to create a new subscription until the current subscription has fully expired.
 
             Do you agree to the terms and services?
             """
