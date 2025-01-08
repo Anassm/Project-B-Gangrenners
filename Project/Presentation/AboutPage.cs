@@ -3,12 +3,12 @@ public static class AboutPage
     public static void Start()
     {
         string StartMessage = "Welcome to the about page!\nPlease select an option you would like to be informed about:";
-        string[] MenuNames = {"Accessability", "Opening hours", "General information", "Contact information", "Go back to main menu"};
-        Action[] Actions = {Accessability, OpeningHours, GeneralInformation, Contact, Menu.Start,};
+        string[] MenuNames = {"Accessibility", "Opening hours", "General information", "Contact information", "Go back to main menu"};
+        Action[] Actions = {Accessibility, OpeningHours, GeneralInformation, Contact, Menu.Start,};
         SelectingMenu.MenusSelect(MenuNames, Actions, StartMessage);
     }
 
-    public static void Accessability()
+    public static void Accessibility()
     {
         PresentationHelper.ClearConsole();
         var parkingSpots = new Dictionary<string, (string Address, decimal CostPerHour)>
@@ -18,7 +18,7 @@ public static class AboutPage
             { "East Side Garage", ("789 Oak Ave", 6.25m) }
         };
 
-        PresentationHelper.PrintGreen("Accessability");
+        PresentationHelper.PrintGreen("Accessibility");
         Console.WriteLine("Parking");
         Console.WriteLine("------------------");
 
