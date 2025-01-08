@@ -270,6 +270,7 @@ static class BuyTicket
         try
         {
             OrdersLogic.GetOrderByReservationId(reservation.Id);
+            string test = OrdersLogic.GetOrderById(OrdersLogic.GetOrderByReservationId(reservation.Id)).PickupCode;
             System.Console.WriteLine("");
             System.Console.WriteLine("You have added extras to your reservation");
             System.Console.WriteLine("This is your order:");
