@@ -4,9 +4,19 @@
     "UserId": 1,
     "Name": "Loyal",
     "MembershipNumber": 20251,
-    "Views": 15,
-    "StartDate": "2025-01-06T13:51:44.8310691+01:00",
+    "Views": 10,
+    "StartDate": "2025-01-07T22:03:31.1062736+01:00",
     "RenewalDate": null,
+    "ExpirationDate": "2026-01-07T22:03:31.1062736+01:00"
+  },
+  {
+    "Id": 2,
+    "UserId": 2,
+    "Name": "Loyal",
+    "MembershipNumber": 20252,
+    "Views": 11,
+    "StartDate": "2025-01-08T00:23:25.5423173+01:00",
+    "RenewalDate": "2026-01-08T00:23:25.5423173+01:00",
     "ExpirationDate": null
   }
 ]

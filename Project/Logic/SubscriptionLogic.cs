@@ -84,4 +84,44 @@ public class SubscriptionLogic
 
         return -2;
     }
+
+    public static int UseViewByCode(int memberCode)
+    {
+        SubscriptionModel? subscription = _subscriptions.Find(sub => sub.MembershipNumber == memberCode);
+        if (subscription != null && subscription.Views > 0)
+        {
+            subscription.Views--;
+            SubscriptionAccess.WriteAll(_subscriptions);
+
+            return 0;
+        }
+        else if (subscription != null && subscription.Views <= 0)
+        {
+            return -1;
+        }
+
+        return -2;
+    }
+
+    public static bool enoughViews(int userId)
+    {
+        SubscriptionModel? subscription = _subscriptions.Find(sub => sub.UserId == userId);
+        if (subscription != null && subscription.Views > 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool CheckCode(int code)
+    {
+        SubscriptionModel? subscription = _subscriptions.Find(sub => sub.MembershipNumber == code);
+        if (subscription != null)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }
