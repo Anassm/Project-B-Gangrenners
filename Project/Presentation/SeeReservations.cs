@@ -55,7 +55,7 @@ public static class SeeReservations
 
             foreach (ReservationModel reservation in _reservations)
             {
-                System.Console.WriteLine(reservation.ToStringWithSeats());
+                System.Console.WriteLine(reservation.ToStringWithSeatsAndOrder());
                 System.Console.WriteLine("-----------------------------------");
             }
             return;
@@ -72,7 +72,7 @@ public static class SeeReservations
         {
             foreach (ReservationModel reservation in _reservations)
             {
-                System.Console.WriteLine(reservation.ToStringWithSeats());
+                System.Console.WriteLine(reservation.ToStringWithSeatsAndOrder());
                 System.Console.WriteLine("-----------------------------------");
             }
             return;
@@ -94,7 +94,7 @@ public static class SeeReservations
         ReservationModel reservation = ReservationsLogic.GetReservation(code);
         if (reservation != null)
         {
-            System.Console.WriteLine(reservation.ToStringWithSeats());
+            System.Console.WriteLine(reservation.ToStringWithSeatsAndOrder());
         }
         else
         {

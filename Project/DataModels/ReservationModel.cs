@@ -35,7 +35,7 @@ public class ReservationModel
         return $"ID: {Id}\n" + $"Seat IDs: {string.Join(", ", SeatIds)}\n" + $"Showtime ID: {ShowtimeId}\n" + $"Account ID: {AccountId}\n" + $"Total Price: {TotalPrice}\n" + $"Codes: {string.Join(", ", Codes)}";    
     }
 
-public string ToStringWithSeats()
+    public string ToStringWithSeats()
     {
         ShowtimeModel showtime = ShowtimesLogic.GetShowtimeById(ShowtimeId);
         string movieName = MoviesLogic.GetMovieById(showtime.MoviesId).Name;
@@ -47,7 +47,28 @@ public string ToStringWithSeats()
             SeatModel seat = SeatsLogic.GetSeatById(seatId);
             seats += $"Row: {seat.Row}, Seat: {seat.Seat}\n";
         }
-        return $"Movie: {movieName}\n" + $"Time: {time}\n" + $"Hall ID: {hallId}\n" + $"Seats:\n{seats}\n" + $"Total Price: \u20AC {Math.Round(TotalPrice,2).ToString("0.00")}\n" + $"Codes: {string.Join(", ", Codes)}";
+        return $"Movie: {movieName}\n" + $"Time: {time}\n" + $"Hall ID: {hallId}\n" + $"Seats:\n{seats}" + $"Seat price: \u20AC {Math.Round(TotalPrice,2).ToString("0.00")}\n" + $"Codes: {string.Join(", ", Codes)}";
+    }
+
+    public string ToStringWithSeatsAndOrder()
+    {
+        string complete = ToStringWithSeats();
+        try
+        {
+            string test = OrdersLogic.GetOrderById(OrdersLogic.GetOrderByReservationId(Id)).PickupCode;
+
+            complete += "\n\nThis is your order:\n";
+            complete += OrdersLogic.GetProductString(OrdersLogic.GetOrderByReservationId(Id)) + "";
+            complete += "Pickup code: " + OrdersLogic.GetOrderById(OrdersLogic.GetOrderByReservationId(Id)).PickupCode + "\n";
+            complete += "Price of the items: \u20AC" + OrdersLogic.GetTotalPrice(OrdersLogic.GetOrderByReservationId(Id)).ToString("0.00") + "\n";
+            complete += "Total price of the reservation: \u20AC" + (TotalPrice + OrdersLogic.GetTotalPrice(OrdersLogic.GetOrderByReservationId(Id))).ToString("0.00");
+        }
+        catch
+        {
+            complete += "\nYou have not added any extras to your reservation";
+        }
+        return complete;
+
     }
 
 }
