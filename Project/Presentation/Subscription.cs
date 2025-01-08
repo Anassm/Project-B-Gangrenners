@@ -16,7 +16,7 @@ public static class Subscription
             Actions = [Info, TermsAndServices, Menu.MainMenu];
         }
 
-        SelectingMenu.MenusSelect(MenuNames, Actions);
+        SelectingMenu.MenusSelect(MenuNames, Actions, "");
 
     }
 
@@ -52,7 +52,7 @@ public static class Subscription
         Console.WriteLine("1. The purchaser acknowledges that the subscription is valid for one year from the purchase date and will renew automatically.");
         Console.WriteLine("2. The purchaser acknowledges that upon cancellation, the cancellation date will align with the renewal date.");
         Console.WriteLine("3. The purchaser acknowledges and agrees this subscription is non-refundable under any circumstances.");
-        Console.WriteLine("4. The purchaser acknowledges and agrees to comply with all applicable laws and regulations when using the subscription.");
+        Console.WriteLine("4. The purchaser acknowledges and agrees to the cheapest seats being assigned when using the membership codes, for example when using in bulk.");
         Console.WriteLine("5. The purchaser acknowledges and agrees that any misuse of the subscription may result in the loss of access without compensation.");
         Console.WriteLine("6. The purchaser acknowledges and agrees that changes to the Terms of Service may occur and will be communicated in advance.");
 
@@ -70,9 +70,21 @@ public static class Subscription
     {
         TermsAndServices();
 
-        Console.WriteLine("Do you agree to the terms and services? (Y/N)");
+        if (SelectingMenu.YesNoSelect(
+            
+            """
+            Terms and services
 
-        if (PresentationHelper.AlteredContinue() == 0)
+            1. The purchaser acknowledges that the subscription is valid for one year from the purchase date and will renew automatically.
+            2. The purchaser acknowledges that upon cancellation, the cancellation date will align with the renewal date.
+            3. The purchaser acknowledges and agrees this subscription is non-refundable under any circumstances.
+            4. The purchaser acknowledges and agrees to comply with all applicable laws and regulations when using the subscription.
+            5. The purchaser acknowledges and agrees that any misuse of the subscription may result in the loss of access without compensation.
+            6. The purchaser acknowledges and agrees that changes to the Terms of Service may occur and will be communicated in advance.
+
+            Do you agree to the terms and services?
+            """
+        ) == false)
         {
             return 0;
         }
@@ -89,7 +101,7 @@ public static class Subscription
         if (confirm)
         {
             SubscriptionLogic.CancelSubscription(AccountsLogic.CurrentAccount.Id);
-            Menu.MainMenu();
+            ManageMenu();
         }
 
         ManageMenu();
