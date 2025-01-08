@@ -371,11 +371,12 @@ public static class ChooseMovie
         {
             Console.WriteLine("All seats selected successfully!");
             Console.WriteLine("You selected the following seats:");
+            string allSeats = "";
             foreach (var seat in selectedSeats)
             {
-                Console.WriteLine($"Row: {seat.Row}, Seat: {seat.Seat}");
+                allSeats += $"Row: {seat.Row}, Seat: {seat.Seat}\n";
             }
-            string StartMessage = "is this correct?";
+            string StartMessage = allSeats + "\nis this correct?";
             bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
             if (YesNo)
             {
