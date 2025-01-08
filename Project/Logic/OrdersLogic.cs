@@ -143,6 +143,7 @@ public class OrdersLogic
             "food" => FoodAccess.LoadAll().FirstOrDefault(item => item.Id == id),
             "drinks" => DrinksAccess.LoadAll().FirstOrDefault(item => item.Id == id),
             "products" => ProductsAccess.LoadAll().FirstOrDefault(item => item.Id == id),
+            "deals" => DealsAccess.LoadAll().FirstOrDefault(item => item.Id == id),
             _ => null
         };
     }
@@ -154,7 +155,7 @@ public class OrdersLogic
         foreach (var reference in order.ItemReferences)
         {
             IItem? item = LoadItemById(reference.fileName, reference.itemId);
-
+            
             if (item != null)
             {
                 order.Items.Add((item, reference.quantity));
@@ -182,7 +183,7 @@ public class OrdersLogic
         }
 
         LoadFullItems(order);
-
+    
         var sb = new StringBuilder();
 
         foreach (var item in order.Items)
