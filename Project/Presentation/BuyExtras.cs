@@ -7,12 +7,13 @@ public static class BuyExtras
         if (isTicket)
         {
             string StartMessage = "Choose a product category to buy from";
-            string[] MenuNames = { "Food", "Drinks", "Products", "Continue to overview" };
+            string[] MenuNames = { "Food", "Drinks", "Products", "Deals","Continue to overview" };
             Action[] MenuActions =
             {
                 () => DisplayFood(reservation),
                 () => DisplayDrinks(reservation),
                 () => DisplayProducts(reservation),
+                () => DisplayDeals(reservation),
                 () => BuyTicket.ReservationOverview(reservation)
             };
             SelectingMenu.MenusSelect(MenuNames, MenuActions, StartMessage);
@@ -20,8 +21,8 @@ public static class BuyExtras
         else
         {
             string StartMessage = "Choose a product category to buy from";
-            string[] MenuNames = {"Food", "Drinks", "Products", "Go back"};
-            Action[] Actions = {() => DisplayFood(reservation),() => DisplayDrinks(reservation),() => DisplayProducts(reservation), SeeReservations.AllReservations};
+            string[] MenuNames = {"Food", "Drinks", "Products", "Deals", "Go back"};
+            Action[] Actions = {() => DisplayFood(reservation),() => DisplayDrinks(reservation),() => DisplayProducts(reservation), () => DisplayDeals(reservation),SeeReservations.AllReservations};
             SelectingMenu.MenusSelect(MenuNames, Actions, StartMessage);
         }
 
@@ -107,6 +108,21 @@ public static class BuyExtras
         
     }
 
+    public static void DisplayDeals(ReservationModel reservation)
+    {
+        string StartMessage = "Choose a deal to buy";
+        string[] MenuNames = DealsLogic.GetAll().Select(x => x.ToString()).ToArray().Concat(["Go back"]).ToArray();
+        Action[] Actions = new Action[MenuNames.Length];
+        for (int i = 0; i < MenuNames.Length-1; i++)
+        {
+            string deal = MenuNames[i].Split(" -")[0];
+            Actions[i] = () => AddItemToReservation(DealsLogic.GetByName(deal), reservation);
+        }
+        Actions[MenuNames.Length-1] = () => ProductMenu(true, reservation);
+
+        SelectingMenu.MenusSelect(MenuNames, Actions, StartMessage);
+    }
+
     public static void AddItemToReservation(IItem item, ReservationModel reservation)
     {
         System.Console.WriteLine("How many of this item do you want to buy?");
@@ -114,21 +130,16 @@ public static class BuyExtras
         if(OrdersLogic.GetOrderByReservationId(reservation.Id) == 0 || OrdersLogic.GetOrderByReservationId(reservation.Id) == -1)
         {
             int id = OrdersLogic.CreateOrder(reservation.Id);
-            System.Console.WriteLine("Created a new order.");
-            System.Threading.Thread.Sleep(1000);
             OrdersLogic.AddItemToOrder(id, item, amount);
             
         }
         else
         {
-            System.Console.WriteLine("Added to existing order.");
-            System.Threading.Thread.Sleep(1000);
             OrdersLogic.AddItemToOrder(OrdersLogic.GetOrderByReservationId(reservation.Id), item, amount);
             
         }
         System.Console.WriteLine($"Added {amount} of {item.Name} to your order.");
         System.Console.WriteLine("Press any key to continue.");
-        Thread.Sleep(1000);
         PresentationHelper.PressAnyToContinue(() => ProductMenu(true, reservation));
     }
 }

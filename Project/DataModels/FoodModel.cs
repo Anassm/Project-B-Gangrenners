@@ -1,20 +1,20 @@
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 public class FoodModel : IItem 
 {
-    [JsonPropertyName("id")]
+    [JsonProperty("id")]
     public int Id { get; set; }
 
-    [JsonPropertyName("name")]
+    [JsonProperty("name")]
     public string Name { get; set; }
 
-    [JsonPropertyName("subcategory")]
+    [JsonProperty("subcategory")]
     public string SubCategory { get; set; }
 
-    [JsonPropertyName("price")]
+    [JsonProperty("price")]
     public double Price { get; set; }
 
-    [JsonPropertyName("calories")]
+    [JsonProperty("calories")]
     public int Calories { get; set; }
 
     [JsonIgnore]
