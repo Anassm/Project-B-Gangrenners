@@ -225,10 +225,11 @@ public static class SelectingMenu
             System.Console.WriteLine("  \\_____/_/    \\_\\_| \\_|\\_____|______|_|  \\_\\______|_| \\_|_| \\_|______|_|  \\_\\_____/ ");
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.Magenta;
-            System.Console.WriteLine("                                          _      ________   _________  __  _______ __");
-            System.Console.WriteLine("                                         | | /| / / __/ /  / ___/ __ \\/  |/  / __// / ");
-            System.Console.WriteLine("                                         | |/ |/ / _// /__/ /__/ /_/ / /|_/ / _/ /_/ ");
-            System.Console.WriteLine("                                         |__/|__/___/____/\\___/\\____/_/  /_/___/(_)");
+            System.Console.WriteLine("                                            _      ________   _________  __  _______ __");
+            System.Console.WriteLine("    Use arrows and enter                   | | /| / / __/ /  / ___/ __ \\/  |/  / __// / ");
+            System.Console.WriteLine("    to select what you                     | |/ |/ / _// /__/ /__/ /_/ / /|_/ / _/ /_/ ");
+            System.Console.WriteLine("    want to do.                            |__/|__/___/____/\\___/\\____/_/  /_/___/(_)");
+            System.Console.WriteLine();
             Console.ResetColor();
             for (int i = 0; i < menuOptions.Length; i++)
             {
