@@ -316,5 +316,103 @@
     "Codes": [
       "KNig42"
     ]
+  },
+  {
+    "Id": 26,
+    "SeatIds": [
+      52
+    ],
+    "ShowtimeId": 50,
+    "AccountId": 1,
+    "TotalPrice": 0.0,
+    "Codes": [
+      "A7pbd0"
+    ]
+  },
+  {
+    "Id": 27,
+    "SeatIds": [
+      51
+    ],
+    "ShowtimeId": 50,
+    "AccountId": 0,
+    "TotalPrice": 10.0,
+    "Codes": [
+      "PHEpwk"
+    ]
+  },
+  {
+    "Id": 28,
+    "SeatIds": [
+      53
+    ],
+    "ShowtimeId": 50,
+    "AccountId": 0,
+    "TotalPrice": 10.0,
+    "Codes": [
+      "TuCYjV"
+    ]
+  },
+  {
+    "Id": 29,
+    "SeatIds": [
+      63,
+      64,
+      65
+    ],
+    "ShowtimeId": 50,
+    "AccountId": 0,
+    "TotalPrice": 10.0,
+    "Codes": [
+      "Tyb7pP",
+      "nhBZDO",
+      "TlLmzs"
+    ]
+  },
+  {
+    "Id": 30,
+    "SeatIds": [
+      39,
+      40,
+      41
+    ],
+    "ShowtimeId": 50,
+    "AccountId": 1,
+    "TotalPrice": 10.0,
+    "Codes": [
+      "1yTxNC",
+      "lPCf6w",
+      "PJaBx1"
+    ]
+  },
+  {
+    "Id": 31,
+    "SeatIds": [
+      78,
+      77,
+      76
+    ],
+    "ShowtimeId": 50,
+    "AccountId": 1,
+    "TotalPrice": 15.0,
+    "Codes": [
+      "AImVKt",
+      "ZJUyua",
+      "uRyfPV"
+    ]
+  },
+  {
+    "Id": 32,
+    "SeatIds": [
+      56,
+      55
+    ],
+    "ShowtimeId": 50,
+    "AccountId": 1,
+    "TotalPrice": 0.0,
+    "Codes": [
+      "mMiGmZ",
+      "lWaUX4"
+    ]
   }
 ]

@@ -5,53 +5,36 @@ public class ManageShowtimes
     public static void AddSingleShowTimeMenu()
     {
         //confirm to continue
+        PresentationHelper.ClearConsole();
         while (true)
         {
-            Console.Clear();
-            System.Console.WriteLine("you have chosen to add a single screening.");
-            System.Console.WriteLine("Do you want to continue? (Y/N)");
-            string input = Console.ReadLine().ToLower();
-            if (input == "n" || input == "no")
-            {
-                Console.Clear();
-                AdminLogin.AdminMenu();
-            }
-            if (input == "y" || input == "yes")
+            string StartMessage2 = "you have chosen to add a single screening.";
+            bool YesNo2 = SelectingMenu.YesNoSelect(StartMessage2);
+            if (YesNo2)
             {
                 break;
             }
             else
             {
-                Console.Clear();
-                System.Console.WriteLine("Invalid input.");
                 continue;
             }
         }
+
         Console.Clear();
         //show all movies
-        while (true)
+        string StartMessage = "Would you like to see all current movies?";
+        bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
+        if (YesNo)
         {
-            System.Console.WriteLine("Would you like to see all current movies? (Y/N)");
-            string showallmovies = Console.ReadLine().ToLower();
-            if (showallmovies == "y" || showallmovies == "yes")
-            {
-                Console.Clear();
-                System.Console.WriteLine("All movies:");
-                System.Console.WriteLine("------------------------");
-                System.Console.WriteLine(MoviesLogic.ShowAllMovieNames());
-                System.Console.WriteLine("------------------------");
-                break;
-            }
-            else if (showallmovies == "n" || showallmovies == "no")
-            {
-                Console.Clear();
-                break;
-            }
-            else
-            {
-                Console.Clear();
-                System.Console.WriteLine("Invalid input.");
-            }
+            Console.Clear();
+            System.Console.WriteLine("All movies:");
+            System.Console.WriteLine("------------------------");
+            System.Console.WriteLine(MoviesLogic.ShowAllMovieNames());
+            System.Console.WriteLine("------------------------");
+        }
+        else
+        {
+            Console.Clear();
         }
 
         //Movie Name
@@ -59,7 +42,7 @@ public class ManageShowtimes
         while (true)
         {
             System.Console.WriteLine("");
-            System.Console.WriteLine("Please give the name of the movie:");
+            PresentationHelper.PrintYellow("Please give the name of the movie:");
             movieName = Console.ReadLine();
             if (MoviesLogic.GetMovieByName(movieName) == null)
             {
@@ -81,7 +64,7 @@ public class ManageShowtimes
         while (true)
         {
             System.Console.WriteLine("");
-            System.Console.WriteLine("Please give the date of the showing (DD-MM-YYYY):");
+            PresentationHelper.PrintYellow("Please give the date of the showing (DD-MM-YYYY):");
             string dateString = Console.ReadLine();
             if (MoviesLogic.IsValidDateFormat(dateString))
             {
@@ -109,7 +92,7 @@ public class ManageShowtimes
         while (true)
         {
             System.Console.WriteLine("");
-            System.Console.WriteLine("please give the time when the movie is played (HH:MM):");
+            PresentationHelper.PrintYellow("please give the time when the movie is played (HH:MM):");
             playtime = Console.ReadLine();
             if (MoviesLogic.IsValidTimeOnlyFormat(playtime))
             {
@@ -139,7 +122,7 @@ public class ManageShowtimes
         while (true)
         {
             System.Console.WriteLine("");
-            System.Console.WriteLine("Please give the hall ID:");
+            PresentationHelper.PrintYellow("Please give the hall ID:");
             string hallIdString = Console.ReadLine();
             System.Console.WriteLine("");
             if (hallIdString.All(char.IsDigit))
@@ -157,37 +140,15 @@ public class ManageShowtimes
             }
         }
 
-        while (true)
-        {
-            System.Console.WriteLine("---------------------------------------");
-            System.Console.WriteLine($"Movie name: {movieName}");
-            System.Console.WriteLine($"Date and time: {datetime}");
-            System.Console.WriteLine($"Hall ID: {hallId}");
-            System.Console.WriteLine("---------------------------------------");
-            System.Console.WriteLine("");
-            System.Console.WriteLine("is the above correct? (Y/N)");
-            string input2 = Console.ReadLine().ToLower();
-            if (input2 == "y" || input2 == "yes")
-            {
-                if (ShowtimesLogic.AddShowtime(new ShowtimeModel(ShowtimesLogic.GetNextId(), MoviesLogic.GetMovieByName(movieName).Id, datetime, hallId, HallsLogic.GetHallLayout(hallId))) == false)
-                {
-                    System.Console.WriteLine($"screening could not be added, there is already a screening at {datetime} in hall {hallId}");
-                    System.Console.WriteLine("Press anything to go back to the menu.");
-                    ConsoleKeyInfo key2 = Console.ReadKey(true);
-                    if (key2.Key != null)
-                    {
-                        Console.Clear();
-                        AdminLogin.AdminMenu();
-                    }
+        string data = $"---------------------------------------\nMovie name: {movieName}\nDate and time: {datetime}\nHall ID: {hallId}\n---------------------------------------\n\nis the above correct?";
 
-                }
-                Console.Clear();
-                System.Console.WriteLine("screening was succesfully added.");
-                break;
-            }
-            else if (input2 == "n" || input2 == "no")
+
+        bool ConfirmInput = SelectingMenu.YesNoSelect(data);
+        if (ConfirmInput)
+        {
+            if (ShowtimesLogic.AddShowtime(new ShowtimeModel(ShowtimesLogic.GetNextId(), MoviesLogic.GetMovieByName(movieName).Id, datetime, hallId, HallsLogic.GetHallLayout(hallId))) == false)
             {
-                Console.Clear();
+                System.Console.WriteLine($"screening could not be added, there is already a screening at {datetime} in hall {hallId}");
                 System.Console.WriteLine("Press anything to go back to the menu.");
                 ConsoleKeyInfo key2 = Console.ReadKey(true);
                 if (key2.Key != null)
@@ -196,108 +157,76 @@ public class ManageShowtimes
                     AdminLogin.AdminMenu();
                 }
             }
-            else
-            {
-                Console.Clear();
-                System.Console.WriteLine("Invalid input, press anything to try again.");
-                ConsoleKeyInfo key3 = Console.ReadKey(true);
-                if (key3.Key != null)
-                {
-                    Console.Clear();
-                    continue;
-                }
-            }
+            Console.Clear();
+            System.Console.WriteLine("screening was succesfully added.");
         }
-        Console.Clear();
-        System.Console.WriteLine("Press anything to go back to the menu.");
-        ConsoleKeyInfo key = Console.ReadKey(true);
-        if (key.Key != null)
+        else
         {
             Console.Clear();
-            AdminLogin.AdminMenu();
-        }
-    }
-
-    public static void AddShowTimesMenu()
-    {
-        while (true)
-        {
-            Console.Clear();
-            System.Console.WriteLine("you have chosen to add screenings.");
-            System.Console.WriteLine("Do you want to continue? (Y/N)");
-            string input = Console.ReadLine().ToLower();
-            if (input == "n" || input == "no")
+            System.Console.WriteLine("Press anything to go back to the menu.");
+            ConsoleKeyInfo key2 = Console.ReadKey(true);
+            if (key2.Key != null)
             {
                 Console.Clear();
                 AdminLogin.AdminMenu();
             }
-            if (input == "y" || input == "yes")
-            {
-                break;
-            }
-            else
-            {
-                Console.Clear();
-                System.Console.WriteLine("Invalid input.");
-                continue;
-            }
         }
 
         Console.Clear();
+        PresentationHelper.PrintYellow("Press anything to go back to the menu.");
+        PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
+    }
+    public static List<ShowtimeModel> invalidshowtimes = [];
+    public static List<ShowtimeModel> validshowtimes = [];
+    public static List<DateTime> datetimes = [];
+
+    public static void AddShowTimesMenu()
+    {
+        //confirm to continue
+        PresentationHelper.ClearConsole();
+        string StartMessage4 = "you have chosen to add multiple screenings.\nDo you want to continue?";
+        bool YesNo4 = SelectingMenu.YesNoSelect(StartMessage4);
+        if (!YesNo4)
+        {
+            AdminLogin.AdminMenu();
+        }
+        else
+        {
+            PresentationHelper.ClearConsole();
+
+        }
 
         //moviename input
-        while (true)
+        string StartMessage = "Would you like to see all current movies?";
+        bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
+        if (YesNo)
         {
-            System.Console.WriteLine("Would you like to see all current movies? (Y/N)");
-            string showallmovies = Console.ReadLine().ToLower();
-            if (showallmovies == "y" || showallmovies == "yes")
-            {
-                Console.Clear();
-                System.Console.WriteLine("All movies:");
-                System.Console.WriteLine("------------------------");
-                System.Console.WriteLine(MoviesLogic.ShowAllMovieNames());
-                System.Console.WriteLine("------------------------");
-                break;
-            }
-            else if (showallmovies == "n" || showallmovies == "no")
-            {
-                Console.Clear();
-                break;
-            }
-            else
-            {
-                Console.Clear();
-                System.Console.WriteLine("Invalid input.");
-            }
+            Console.Clear();
+            System.Console.WriteLine("All movies:");
+            System.Console.WriteLine("------------------------");
+            System.Console.WriteLine(MoviesLogic.ShowAllMovieNames());
+            System.Console.WriteLine("------------------------");
         }
+        else
+        {
+            Console.Clear();
+        }
+
         System.Console.WriteLine("");
-        System.Console.WriteLine("Please give the name of the movie:");
+        PresentationHelper.PrintYellow("Please give the name of the movie:");
         string movieName = Console.ReadLine();
         if (MoviesLogic.GetMovieByName(movieName) == null)
         {
-            while (true)
+            string StartMessage2 = "this movie does not exist, would you like to add the movie?";
+            bool YesNo2 = SelectingMenu.YesNoSelect(StartMessage2);
+            if (YesNo2)
             {
-                System.Console.WriteLine("This movie does not exist, would you like to add the movie? (Y/N)");
-                string input1 = Console.ReadLine().ToLower();
-                if (input1 == "y" || input1 == "yes")
-                {
-                    ManageMovies.AddMovieMenu();
-                }
-                else if (input1 == "n" || input1 == "no")
-                {
-                    System.Console.WriteLine("Chosen not to add a new movie, press anything to go back to the menu.");
-                    ConsoleKeyInfo key = Console.ReadKey(true);
-                    if (key.Key != null)
-                    {
-                        Console.Clear();
-                        AdminLogin.AdminMenu();
-                    }
-                }
-                else
-                {
-                    Console.Clear();
-                    System.Console.WriteLine("Invalid input.");
-                }
+                ManageMovies.AddMovieMenu();
+            }
+            else
+            {
+                PresentationHelper.PrintYellow("Chosen not to add a new movie, press anything to go back to the menu.");
+                PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
             }
         }
 
@@ -313,7 +242,7 @@ public class ManageShowtimes
             while (true)
             {
                 System.Console.WriteLine("");
-                System.Console.WriteLine("Please give the date of the first showing (DD-MM-YYYY):");
+                PresentationHelper.PrintYellow("Please give the date of the first showing (DD-MM-YYYY):");
                 string dateString = Console.ReadLine();
                 if (MoviesLogic.IsValidDateFormat(dateString))
                 {
@@ -341,7 +270,7 @@ public class ManageShowtimes
             while (true)
             {
                 System.Console.WriteLine("");
-                System.Console.WriteLine("please give the time when the movie is played (HH:MM):");
+                PresentationHelper.PrintYellow("please give the time when the movie is played (HH:MM):");
                 string playtime = Console.ReadLine();
                 if (MoviesLogic.IsValidTimeOnlyFormat(playtime))
                 {
@@ -368,23 +297,15 @@ public class ManageShowtimes
             Console.Clear();
 
             //confirm
-            while (true)
+            string StartMessage2 = $"Start date and time: {datetime}\nIs this correct?";
+            bool YesNo2 = SelectingMenu.YesNoSelect(StartMessage2);
+            if (YesNo2)
             {
-                System.Console.WriteLine($"Start date and time: {datetime}");
-                System.Console.WriteLine("Is this correct? (Y/N)");
-                string check1 = Console.ReadLine().ToLower();
-                if (check1 == "y" || check1 == "yes")
-                {
-                    break;
-                }
-                else if (check1 == "n" || check1 == "no")
-                {
-                    AddShowTimesMenu();
-                }
-                else
-                {
-                    System.Console.WriteLine("Invalid input.");
-                }
+                break;
+            }
+            else
+            {
+                AddShowTimesMenu();
             }
             break;
         }
@@ -394,7 +315,7 @@ public class ManageShowtimes
         {
 
             System.Console.WriteLine("");
-            System.Console.WriteLine("Please give the date you would like the showings to end (DD-MM-YYYY):");
+            PresentationHelper.PrintYellow("Please give the date you would like the showings to end (DD-MM-YYYY):");
             string dateString2 = Console.ReadLine();
             if (MoviesLogic.IsValidDateFormat(dateString2))
             {
@@ -423,7 +344,7 @@ public class ManageShowtimes
         while (true)
         {
             System.Console.WriteLine("");
-            System.Console.WriteLine("Please give the amount of days between each showing:");
+            PresentationHelper.PrintYellow("Please give the amount of days between each showing:");
             string intervalstring = Console.ReadLine();
             System.Console.WriteLine("");
             if (intervalstring.All(char.IsDigit))
@@ -451,7 +372,7 @@ public class ManageShowtimes
         while (true)
         {
             System.Console.WriteLine("");
-            System.Console.WriteLine("Please give the hall ID:");
+            PresentationHelper.PrintYellow("Please give the hall ID:");
             string hallIdString = Console.ReadLine();
             System.Console.WriteLine("");
             if (hallIdString.All(char.IsDigit))
@@ -472,92 +393,77 @@ public class ManageShowtimes
         //confirm all data
         while (true)
         {
-            System.Console.WriteLine("---------------------------------------");
-            System.Console.WriteLine($"Movie name: {movieName}");
-            System.Console.WriteLine($"Start date: {startdate}");
-            System.Console.WriteLine($"End date: {enddate}");
-            System.Console.WriteLine($"Days between showings: {interval}");
-            System.Console.WriteLine($"Time of showing: {time}");
-            System.Console.WriteLine($"Hall ID: {hallId}");
-            System.Console.WriteLine("---------------------------------------");
-            System.Console.WriteLine("");
-            System.Console.WriteLine("is the above correct? (Y/N)");
-            string input2 = Console.ReadLine().ToLower();
-            if (input2 == "y" || input2 == "yes")
-            {
-                Console.Clear();
-                List<DateTime> datetimes = ShowtimesLogic.GenerateDateTimesList(startdate, enddate, time, interval);
-                List<ShowtimeModel> validshowtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes).ValidShowtimes;
-                List<ShowtimeModel> invalidshowtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes).InvalidShowtimes;
-                System.Console.WriteLine("Valid screen times:");
-                System.Console.WriteLine("---------------------------------------");
-                foreach (ShowtimeModel showtime in validshowtimes)
-                {
-                    System.Console.WriteLine($"Date: {showtime.Time}");
-                    System.Console.WriteLine("---------------------------------------");
-                }
-                System.Console.WriteLine("");
-                System.Console.WriteLine("Invalid screen times:");
-                System.Console.WriteLine("---------------------------------------");
-                foreach (ShowtimeModel showtime in invalidshowtimes)
-                {
-                    System.Console.WriteLine($"Date: {showtime.Time}");
-                    System.Console.WriteLine("---------------------------------------");
-                }
-                while (true)
-                {
-                    Console.Clear();
-                    System.Console.WriteLine("Add the valid screen times?");
-                    System.Console.WriteLine("Do you want to continue? (Y/N)");
-                    string input = Console.ReadLine().ToLower();
-                    if (input == "n" || input == "no")
-                    {
-                        Console.Clear();
-                        AdminLogin.AdminMenu();
-                    }
-                    if (input == "y" || input == "yes")
-                    {
-                        ShowtimesLogic.AddShowTimes(validshowtimes);
-                        System.Console.WriteLine("Successfully added valid screenings.");
-                        break;
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        System.Console.WriteLine("Invalid input.");
-                        continue;
-                    }
-                }
-                ConsoleKeyInfo key = Console.ReadKey(true);
-                if (key.Key != null)
-                {
-                    Console.Clear();
-                    AdminLogin.AdminMenu();
-                }
 
-            }
-            else if (input2 == "n" || input2 == "no")
+            string StartMessage2 =
+                $"---------------------------------------" +
+                $"\nMovie name: {movieName}" +
+                $"\nStart date: {startdate}" +
+                $"\nEnd date: {enddate}" +
+                $"\nDays between showings: {interval}" +
+                $"\nTime of showing: {time}" +
+                $"\nHall ID: {hallId}" +
+                $"\n---------------------------------------" +
+                $"\nis the above correct?";
+            bool YesNo2 = SelectingMenu.YesNoSelect(StartMessage2);
+            if (YesNo2)
             {
                 Console.Clear();
-                System.Console.WriteLine("Press anything to go back to the menu.");
-                ConsoleKeyInfo key = Console.ReadKey(true);
-                if (key.Key != null)
+                datetimes = ShowtimesLogic.GenerateDateTimesList(startdate, enddate, time, interval);
+                validshowtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes).ValidShowtimes;
+                invalidshowtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes).InvalidShowtimes;
+                // System.Console.WriteLine("Valid screen times:");
+                // System.Console.WriteLine("---------------------------------------");
+                // foreach (ShowtimeModel showtime in validshowtimes)
+                // {
+                //     System.Console.WriteLine($"Date: {showtime.Time}");
+                //     System.Console.WriteLine("---------------------------------------");
+                // }
+                // System.Console.WriteLine("");
+                // System.Console.WriteLine("Invalid screen times:");
+                // System.Console.WriteLine("---------------------------------------");
+                // foreach (ShowtimeModel showtime in invalidshowtimes)
+                // {
+                //     System.Console.WriteLine($"Date: {showtime.Time}");
+                //     System.Console.WriteLine("---------------------------------------");
+                // }
+                // string StartMessage3 = "Add the valid screen times?";
+                bool YesNo3 = SelectingMenu.YesNoSelect(Print);
+                if (YesNo3)
                 {
-                    Console.Clear();
-                    AdminLogin.AdminMenu();
+                    ShowtimesLogic.AddShowTimes(validshowtimes);
+                    PresentationHelper.PrintGreen("Successfully added valid screenings.");
+                    break;
                 }
+                PresentationHelper.PrintYellow("Press anything to go back to the menu.");
+                PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
             }
             else
             {
                 Console.Clear();
-                System.Console.WriteLine("Invalid input, press anything to try again.");
-                ConsoleKeyInfo key = Console.ReadKey(true);
-                if (key.Key != null)
-                {
-                    Console.Clear();
-                    continue;
-                }
+                PresentationHelper.PrintYellow("Press anything to go back to the menu.");
+                PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
             }
         }
+    }
+
+    public static void Print()
+    {
+        System.Console.WriteLine("Valid screen times:");
+        System.Console.WriteLine("---------------------------------------");
+        foreach (ShowtimeModel showtime in validshowtimes)
+        {
+            System.Console.WriteLine($"Date: {showtime.Time}");
+            System.Console.WriteLine("---------------------------------------");
+        }
+        System.Console.WriteLine("");
+        System.Console.WriteLine("Invalid screen times:");
+        System.Console.WriteLine("---------------------------------------");
+        foreach (ShowtimeModel showtime in invalidshowtimes)
+        {
+            System.Console.WriteLine($"Date: {showtime.Time}");
+            System.Console.WriteLine("---------------------------------------");
+        }
+        System.Console.WriteLine();
+        System.Console.WriteLine("Add the valid screen times?");
     }
 }

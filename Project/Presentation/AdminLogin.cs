@@ -11,18 +11,20 @@ public static class AdminLogin
 
     public static void Start()
     {
+        Console.Clear();
         if (_attemptsLeft <= 0)
         {
-            System.Console.WriteLine("Too many incorrect, locked out for 30 seconds.");
+            PresentationHelper.PrintRed("Too many incorrect, locked out for 30 seconds.");
             Thread.Sleep(30000);
-            System.Console.WriteLine("The lock out has ended, you may continue by pressing enter.");
+            PresentationHelper.PrintYellow("The lock out has ended, you may continue by pressing enter.");
             System.Console.ReadLine();
         }
         // This is the login page
-        Console.WriteLine("Welcome to the admin login page");
-        Console.WriteLine("Please enter your email address");
+        PresentationHelper.PrintGreen("Welcome to the admin login page");
+        PresentationHelper.PrintYellow("Please enter your email address");
         string email = Console.ReadLine();
-        Console.WriteLine("Please enter your password");
+        System.Console.WriteLine();
+        PresentationHelper.PrintYellow("Please enter your password");
         string password = HideCharacter();
 
         // Check if the email and password match an account
@@ -49,64 +51,17 @@ public static class AdminLogin
 
     public static void AdminMenu()
     {
-        System.Console.WriteLine("What do you want to do?");
-        System.Console.WriteLine("1. Add a movie");
-        System.Console.WriteLine("2. Remove movie");
-        System.Console.WriteLine("3. Promote movie");
-        System.Console.WriteLine("4. Demote movie");
-        System.Console.WriteLine("5. See current movies");
-        System.Console.WriteLine("6. See archived movies");
-        System.Console.WriteLine("7. Change seat type price for hall");
-        System.Console.WriteLine("8. Add single screening");
-        System.Console.WriteLine("9. Add multiple screenings");
-        System.Console.WriteLine("10. Log out");
-        string input = System.Console.ReadLine();
-        switch (input)
-        {
-            case "1":
-                Console.Clear();
-                ManageMovies.AddMovieMenu();
-                break;
-            case "2":
-                Console.Clear();
-                ManageMovies.RemoveMovieMenu();
-                break;
-            case "3":
-                Console.Clear();
-                ManageMovies.PromoteMovieMenu();
-                break;
-            case "4":
-                Console.Clear();
-                ManageMovies.DemoteMovieMenu();
-                break;
-            case "5":
-                Console.Clear();
-                ManageMovies.SeeCurrentMoviesMenu();
-                break;
-            case "6":
-                Console.Clear();
-                ManageMovies.SeeArchivedMoviesMenu();
-                break;
-            case "7":
-                ManageHalls.ChangeSeatTypePrice();
-                break;
-            case "8":
-                ManageShowtimes.AddSingleShowTimeMenu();
-                break;
-            case "9":
-                ManageShowtimes.AddShowTimesMenu();
-                break;
-            case "10":
-                _attemptsLeft = 3;
-                Console.Clear();
-                Menu.Start();
-                break;
-            default:
-                Console.Clear();
-                System.Console.WriteLine("Invalid input.");
-                AdminMenu();
-                break;
-        }
+        string StartMessage = "What do you want to do?";
+        string[] MenuNames = { "Add movie", "Remove movie", "Promote movie", "Demote movie", "See current movies", "See archived movies", "Change seat prices", "Add single screening", "Add multiple screenings", "Log out" };
+        Action[] Actions = { ManageMovies.AddMovieMenu, ManageMovies.RemoveMovieMenu, ManageMovies.PromoteMovieMenu, ManageMovies.DemoteMovieMenu, ManageMovies.SeeCurrentMoviesMenu, ManageMovies.SeeArchivedMoviesMenu,
+                             ManageHalls.ChangeSeatTypePrice, ManageShowtimes.AddSingleShowTimeMenu, ManageShowtimes.AddShowTimesMenu, AdminLogOut };
+        SelectingMenu.MenusSelect(MenuNames, Actions, StartMessage);
+    }
+
+    public static void AdminLogOut()
+    {
+        _attemptsLeft = 3;
+        Menu.Start();
     }
 
 

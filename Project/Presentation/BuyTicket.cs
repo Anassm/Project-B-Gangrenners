@@ -3,60 +3,6 @@ static class BuyTicket
     static private SeatsLogic _seatsLogic = new SeatsLogic();
     static private ShowtimesLogic _showtimesLogic = new ShowtimesLogic();
     static private ReservationsLogic _reservationsLogic = new ReservationsLogic();
-    static private string[] _seatTypes = {"Normal", "VIP", "VIP+"};
-
-    public static string GetSeatTypes(List<SeatModel> seats)
-    {
-        int countNormal = 0;
-        int countVIP = 0;
-        int countVIPPlus = 0;
-        foreach (SeatModel seat in seats)
-        {
-            if (seat.Type == 1)
-            {
-                countNormal++;
-            }
-            else if (seat.Type == 2)
-            {
-                countVIP++;
-            }
-            else if (seat.Type == 3)
-            {
-                countVIPPlus++;
-            }
-        }
-        string seatTypes = "";
-        if (countNormal > 0)
-        {
-            seatTypes += countNormal + "x normal";
-        }
-        if (countVIP > 0)
-        {
-            if (countNormal > 0)
-            {
-                seatTypes += ", ";
-            }
-            seatTypes += countVIP + "x VIP";
-        }
-        if (countVIPPlus > 0)
-        {
-            if (countNormal > 0 || countVIP > 0)
-            {
-                seatTypes += ", ";
-            }
-            seatTypes += countVIPPlus + "x VIP+";
-        }
-
-        if (seats.Count > 1)
-        {
-            seatTypes += " seats";
-        }
-        else
-        {
-            seatTypes += " seat";
-        }
-        return seatTypes;
-    }
 
     public static void Start((List<SeatModel> seats, ShowtimeModel showtime) info)
     {
@@ -68,6 +14,7 @@ static class BuyTicket
 
         // Calculate the total price of the order
         double TotalPrice = 0;
+
         foreach (SeatModel seat in info.seats)
         {
             TotalPrice += seat.Price;
@@ -75,7 +22,7 @@ static class BuyTicket
 
         // declare variables
         string movieName = MoviesLogic.GetMovieById(info.showtime.MoviesId).Name;
-        string seatTypes = GetSeatTypes(info.seats);
+        string seatTypes = SeatsLogic.GetSeatTypes(info.seats);
         string time = info.showtime.Time.ToString();
         string seats = "";
         foreach (SeatModel seat in info.seats)
@@ -83,27 +30,132 @@ static class BuyTicket
             seats += $"Row: {seat.Row}, Seat: {seat.Seat}\n";
         }
 
-    
+
         Console.Clear();
-        Console.WriteLine("Welcome to the ticket buying page");
         Console.WriteLine("This is what your order looks like now:");
-        Console.WriteLine("Movie: " +  movieName);
+        Console.WriteLine("Movie: " + movieName);
         Console.WriteLine("Seat types: " + seatTypes);
-        Console.WriteLine("Price: \u20AC" + Math.Round(TotalPrice,2).ToString("0.00"));
+        Console.WriteLine("Price: \u20AC" + Math.Round(TotalPrice, 2).ToString("0.00"));
         Console.WriteLine("Time of the movie: " + time);
         Console.WriteLine("Hall: " + info.showtime.HallId);
         Console.WriteLine("Seats: " + seats);
-        Console.WriteLine("Do you want to proceed with the purchase?");
-        Console.WriteLine("1. Yes");
-        Console.WriteLine("2. No");
-        int choice = Convert.ToInt32(Console.ReadLine());
-        if (choice == 1)
+
+        bool YesNo = false;
+        string StartMessage =
+                $"This is what your order looks like now:" +
+                $"\nMovie: {movieName}" +
+                $"\nSeat types: {seatTypes}" +
+                $"\nPrice: {Math.Round(TotalPrice, 2).ToString("0.00")}" +
+                $"\nTime of the movie: {time}" +
+                $"\nHall: {info.showtime.HallId}" +
+                $"\nSeats: {seats}";
+
+        StartMessage += $"\nWould you like to purchase for this reservation, or redeem subscription code{(info.seats.Count > 1 ? "s" : "")}";
+
+        string[] MenuNames = { "Pay for reservation", $"Redeem subscription code{(info.seats.Count > 1 ? "s" : "")}" };
+        Action[] Actions = { () => throw new Exception(), () =>
+                {
+                    int convertedAmount = 0;
+                    while (true)
+                    {
+                        Console.WriteLine("How many codes do you want to redeem?");
+                        string amount = Console.ReadLine().ToLower();
+                        convertedAmount = 0;
+                        if (amount.All(char.IsDigit))
+                        {
+                            convertedAmount = Convert.ToInt32(amount);
+                            if (convertedAmount <= 0)
+                            {
+                                Console.Clear();
+                                PresentationHelper.PrintRed("Input has to be larger than 0.");
+                            }
+                            break;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            PresentationHelper.PrintRed("Invalid input, Enter a number.");
+                        }
+                    }
+
+                    List<int> usedCodes = [];
+                    List<SeatModel> sortedSeats = info.seats.OrderBy(seat => seat.Type).ToList();
+
+                    for (int i = 0; i < convertedAmount; i++)
+                    {
+                        while (true)
+                        {
+                            string code = "";
+                            int convertedCode = 0;
+                            while (true)
+                            {
+                                Console.WriteLine("Enter your code: ");
+                                code = Console.ReadLine();
+                                convertedCode = 0;
+                                if (code.All(char.IsDigit))
+                                {
+                                    convertedCode = Convert.ToInt32(code);
+                                    if (convertedCode <= 0)
+                                    {
+                                        Console.Clear();
+                                        PresentationHelper.PrintRed("Input has to be larger than 0.");
+                                    }
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.Clear();
+                                    PresentationHelper.PrintRed("Invalid input, Enter a number.");
+                                }
+                            }
+                            if (code == "")
+                            {
+                                Console.Clear();
+                                PresentationHelper.PrintRed("Can not input nothing, please give an input.");
+                            }
+                            else
+                            {
+                                if (SubscriptionLogic.CheckCode(convertedCode) == true && !usedCodes.Contains(convertedCode))
+                                {
+                                        SubscriptionLogic.UseViewByCode(convertedCode);
+                                        Console.WriteLine("Code is valid");
+                                        usedCodes.Add(convertedCode);
+
+                                        TotalPrice -= sortedSeats[0].Price;
+                                        sortedSeats.RemoveAt(0);
+
+                                        break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Code is invalid, or already used");
+                                    continue;
+                                }
+                            }
+                        }
+                    }
+
+                    throw new Exception();
+                }
+        };
+
+
+
+        try
         {
-            
+            SelectingMenu.MenusSelect(MenuNames, Actions, StartMessage);
+        }
+        catch (Exception e)
+        {
+            YesNo = true;
+        }
+
+        if (YesNo)
+        {
             Console.Clear();
             try
             {
-                foreach(SeatModel seat in info.seats)
+                foreach (SeatModel seat in info.seats)
                 {
                     _showtimesLogic.ReserveSeat(info.showtime.Id, seat.Row, seat.Seat);
                     int[] coordinates = SeatsLogic.GetCoordinatesBySeat(seat);
@@ -124,14 +176,16 @@ static class BuyTicket
                     accountId = AccountsLogic.CurrentAccount.Id;
                 }
 
-
-                ReservationModel reservation = new ReservationModel(_reservationsLogic.GetNextId(),seatIds, info.showtime.Id, accountId, TotalPrice, codes);
+                ReservationModel reservation = new ReservationModel(_reservationsLogic.GetNextId(), seatIds, info.showtime.Id, accountId, TotalPrice, codes);
                 _reservationsLogic.AddReservation(reservation);
                 _showtimesLogic.UpdateList(info.showtime);
+                Console.WriteLine("Do you want to add extras to your order?");
+                BuyExtras.ProductMenu(true, reservation);
+
                 Console.WriteLine("Your reservation has been made");
-                Console.WriteLine("Movie: " +  movieName);
+                Console.WriteLine("Movie: " + movieName);
                 Console.WriteLine("Seat types: " + seatTypes);
-                Console.WriteLine("Price: \u20AC" + Math.Round(TotalPrice,2).ToString("0.00"));
+                Console.WriteLine("Price: \u20AC" + Math.Round(TotalPrice, 2).ToString("0.00"));
                 Console.WriteLine("Time of the movie: " + time);
                 Console.WriteLine("Hall: " + info.showtime.HallId);
                 Console.WriteLine("Seats: " + seats);
@@ -143,25 +197,31 @@ static class BuyTicket
                 {
                     Console.WriteLine("Your codes are: " + string.Join(", ", codes));
                 }
-                Console.WriteLine("Thank you for your purchase");
-                Console.WriteLine("Press any key to return to the main menu");
-                ConsoleKeyInfo key = Console.ReadKey(true);
-                if (key.Key != null)
+                try
                 {
-                    Console.Clear();
-                    Menu.MainMenu();
+                    System.Console.WriteLine("You have added extras to your reservation");
+                    System.Console.WriteLine("This is your order:");
+                    System.Console.WriteLine(OrdersLogic.GetProductString(OrdersLogic.GetOrderByReservationId(reservation.Id)));
+
+
                 }
-                Menu.MainMenu();
+                catch
+                {
+                    System.Console.WriteLine("You have not added any extras to your reservation");
+                }
+                Console.WriteLine("Thank you for your purchase");
+                PresentationHelper.PrintYellow("Press any key to return to the main menu");
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                PresentationHelper.PressAnyToContinue(Menu.MainMenu);
             }
             catch (Exception e)
             {
-                Console.WriteLine("Something went wrong, please try again");
+                PresentationHelper.PrintRed("Something went wrong, please try again");
             }
-
         }
         else
-        {   
-            foreach(SeatModel seat in info.seats)
+        {
+            foreach (SeatModel seat in info.seats)
             {
                 int[] coordinates = SeatsLogic.GetCoordinatesBySeat(seat);
                 info.showtime.Availability[coordinates[0], coordinates[1]] = 0;
@@ -170,6 +230,63 @@ static class BuyTicket
             Console.Clear();
             Menu.MainMenu();
         }
+    }
 
+    public static void ReservationOverview(ReservationModel reservation)
+    {
+        System.Console.WriteLine("This is your reservation:");
+        List<SeatModel> seats = new List<SeatModel>();
+        foreach (int seatId in reservation.SeatIds)
+        {
+            seats.Add(SeatsLogic.GetSeatById(seatId));
+        }
+        string seatTypes = SeatsLogic.GetSeatTypes(seats);
+        string time = ShowtimesLogic.GetShowtimeById(reservation.ShowtimeId).Time.ToString();
+        double TotalPrice = reservation.TotalPrice;
+        string hall = ShowtimesLogic.GetShowtimeById(reservation.ShowtimeId).HallId.ToString();
+        List<string> codes = reservation.Codes;
+
+        string seatsstring = "";
+        foreach (SeatModel seat in seats)
+        {
+            seatsstring += $"Row: {seat.Row}, Seat: {seat.Seat}";
+        }
+        Console.Clear();
+        Console.WriteLine("This is your reservation:");
+        Console.WriteLine("Movie: " + MoviesLogic.GetMovieById(ShowtimesLogic.GetShowtimeById(reservation.ShowtimeId).MoviesId).Name);
+        Console.WriteLine("Seat types: " + seatTypes);
+        Console.WriteLine("Price: \u20AC" + Math.Round(TotalPrice, 2).ToString("0.00"));
+        Console.WriteLine("Time of the movie: " + time);
+        Console.WriteLine("Hall: " + hall);
+        Console.WriteLine("Seats: " + seatsstring);
+        if (codes.Count == 1)
+        {
+            Console.WriteLine("Your code is: " + codes[0]);
+        }
+        else
+        {
+            Console.WriteLine("Your codes are: " + string.Join(", ", codes));
+        }
+        try
+        {
+            OrdersLogic.GetOrderByReservationId(reservation.Id);
+            string test = OrdersLogic.GetOrderById(OrdersLogic.GetOrderByReservationId(reservation.Id)).PickupCode;
+            System.Console.WriteLine("");
+            System.Console.WriteLine("You have added extras to your reservation");
+            System.Console.WriteLine("This is your order:");
+            System.Console.WriteLine(OrdersLogic.GetProductString(OrdersLogic.GetOrderByReservationId(reservation.Id)));
+            System.Console.WriteLine("Pickup code: " + OrdersLogic.GetOrderById(OrdersLogic.GetOrderByReservationId(reservation.Id)).PickupCode);
+            System.Console.WriteLine("Price of the items: \u20AC" + OrdersLogic.GetTotalPrice(OrdersLogic.GetOrderByReservationId(reservation.Id)).ToString("0.00"));
+            System.Console.WriteLine("Total price of the reservation: \u20AC" + (TotalPrice + OrdersLogic.GetTotalPrice(OrdersLogic.GetOrderByReservationId(reservation.Id))).ToString("0.00"));
+        }
+        catch
+        {
+            System.Console.WriteLine("You have not added any extras to your reservation");
+        }
+        System.Console.WriteLine("");
+        Console.WriteLine("Thank you for your purchase");
+        Console.WriteLine("Press any key to return to the main menu");
+        ConsoleKeyInfo key = Console.ReadKey(true);
+        PresentationHelper.PressAnyToContinue(Menu.MainMenu);
     }
 }

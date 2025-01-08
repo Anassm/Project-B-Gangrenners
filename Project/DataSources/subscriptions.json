@@ -1,0 +1,12 @@
+[
+  {
+    "Id": 1,
+    "UserId": 1,
+    "Name": "Loyal",
+    "MembershipNumber": 20251,
+    "Views": 14,
+    "StartDate": "2025-01-08T11:29:39.9215571+01:00",
+    "RenewalDate": "2026-01-08T11:29:39.9215571+01:00",
+    "ExpirationDate": null
+  }
+]

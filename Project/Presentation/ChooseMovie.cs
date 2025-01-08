@@ -36,12 +36,12 @@ public static class ChooseMovie
 
     public static MovieModel MakeChoice()
     {
-        Console.WriteLine("Please enter the name of the movie you would like to see:");
+        PresentationHelper.PrintYellow("Please enter the name of the movie you would like to see:");
         MovieToWatch = Console.ReadLine();
 
         if (string.IsNullOrEmpty(MovieToWatch))
         {
-            Console.WriteLine("Please enter a valid movie name.");
+            PresentationHelper.PrintRed("Please enter a valid movie name.");
             return MakeChoice();
         }
 
@@ -58,29 +58,33 @@ public static class ChooseMovie
     {
         if (!MoviesLogic.CheckIfMovieInMovies(chosenMovie))
         {
-            Console.WriteLine($"There is no movie with the (partial) name {chosenMovie}");
-            Console.WriteLine("Please choose a different movie.");
-            return false;
+            string StartMessage = $"There is no movie with the (partial) name {chosenMovie}\nWould you like to choose a different movie?.";
+            bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
+            if (YesNo)
+            {
+                MakeChoice();
+            }
+            else
+            {
+                Menu.MainMenu();
+            }
+            
         }
 
         var choice = MoviesLogic.GetMovieByName(chosenMovie);
-        Console.WriteLine($"You have chosen the following movie:\n{choice.ToStringUsers()}");
-        Console.WriteLine("Is this correct? [Y]es / [N]o");
-
-        var correctChoice = Console.ReadLine().ToLower();
-        if (correctChoice == "y" || correctChoice == "yes")
+        string StartMessage2 = $"You have chosen the following movie:\n{choice.ToStringUsers()}";
+        bool YesNo2 = SelectingMenu.YesNoSelect(StartMessage2);
+        if (YesNo2)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             return true;
         }
-
-        if (correctChoice == "n" || correctChoice == "no")
+        else
         {
             Console.Clear();
             Menu.MainMenu();
         }
-
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         return false;
     }
 
@@ -90,11 +94,10 @@ public static class ChooseMovie
         var showtimes = ShowtimesLogic.GetShowtimesByMovieId(movieId);
         if (!showtimes.Any())
         {
-            Console.WriteLine("There are no screening times.");
-            Console.WriteLine("Press any key to go back to the menu.");
-            Console.ReadKey(true);
-            Console.Clear();
-            Menu.Start();
+            PresentationHelper.PrintRed("There are no screening times.");
+            System.Console.WriteLine();
+            PresentationHelper.PrintYellow("Press any key to go back to the menu.");
+            PresentationHelper.PressAnyToContinue(Menu.Start);
             return null;
         }
 
@@ -102,11 +105,10 @@ public static class ChooseMovie
         newShowtimes = newShowtimes.OrderBy(st => st.Time).ToList();
         if (!newShowtimes.Any())
         {
-            Console.WriteLine("There are no upcoming screening times.");
-            Console.WriteLine("Press any key to go back to the menu.");
-            Console.ReadKey(true);
-            Console.Clear();
-            Menu.Start();
+            PresentationHelper.PrintRed("There are no upcoming screening times.");
+            System.Console.WriteLine();
+            PresentationHelper.PrintYellow("Press any key to go back to the menu.");
+            PresentationHelper.PressAnyToContinue(Menu.Start);
             return null;
         }
 
@@ -125,7 +127,7 @@ public static class ChooseMovie
         int showtimeChoice = 1;
         while (true)
         {
-            Console.WriteLine("Please choose the number of the corresponding screening time.");
+            PresentationHelper.PrintYellow("Please choose the number of the corresponding screening time.");
             string choice = Console.ReadLine();
             if (string.IsNullOrEmpty(choice) || !int.TryParse(choice, out _) || choice.All(char.IsLetter))
             {
@@ -148,11 +150,10 @@ public static class ChooseMovie
         var showtimes = ShowtimesLogic.GetShowtimesByMovieId(movie.Id);
         if (!showtimes.Any())
         {
-            Console.WriteLine("There are no screening times.");
-            Console.WriteLine("Press any key to go back to the menu.");
-            Console.ReadKey(true);
-            Console.Clear();
-            Menu.Start();
+            PresentationHelper.PrintRed("There are no screening times.");
+            System.Console.WriteLine();
+            PresentationHelper.PrintYellow("Press any key to go back to the menu.");
+            PresentationHelper.PressAnyToContinue(Menu.Start);
             return null;
         }
 
@@ -160,11 +161,10 @@ public static class ChooseMovie
         newShowtimes = newShowtimes.OrderBy(st => st.Time).ToList();
         if (!newShowtimes.Any())
         {
-            Console.WriteLine("There are no upcoming screening times.");
-            Console.WriteLine("Press any key to go back to the menu.");
-            Console.ReadKey(true);
-            Console.Clear();
-            Menu.Start();
+            PresentationHelper.PrintRed("There are no upcoming screening times.");
+            System.Console.WriteLine();
+            PresentationHelper.PrintYellow("Press any key to go back to the menu.");
+            PresentationHelper.PressAnyToContinue(Menu.Start);
             return null;
         }
 
@@ -196,7 +196,7 @@ public static class ChooseMovie
         int showtimeChoice = 1;
         while (true)
         {
-            Console.WriteLine("Please choose the number of the corresponding screening time.");
+            PresentationHelper.PrintYellow("Please choose the number of the corresponding screening time.");
             string choice = Console.ReadLine();
             if (string.IsNullOrEmpty(choice) || !int.TryParse(choice, out _) || choice.All(char.IsLetter))
             {
@@ -225,11 +225,10 @@ public static class ChooseMovie
         var showtimes = ShowtimesLogic.GetShowtimesByMovieId(movie.Id);
         if (!showtimes.Any())
         {
-            Console.WriteLine("There are no screening times.");
-            Console.WriteLine("Press any key to go back to the menu.");
-            Console.ReadKey(true);
-            Console.Clear();
-            Menu.Start();
+            PresentationHelper.PrintRed("There are no screening times.");
+            System.Console.WriteLine();
+            PresentationHelper.PrintYellow("Press any key to go back to the menu.");
+            PresentationHelper.PressAnyToContinue(Menu.Start);
             return null;
         }
 
@@ -237,11 +236,10 @@ public static class ChooseMovie
         newShowtimes = newShowtimes.OrderBy(st => st.Time).ToList();
         if (!newShowtimes.Any())
         {
-            Console.WriteLine("There are no upcoming screening times.");
-            Console.WriteLine("Press any key to go back to the menu.");
-            Console.ReadKey(true);
-            Console.Clear();
-            Menu.Start();
+            PresentationHelper.PrintRed("There are no upcoming screening times.");
+            System.Console.WriteLine();
+            PresentationHelper.PrintYellow("Press any key to go back to the menu.");
+            PresentationHelper.PressAnyToContinue(Menu.Start);
             return null;
         }
 
@@ -271,7 +269,7 @@ public static class ChooseMovie
         int showtimeChoice = 1;
         while (true)
         {
-            Console.WriteLine("Please choose the number of the corresponding screening time.");
+            PresentationHelper.PrintYellow("Please choose the number of the corresponding screening time.");
             string choice = Console.ReadLine();
             if (string.IsNullOrEmpty(choice) || !int.TryParse(choice, out _) || choice.All(char.IsLetter))
             {
@@ -289,9 +287,9 @@ public static class ChooseMovie
         
         if (!ShowtimesLogic.CheckIfEnoughAvailableSeats(newShowtimes[showtimeChoice - 1], amountOfTickets))
         {
-            Console.WriteLine("There are not enough available seats for the amount you want to reserve.");
-            Console.WriteLine("Please choose a different amount.");
-            Console.WriteLine("Enter the number of tickets you would like to buy:");
+            PresentationHelper.PrintRed("There are not enough available seats for the amount you want to reserve.");
+            PresentationHelper.PrintYellow("Please choose a different amount.");
+            PresentationHelper.PrintYellow("Enter the number of tickets you would like to buy:");
             amountOfTickets = Convert.ToInt32(Console.ReadLine());
             return GetShowTimes(movie, beginDay, endDay, amountOfTickets);
         }
@@ -302,7 +300,7 @@ public static class ChooseMovie
 
     public static (List<SeatModel>, ShowtimeModel) SeatChoice(int showtimeId)
     {
-        Console.WriteLine("Please select the number of seats you would like to reserve:");
+        PresentationHelper.PrintYellow("Please select the number of seats you would like to reserve:");
         int amountOfSeats;
         while (!int.TryParse(Console.ReadLine(), out amountOfSeats) || amountOfSeats < 1 || amountOfSeats > 450)
         {
@@ -373,17 +371,17 @@ public static class ChooseMovie
         {
             Console.WriteLine("All seats selected successfully!");
             Console.WriteLine("You selected the following seats:");
+            string allSeats = "";
             foreach (var seat in selectedSeats)
             {
-                Console.WriteLine($"Row: {seat.Row}, Seat: {seat.Seat}");
+                allSeats += $"Row: {seat.Row}, Seat: {seat.Seat}\n";
             }
-
-            Console.WriteLine("Is this correct? [Y]es / [N]o");
-            if (Console.ReadLine().ToLower() == "y")
+            string StartMessage = allSeats + "\nis this correct?";
+            bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
+            if (YesNo)
             {
                 return (selectedSeats, showtime);
             }
-
             Console.WriteLine("Seat selection canceled.");
             foreach (var seat in selectedSeats)
             {

@@ -2,7 +2,8 @@ public class Register
 {
     public static void Start()
     {
-        Console.WriteLine("Please enter your email address");
+        PresentationHelper.ClearConsole();
+        PresentationHelper.PrintYellow("Please enter your email address");
         string email = Console.ReadLine().ToLower();
         if (!AccountsLogic.CheckEmail(email))
         {
@@ -37,8 +38,10 @@ public class Register
 
         AccountsLogic.AddAccount(email, password, firstName, lastName, dateOfBirth);
         Console.Clear();
-        Console.WriteLine("Account created successfully");
-        Menu.Start();
+        PresentationHelper.PrintGreen("Account created successfully");
+        System.Console.WriteLine();
+        PresentationHelper.PrintYellow("Press any key to continue");
+        PresentationHelper.PressAnyToContinue(Menu.Start);
     }
 
     private static string GetValidFirstName()
@@ -46,7 +49,7 @@ public class Register
         Console.Clear();
         while (true)
         {
-            Console.WriteLine("Please enter your first name");
+            PresentationHelper.PrintYellow("Please enter your first name");
             string firstName = Console.ReadLine();
             if (AccountsLogic.CheckName(firstName))
             {
@@ -61,7 +64,7 @@ public class Register
     {
         while (true)
         {
-            Console.WriteLine("Please enter your last name");
+            PresentationHelper.PrintYellow("Please enter your last name");
             string lastName = Console.ReadLine();
             if (AccountsLogic.CheckName(lastName))
             {
@@ -77,7 +80,7 @@ public class Register
         Console.Clear();
         while (true)
         {
-            Console.WriteLine("Please enter your password, must be at least 8 characters long and contain at least one number, one uppercase letter and one special character");
+            PresentationHelper.PrintYellow("Please enter your password, must be at least 8 characters long and contain at least one number, one uppercase letter and one special character");
             string password = HideCharacter();
             if (!AccountsLogic.CheckPassword(password))
             {
@@ -85,7 +88,7 @@ public class Register
                 Console.WriteLine("Invalid password");
                 continue;
             }
-            Console.WriteLine("\nPlease confirm your password");
+            PresentationHelper.PrintYellow("\nPlease confirm your password");
             string passwordConfirm = HideCharacter();
             if (password == passwordConfirm)
             {
@@ -101,7 +104,7 @@ public class Register
         Console.Clear();
         while (true)
         {
-            Console.WriteLine("Please enter your date of birth (dd-MM-yyyy)");
+            PresentationHelper.PrintYellow("Please enter your date of birth (dd-MM-yyyy)");
             string dateOfBirthInput = Console.ReadLine();
             if (AccountsLogic.CheckDateOfBirth(dateOfBirthInput))
             {

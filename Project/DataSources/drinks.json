@@ -1,0 +1,282 @@
+[
+    {
+        "id": 1,
+        "name": "Coca Cola Can",
+        "subcategory": "Soda",
+        "price": 3.50,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 2,
+        "name": "Pepsi Can",
+        "subcategory": "Soda",
+        "price": 3.50,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 3,
+        "name": "Fanta Can",
+        "subcategory": "Soda",
+        "price": 3.50,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 4,
+        "name": "Sprite Can",
+        "subcategory": "Soda",
+        "price": 3.50,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 5,
+        "name": "Red Bull Can",
+        "subcategory": "Energy Drink",
+        "price": 5.00,
+        "alcoholic": false,
+        "volume": 0.25
+    },
+    {
+        "id": 6,
+        "name": "Monster Can",
+        "subcategory": "Energy Drink",
+        "price": 5.00,
+        "alcoholic": false,
+        "volume": 0.5
+    },
+    {
+        "id": 7,
+        "name": "Hertog Jan Can",
+        "subcategory": "Beer",
+        "price": 6.00,
+        "alcoholic": true,
+        "volume": 0.33
+    },
+    {
+        "id": 8,
+        "name": "Corona Can",
+        "subcategory": "Beer",
+        "price": 6.00,
+        "alcoholic": true,
+        "volume": 0.33
+    },
+    {
+        "id": 9,
+        "name": "Guinness Can",
+        "subcategory": "Beer",
+        "price": 6.00,
+        "alcoholic": true,
+        "volume": 0.33
+    },
+    {
+        "id": 10,
+        "name": "Bottle of Water",
+        "subcategory": "Water",
+        "price": 2.00,
+        "alcoholic": false,
+        "volume": 0.5
+    },
+    {
+        "id": 11,
+        "name": "Lipton Ice Tea",
+        "subcategory": "Soda",
+        "price": 3.00,
+        "alcoholic": false,
+        "volume": 0.5
+    },
+    {
+        "id": 12,
+        "name": "Lipton green Tea",
+        "subcategory": "Soda",
+        "price": 3.00,
+        "alcoholic": false,
+        "volume": 0.5
+    },
+    {
+        "id": 13,
+        "name": "Heineken Can",
+        "subcategory": "Beer",
+        "price": 6.00,
+        "alcoholic": true,
+        "volume": 0.33
+    },
+    {
+        "id": 14,
+        "name": "Budweiser Can",
+        "subcategory": "Beer",
+        "price": 6.00,
+        "alcoholic": true,
+        "volume": 0.33
+    },
+    {
+        "id": 15,
+        "name": "Mountain Dew",
+        "subcategory": "Soda",
+        "price": 3.50,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 16,
+        "name": "Dr Pepper",
+        "subcategory": "Soda",
+        "price": 3.50,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 17,
+        "name": "7 Up",
+        "subcategory": "Soda",
+        "price": 3.50,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 18,
+        "name": "Gatorade",
+        "subcategory": "Sports Drink",
+        "price": 4.00,
+        "alcoholic": false,
+        "volume": 0.5
+    },
+    {
+        "id": 19,
+        "name": "Powerade",
+        "subcategory": "Sports Drink",
+        "price": 4.00,
+        "alcoholic": false,
+        "volume": 0.5
+    },
+    {
+        "id": 20,
+        "name": "Vitamin Water",
+        "subcategory": "Water",
+        "price": 3.00,
+        "alcoholic": false,
+        "volume": 0.5
+    },
+    {
+        "id": 21,
+        "name": "Perrier",
+        "subcategory": "Water",
+        "price": 2.50,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 22,
+        "name": "San Pellegrino",
+        "subcategory": "Water",
+        "price": 2.50,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 23,
+        "name": "Evian",
+        "subcategory": "Water",
+        "price": 2.00,
+        "alcoholic": false,
+        "volume": 0.5
+    },
+    {
+        "id": 24,
+        "name": "Aquafina",
+        "subcategory": "Water",
+        "price": 2.00,
+        "alcoholic": false,
+        "volume": 0.5
+    },
+    {
+        "id": 25,
+        "name": "Dasani",
+        "subcategory": "Water",
+        "price": 2.00,
+        "alcoholic": false,
+        "volume": 0.5
+    },
+    {
+        "id": 26,
+        "name": "Tropicana Orange Juice",
+        "subcategory": "Juice",
+        "price": 3.00,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 27,
+        "name": "Minute Maid Apple Juice",
+        "subcategory": "Juice",
+        "price": 3.00,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 28,
+        "name": "Ocean Spray Cranberry Juice",
+        "subcategory": "Juice",
+        "price": 3.00,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 29,
+        "name": "V8 Vegetable Juice",
+        "subcategory": "Juice",
+        "price": 3.00,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 30,
+        "name": "Starbucks Frappuccino",
+        "subcategory": "Hot Drink",
+        "price": 4.50,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 31,
+        "name": "Hot Chocolate",
+        "subcategory": "Hot Drink",
+        "price": 4.00,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 32,
+        "name": "Espresso",
+        "subcategory": "Hot Drink",
+        "price": 3.00,
+        "alcoholic": false,
+        "volume": 0.1
+    },
+    {
+        "id": 33,
+        "name": "Latte",
+        "subcategory": "Hot Drink",
+        "price": 4.50,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 34,
+        "name": "Cappuccino",
+        "subcategory": "Hot Drink",
+        "price": 4.50,
+        "alcoholic": false,
+        "volume": 0.33
+    },
+    {
+        "id": 35,
+        "name": "Green Tea",
+        "subcategory": "Hot Drink",
+        "price": 3.00,
+        "alcoholic": false,
+        "volume": 0.33
+    }
+]
