@@ -59,7 +59,7 @@ public static class MovieSearch
             }
             else
             {
-                Console.WriteLine("Invalid input");
+                PresentationHelper.PrintRed("Invalid input");
                 continue;
             }
         }
@@ -85,7 +85,7 @@ public static class MovieSearch
             }
             else
             {
-                Console.WriteLine("Invalid input");
+                PresentationHelper.PrintRed("Invalid input");
             }
         }
     }
@@ -207,7 +207,7 @@ public static class MovieSearch
             }
             else
             {
-                Console.WriteLine("Invalid input");
+                PresentationHelper.PrintRed("Invalid input");
                 continue;
             }
         }

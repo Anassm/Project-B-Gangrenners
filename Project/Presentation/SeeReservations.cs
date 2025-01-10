@@ -60,7 +60,7 @@ public static class SeeReservations
             }
             return;
         }
-        System.Console.WriteLine("No reservations at the moment.");
+        PresentationHelper.PrintRed("No reservations at the moment.");
     }
 
     public static void PastReservationsMenu()
@@ -77,7 +77,7 @@ public static class SeeReservations
             }
             return;
         }
-        System.Console.WriteLine("No reservations at the moment.");
+        PresentationHelper.PrintRed("No reservations at the moment.");
     }
 
     public static void AllReservationsMenu()
@@ -98,7 +98,7 @@ public static class SeeReservations
         }
         else
         {
-            System.Console.WriteLine("Reservation not found.");
+            PresentationHelper.PrintRed("Reservation not found.");
         }
     }
 }

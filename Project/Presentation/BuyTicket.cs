@@ -128,7 +128,7 @@ static class BuyTicket
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Code is invalid, or already used");
+                                    PresentationHelper.PrintRed("Code is invalid, or already used");
                                     continue;
                                 }
                             }

@@ -27,7 +27,7 @@ static class UserLogin
         else
         {
             PresentationHelper.ClearConsole();
-            Console.WriteLine("No account found with that email and/or password");
+            PresentationHelper.PrintRed("No account found with that email and/or password");
             Menu.Start();
         }
     }

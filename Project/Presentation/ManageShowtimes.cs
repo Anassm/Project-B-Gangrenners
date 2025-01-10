@@ -82,7 +82,7 @@ public class ManageShowtimes
             else
             {
                 PresentationHelper.ClearConsole();
-                System.Console.WriteLine("Invalid format.");
+                PresentationHelper.PrintRed("Invalid format.");
                 continue;
             }
         }
@@ -101,7 +101,7 @@ public class ManageShowtimes
             else
             {
                 PresentationHelper.ClearConsole();
-                System.Console.WriteLine("Invalid format.");
+                PresentationHelper.PrintRed("Invalid format.");
                 continue;
             }
             datetime = date.ToDateTime(time);
@@ -136,7 +136,7 @@ public class ManageShowtimes
             else
             {
                 PresentationHelper.ClearConsole();
-                System.Console.WriteLine("Invalid input.");
+                PresentationHelper.PrintRed("Invalid input.");
             }
         }
 
@@ -260,7 +260,7 @@ public class ManageShowtimes
                 else
                 {
                     PresentationHelper.ClearConsole();
-                    System.Console.WriteLine("Invalid format.");
+                    PresentationHelper.PrintRed("Invalid format.");
                     continue;
                 }
             }
@@ -279,7 +279,7 @@ public class ManageShowtimes
                 else
                 {
                     PresentationHelper.ClearConsole();
-                    System.Console.WriteLine("Invalid format.");
+                    PresentationHelper.PrintRed("Invalid format.");
                     continue;
                 }
                 datetime = startdate.ToDateTime(time);
@@ -333,7 +333,7 @@ public class ManageShowtimes
             else
             {
                 PresentationHelper.ClearConsole();
-                System.Console.WriteLine("Invalid format.");
+                PresentationHelper.PrintRed("Invalid format.");
                 continue;
             }
         }
@@ -363,7 +363,7 @@ public class ManageShowtimes
             else
             {
                 PresentationHelper.ClearConsole();
-                System.Console.WriteLine("Invalid input.");
+                PresentationHelper.PrintRed("Invalid input.");
             }
         }
 
@@ -386,7 +386,7 @@ public class ManageShowtimes
             else
             {
                 PresentationHelper.ClearConsole();
-                System.Console.WriteLine("Invalid input.");
+                PresentationHelper.PrintRed("Invalid input.");
             }
         }
 
@@ -411,22 +411,6 @@ public class ManageShowtimes
                 datetimes = ShowtimesLogic.GenerateDateTimesList(startdate, enddate, time, interval);
                 validshowtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes).ValidShowtimes;
                 invalidshowtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes).InvalidShowtimes;
-                // System.Console.WriteLine("Valid screen times:");
-                // System.Console.WriteLine("---------------------------------------");
-                // foreach (ShowtimeModel showtime in validshowtimes)
-                // {
-                //     System.Console.WriteLine($"Date: {showtime.Time}");
-                //     System.Console.WriteLine("---------------------------------------");
-                // }
-                // System.Console.WriteLine("");
-                // System.Console.WriteLine("Invalid screen times:");
-                // System.Console.WriteLine("---------------------------------------");
-                // foreach (ShowtimeModel showtime in invalidshowtimes)
-                // {
-                //     System.Console.WriteLine($"Date: {showtime.Time}");
-                //     System.Console.WriteLine("---------------------------------------");
-                // }
-                // string StartMessage3 = "Add the valid screen times?";
                 bool YesNo3 = SelectingMenu.YesNoSelect(Print);
                 if (YesNo3)
                 {
@@ -448,7 +432,7 @@ public class ManageShowtimes
 
     public static void Print()
     {
-        System.Console.WriteLine("Valid screen times:");
+        PresentationHelper.PrintGreen("Valid screen times:");
         System.Console.WriteLine("---------------------------------------");
         foreach (ShowtimeModel showtime in validshowtimes)
         {
@@ -456,7 +440,7 @@ public class ManageShowtimes
             System.Console.WriteLine("---------------------------------------");
         }
         System.Console.WriteLine("");
-        System.Console.WriteLine("Invalid screen times:");
+        PresentationHelper.PrintRed("Invalid screen times:");
         System.Console.WriteLine("---------------------------------------");
         foreach (ShowtimeModel showtime in invalidshowtimes)
         {

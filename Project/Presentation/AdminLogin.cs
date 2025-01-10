@@ -43,7 +43,7 @@ public static class AdminLogin
             {
                 _attemptsLeft = 0;
             }
-            Console.WriteLine("No admin account found with that email and/or password");
+            PresentationHelper.PrintRed("No admin account found with that email and/or password");
             Console.WriteLine($"{_attemptsLeft} attempts left.");
             Menu.Start();
         }

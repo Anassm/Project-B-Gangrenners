@@ -56,7 +56,7 @@ public class Register
                 return firstName;
             }
             PresentationHelper.ClearConsole();
-            Console.WriteLine("Invalid first name");
+            PresentationHelper.PrintRed("Invalid first name");
         }
     }
 
@@ -70,7 +70,7 @@ public class Register
             {
                 return lastName;
             }
-            Console.WriteLine("Invalid last name");
+            PresentationHelper.PrintRed("Invalid last name");
         }
     }
 
@@ -85,7 +85,7 @@ public class Register
             if (!AccountsLogic.CheckPassword(password))
             {
                 PresentationHelper.ClearConsole();
-                Console.WriteLine("Invalid password");
+                PresentationHelper.PrintRed("Invalid password");
                 continue;
             }
             PresentationHelper.PrintYellow("\nPlease confirm your password");
@@ -111,7 +111,7 @@ public class Register
                 return DateTime.Parse(dateOfBirthInput);
             }
 
-            Console.WriteLine("Invalid date of birth");
+            PresentationHelper.PrintRed("Invalid date of birth");
         }
     }
 
