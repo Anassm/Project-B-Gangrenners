@@ -4,7 +4,7 @@ public static class ManageHalls
     {
         while (true)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             PresentationHelper.PrintGreen("You have chosen to change the price of a seat type to the corresponding hall.");
 
             HallModel hall;

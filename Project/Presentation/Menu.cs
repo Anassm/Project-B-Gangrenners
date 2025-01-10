@@ -12,9 +12,16 @@ static class Menu
 
     static public void Start()
     {
-        string[] MenuNames = { "Login", "Register", "Continue as guest", "Login as admin", "Login as accountant", "About page", "Exit" };
-        Action[] Actions = { UserLogin.Start, Register.Start, MainMenu, AdminLogin.Start, AccountantLogin.Start, AboutPage.Start, Exit, };
+        string[] MenuNames = { "Login", "Register", "Search movie", "About page", "Exit" };
+        Action[] Actions = { LoginSubMenu, Register.Start, MainMenu, AboutPage.Start, Exit, };
         SelectingMenu.MenusSelectMainMenu(MenuNames, Actions);
+    }
+
+    static public void LoginSubMenu()
+    {
+        string[] MenuNames = { "User", "Admin", "Accountant", "Go back" };
+        Action[] Actions = { UserLogin.Start, AdminLogin.Start, AccountantLogin.Start, Start };
+        SelectingMenu.MenusSelect(MenuNames, Actions, "Log in as:");
     }
 
     public static void DynamicSubscriptionOption()
@@ -58,8 +65,8 @@ static class Menu
         else
         {
             string StartMessage = "";
-            string[] MenuNames = { "Search movies by date and buy ticket", "Search all movies and buy ticket", "Register", "Go back", };
-            Action[] Actions = { MovieSearch.SearchByDate, MovieSearch.SearchAll, Register.Start, Start };
+            string[] MenuNames = { "Search movies by date and buy ticket", "Search all movies and buy ticket", "Go back", };
+            Action[] Actions = { MovieSearch.SearchByDate, MovieSearch.SearchAll, Start };
             SelectingMenu.MenusSelect(MenuNames, Actions, StartMessage);
         }
     }

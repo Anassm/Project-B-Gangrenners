@@ -10,7 +10,7 @@ public static class SeeReservations
 
     public static void PastReservations()
     {
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         PastReservationsMenu();
         PresentationHelper.PrintYellow("Press any key to continue.");
         System.Console.WriteLine();
@@ -19,7 +19,7 @@ public static class SeeReservations
 
     public static void FutureReservations()
     {
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         FutureReservationsMenu();
         PresentationHelper.PrintYellow("Press any key to continue.");
         System.Console.WriteLine();
@@ -28,7 +28,7 @@ public static class SeeReservations
 
     public static void AllReservations()
     {
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         AllReservationsMenu();
         PresentationHelper.PrintYellow("Press any key to continue.");
         System.Console.WriteLine();
@@ -37,7 +37,7 @@ public static class SeeReservations
 
     public static void ReservationByCode()
     {
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         SeeReservationByCode();
         System.Console.WriteLine();
         PresentationHelper.PrintYellow("Press any key to continue.");

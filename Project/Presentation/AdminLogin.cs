@@ -11,7 +11,7 @@ public static class AdminLogin
 
     public static void Start()
     {
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         if (_attemptsLeft <= 0)
         {
             PresentationHelper.PrintRed("Too many incorrect, locked out for 30 seconds.");
@@ -31,13 +31,13 @@ public static class AdminLogin
         AdminAccountModel acc = accountsLogic.CheckLogin(email, password);
         if (acc != null)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             Console.WriteLine(acc.FullName + " was successfully logged in as admin ");
             AdminMenu();
         }
         else
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             _attemptsLeft--;
             if (_attemptsLeft < 0)
             {

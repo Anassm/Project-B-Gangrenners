@@ -230,6 +230,24 @@ public static class SelectingMenu
             System.Console.WriteLine("    to select what you                     | |/ |/ / _// /__/ /__/ /_/ / /|_/ / _/ /_/ ");
             System.Console.WriteLine("    want to do.                            |__/|__/___/____/\\___/\\____/_/  /_/___/(_)");
             System.Console.WriteLine();
+
+            List<string> movies = MoviesLogic.GetPromotedMoviesName();
+            string movie1 = (movies.Count >= 1) ? movies[0] : "";
+            string movie2 = (movies.Count >= 2) ? movies[1] : "";
+            string movie3 = (movies.Count >= 3) ? movies[2] : "";
+            Console.ForegroundColor = ConsoleColor.Green;
+            string row1 = "     |==========================================================================|";
+            string row2 = $"     |{new string(' ', 28)}RECOMMENDED MOVIES{new string(' ', 28)}|"; 
+            string row3 = $"     |{new string('=', 24)}|{new string('=', 24)}|{new string('=', 24)}|";
+            string row4 = $"     |{movie1}{new string(' ', 24-movie1.Length)}|{movie2}{new string(' ', 24-movie2.Length)}|{movie3}{new string(' ', 24-movie3.Length)}|";
+            string row5 = $"     |{new string('=', 24)}|{new string('=', 24)}|{new string('=', 24)}|";
+            System.Console.WriteLine(row1);
+            System.Console.WriteLine(row2);
+            System.Console.WriteLine(row3);
+            System.Console.WriteLine(row4);
+            System.Console.WriteLine(row5);
+            System.Console.WriteLine();
+            System.Console.WriteLine();
             Console.ResetColor();
             for (int i = 0; i < menuOptions.Length; i++)
             {

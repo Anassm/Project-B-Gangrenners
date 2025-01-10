@@ -20,13 +20,13 @@ public class ManageShowtimes
             }
         }
 
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         //show all movies
         string StartMessage = "Would you like to see all current movies?";
         bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
         if (YesNo)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             System.Console.WriteLine("All movies:");
             System.Console.WriteLine("------------------------");
             System.Console.WriteLine(MoviesLogic.ShowAllMovieNames());
@@ -34,7 +34,7 @@ public class ManageShowtimes
         }
         else
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
         }
 
         //Movie Name
@@ -47,7 +47,7 @@ public class ManageShowtimes
             if (MoviesLogic.GetMovieByName(movieName) == null)
             {
                 System.Console.WriteLine("Please enter an existing movie");
-                Console.Clear();
+                PresentationHelper.ClearConsole();
                 continue;
             }
             else
@@ -81,7 +81,7 @@ public class ManageShowtimes
             }
             else
             {
-                Console.Clear();
+                PresentationHelper.ClearConsole();
                 System.Console.WriteLine("Invalid format.");
                 continue;
             }
@@ -100,14 +100,14 @@ public class ManageShowtimes
             }
             else
             {
-                Console.Clear();
+                PresentationHelper.ClearConsole();
                 System.Console.WriteLine("Invalid format.");
                 continue;
             }
             datetime = date.ToDateTime(time);
             if (DateTime.Now > datetime)
             {
-                Console.Clear();
+                PresentationHelper.ClearConsole();
                 System.Console.WriteLine("Can not add screenings for in the past, please give a valid date and/or time");
                 continue;
             }
@@ -135,7 +135,7 @@ public class ManageShowtimes
             }
             else
             {
-                Console.Clear();
+                PresentationHelper.ClearConsole();
                 System.Console.WriteLine("Invalid input.");
             }
         }
@@ -153,26 +153,26 @@ public class ManageShowtimes
                 ConsoleKeyInfo key2 = Console.ReadKey(true);
                 if (key2.Key != null)
                 {
-                    Console.Clear();
+                    PresentationHelper.ClearConsole();
                     AdminLogin.AdminMenu();
                 }
             }
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             System.Console.WriteLine("screening was succesfully added.");
         }
         else
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             System.Console.WriteLine("Press anything to go back to the menu.");
             ConsoleKeyInfo key2 = Console.ReadKey(true);
             if (key2.Key != null)
             {
-                Console.Clear();
+                PresentationHelper.ClearConsole();
                 AdminLogin.AdminMenu();
             }
         }
 
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         PresentationHelper.PrintYellow("Press anything to go back to the menu.");
         PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
     }
@@ -201,7 +201,7 @@ public class ManageShowtimes
         bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
         if (YesNo)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             System.Console.WriteLine("All movies:");
             System.Console.WriteLine("------------------------");
             System.Console.WriteLine(MoviesLogic.ShowAllMovieNames());
@@ -209,7 +209,7 @@ public class ManageShowtimes
         }
         else
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
         }
 
         System.Console.WriteLine("");
@@ -259,7 +259,7 @@ public class ManageShowtimes
                 }
                 else
                 {
-                    Console.Clear();
+                    PresentationHelper.ClearConsole();
                     System.Console.WriteLine("Invalid format.");
                     continue;
                 }
@@ -278,14 +278,14 @@ public class ManageShowtimes
                 }
                 else
                 {
-                    Console.Clear();
+                    PresentationHelper.ClearConsole();
                     System.Console.WriteLine("Invalid format.");
                     continue;
                 }
                 datetime = startdate.ToDateTime(time);
                 if (DateTime.Now > datetime)
                 {
-                    Console.Clear();
+                    PresentationHelper.ClearConsole();
                     System.Console.WriteLine("Can not add screenings for in the past, please give a valid date and/or time");
                     continue;
                 }
@@ -294,7 +294,7 @@ public class ManageShowtimes
                     break;
                 }
             }
-            Console.Clear();
+            PresentationHelper.ClearConsole();
 
             //confirm
             string StartMessage2 = $"Start date and time: {datetime}\nIs this correct?";
@@ -332,7 +332,7 @@ public class ManageShowtimes
             }
             else
             {
-                Console.Clear();
+                PresentationHelper.ClearConsole();
                 System.Console.WriteLine("Invalid format.");
                 continue;
             }
@@ -362,7 +362,7 @@ public class ManageShowtimes
             }
             else
             {
-                Console.Clear();
+                PresentationHelper.ClearConsole();
                 System.Console.WriteLine("Invalid input.");
             }
         }
@@ -385,7 +385,7 @@ public class ManageShowtimes
             }
             else
             {
-                Console.Clear();
+                PresentationHelper.ClearConsole();
                 System.Console.WriteLine("Invalid input.");
             }
         }
@@ -407,7 +407,7 @@ public class ManageShowtimes
             bool YesNo2 = SelectingMenu.YesNoSelect(StartMessage2);
             if (YesNo2)
             {
-                Console.Clear();
+                PresentationHelper.ClearConsole();
                 datetimes = ShowtimesLogic.GenerateDateTimesList(startdate, enddate, time, interval);
                 validshowtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes).ValidShowtimes;
                 invalidshowtimes = ShowtimesLogic.GenerateShowTimesList(movieName, hallId, datetimes).InvalidShowtimes;
@@ -439,7 +439,7 @@ public class ManageShowtimes
             }
             else
             {
-                Console.Clear();
+                PresentationHelper.ClearConsole();
                 PresentationHelper.PrintYellow("Press anything to go back to the menu.");
                 PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
             }

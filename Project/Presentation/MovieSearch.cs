@@ -15,11 +15,11 @@ public static class MovieSearch
         bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
         if (YesNo)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
         }
         else
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             Menu.MainMenu();
         }
 
@@ -110,7 +110,7 @@ public static class MovieSearch
         }
         else
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
 
         }
 
@@ -123,7 +123,7 @@ public static class MovieSearch
             MovieModel selectedMovie = MoviesLogic.GetMovieByName(movieName, MoviesLogic.GetMovies(selectedDate));
             if (selectedMovie == null)
             {
-                Console.Clear();
+                PresentationHelper.ClearConsole();
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Movie not found");
                 Console.ResetColor();
@@ -134,12 +134,12 @@ public static class MovieSearch
             bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
             if (YesNo)
             {
-                Console.Clear();
+                PresentationHelper.ClearConsole();
                 return selectedMovie;
             }
             else
             {
-                Console.Clear();
+                PresentationHelper.ClearConsole();
             }
         }
     }
@@ -164,11 +164,11 @@ public static class MovieSearch
         bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
         if (YesNo)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
         }
         else
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             Menu.MainMenu();
         }
 

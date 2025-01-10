@@ -21,12 +21,12 @@ static class UserLogin
         {
             PresentationHelper.PrintGreen("Welcome back " + acc.FirstName + " " + acc.LastName);
             Console.WriteLine("Your email is " + acc.EmailAddress);
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             Menu.MainMenu();
         }
         else
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             Console.WriteLine("No account found with that email and/or password");
             Menu.Start();
         }
