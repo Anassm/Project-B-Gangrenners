@@ -124,9 +124,7 @@ public static class MovieSearch
             if (selectedMovie == null)
             {
                 PresentationHelper.ClearConsole();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Movie not found");
-                Console.ResetColor();
+                PresentationHelper.PrintRed("Movie not found");
                 continue;
             }
 
