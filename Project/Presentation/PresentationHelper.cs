@@ -11,7 +11,7 @@ public static class PresentationHelper
         ConsoleKeyInfo key = Console.ReadKey(true);
         if (key.Key != null)
         {
-            PresentationHelper.ClearConsole();
+            ClearConsole();
             method();
         }
     }
@@ -46,11 +46,11 @@ public static class PresentationHelper
 
     public static bool Continue(Action method)
     {
-        PresentationHelper.PrintYellow("Do you want to continue? (Y/N)");
+        PrintYellow("Do you want to continue? (Y/N)");
         string input = Console.ReadLine().ToLower();
         if (input == "n" || input == "no")
         {
-            PresentationHelper.ClearConsole();
+            ClearConsole();
             method();
         }
         if (input == "y" || input == "yes")
@@ -59,7 +59,7 @@ public static class PresentationHelper
         }
         else
         {
-            PresentationHelper.ClearConsole();
+            ClearConsole();
             PrintRed("Invalid input.");
             return false;
         }
@@ -78,7 +78,7 @@ public static class PresentationHelper
         }
         else
         {
-            PresentationHelper.ClearConsole();
+            ClearConsole();
             PrintRed("Invalid input.");
             return -1;
         }
@@ -107,7 +107,7 @@ public static class PresentationHelper
             int ConvertedInput = Convert.ToInt32(Input);
             if (ConvertedInput <= 0)
             {
-                PresentationHelper.ClearConsole();
+                ClearConsole();
                 PrintRed("Input has to be larger than 0.");
                 return 0;
             }
@@ -115,7 +115,7 @@ public static class PresentationHelper
         }
         else
         {
-            PresentationHelper.ClearConsole();
+            ClearConsole();
             PrintRed("Invalid input, Enter a number.");
             return 0;
         }
