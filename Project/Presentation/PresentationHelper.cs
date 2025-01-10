@@ -2,7 +2,7 @@ public static class PresentationHelper
 {
     public static void ClearConsole()
     {
-        PresentationHelper.ClearConsole();
+        Console.Clear();
         Console.WriteLine("\x1b[3J");
     }
 
