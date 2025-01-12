@@ -159,13 +159,9 @@ public class OrdersLogic
 
     public static void LoadFullItems(OrderModel order)
     {
-        System.Console.WriteLine("LOADING ITEMS");
-        Thread.Sleep(2000);
         order.Items = new List<(IItem item, int quantity)>();
         order.Items.Clear();
 
-        System.Console.WriteLine("CLEAREd");
-        Thread.Sleep(2000);
         foreach (var reference in order.ItemReferences)
         {
             IItem? item = LoadItemById(reference.fileName, reference.itemId);
@@ -189,8 +185,6 @@ public class OrdersLogic
 
     public static string GetProductString(int orderId)
     {
-        System.Console.WriteLine("TEST");
-        Thread.Sleep(2000);
         var order = GetOrderById(orderId);
         
         if (order == null)
@@ -199,15 +193,12 @@ public class OrdersLogic
         }
         LoadFunction();
 
-        System.Console.WriteLine("TEST2");
-        Thread.Sleep(2000);
         LoadFullItems(order);
 
 
 
         var sb = new StringBuilder();
 
-        System.Console.WriteLine("Items in order:");
         foreach (var item in order.Items)
         {
             System.Console.WriteLine(item.item.Name);
