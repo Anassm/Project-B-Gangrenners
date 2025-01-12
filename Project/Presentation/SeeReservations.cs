@@ -12,6 +12,7 @@ public static class SeeReservations
     {
         Console.Clear();
         PastReservationsMenu();
+        
         PresentationHelper.PrintYellow("Press any key to continue.");
         System.Console.WriteLine();
         PresentationHelper.PressAnyToContinue(SeeReservationSubMenu);
@@ -21,6 +22,27 @@ public static class SeeReservations
     {
         Console.Clear();
         FutureReservationsMenu();
+        System.Console.WriteLine("If you want to add food, drinks or products to a reservation, enter the code of the reservation you want to add to. If you do not want to add anything, press enter to go back.");
+        string code = Console.ReadLine();
+        if (string.IsNullOrEmpty(code))
+        {
+            SeeReservationSubMenu();
+            return;
+        }
+
+        ReservationModel reservation = ReservationsLogic.GetReservation(code);
+        if (reservation != null && ShowtimesLogic.GetShowtimeById(reservation.ShowtimeId).Time > DateTime.Now)
+        {
+            BuyExtras.ProductMenu(false, reservation);
+        }
+        else
+        {
+            System.Console.WriteLine("Reservation not found or it is not a future reservation.");
+            System.Console.WriteLine();
+            PresentationHelper.PrintYellow("Press any key to continue.");
+            PresentationHelper.PressAnyToContinue(SeeReservationSubMenu);
+        }
+    
         PresentationHelper.PrintYellow("Press any key to continue.");
         System.Console.WriteLine();
         PresentationHelper.PressAnyToContinue(SeeReservationSubMenu);
@@ -100,5 +122,14 @@ public static class SeeReservations
         {
             System.Console.WriteLine("Reservation not found.");
         }
+    }
+
+    public static void GetUpdatedReservation(ReservationModel reservation)
+    {
+        System.Console.WriteLine("Your reservation has been updated.");
+        System.Console.WriteLine("This is what it looks like");
+        System.Console.WriteLine(reservation.ToStringWithSeatsAndOrder());
+        System.Console.WriteLine("Press any key to continue.");
+        PresentationHelper.PressAnyToContinue(SeeReservationSubMenu);
     }
 }

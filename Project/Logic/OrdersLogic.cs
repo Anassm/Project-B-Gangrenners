@@ -6,6 +6,15 @@ public class OrdersLogic
 {
     private static List<OrderModel> _orders { get; set; } = OrdersAccess.LoadAll();
 
+    public static void LoadFunction()
+    {
+        _orders = OrdersAccess.LoadAll();
+        foreach (var order in _orders)
+        {
+            order.Items = new List<(IItem item, int quantity)>();
+        }
+    }
+
     public static void UpdateOrders(OrderModel order)
     {
         int index = _orders.FindIndex(o => o.Id == order.Id);
@@ -150,8 +159,13 @@ public class OrdersLogic
 
     public static void LoadFullItems(OrderModel order)
     {
+        System.Console.WriteLine("LOADING ITEMS");
+        Thread.Sleep(2000);
+        order.Items = new List<(IItem item, int quantity)>();
         order.Items.Clear();
 
+        System.Console.WriteLine("CLEAREd");
+        Thread.Sleep(2000);
         foreach (var reference in order.ItemReferences)
         {
             IItem? item = LoadItemById(reference.fileName, reference.itemId);
@@ -175,22 +189,31 @@ public class OrdersLogic
 
     public static string GetProductString(int orderId)
     {
+        System.Console.WriteLine("TEST");
+        Thread.Sleep(2000);
         var order = GetOrderById(orderId);
-
+        
         if (order == null)
         {
             return "Order not found";
         }
+        LoadFunction();
 
+        System.Console.WriteLine("TEST2");
+        Thread.Sleep(2000);
         LoadFullItems(order);
-    
+
+
+
         var sb = new StringBuilder();
 
+        System.Console.WriteLine("Items in order:");
         foreach (var item in order.Items)
         {
+            System.Console.WriteLine(item.item.Name);
             sb.AppendLine($"{item.item.Name} x{item.quantity}");
         }
-
+        
         return sb.ToString();
     }
 
