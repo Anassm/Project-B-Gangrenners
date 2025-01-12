@@ -32,19 +32,19 @@ public static class AccountantLogin
         AccountantAccountModel acc = accountsLogic.CheckLogin(email, password);
         if (acc != null)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             Console.WriteLine(acc.FullName + " was successfully logged in as admin ");
             AccountantMenu();
         }
         else
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             _attemptsLeft--;
             if (_attemptsLeft < 0)
             {
                 _attemptsLeft = 0;
             }
-            Console.WriteLine("No admin account found with that email and/or password");
+            PresentationHelper.PrintRed("No admin account found with that email and/or password");
             Console.WriteLine($"{_attemptsLeft} attempts left.");
             Menu.Start();
         }

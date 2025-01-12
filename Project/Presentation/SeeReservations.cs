@@ -10,7 +10,7 @@ public static class SeeReservations
 
     public static void PastReservations()
     {
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         PastReservationsMenu();
         PresentationHelper.PrintYellow("Press any key to continue.");
         System.Console.WriteLine();
@@ -19,7 +19,7 @@ public static class SeeReservations
 
     public static void FutureReservations()
     {
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         FutureReservationsMenu();
         PresentationHelper.PrintYellow("Press any key to continue.");
         System.Console.WriteLine();
@@ -28,7 +28,7 @@ public static class SeeReservations
 
     public static void AllReservations()
     {
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         AllReservationsMenu();
         PresentationHelper.PrintYellow("Press any key to continue.");
         System.Console.WriteLine();
@@ -37,7 +37,7 @@ public static class SeeReservations
 
     public static void ReservationByCode()
     {
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         SeeReservationByCode();
         System.Console.WriteLine();
         PresentationHelper.PrintYellow("Press any key to continue.");
@@ -60,7 +60,7 @@ public static class SeeReservations
             }
             return;
         }
-        System.Console.WriteLine("No reservations at the moment.");
+        PresentationHelper.PrintRed("No reservations at the moment.");
     }
 
     public static void PastReservationsMenu()
@@ -77,7 +77,7 @@ public static class SeeReservations
             }
             return;
         }
-        System.Console.WriteLine("No reservations at the moment.");
+        PresentationHelper.PrintRed("No reservations at the moment.");
     }
 
     public static void AllReservationsMenu()
@@ -98,7 +98,7 @@ public static class SeeReservations
         }
         else
         {
-            System.Console.WriteLine("Reservation not found.");
+            PresentationHelper.PrintRed("Reservation not found.");
         }
     }
 }

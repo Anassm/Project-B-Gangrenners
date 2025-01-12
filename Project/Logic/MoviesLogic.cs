@@ -366,4 +366,17 @@ public class MoviesLogic
         }
         return display;
     }
+
+    public static List<String> GetPromotedMoviesName()
+    {
+        List<String> movies = new();
+        foreach (MovieModel movie in _movies)
+        {
+            if (movie.Promoted)
+            {
+                movies.Add(movie.Name);
+            }
+        }
+        return movies;
+    }
 }

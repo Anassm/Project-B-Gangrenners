@@ -81,7 +81,7 @@ public static class ChooseMovie
         }
         else
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             Menu.MainMenu();
         }
         PresentationHelper.ClearConsole();
@@ -304,7 +304,7 @@ public static class ChooseMovie
         int amountOfSeats;
         while (!int.TryParse(Console.ReadLine(), out amountOfSeats) || amountOfSeats < 1 || amountOfSeats > 450)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             Console.WriteLine("Please enter a valid number of seats.");
         }
 
@@ -332,7 +332,7 @@ public static class ChooseMovie
         int selectedRow = 8, selectedCol = 0;
         bool isSelecting = true;
 
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         Console.WriteLine("\x1b[3J");
         DisplaySeatMap(showtime, selectedRow, selectedCol);
         Console.WriteLine("Use arrow keys to navigate, Enter to select a seat, or Escape to exit.");
@@ -340,7 +340,7 @@ public static class ChooseMovie
         while (isSelecting && selectedSeats.Count < amountOfSeats)
         {
             var key = Console.ReadKey(true);
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             Console.WriteLine("\x1b[3J");
 
             if (key.Key == ConsoleKey.Enter)

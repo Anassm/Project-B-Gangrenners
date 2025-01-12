@@ -37,7 +37,7 @@ public class Register
         DateTime dateOfBirth = GetValidDateOfBirth();
 
         AccountsLogic.AddAccount(email, password, firstName, lastName, dateOfBirth);
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         PresentationHelper.PrintGreen("Account created successfully");
         System.Console.WriteLine();
         PresentationHelper.PrintYellow("Press any key to continue");
@@ -46,7 +46,7 @@ public class Register
 
     private static string GetValidFirstName()
     {
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         while (true)
         {
             PresentationHelper.PrintYellow("Please enter your first name");
@@ -55,8 +55,8 @@ public class Register
             {
                 return firstName;
             }
-            Console.Clear();
-            Console.WriteLine("Invalid first name");
+            PresentationHelper.ClearConsole();
+            PresentationHelper.PrintRed("Invalid first name");
         }
     }
 
@@ -70,22 +70,22 @@ public class Register
             {
                 return lastName;
             }
-            Console.WriteLine("Invalid last name");
+            PresentationHelper.PrintRed("Invalid last name");
         }
     }
 
 
     private static string GetValidPassword()
     {
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         while (true)
         {
             PresentationHelper.PrintYellow("Please enter your password, must be at least 8 characters long and contain at least one number, one uppercase letter and one special character");
             string password = HideCharacter();
             if (!AccountsLogic.CheckPassword(password))
             {
-                Console.Clear();
-                Console.WriteLine("Invalid password");
+                PresentationHelper.ClearConsole();
+                PresentationHelper.PrintRed("Invalid password");
                 continue;
             }
             PresentationHelper.PrintYellow("\nPlease confirm your password");
@@ -101,7 +101,7 @@ public class Register
 
     private static DateTime GetValidDateOfBirth()
     {
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         while (true)
         {
             PresentationHelper.PrintYellow("Please enter your date of birth (dd-MM-yyyy)");
@@ -111,7 +111,7 @@ public class Register
                 return DateTime.Parse(dateOfBirthInput);
             }
 
-            Console.WriteLine("Invalid date of birth");
+            PresentationHelper.PrintRed("Invalid date of birth");
         }
     }
 

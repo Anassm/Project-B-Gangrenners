@@ -67,15 +67,12 @@ static class Finance
                 Console.WriteLine($"Total Cost: {movie.Cost}");
                 if (profit >= 0)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"Total Profit: {profit}");
+                    PresentationHelper.PrintGreen($"Total Profit: {profit}");
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"Total Profit: {profit}");
+                    PresentationHelper.PrintRed($"Total Profit: {profit}");
                 }
-                Console.ResetColor();
 
                 Console.WriteLine("----------------------------------------------");
             }
