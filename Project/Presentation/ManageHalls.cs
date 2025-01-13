@@ -4,7 +4,7 @@ public static class ManageHalls
     {
         while (true)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             PresentationHelper.PrintGreen("You have chosen to change the price of a seat type to the corresponding hall.");
 
             HallModel hall;
@@ -30,11 +30,11 @@ public static class ManageHalls
                             break;
                         }
 
-                        Console.WriteLine("Invalid input. No hall found with the given id.");
+                        PresentationHelper.PrintRed("Invalid input. No hall found with the given id.");
                     }
                     else
                     {
-                        Console.WriteLine("Invalid input. Please enter a numeric hall id.");
+                        PresentationHelper.PrintRed("Invalid input. Please enter a numeric hall id.");
                     }
                 }
                 else if (totalHalls == 1)
@@ -44,7 +44,7 @@ public static class ManageHalls
                 }
                 else
                 {
-                    Console.WriteLine("No halls found.");
+                    PresentationHelper.PrintRed("No halls found.");
                     AdminLogin.AdminMenu();
                 }
             }
@@ -68,11 +68,11 @@ public static class ManageHalls
                         break;
                     }
 
-                    Console.WriteLine("Invalid input or seat type doesn't exist in hall. Please enter a valid seat type number.");
+                    PresentationHelper.PrintRed("Invalid input or seat type doesn't exist in hall. Please enter a valid seat type number.");
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input. Please enter a numeric seat type.");
+                    PresentationHelper.PrintRed("Invalid input. Please enter a numeric seat type.");
                 }
             }
 
@@ -87,11 +87,11 @@ public static class ManageHalls
                         break;
                     }
 
-                    Console.WriteLine("Price can't be lower than 0. Please enter a valid price.");
+                    PresentationHelper.PrintRed("Price can't be lower than 0. Please enter a valid price.");
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input. Please enter a numeric price.");
+                    PresentationHelper.PrintRed("Invalid input. Please enter a numeric price.");
                 }
             }
             string StartMessage = "Are you sure you want to change the price of the seat type?";

@@ -31,7 +31,7 @@ static class BuyTicket
         }
 
 
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         Console.WriteLine("This is what your order looks like now:");
         Console.WriteLine("Movie: " + movieName);
         Console.WriteLine("Seat types: " + seatTypes);
@@ -66,14 +66,14 @@ static class BuyTicket
                             convertedAmount = Convert.ToInt32(amount);
                             if (convertedAmount <= 0)
                             {
-                                Console.Clear();
+                                PresentationHelper.ClearConsole();
                                 PresentationHelper.PrintRed("Input has to be larger than 0.");
                             }
                             break;
                         }
                         else
                         {
-                            Console.Clear();
+                            PresentationHelper.ClearConsole();
                             PresentationHelper.PrintRed("Invalid input, Enter a number.");
                         }
                     }
@@ -97,20 +97,20 @@ static class BuyTicket
                                     convertedCode = Convert.ToInt32(code);
                                     if (convertedCode <= 0)
                                     {
-                                        Console.Clear();
+                                        PresentationHelper.ClearConsole();
                                         PresentationHelper.PrintRed("Input has to be larger than 0.");
                                     }
                                     break;
                                 }
                                 else
                                 {
-                                    Console.Clear();
+                                    PresentationHelper.ClearConsole();
                                     PresentationHelper.PrintRed("Invalid input, Enter a number.");
                                 }
                             }
                             if (code == "")
                             {
-                                Console.Clear();
+                                PresentationHelper.ClearConsole();
                                 PresentationHelper.PrintRed("Can not input nothing, please give an input.");
                             }
                             else
@@ -128,7 +128,7 @@ static class BuyTicket
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Code is invalid, or already used");
+                                    PresentationHelper.PrintRed("Code is invalid, or already used");
                                     continue;
                                 }
                             }
@@ -152,7 +152,7 @@ static class BuyTicket
 
         if (YesNo)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             try
             {
                 foreach (SeatModel seat in info.seats)
@@ -227,7 +227,7 @@ static class BuyTicket
                 info.showtime.Availability[coordinates[0], coordinates[1]] = 0;
             }
 
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             Menu.MainMenu();
         }
     }
@@ -251,7 +251,7 @@ static class BuyTicket
         {
             seatsstring += $"Row: {seat.Row}, Seat: {seat.Seat}";
         }
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         Console.WriteLine("This is your reservation:");
         Console.WriteLine("Movie: " + MoviesLogic.GetMovieById(ShowtimesLogic.GetShowtimeById(reservation.ShowtimeId).MoviesId).Name);
         Console.WriteLine("Seat types: " + seatTypes);

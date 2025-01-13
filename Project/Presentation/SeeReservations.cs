@@ -10,8 +10,9 @@ public static class SeeReservations
 
     public static void PastReservations()
     {
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         PastReservationsMenu();
+        
         PresentationHelper.PrintYellow("Press any key to continue.");
         System.Console.WriteLine();
         PresentationHelper.PressAnyToContinue(SeeReservationSubMenu);
@@ -19,8 +20,29 @@ public static class SeeReservations
 
     public static void FutureReservations()
     {
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         FutureReservationsMenu();
+        System.Console.WriteLine("If you want to add food, drinks or products to a reservation, enter the code of the reservation you want to add to. If you do not want to add anything, press enter to go back.");
+        string code = Console.ReadLine();
+        if (string.IsNullOrEmpty(code))
+        {
+            SeeReservationSubMenu();
+            return;
+        }
+
+        ReservationModel reservation = ReservationsLogic.GetReservation(code);
+        if (reservation != null && ShowtimesLogic.GetShowtimeById(reservation.ShowtimeId).Time > DateTime.Now)
+        {
+            BuyExtras.ProductMenu(false, reservation);
+        }
+        else
+        {
+            System.Console.WriteLine("Reservation not found or it is not a future reservation.");
+            System.Console.WriteLine();
+            PresentationHelper.PrintYellow("Press any key to continue.");
+            PresentationHelper.PressAnyToContinue(SeeReservationSubMenu);
+        }
+    
         PresentationHelper.PrintYellow("Press any key to continue.");
         System.Console.WriteLine();
         PresentationHelper.PressAnyToContinue(SeeReservationSubMenu);
@@ -28,7 +50,7 @@ public static class SeeReservations
 
     public static void AllReservations()
     {
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         AllReservationsMenu();
         PresentationHelper.PrintYellow("Press any key to continue.");
         System.Console.WriteLine();
@@ -37,7 +59,7 @@ public static class SeeReservations
 
     public static void ReservationByCode()
     {
-        Console.Clear();
+        PresentationHelper.ClearConsole();
         SeeReservationByCode();
         System.Console.WriteLine();
         PresentationHelper.PrintYellow("Press any key to continue.");
@@ -60,7 +82,7 @@ public static class SeeReservations
             }
             return;
         }
-        System.Console.WriteLine("No reservations at the moment.");
+        PresentationHelper.PrintRed("No reservations at the moment.");
     }
 
     public static void PastReservationsMenu()
@@ -77,7 +99,7 @@ public static class SeeReservations
             }
             return;
         }
-        System.Console.WriteLine("No reservations at the moment.");
+        PresentationHelper.PrintRed("No reservations at the moment.");
     }
 
     public static void AllReservationsMenu()
@@ -98,7 +120,16 @@ public static class SeeReservations
         }
         else
         {
-            System.Console.WriteLine("Reservation not found.");
+            PresentationHelper.PrintRed("Reservation not found.");
         }
+    }
+
+    public static void GetUpdatedReservation(ReservationModel reservation)
+    {
+        System.Console.WriteLine("Your reservation has been updated.");
+        System.Console.WriteLine("This is what it looks like");
+        System.Console.WriteLine(reservation.ToStringWithSeatsAndOrder());
+        System.Console.WriteLine("Press any key to continue.");
+        PresentationHelper.PressAnyToContinue(SeeReservationSubMenu);
     }
 }

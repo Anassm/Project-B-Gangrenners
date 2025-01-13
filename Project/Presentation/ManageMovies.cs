@@ -58,7 +58,7 @@ public static class ManageMovies
             System.Console.WriteLine("");
             PresentationHelper.PrintYellow("Please enter the Summary of the movie:");
             MovieSummary = PresentationHelper.StringInput(AdminLogin.AdminMenu);
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             if (MovieSummary == "")
             {
                 MovieSummary = "No summary available";
@@ -119,7 +119,7 @@ public static class ManageMovies
             }
             else if (Movie.Duration == MovieDuration && Movie.Genre == MovieGenre)
             {
-                Console.Clear();
+                PresentationHelper.ClearConsole();
                 System.Console.WriteLine("The movie you are trying to add is already in the archive.");
                 string StartMessage = "Do you want to remove the movie from the archive and add it to current movies?";
                 bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
@@ -134,7 +134,7 @@ public static class ManageMovies
                 }
                 else
                 {
-                    Console.Clear();
+                    PresentationHelper.ClearConsole();
                     AdminLogin.AdminMenu();
                 }
             }
@@ -160,7 +160,7 @@ public static class ManageMovies
         MovieModel movie = MoviesLogic.GetMovieByName(input);
         if (movie == null)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             PresentationHelper.PrintRed("This movie does not exist.");
             System.Console.WriteLine();
             PresentationHelper.PrintYellow("Give any input to go back to admin menu.");
@@ -187,7 +187,7 @@ public static class ManageMovies
         MovieModel movie = MoviesLogic.GetMovieByName(input);
         if (movie == null || MoviesLogic.CheckIfMovieInMovies(input) == false)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             PresentationHelper.PrintRed("This movie does not exist.");
             System.Console.WriteLine();
             PresentationHelper.PrintYellow("Give any input to go back to admin menu.");
@@ -196,12 +196,12 @@ public static class ManageMovies
         bool prom = MoviesLogic.PromoteMovie(movie);
         if (prom == false)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             PresentationHelper.PrintRed("This movie cannot be promoted.");
         }
         else
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             PresentationHelper.PrintGreen("Movie was successfully promoted.");
 
         }
@@ -224,19 +224,19 @@ public static class ManageMovies
         MovieModel movie = MoviesLogic.GetMovieByName(input);
         if (movie == null || MoviesLogic.CheckIfMovieInMovies(input) == false)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             PresentationHelper.PrintRed("This movie does not exist.");
             DemoteMovieMenu();
         }
         bool prom = MoviesLogic.unPromoteMovie(movie);
         if (prom == false)
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             PresentationHelper.PrintRed("This movie cannot be demoted.");
         }
         else
         {
-            Console.Clear();
+            PresentationHelper.ClearConsole();
             PresentationHelper.PrintGreen("Movie was successfully demoted.");
 
         }
