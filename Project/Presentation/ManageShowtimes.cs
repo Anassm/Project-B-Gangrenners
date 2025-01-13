@@ -150,12 +150,7 @@ public class ManageShowtimes
             {
                 System.Console.WriteLine($"screening could not be added, there is already a screening at {datetime} in hall {hallId}");
                 System.Console.WriteLine("Press anything to go back to the menu.");
-                ConsoleKeyInfo key2 = Console.ReadKey(true);
-                if (key2.Key != null)
-                {
-                    PresentationHelper.ClearConsole();
-                    AdminLogin.AdminMenu();
-                }
+                PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
             }
             PresentationHelper.ClearConsole();
             System.Console.WriteLine("screening was succesfully added.");
@@ -164,12 +159,7 @@ public class ManageShowtimes
         {
             PresentationHelper.ClearConsole();
             System.Console.WriteLine("Press anything to go back to the menu.");
-            ConsoleKeyInfo key2 = Console.ReadKey(true);
-            if (key2.Key != null)
-            {
-                PresentationHelper.ClearConsole();
-                AdminLogin.AdminMenu();
-            }
+            PresentationHelper.PressAnyToContinue(AdminLogin.AdminMenu);
         }
 
         PresentationHelper.ClearConsole();

@@ -1,6 +1,5 @@
 static class BuyTicket
 {
-    static private SeatsLogic _seatsLogic = new SeatsLogic();
     static private ShowtimesLogic _showtimesLogic = new ShowtimesLogic();
     static private ReservationsLogic _reservationsLogic = new ReservationsLogic();
 
@@ -12,15 +11,8 @@ static class BuyTicket
             Menu.MainMenu();
         }
 
-        // Calculate the total price of the order
-        double TotalPrice = 0;
-
-        foreach (SeatModel seat in info.seats)
-        {
-            TotalPrice += seat.Price;
-        }
-
         // declare variables
+        double TotalPrice = SeatsLogic.CalculateTotalPrice(info.seats);
         string movieName = MoviesLogic.GetMovieById(info.showtime.MoviesId).Name;
         string seatTypes = SeatsLogic.GetSeatTypes(info.seats);
         string time = info.showtime.Time.ToString();
@@ -120,7 +112,6 @@ static class BuyTicket
                                         SubscriptionLogic.UseViewByCode(convertedCode);
                                         Console.WriteLine("Code is valid");
                                         usedCodes.Add(convertedCode);
-
                                         TotalPrice -= sortedSeats[0].Price;
                                         sortedSeats.RemoveAt(0);
 
@@ -155,26 +146,12 @@ static class BuyTicket
             PresentationHelper.ClearConsole();
             try
             {
-                foreach (SeatModel seat in info.seats)
-                {
-                    _showtimesLogic.ReserveSeat(info.showtime.Id, seat.Row, seat.Seat);
-                    int[] coordinates = SeatsLogic.GetCoordinatesBySeat(seat);
-                    info.showtime.Availability[coordinates[0], coordinates[1]] = 1;
-                }
-
-                List<int> seatIds = new List<int>();
-                foreach (SeatModel seat in info.seats)
-                {
-                    seatIds.Add(seat.Id);
-                }
-
+                
+                SeatsLogic.UpdateAvailability(info.showtime, info.seats);
+                List<int> seatIds = SeatsLogic.MakeSeatList(info.seats);
                 List<string> codes = _reservationsLogic.GenerateUniqueCodes(info.seats.Count);
 
-                int accountId = 0;
-                if (AccountsLogic.CurrentAccount != null)
-                {
-                    accountId = AccountsLogic.CurrentAccount.Id;
-                }
+                int accountId = AccountsLogic.GetCurrentId();
 
                 ReservationModel reservation = new ReservationModel(_reservationsLogic.GetNextId(), seatIds, info.showtime.Id, accountId, TotalPrice, codes);
                 _reservationsLogic.AddReservation(reservation);
@@ -221,12 +198,7 @@ static class BuyTicket
         }
         else
         {
-            foreach (SeatModel seat in info.seats)
-            {
-                int[] coordinates = SeatsLogic.GetCoordinatesBySeat(seat);
-                info.showtime.Availability[coordinates[0], coordinates[1]] = 0;
-            }
-
+            SeatsLogic.ResetAvailability(info.showtime, info.seats);
             PresentationHelper.ClearConsole();
             Menu.MainMenu();
         }
@@ -234,12 +206,7 @@ static class BuyTicket
 
     public static void ReservationOverview(ReservationModel reservation)
     {
-        System.Console.WriteLine("This is your reservation:");
-        List<SeatModel> seats = new List<SeatModel>();
-        foreach (int seatId in reservation.SeatIds)
-        {
-            seats.Add(SeatsLogic.GetSeatById(seatId));
-        }
+        List<SeatModel> seats = ReservationsLogic.GetSeatsByReservation(reservation);
         string seatTypes = SeatsLogic.GetSeatTypes(seats);
         string time = ShowtimesLogic.GetShowtimeById(reservation.ShowtimeId).Time.ToString();
         double TotalPrice = reservation.TotalPrice;

@@ -20,6 +20,15 @@ public class AccountsLogic
         _accounts = AccountsAccess.LoadAll();
     }
 
+    public static int GetCurrentId()
+    {
+        int accountId = 0;
+        if (AccountsLogic.CurrentAccount != null)
+        {
+            accountId = AccountsLogic.CurrentAccount.Id;
+        }
+        return accountId;
+    }
 
     public void UpdateList(AccountModel acc)
     {

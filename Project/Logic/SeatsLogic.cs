@@ -6,9 +6,49 @@ public class SeatsLogic
     private static List<SeatModel> _seats { get; set; } = SeatsAccess.LoadAll();
     private static string[] _seatTypes = { "Regular", "VIP", "VIP+" };
 
+    static private ShowtimesLogic _showtimesLogic = new ShowtimesLogic();
+
     public SeatsLogic()
     {
         _seats = SeatsAccess.LoadAll();
+    }
+
+    public static void UpdateAvailability(ShowtimeModel showtime, List<SeatModel> seats)
+    {
+        foreach(SeatModel seat in seats)
+        {
+            _showtimesLogic.ReserveSeat(showtime.Id, seat.Row, seat.Seat);
+            int[] coordinates = SeatsLogic.GetCoordinatesBySeat(seat);
+            showtime.Availability[coordinates[0], coordinates[1]] = 1;
+        }
+        _showtimesLogic.UpdateList(showtime);
+    }
+
+    public static void ResetAvailability(ShowtimeModel showtime, List<SeatModel> seats)
+    {
+        foreach (SeatModel seat in seats)
+        {
+            int[] coordinates = SeatsLogic.GetCoordinatesBySeat(seat);
+            showtime.Availability[coordinates[0], coordinates[1]] = 0;
+        }
+    }
+    public static List<int> MakeSeatList(List<SeatModel> seats)
+    {
+        List<int> seatIds = new List<int>();
+        foreach (SeatModel seat in seats)
+        {
+            seatIds.Add(seat.Id);
+        }
+        return seatIds;
+    }
+    public static double CalculateTotalPrice(List<SeatModel> seats)
+    {
+        double totalPrice = 0;
+        foreach (SeatModel seat in seats)
+        {
+            totalPrice += seat.Price;
+        }
+        return totalPrice;
     }
 
     public static string GetSeatTypes(List<SeatModel> seats)
@@ -199,7 +239,7 @@ public class SeatsLogic
         return GetCoordinatesBySeat(seat.HallId, seat.Id);
     }
 
-    public void UpdateList(SeatModel seat)
+    public static void UpdateList(SeatModel seat)
     {
         int index = _seats.FindIndex(s => s.Id == seat.Id);
 
