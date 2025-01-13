@@ -156,4 +156,16 @@ public class ReservationsLogic
 
         return reservations;
     }
+
+    public static List<SeatModel> GetSeatsByReservation(ReservationModel reservation)
+    {
+        List<SeatModel> seats = new List<SeatModel>();
+
+        foreach (int seatId in reservation.SeatIds)
+        {
+            seats.Add(SeatsLogic.GetSeatById(seatId));
+        }
+
+        return seats;
+    }
 }

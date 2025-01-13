@@ -1,6 +1,5 @@
 public static class ChooseMovie
 {
-    private static readonly ShowtimesLogic _showtimesLogic = new ShowtimesLogic();
     public static string MovieToWatch;
     public static MovieModel Movie;
 
@@ -19,15 +18,13 @@ public static class ChooseMovie
 
     public static (List<SeatModel>, ShowtimeModel) StartMovie(MovieModel movie, int amountOfSeats, DateTime day)
     {
-        var choice = movie;
-        var showtime = GetShowTimes(choice, day, amountOfSeats);
+        var showtime = GetShowTimes(movie, day, amountOfSeats);
         return SeatChoice(showtime, amountOfSeats);
     }
 
     public static (List<SeatModel>, ShowtimeModel) StartMovie(MovieModel movie, int amountOfSeats, DateTime beginDay, DateTime endDay)
     {
-        var choice = movie;
-        var showtime = GetShowTimes(choice, beginDay, endDay, amountOfSeats);
+        var showtime = GetShowTimes(movie, beginDay, endDay, amountOfSeats);
         return SeatChoice(showtime, amountOfSeats);
     }
 
