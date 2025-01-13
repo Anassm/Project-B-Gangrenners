@@ -12,6 +12,7 @@ static class Menu
 
     static public void Start()
     {
+        AccountsLogic.CurrentAccount = null;
         string[] MenuNames = { "Login", "Register", "Search movie", "About page", "Exit" };
         Action[] Actions = { LoginSubMenu, Register.Start, MainMenu, AboutPage.Start, Exit, };
         SelectingMenu.MenusSelectMainMenu(MenuNames, Actions);
