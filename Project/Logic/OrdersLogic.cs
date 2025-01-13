@@ -6,6 +6,15 @@ public class OrdersLogic
 {
     private static List<OrderModel> _orders { get; set; } = OrdersAccess.LoadAll();
 
+    public static void LoadFunction()
+    {
+        _orders = OrdersAccess.LoadAll();
+        foreach (var order in _orders)
+        {
+            order.Items = new List<(IItem item, int quantity)>();
+        }
+    }
+
     public static void UpdateOrders(OrderModel order)
     {
         int index = _orders.FindIndex(o => o.Id == order.Id);
@@ -150,6 +159,7 @@ public class OrdersLogic
 
     public static void LoadFullItems(OrderModel order)
     {
+        order.Items = new List<(IItem item, int quantity)>();
         order.Items.Clear();
 
         foreach (var reference in order.ItemReferences)
@@ -176,21 +186,25 @@ public class OrdersLogic
     public static string GetProductString(int orderId)
     {
         var order = GetOrderById(orderId);
-
+        
         if (order == null)
         {
             return "Order not found";
         }
+        LoadFunction();
 
         LoadFullItems(order);
-    
+
+
+
         var sb = new StringBuilder();
 
         foreach (var item in order.Items)
         {
+            System.Console.WriteLine(item.item.Name);
             sb.AppendLine($"{item.item.Name} x{item.quantity}");
         }
-
+        
         return sb.ToString();
     }
 
