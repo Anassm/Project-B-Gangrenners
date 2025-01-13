@@ -1,3 +1,15 @@
 [
-    
+  {
+    "id": 1,
+    "reservationId": 33,
+    "pickupCode": "71dbae1d",
+    "items": [
+      {
+        "Item1": 9,
+        "Item2": "drinks",
+        "Item3": 3
+      }
+    ],
+    "totalPrice": 18.0
+  }
 ]
