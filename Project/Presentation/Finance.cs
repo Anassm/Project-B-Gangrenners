@@ -3,8 +3,8 @@ static class Finance
     public static void Start()
     {
         string StartMessage = "Financial data";
-        string[] MenuNames = { "Current movies", "Past movies", "All movies", "Go back to admin menu" };
-        Action[] Actions = { () => DisplayMoviesFinance(true, false), () => DisplayMoviesFinance(false, true), () => DisplayMoviesFinance(true, true), AdminLogin.AdminMenu };
+        string[] MenuNames = { "Current movies", "Past movies", "All movies", "Go back to accountant menu" };
+        Action[] Actions = { () => DisplayMoviesFinance(true, false), () => DisplayMoviesFinance(false, true), () => DisplayMoviesFinance(true, true), AccountantLogin.AccountantMenu };
         SelectingMenu.MenusSelect(MenuNames, Actions, StartMessage);
     }
 

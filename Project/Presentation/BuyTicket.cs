@@ -184,7 +184,7 @@ static class BuyTicket
                 }
                 catch
                 {
-                    System.Console.WriteLine("You have not added any extras to your reservation");
+                    System.Console.WriteLine("No extras added");
                 }
                 Console.WriteLine("Thank you for your purchase");
                 PresentationHelper.PrintYellow("Press any key to return to the main menu");
@@ -248,7 +248,7 @@ static class BuyTicket
         }
         catch
         {
-            System.Console.WriteLine("You have not added any extras to your reservation");
+            System.Console.WriteLine("No extras added");
         }
         System.Console.WriteLine("");
         Console.WriteLine("Thank you for your purchase");

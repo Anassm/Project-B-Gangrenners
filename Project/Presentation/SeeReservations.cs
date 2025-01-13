@@ -71,14 +71,14 @@ public static class SeeReservations
     {
         List<ReservationModel> _reservations = ReservationsLogic.SeeFutureReservations(AccountsLogic.CurrentAccount.Id);
         System.Console.WriteLine("All future reservations:");
-        System.Console.WriteLine("-----------------------------------");
+        PresentationHelper.PrintYellow("-----------------------------------");
         if (_reservations.Count > 0)
         {
 
             foreach (ReservationModel reservation in _reservations)
             {
                 System.Console.WriteLine(reservation.ToStringWithSeatsAndOrder());
-                System.Console.WriteLine("-----------------------------------");
+                PresentationHelper.PrintYellow("-----------------------------------");
             }
             return;
         }
@@ -89,13 +89,13 @@ public static class SeeReservations
     {
         List<ReservationModel> _reservations = ReservationsLogic.SeePastReservations(AccountsLogic.CurrentAccount.Id);
         System.Console.WriteLine("All past reservations:");
-        System.Console.WriteLine("-----------------------------------");
+        PresentationHelper.PrintYellow("-----------------------------------");
         if (_reservations.Count > 0)
         {
             foreach (ReservationModel reservation in _reservations)
             {
                 System.Console.WriteLine(reservation.ToStringWithSeatsAndOrder());
-                System.Console.WriteLine("-----------------------------------");
+                PresentationHelper.PrintYellow("-----------------------------------");
             }
             return;
         }

@@ -65,7 +65,7 @@ public class ReservationModel
         }
         catch
         {
-            complete += "\nYou have not added any extras to your reservation";
+            complete += "\nNo extras";
         }
         return complete;
 
