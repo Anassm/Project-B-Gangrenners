@@ -99,13 +99,11 @@ public static class MovieSearch
             bool YesNo = SelectingMenu.YesNoSelect(StartMessage);
             if (YesNo)
             {
-                Menu.MainMenu();
+                SearchByDate();
             }
             else
             {
-                
-                DateTime newDate = SelectDate();
-                SelectMovie(newDate);
+                Menu.MainMenu();
             }
         }
         else
