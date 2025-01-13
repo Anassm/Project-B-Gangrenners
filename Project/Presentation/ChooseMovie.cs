@@ -416,7 +416,7 @@ public static class ChooseMovie
                 {
                     1 => ConsoleColor.White,
                     2 => ConsoleColor.Yellow,
-                    3 => ConsoleColor.DarkYellow,
+                    3 => ConsoleColor.Blue,
                     _ => ConsoleColor.White
                 };
                 if (layout[i, j] == 1)
@@ -447,7 +447,7 @@ public static class ChooseMovie
                 ConsoleColor.Red,
                 ConsoleColor.White,
                 ConsoleColor.Yellow,
-                ConsoleColor.DarkYellow,
+                ConsoleColor.Blue,
                 ConsoleColor.Green
             };
 

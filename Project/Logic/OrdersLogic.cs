@@ -201,7 +201,6 @@ public class OrdersLogic
 
         foreach (var item in order.Items)
         {
-            System.Console.WriteLine(item.item.Name);
             sb.AppendLine($"{item.item.Name} x{item.quantity}");
         }
         
