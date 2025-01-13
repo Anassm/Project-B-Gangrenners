@@ -11,5 +11,31 @@
       }
     ],
     "totalPrice": 18.0
+  },
+  {
+    "id": 2,
+    "reservationId": 34,
+    "pickupCode": "0c476309",
+    "items": [
+      {
+        "Item1": 2,
+        "Item2": "products",
+        "Item3": 1
+      }
+    ],
+    "totalPrice": 10.0
+  },
+  {
+    "id": 3,
+    "reservationId": 35,
+    "pickupCode": "09461924",
+    "items": [
+      {
+        "Item1": 4,
+        "Item2": "deals",
+        "Item3": 1
+      }
+    ],
+    "totalPrice": 5.0
   }
 ]
