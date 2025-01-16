@@ -107,7 +107,7 @@ public class TestMoviesLogic
     {
         MoviesLogic ml = new MoviesLogic();
         
-        DateTime date = new DateTime(2024, 12, 11);
+        DateTime date = new DateTime(2025, 01, 14);
 
         List<MovieModel> movies = MoviesLogic.GetMovies(date);
 

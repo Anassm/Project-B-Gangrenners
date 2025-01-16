@@ -8,5 +8,15 @@
     "StartDate": "2025-01-08T11:29:39.9215571+01:00",
     "RenewalDate": "2026-01-08T11:29:39.9215571+01:00",
     "ExpirationDate": null
+  },
+  {
+    "Id": 999,
+    "UserId": 6,
+    "Name": "TESTING",
+    "MembershipNumber": 9999,
+    "Views": 0,
+    "StartDate": "2025-01-08T11:29:39.9215571+01:00",
+    "RenewalDate": null,
+    "ExpirationDate": null
   }
 ]
